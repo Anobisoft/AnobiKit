@@ -24,10 +24,10 @@
 }
 
 + (instancetype)colorWithHexRGB:(unsigned)rgbColor alfa:(CGFloat)alfa {
-    [self colorWithRed:(CGFloat)((rgbColor & 0xFF0000) >> 0x10) / 255.0
-                 green:(CGFloat)((rgbColor & 0x00FF00) >> 0x08) / 255.0
-                  blue:(CGFloat)((rgbColor & 0x0000FF) >> 0x00) / 255.0
-                 alpha:alfa];
+    return [self colorWithRed:(CGFloat)((rgbColor & 0xFF0000) >> 0x10) / 255.0
+                        green:(CGFloat)((rgbColor & 0x00FF00) >> 0x08) / 255.0
+                         blue:(CGFloat)((rgbColor & 0x0000FF) >> 0x00) / 255.0
+                        alpha:alfa];
 }
 
 @end
