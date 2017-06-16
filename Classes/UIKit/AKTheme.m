@@ -7,6 +7,7 @@
 //
 
 #import "AKTheme.h"
+#import "UIColor+AnobiKit"
 
 #define AKThemeConfigName @"AKThemes"
 #define AKThemeConfigKey_Themes @"Themes"
@@ -25,15 +26,6 @@ static NSMutableDictionary <NSString *, AKTheme *> *instances;
 static NSDictionary <NSString *, id> *themes;
 static NSString *currentThemeName;
 
-+ (UIColor *)colorWithRGBString:(NSString *)string {
-    NSString *trim = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    NSString *hex = [trim stringByReplacingOccurrencesOfString:@"#" withString:@"0x"];
-    NSScanner *scanner = [NSScanner scannerWithString:hex];
-    unsigned int icolor = 0;
-    [scanner scanHexInt:&icolor];
-    return UIColorWith(icolor, 1);
-}
-
 + (void)initialize {
     [super initialize];
     NSDictionary *configThemes = [AKConfigs shared][AKThemeConfigName][AKThemeConfigKey_Themes];
@@ -49,7 +41,7 @@ static NSString *currentThemeName;
                 NSDictionary <NSString *, NSString *> *configThemeColors = configTheme[key];
                 for (NSString *colorKey in configThemeColors.allKeys) {
                     NSString *colorString = configThemeColors[colorKey];
-                    UIColor *color = [self colorWithRGBString:colorString];
+                    UIColor *color = [UIColor colorWithHexString:colorString];
                     colorsMutable[colorKey] = color;
                 }
                 themeMutable[key] = colorsMutable.copy;
@@ -57,7 +49,7 @@ static NSString *currentThemeName;
             } else if ([key isEqualToString:AKThemeConfigKey_IndexedColors]) {
                 NSArray <NSString *> *configThemeIconColors = configTheme[key];
                 for (NSString *colorString in configThemeIconColors) {
-                    UIColor *color = [self colorWithRGBString:colorString];
+                    UIColor *color = [UIColor colorWithHexStringF:colorString];
                     [iconColorsMutable addObject:color];
                 }
                 themeMutable[key] = iconColorsMutable.copy;
