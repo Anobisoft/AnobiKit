@@ -14,6 +14,8 @@
 
 @implementation AKViewController
 
+@synthesize delegate = _delegate;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 

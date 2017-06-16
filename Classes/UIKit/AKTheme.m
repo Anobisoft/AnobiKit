@@ -49,7 +49,7 @@ static NSString *currentThemeName;
             } else if ([key isEqualToString:AKThemeConfigKey_IndexedColors]) {
                 NSArray <NSString *> *configThemeIconColors = configTheme[key];
                 for (NSString *colorString in configThemeIconColors) {
-                    UIColor *color = [UIColor colorWithHexStringF:colorString];
+                    UIColor *color = [UIColor colorWithHexString:colorString];
                     [iconColorsMutable addObject:color];
                 }
                 themeMutable[key] = iconColorsMutable.copy;
