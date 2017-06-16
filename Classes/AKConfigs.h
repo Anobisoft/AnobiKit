@@ -12,7 +12,6 @@
 
 + (NSDictionary *)mainConfig;
 + (NSDictionary *)entitlements;
-+ (NSString *)appName;
 + (NSString *)appGroupIdentifier;
 + (NSURL *)dataContainerURL;
 + (NSURL *)dataArchiveMain;

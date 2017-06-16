@@ -6,6 +6,7 @@
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 
+#import "AKConfigs.h"
 #import "NSBundle+AnobiKit.h"
 
 @implementation AKConfigs
