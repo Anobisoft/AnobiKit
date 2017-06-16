@@ -105,11 +105,11 @@
 
 
 + (NSURL *)APIBaseURL {
-    return [NSURL URLWithString:[self mainConfig][kAKMainConfigAPIBaseURL]];
+    return [NSURL URLWithString:[self mainConfig][AKConfigKeyAPIBaseURL]];
 }
 
 + (NSURL *)APIBaseURLTest {
-    return [NSURL URLWithString:[self mainConfig][kAKMainConfigAPIBaseURLTest]];
+    return [NSURL URLWithString:[self mainConfig][AKConfigKeyAPIBaseURLTest]];
 }
 
 
