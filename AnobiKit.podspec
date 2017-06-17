@@ -91,7 +91,7 @@ OMG! ATATAT!
   #
 
   s.source_files  = "Classes/*.{h,m}", "Classes/**/*.{h,m}"
-  s.public_header_files = "Classes/*.h", "Classes/**/*.{h,m}"
+  # s.public_header_files = "Classes/*.h", "Classes/**/*.{h,m}"
   # s.exclude_files = "Classes/Exclude"
 
 

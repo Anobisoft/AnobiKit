@@ -10,7 +10,7 @@
 
 IB_DESIGNABLE
 
-@interface SPGradientView : UIView
+@interface AKGradientView : UIView
 
 @property (nonatomic) IBInspectable CGPoint startPoint;
 @property (nonatomic) IBInspectable CGPoint endPoint;
