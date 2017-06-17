@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "AnobiKit"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "AnobiKit - various classes Kit useful for iOS Developer."
 
   # This description is used to generate tags and improve search results.
