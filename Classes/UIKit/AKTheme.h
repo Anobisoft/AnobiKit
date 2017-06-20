@@ -30,10 +30,13 @@
 #define AKThemeColorKey_navibarBackground @"navibarBackground"
 
 
-
 #define AKThemeColorKey_toolbar @"toolbar"
 #define AKThemeColorKey_toolbarTint @"toolbarTint"
 #define AKThemeColorKey_toolbarBackground @"toolbarBackground"
+#define AKThemeColorKey_toolbarPositive @"toolbarPositive"
+#define AKThemeColorKey_toolbarNegative @"toolbarNegative"
+#define AKThemeColorKey_toolbarPositiveTint @"toolbarPositiveTint"
+#define AKThemeColorKey_toolbarNegativeTint @"toolbarNegativeTint"
 
 
 #define AKThemeColorKey_searchbar @"searchbar"
