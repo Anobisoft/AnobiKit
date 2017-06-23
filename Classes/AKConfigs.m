@@ -37,19 +37,22 @@
     return [self shared][AKMainConfigName];
 }
 
-- (NSDictionary *)objectForKeyedSubscript:(NSString *)key {
+- (id)objectForKeyedSubscript:(NSString *)key {
     static NSMutableDictionary *configs = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         configs = [NSMutableDictionary new];
     });
     
-    NSDictionary *config = configs[key];
+    id config = configs[key];
     
     if (!config) {
         NSString *path = [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:key] stringByAppendingPathExtension:@"plist"];
         if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
             config = [NSDictionary dictionaryWithContentsOfFile:path];
+            if (!config) {
+                config = [NSArray arrayWithContentsOfFile:path];
+            }
             configs[key] = config;
         } else {
             @throw [NSException exceptionWithName:[NSString stringWithFormat:@"File '%@' not found.", path] reason:nil userInfo:nil];

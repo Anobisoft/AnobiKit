@@ -23,7 +23,7 @@
 + (instancetype)shared;
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)init NS_UNAVAILABLE;
-- (NSDictionary *)objectForKeyedSubscript:(NSString *)key;
+- (id)objectForKeyedSubscript:(NSString *)key;
 
 
 @end
