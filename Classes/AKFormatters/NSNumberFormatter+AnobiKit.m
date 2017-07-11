@@ -26,6 +26,11 @@
     return [self stringFromNumber:num];
 }
 
+- (NSString *)currencyStyleStringFromNumber:(NSNumber *)num currencyCode:(NSString *)cc precision:(NSUInteger)p {
+    self.maximumFractionDigits = p;
+    return [self currencyStyleStringFromNumber:num currencyCode:cc];
+}
+
 - (NSString *)stringFromNumber:(NSNumber *)num numberStyle:(NSNumberFormatterStyle)nstyle precision:(NSUInteger)p {
     self.maximumFractionDigits = p;
     return [self stringFromNumber:num numberStyle:nstyle];
