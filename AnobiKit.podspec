@@ -82,7 +82,7 @@ s.platform     = :ios, "9.3"
 #  Supports git, hg, bzr, svn and HTTP.
 #
 
-s.source       = { :git => "https://github.com/Anobisoft/AnobiKit.git", :tag => "#{s.version}" }
+s.source       = { :git => "https://github.com/Anobisoft/AnobiKit.git", :tag => "v#{s.version}" }
 
 
 # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
