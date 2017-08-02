@@ -2,7 +2,6 @@
 
 [![CI Status](http://img.shields.io/travis/anobisoft/AnobiKit.svg?style=flat)](https://travis-ci.org/anobisoft/AnobiKit)
 [![Version](https://img.shields.io/cocoapods/v/AnobiKit.svg?style=flat)](http://cocoapods.org/pods/AnobiKit)
-[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/AFNetworking.svg)](https://img.shields.io/cocoapods/v/AFNetworking.svg)
 [![License](https://img.shields.io/cocoapods/l/AnobiKit.svg?style=flat)](http://cocoapods.org/pods/AnobiKit)
 [![Platform](https://img.shields.io/cocoapods/p/AnobiKit.svg?style=flat)](http://cocoapods.org/pods/AnobiKit)
 [![Twitter](https://img.shields.io/badge/twitter-@Anobisoft-blue.svg?style=flat)](http://twitter.com/Anobisoft)
