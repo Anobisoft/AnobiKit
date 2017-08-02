@@ -1,135 +1,139 @@
 #
-#  Be sure to run `pod spec lint AnobiKit.podspec' to ensure this is a
-#  valid spec and to remove all comments including this before submitting the spec.
+# Be sure to run `pod lib lint AnobiKit.podspec' to ensure this is a
+# valid spec before submitting.
 #
-#  To learn more about Podspec attributes see http://docs.cocoapods.org/specification.html
-#  To see working Podspecs in the CocoaPods repo see https://github.com/CocoaPods/Specs/
+# Any lines starting with a # are optional, but their use is encouraged
+# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
 #
 
 Pod::Spec.new do |s|
 
-  # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  These will help people to find your library, and whilst it
-  #  can feel like a chore to fill in it's definitely to your advantage. The
-  #  summary should be tweet-length, and the description more in depth.
-  #
+# ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+#
+#  These will help people to find your library, and whilst it
+#  can feel like a chore to fill in it's definitely to your advantage. The
+#  summary should be tweet-length, and the description more in depth.
+#
 
-  s.name         = "AnobiKit"
-  s.version      = "0.0.7"
-  s.summary      = "AnobiKit - various classes Kit useful to Objective-C iOS Developer."
+  s.name             = 'AnobiKit'
+  s.version          = '0.0.8'
+  s.summary          = 'AnobiKit - set of various independent classes and categories useful to Objective-C iOS Developer.'
 
-  # This description is used to generate tags and improve search results.
-  #   * Think: What does it do? Why did you write it? What is the focus?
-  #   * Try to keep it short, snappy and to the point.
-  #   * Write the description between the DESC delimiters below.
-  #   * Finally, don't worry about the indent, CocoaPods strips it!
-  s.description  = <<-DESC
-AnobiKit - various classes Kit useful to Objective-C iOS Developer.
+# This description is used to generate tags and improve search results.
+#   * Think: What does it do? Why did you write it? What is the focus?
+#   * Try to keep it short, snappy and to the point.
+#   * Write the description between the DESC delimiters below.
+#   * Finally, don't worry about the indent, CocoaPods strips it!
+
+  s.description      = <<-DESC
+TODO: Add long description of the pod here.
 Description should be longer than summary.
-                   DESC
+more longer
+much more longer
+longer...
+                       DESC
 
-  s.homepage     = "https://github.com/Anobisoft/AnobiKit"
-  # s.screenshots  = "www.example.com/screenshots_1.gif"
-
-
-  # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Licensing your code is important. See http://choosealicense.com for more info.
-  #  CocoaPods will detect a license file if there is a named LICENSE*
-  #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
-  #
-
-  s.license      = { :type => "MIT", :file => "LICENSE" }
+s.homepage     = "https://github.com/Anobisoft/AnobiKit"
+# s.screenshots  = "www.example.com/screenshots_1.gif"
 
 
-  # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Specify the authors of the library, with email addresses. Email addresses
-  #  of the authors are extracted from the SCM log. E.g. $ git log. CocoaPods also
-  #  accepts just a name if you'd rather not provide an email address.
-  #
-  #  Specify a social_media_url where others can refer to, for example a twitter
-  #  profile URL.
-  #
+# ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+#
+#  Licensing your code is important. See http://choosealicense.com for more info.
+#  CocoaPods will detect a license file if there is a named LICENSE*
+#  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
+#
 
-  s.author             = { "Stanislav Pletnev" => "anobisoft@gmail.com" }
-  s.social_media_url   = "https://twitter.com/Anobisoft"
-
-  # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  If this Pod runs only on iOS or OS X, then specify the platform and
-  #  the deployment target. You can optionally include the target after the platform.
-  #
-
-  # s.platform     = :ios
-  s.platform     = :ios, "9.3"
-
-  #  When using multiple platforms
-  # s.ios.deployment_target = "9.3"
-  # s.osx.deployment_target = "10.7"
-  # s.watchos.deployment_target = "2.0"
-  # s.tvos.deployment_target = "9.0"
+s.license      = { :type => "MIT", :file => "LICENSE" }
 
 
-  # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Specify the location from where the source should be retrieved.
-  #  Supports git, hg, bzr, svn and HTTP.
-  #
+# ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+#
+#  Specify the authors of the library, with email addresses. Email addresses
+#  of the authors are extracted from the SCM log. E.g. $ git log. CocoaPods also
+#  accepts just a name if you'd rather not provide an email address.
+#
+#  Specify a social_media_url where others can refer to, for example a twitter
+#  profile URL.
+#
 
-  s.source       = { :git => "https://github.com/Anobisoft/AnobiKit.git", :tag => "#{s.version}" }
+s.author             = { "Stanislav Pletnev" => "anobisoft@gmail.com" }
+s.social_media_url   = "https://twitter.com/Anobisoft"
 
+# ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+#
+#  If this Pod runs only on iOS or OS X, then specify the platform and
+#  the deployment target. You can optionally include the target after the platform.
+#
 
-  # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  CocoaPods is smart about how it includes source code. For source files
-  #  giving a folder will include any swift, h, m, mm, c & cpp files.
-  #  For header files it will include any header in the folder.
-  #  Not including the public_header_files will make all headers public.
-  #
+# s.platform     = :ios
+s.platform     = :ios, "9.3"
 
-  s.source_files  = "Classes/*.{h,m}", "Classes/**/*.{h,m}"
-  # s.public_header_files = "Classes/*.h", "Classes/**/*.{h,m}"
-  # s.exclude_files = "Classes/Exclude"
-
-
-  # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  A list of resources included with the Pod. These are copied into the
-  #  target bundle with a build phase script. Anything else will be cleaned.
-  #  You can preserve files from being cleaned, please don't preserve
-  #  non-essential files like tests, examples and documentation.
-  #
-
-  # s.resource  = "icon.png"
-  s.resources = "Resources/*.plist"
-
-  # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
+#  When using multiple platforms
+# s.ios.deployment_target = "9.3"
+# s.osx.deployment_target = "10.7"
+# s.watchos.deployment_target = "2.0"
+# s.tvos.deployment_target = "9.0"
 
 
-  # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Link your library with frameworks, or libraries. Libraries do not include
-  #  the lib prefix of their name.
-  #
+# ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+#
+#  Specify the location from where the source should be retrieved.
+#  Supports git, hg, bzr, svn and HTTP.
+#
 
-  s.framework  = "Foundation"
-  # s.frameworks = "SomeFramework", "AnotherFramework"
-
-  # s.library   = "iconv"
-  # s.libraries = "iconv", "xml2"
+s.source       = { :git => "https://github.com/Anobisoft/AnobiKit.git", :tag => "#{s.version}" }
 
 
-  # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  If your library depends on compiler flags you can set them in the xcconfig hash
-  #  where they will only apply to your library. If you depend on other Podspecs
-  #  you can include multiple dependencies to ensure it works.
+# ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+#
+#  CocoaPods is smart about how it includes source code. For source files
+#  giving a folder will include any swift, h, m, mm, c & cpp files.
+#  For header files it will include any header in the folder.
+#  Not including the public_header_files will make all headers public.
+#
 
-  s.requires_arc = true
+s.source_files  = "AnobiKit/Classes/*.{h,m}", "AnobiKit/Classes/**/*.{h,m}"
+# s.public_header_files = "Classes/*.h", "Classes/**/*.{h,m}"
+# s.exclude_files = "Classes/Exclude"
 
-  # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # s.dependency "JSONKit", "~> 1.4"
+
+# ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+#
+#  A list of resources included with the Pod. These are copied into the
+#  target bundle with a build phase script. Anything else will be cleaned.
+#  You can preserve files from being cleaned, please don't preserve
+#  non-essential files like tests, examples and documentation.
+#
+
+# s.resource  = "icon.png"
+s.resources = "AnobiKit/Resources/*.plist"
+
+# s.preserve_paths = "FilesToSave", "MoreFilesToSave"
+
+
+# ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+#
+#  Link your library with frameworks, or libraries. Libraries do not include
+#  the lib prefix of their name.
+#
+
+s.framework  = "Foundation"
+# s.frameworks = "SomeFramework", "AnotherFramework"
+
+# s.library   = "iconv"
+# s.libraries = "iconv", "xml2"
+
+
+# ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+#
+#  If your library depends on compiler flags you can set them in the xcconfig hash
+#  where they will only apply to your library. If you depend on other Podspecs
+#  you can include multiple dependencies to ensure it works.
+
+s.requires_arc = true
+
+# s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
+# s.dependency "JSONKit", "~> 1.4"
 
 end

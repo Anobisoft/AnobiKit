@@ -82,6 +82,10 @@ static NSDictionary <Class, NSArray<NSString *> *> *serializableProperties;
     return serializableProperties[self.class];
 }
 
++ (NSArray<NSString *> *)serializableProperties {
+    return serializableProperties[self];
+}
+
 - (BOOL)isEqual:(id)object {
     for (NSString *key in self.serializableProperties) {
         id svalue = [self valueForKey:key];
