@@ -99,7 +99,7 @@
 }
 
 + (NSURL *)dataFileURLWithName:(NSString *)fn version:(NSUInteger)version {
-    return [self dataFileURLWithName:[NSString stringWithFormat:@"%@_v%ld", fn, (unsigned long)version]];
+    return [self dataFileURLWithName:[NSString stringWithFormat:@"%@_v%lu", fn, (unsigned long)version]];
 }
 
 @end
