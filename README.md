@@ -22,7 +22,7 @@ To integrate **AnobiKit** into your Xcode project using CocoaPods, specify it in
 
 ```
 platform :ios, '9.3'
-
+use_frameworks!
 target 'TargetName' do
 pod 'AnobiKit'
 end
