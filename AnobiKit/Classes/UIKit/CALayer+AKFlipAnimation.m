@@ -1,24 +1,24 @@
 //
-//  CALayer+ASFlipAnimation.m
+//  CALayer+AKFlipAnimation.m
 //  AnobiKit
 //
 //  Created by Stanislav Pletnev on 2017-01-13
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 
-#import "CALayer+ASFlipAnimation.h"
+#import "CALayer+AKFlipAnimation.h"
 
 #define ASAnimationDefaultDuration 0.6f
 
-AS3DVector AS3DVectorMake(float x, float y, float z) {
-    AS3DVector v;
+AK3DVector AK3DVectorMake(float x, float y, float z) {
+    AK3DVector v;
     v.x = x;
     v.y = y;
     v.z = z;
     return v;
 }
 
-@implementation CALayer(ASFlipAnimation)
+@implementation CALayer(AKFlipAnimation)
 
 - (void)addFlipAnimation:(CAAnimation *)anim {
     self.zPosition = MAX(self.bounds.size.width, self.bounds.size.height) / 2 + 1;
@@ -30,7 +30,7 @@ AS3DVector AS3DVectorMake(float x, float y, float z) {
     [self addFlipAnimation:anim];
 }
 
-+ (CAKeyframeAnimation *)flipAnimationWithPiСoef:(float)piCoef rotationVector:(AS3DVector)vector {
++ (CAKeyframeAnimation *)flipAnimationWithPiСoef:(float)piCoef rotationVector:(AK3DVector)vector {
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
     NSMutableArray *mutableArray = [NSMutableArray new];
     for (int i = 0; i <= 20; i++) {

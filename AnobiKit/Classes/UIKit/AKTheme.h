@@ -22,7 +22,7 @@
 #define AKThemeColorKey_tableInactiveCellTint @"tableInactiveCellTint"
 #define AKThemeColorKey_tableText @"tableText"
 
-#define AKThemeColorKey_ @""
+//#define AKThemeColorKey_ @""
 
 #define AKThemeColorKey_navibar @"navibar"
 #define AKThemeColorKey_navibarTint @"navibarTint"

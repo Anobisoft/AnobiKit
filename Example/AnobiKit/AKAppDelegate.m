@@ -7,12 +7,12 @@
 //
 
 #import "AKAppDelegate.h"
+#import "AKTheme.h"
 
 @implementation AKAppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Override point for customization after application launch.
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [AKTheme setCurrentThemeNamed:@"Example"];
     return YES;
 }
 
