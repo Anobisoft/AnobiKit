@@ -15,7 +15,7 @@
 + (NSString *)appGroupIdentifier;
 + (NSURL *)dataContainerURL;
 + (NSURL *)dataFileURLWithName:(NSString *)fn;
-+ (NSURL *)dataFileURLWithName:(NSString *)fn version:(unsigned long)version;
++ (NSURL *)dataFileURLWithName:(NSString *)fn version:(NSUInteger)version;
 
 + (instancetype)shared;
 + (instancetype)new NS_UNAVAILABLE;
