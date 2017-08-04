@@ -70,6 +70,10 @@
     return entitlements;
 }
 
++ (NSArray<NSString *> *)iCloudContainerIdentifiers {
+    return [self entitlements][@"com.apple.developer.icloud-container-identifiers"];
+}
+
 + (NSString *)appGroupIdentifier {
     NSArray<NSString *> *array = [self entitlements][@"com.apple.security.application-groups"];
     if (array.count) {

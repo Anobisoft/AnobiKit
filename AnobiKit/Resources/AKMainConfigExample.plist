@@ -4,7 +4,5 @@
 <dict>
 	<key>APIBaseURL</key>
 	<string>https://api.anobisoft.ru</string>
-	<key>APIBaseURLTest</key>
-	<string>https://test-api.anobisoft.ru</string>
 </dict>
 </plist>

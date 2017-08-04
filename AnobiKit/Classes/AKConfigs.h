@@ -11,11 +11,14 @@
 @interface AKConfigs : NSObject
 
 + (NSDictionary *)mainConfig;
+
 + (NSDictionary *)entitlements;
++ (NSArray<NSString *> *)iCloudContainerIdentifiers;
 + (NSString *)appGroupIdentifier;
 + (NSURL *)dataContainerURL;
 + (NSURL *)dataFileURLWithName:(NSString *)fn;
 + (NSURL *)dataFileURLWithName:(NSString *)fn version:(NSUInteger)version;
+
 
 + (instancetype)shared;
 + (instancetype)new NS_UNAVAILABLE;
