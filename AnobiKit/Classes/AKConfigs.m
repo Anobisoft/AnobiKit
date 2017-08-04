@@ -98,8 +98,8 @@
     return [[[self dataContainerURL] URLByAppendingPathComponent:fn] URLByAppendingPathExtension:@"dat"];
 }
 
-+ (NSURL *)dataFileURLWithName:(NSString *)fn version:(NSUInteger)version {
-    return [self dataFileURLWithName:[NSString stringWithFormat:@"%@_v%lu", fn, (unsigned long)version]];
++ (NSURL *)dataFileURLWithName:(NSString *)fn version:(NSInteger)version {
+    return [self dataFileURLWithName:[NSString stringWithFormat:@"%@_v%ld", fn, (long)version]];
 }
 
 @end
