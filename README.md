@@ -1,6 +1,6 @@
 # AnobiKit
 
-[![CI Status](http://img.shields.io/travis/anobisoft/AnobiKit.svg?style=flat)](https://travis-ci.org/anobisoft/AnobiKit)
+[![CI Status](http://img.shields.io/travis/Anobisoft/AnobiKit.svg?style=flat)](https://travis-ci.org/Anobisoft/AnobiKit)
 [![Version](https://img.shields.io/cocoapods/v/AnobiKit.svg?style=flat)](http://cocoapods.org/pods/AnobiKit)
 [![License](https://img.shields.io/cocoapods/l/AnobiKit.svg?style=flat)](http://cocoapods.org/pods/AnobiKit)
 [![Platform](https://img.shields.io/cocoapods/p/AnobiKit.svg?style=flat)](http://cocoapods.org/pods/AnobiKit)
