@@ -11,11 +11,7 @@
 
 @implementation AKConfigs
 
-#define AKMainConfigName @"AKMainConfig"
-
-#define AKDataMainArchiveFilename @"AKDataMain.dat"
-#define AKConfigKeyAPIBaseURL  @"APIBaseURL"
-#define AKConfigKeyAPIBaseURLTest  @"APIBaseURLTest"
+#define AKConfigsDefaultName @"AKMainConfig"
 
 + (instancetype)shared {
     static id instance = nil;
@@ -34,7 +30,7 @@
 }
 
 + (NSDictionary *)mainConfig {
-    return [self shared][AKMainConfigName];
+    return [self shared][AKConfigsDefaultName];
 }
 
 - (id)objectForKeyedSubscript:(NSString *)key {
@@ -98,22 +94,12 @@
     return containerURL;
 }
 
-+ (NSURL *)dataArchiveMain {
-    return [[self dataContainerURL] URLByAppendingPathComponent:AKDataMainArchiveFilename];
-}
-
 + (NSURL *)dataFileURLWithName:(NSString *)fn {
-    return [[self dataContainerURL] URLByAppendingPathComponent:fn];
+    return [[[self dataContainerURL] URLByAppendingPathComponent:fn] URLByAppendingPathExtension:@"dat"];
 }
 
-
-+ (NSURL *)APIBaseURL {
-    return [NSURL URLWithString:[self mainConfig][AKConfigKeyAPIBaseURL]];
++ (NSURL *)dataFileURLWithName:(NSString *)fn version:(NSUInteger)version {
+    return [self dataFileURLWithName:[NSString stringWithFormat:@"%@_v%ld", fn, version]];
 }
-
-+ (NSURL *)APIBaseURLTest {
-    return [NSURL URLWithString:[self mainConfig][AKConfigKeyAPIBaseURLTest]];
-}
-
 
 @end

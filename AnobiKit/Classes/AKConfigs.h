@@ -14,11 +14,8 @@
 + (NSDictionary *)entitlements;
 + (NSString *)appGroupIdentifier;
 + (NSURL *)dataContainerURL;
-+ (NSURL *)dataArchiveMain;
 + (NSURL *)dataFileURLWithName:(NSString *)fn;
-
-+ (NSURL *)APIBaseURL;
-+ (NSURL *)APIBaseURLTest;
++ (NSURL *)dataFileURLWithName:(NSString *)fn version:(NSUInteger)version;
 
 + (instancetype)shared;
 + (instancetype)new NS_UNAVAILABLE;
