@@ -28,8 +28,6 @@
     NSUInteger count = [AKTheme allNames].count;
     XCTAssertEqual(count, 3, @"count (%d) equal to 3", count, primitive2);
 }
-    
-}
 
 @end
 
