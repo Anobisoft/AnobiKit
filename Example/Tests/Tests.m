@@ -2,11 +2,12 @@
 //  AnobiKitTests.m
 //  AnobiKitTests
 //
-//  Created by anobisoft on 08/02/2017.
-//  Copyright (c) 2017 anobisoft. All rights reserved.
+//  Created by Anobisoft on 08/02/2017.
+//  Copyright (c) 2017 Anobisoft. All rights reserved.
 //
 
 @import XCTest;
+#import "AKTheme.h"
 
 @interface Tests : XCTestCase
 
@@ -14,21 +15,20 @@
 
 @implementation Tests
 
-- (void)setUp
-{
+- (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+
 }
 
-- (void)tearDown
-{
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
+- (void)tearDown {
     [super tearDown];
 }
 
-- (void)testExample
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+- (void)testExample {
+    NSUInteger count = [AKTheme allNames].count;
+    XCTAssertEqual(count, 3, @"count (%d) equal to 3", count, primitive2);
+}
+    
 }
 
 @end
