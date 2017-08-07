@@ -26,7 +26,7 @@
 
 - (void)testExample {
     NSUInteger count = [AKTheme allNames].count;
-    XCTAssertEqual(count, 3, @"count (%d) equal to 3", count, 3);
+    XCTAssertEqual(count, 3, @"count (%ul) equal to 3", (unsigned long)count);
 }
 
 @end
