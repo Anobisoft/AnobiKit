@@ -1,5 +1,5 @@
 //
-//  NSUUID+NSData.h
+//  NSUUID+AnobiKit.h
 //  AnobiKit
 //
 //  Created by Stanislav Pletnev on 20.01.17.
