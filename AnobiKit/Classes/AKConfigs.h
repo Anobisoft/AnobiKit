@@ -10,12 +10,11 @@
 
 @interface AKConfigs : NSObject
 
-+ (NSDictionary *)mainConfig;
++ (NSDictionary *)defaultConfig;
++ (NSURL *)documentsURL;
++ (NSURL *)initDataFileContainerWithAppGroupIdentifier:appGroupIdentifier;
++ (NSURL *)dataFileContainer;
 
-+ (NSDictionary *)entitlements;
-+ (NSArray<NSString *> *)iCloudContainerIdentifiers;
-+ (NSString *)appGroupIdentifier;
-+ (NSURL *)dataContainerURL;
 + (NSURL *)dataFileURLWithName:(NSString *)fn;
 + (NSURL *)dataFileURLWithName:(NSString *)fn version:(NSUInteger)version;
 

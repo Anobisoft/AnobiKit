@@ -22,14 +22,15 @@
     return instance;
 }
 
+static NSMutableDictionary<NSString *, NSURL *> *URLByAppGroupIdentifiers;
 - (instancetype)initInstance {
     if (self = [super init]) {
-        
+        URLByAppGroupIdentifiers = [NSMutableDictionary new];
     }
     return self;
 }
 
-+ (NSDictionary *)mainConfig {
++ (NSDictionary *)defaultConfig {
     return [self shared][AKConfigsDefaultName];
 }
 
@@ -57,53 +58,46 @@
     return config;
 }
 
-+ (NSDictionary *)entitlements {
-    static NSDictionary *entitlements = nil;
-    if (!entitlements) {
-        NSString *path = [[NSBundle mainBundle] pathForResource:[NSBundle appName] ofType:@"entitlements"];
-        if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-            entitlements = [NSDictionary dictionaryWithContentsOfFile:path];
-        } else {
-            entitlements = @{};
-        }
-    }
-    return entitlements;
-}
-
-+ (NSArray<NSString *> *)iCloudContainerIdentifiers {
-    return [self entitlements][@"com.apple.developer.icloud-container-identifiers"];
-}
-
-+ (NSString *)appGroupIdentifier {
-    NSArray<NSString *> *array = [self entitlements][@"com.apple.security.application-groups"];
-    if (array.count) {
-        return array.firstObject;
-    } else {
-        return nil;
-    }
-}
-
-+ (NSURL *)dataContainerURL {
++ (NSURL *)documentsURL {
     static dispatch_once_t onceToken;
     static NSURL *containerURL = nil;
     dispatch_once(&onceToken, ^{
-        NSString *appGroupIdentifier = [self appGroupIdentifier];        
-        if (appGroupIdentifier) {
-            containerURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:appGroupIdentifier];
-        } else {
-            containerURL = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask].firstObject;
-        }
+        containerURL = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask].firstObject;
     });
-
     return containerURL;
 }
 
+
++ (NSURL *)initDataFileContainerWithAppGroupIdentifier:appGroupIdentifier {
+    NSURL *tryURL = URLByAppGroupIdentifiers[appGroupIdentifier];
+    if (!tryURL) {
+        tryURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:appGroupIdentifier];
+    }
+    BOOL isDirectory = NO;
+    if (tryURL && [[NSFileManager defaultManager] fileExistsAtPath:tryURL.path isDirectory:&isDirectory] && isDirectory) {
+        URLByAppGroupIdentifiers[appGroupIdentifier] = tryURL;
+        return tryURL;
+    } else {
+        return [self documentsURL];
+    }
+}
+
++ (NSURL *)dataFileContainer {
+    if (URLByAppGroupIdentifiers.count) {
+        return URLByAppGroupIdentifiers.allValues.firstObject;
+    } else {
+        return [self documentsURL];
+    }
+}
+
 + (NSURL *)dataFileURLWithName:(NSString *)fn {
-    return [[[self dataContainerURL] URLByAppendingPathComponent:fn] URLByAppendingPathExtension:@"dat"];
+    return [[[self dataFileContainer] URLByAppendingPathComponent:fn] URLByAppendingPathExtension:@"dat"];
 }
 
 + (NSURL *)dataFileURLWithName:(NSString *)fn version:(NSUInteger)version {
     return [self dataFileURLWithName:[NSString stringWithFormat:@"%@_v%lu", fn, (unsigned long)version]];
 }
+
+
 
 @end
