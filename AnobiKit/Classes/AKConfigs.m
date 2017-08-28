@@ -9,48 +9,45 @@
 #import "AKConfigs.h"
 #import "NSBundle+AnobiKit.h"
 
-@implementation AKConfigs
+@implementation NSURL (AnobiKit)
 
-#define AKConfigsDefaultName @"AKMainConfig"
+- (NSURL *)fileURLWithName:(NSString *)fn {
+    return [[self URLByAppendingPathComponent:fn] URLByAppendingPathExtension:@"dat"];
+}
+- (NSURL *)fileURLWithName:(NSString *)fn version:(NSUInteger)ver {
+    return [self fileURLWithName:[NSString stringWithFormat:@"%@_v%lu", fn, (unsigned long)ver]];
+}
+
+@end
+
+@implementation AKConfigs
 
 + (instancetype)shared {
     static id instance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        instance = [[self alloc] initInstance];
+        instance = [[self alloc] init];
     });
     return instance;
 }
 
-static NSMutableDictionary<NSString *, NSURL *> *URLByAppGroupIdentifiers;
-- (instancetype)initInstance {
-    if (self = [super init]) {
-        URLByAppGroupIdentifiers = [NSMutableDictionary new];
-    }
-    return self;
-}
-
-+ (NSDictionary *)defaultConfig {
-    return [self shared][AKConfigsDefaultName];
-}
-
-- (id)objectForKeyedSubscript:(NSString *)key {
++ (id)configWithName:(NSString *)name {
     static NSMutableDictionary *configs = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         configs = [NSMutableDictionary new];
     });
     
-    id config = configs[key];
+    id config = configs[name];
     
     if (!config) {
-        NSString *path = [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:key] stringByAppendingPathExtension:@"plist"];
+        NSString *path = [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:name] stringByAppendingPathExtension:@"plist"];
         if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
             config = [NSDictionary dictionaryWithContentsOfFile:path];
             if (!config) {
                 config = [NSArray arrayWithContentsOfFile:path];
             }
-            configs[key] = config;
+            configs[name] = config;
         } else {
             @throw [NSException exceptionWithName:[NSString stringWithFormat:@"File '%@' not found.", path] reason:nil userInfo:nil];
         }
@@ -58,31 +55,64 @@ static NSMutableDictionary<NSString *, NSURL *> *URLByAppGroupIdentifiers;
     return config;
 }
 
+- (id)objectForKeyedSubscript:(NSString *)key {
+    return [[self class] configWithName:key];
+}
+
++ (NSDictionary *)defaultConfig {
+    return [self configWithName:AKConfigsDefaultName];
+}
+
+#pragma mark -
+
 + (NSURL *)documentsURL {
-    static dispatch_once_t onceToken;
     static NSURL *containerURL = nil;
+    static dispatch_once_t onceToken;    
     dispatch_once(&onceToken, ^{
         containerURL = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask].firstObject;
     });
     return containerURL;
 }
 
++ (NSURL *)documentsFileURLWithName:(NSString *)fn {
+    return [[self documentsURL] fileURLWithName:fn];
+}
 
-+ (NSURL *)initDataFileContainerWithAppGroupIdentifier:appGroupIdentifier {
-    NSURL *tryURL = URLByAppGroupIdentifiers[appGroupIdentifier];
++ (NSURL *)documentsFileURLWithName:(NSString *)fn version:(NSUInteger)ver {
+    return [[self documentsURL] fileURLWithName:fn version:ver];
+}
+
+#pragma mark -
+
+static NSMutableDictionary<NSString *, NSURL *> *URLByAppGroupIdentifiers = nil;
++ (NSURL *)containerWithAppGroupIdentifier:(NSString *)appGrId {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        URLByAppGroupIdentifiers = [NSMutableDictionary new];
+    });
+    NSURL *tryURL = URLByAppGroupIdentifiers[appGrId];
     if (!tryURL) {
-        tryURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:appGroupIdentifier];
+        tryURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:appGrId];
     }
     BOOL isDirectory = NO;
     if (tryURL && [[NSFileManager defaultManager] fileExistsAtPath:tryURL.path isDirectory:&isDirectory] && isDirectory) {
-        URLByAppGroupIdentifiers[appGroupIdentifier] = tryURL;
-        return tryURL;
-    } else {
-        return [self documentsURL];
+        URLByAppGroupIdentifiers[appGrId] = tryURL;
+        
     }
+    return tryURL ?: [self documentsURL];
 }
 
-+ (NSURL *)dataFileContainer {
++ (NSURL *)sharedAppGroupIdentifier:(NSString *)appGrId fileURLWithName:(NSString *)fn {
+    return [[self containerWithAppGroupIdentifier:appGrId] fileURLWithName:fn];
+}
+
++ (NSURL *)sharedAppGroupIdentifier:(NSString *)appGrId fileURLWithName:(NSString *)fn version:(NSUInteger)ver {
+    return [[self containerWithAppGroupIdentifier:appGrId] fileURLWithName:fn version:ver];
+}
+
+#pragma mark -
+
++ (NSURL *)defaultContainer {
     if (URLByAppGroupIdentifiers.count) {
         return URLByAppGroupIdentifiers.allValues.firstObject;
     } else {
@@ -90,12 +120,12 @@ static NSMutableDictionary<NSString *, NSURL *> *URLByAppGroupIdentifiers;
     }
 }
 
-+ (NSURL *)dataFileURLWithName:(NSString *)fn {
-    return [[[self dataFileContainer] URLByAppendingPathComponent:fn] URLByAppendingPathExtension:@"dat"];
++ (NSURL *)defaultDataFileURLWithName:(NSString *)fn {
+    return [[self defaultContainer] fileURLWithName:fn];
 }
 
-+ (NSURL *)dataFileURLWithName:(NSString *)fn version:(NSUInteger)version {
-    return [self dataFileURLWithName:[NSString stringWithFormat:@"%@_v%lu", fn, (unsigned long)version]];
++ (NSURL *)defaultDataFileURLWithName:(NSString *)fn version:(NSUInteger)ver {
+    return [[self defaultContainer] fileURLWithName:fn version:ver];
 }
 
 
