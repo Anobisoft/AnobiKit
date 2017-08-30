@@ -7,12 +7,12 @@
 //
 
 #import "AKAppDelegate.h"
-#import "AKTheme.h"
+//#import "AKTheme.h"
 
 @implementation AKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [AKTheme setCurrentThemeNamed:@"Example"];
+//    [AKTheme setCurrentThemeNamed:@"Example"];
     return YES;
 }
 

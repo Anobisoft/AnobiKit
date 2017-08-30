@@ -7,7 +7,7 @@
 //
 
 @import XCTest;
-#import "AKTheme.h"
+#import <AnobiKit/AKTheme.h>
 
 @interface Tests : XCTestCase
 
