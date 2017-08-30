@@ -1,0 +1,1 @@
+pod update --no-repo-update --project-directory=Example/

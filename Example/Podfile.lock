@@ -1,16 +1,16 @@
 PODS:
-  - AnobiKit (0.0.11)
+  - AnobiKit (0.0.16)
 
 DEPENDENCIES:
   - AnobiKit (from `../`)
 
 EXTERNAL SOURCES:
   AnobiKit:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
-  AnobiKit: f70472e856ce96f0ac466adefc76be297df1fd48
+  AnobiKit: 836bd4e51a431fe2e016a21048a5d5c732f30f92
 
 PODFILE CHECKSUM: f053daa104e66cd3ecaac49eb4ee32b7c13e1b4b
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.1

@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 #
 
   s.name             = 'AnobiKit'
-  s.version          = '0.0.15'
+  s.version          = '0.0.16'
   s.summary          = 'AnobiKit - set of various independent classes and categories useful to Objective-C iOS Developer.'
 
 # This description is used to generate tags and improve search results.
@@ -93,7 +93,7 @@ s.source       = { :git => "https://github.com/Anobisoft/AnobiKit.git", :tag => 
 #  Not including the public_header_files will make all headers public.
 #
 
-s.source_files  = "AnobiKit/Classes/*.{h,m}", "AnobiKit/Classes/**/*.{h,m}"
+s.source_files  = "AnobiKit/Categories/*.{h,m}", "AnobiKit/Classes/**/*.{h,m}"
 # s.public_header_files = "Classes/*.h", "Classes/**/*.{h,m}"
 # s.exclude_files = "Classes/Exclude"
 
