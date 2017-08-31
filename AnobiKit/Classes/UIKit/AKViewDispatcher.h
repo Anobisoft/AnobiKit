@@ -23,8 +23,8 @@
 + (UIViewController *)visibleViewController;
 + (UIViewController *)visibleViewControllerFrom:(UIViewController *)vc;
 
-+ (void)addVCObserver:(id <AKViewObserver>)vcObserver;
-+ (void)removeVCObserver:(id <AKViewObserver>)vcObserver;
++ (void)addViewObserver:(id <AKViewObserver>)viewObserver;
++ (void)removeViewObserver:(id <AKViewObserver>)viewObserver;
 
 //Abstract class
 + (instancetype)new NS_UNAVAILABLE;

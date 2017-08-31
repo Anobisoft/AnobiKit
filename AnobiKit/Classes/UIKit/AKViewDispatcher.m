@@ -52,41 +52,41 @@
 
 
 + (void)viewDidLoadViewController:(UIViewController *)viewController {
-    for (id<AKViewObserver> observer in vcObservers) {
+    for (id<AKViewObserver> observer in viewObservers) {
         if (observer && [observer respondsToSelector:@selector(viewDidLoadViewController:)])
             [observer viewDidLoadViewController:viewController];
     }
 }
 + (void)viewWillAppear:(BOOL)animated viewController:(UIViewController *)viewController {
-    for (id<AKViewObserver> observer in vcObservers) {
+    for (id<AKViewObserver> observer in viewObservers) {
         if (observer && [observer respondsToSelector:@selector(viewWillAppear:viewController:)])
             [observer viewWillAppear:animated viewController:viewController];
     }
 }
 + (void)viewDidAppear:(BOOL)animated viewController:(UIViewController *)viewController {
-    for (id<AKViewObserver> observer in vcObservers) {
+    for (id<AKViewObserver> observer in viewObservers) {
         if (observer && [observer respondsToSelector:@selector(viewDidAppear:viewController:)])
             [observer viewDidAppear:animated viewController:viewController];
     }
 }
 + (void)viewWillDisappear:(BOOL)animated viewController:(UIViewController *)viewController {
-    for (id<AKViewObserver> observer in vcObservers) {
+    for (id<AKViewObserver> observer in viewObservers) {
         if (observer && [observer respondsToSelector:@selector(viewWillDisappear:viewController:)])
             [observer viewWillDisappear:animated viewController:viewController];
     }
 }
 + (void)viewDidDisappear:(BOOL)animated viewController:(UIViewController *)viewController {
-    for (id<AKViewObserver> observer in vcObservers) {
+    for (id<AKViewObserver> observer in viewObservers) {
         if (observer && [observer respondsToSelector:@selector(viewDidDisappear:viewController:)])
             [observer viewDidDisappear:animated viewController:viewController];
     }
 }
 
-static NSPointerArray *vcObservers;
+static NSPointerArray *viewObservers;
 
 + (void)initialize {
     [super initialize];
-    vcObservers = [NSPointerArray weakObjectsPointerArray];
+    viewObservers = [NSPointerArray weakObjectsPointerArray];
 }
 
 + (void)class:(Class)c swizzleSelector:(SEL)originalSelector withSelector:(SEL)swizzledSelector {
@@ -109,7 +109,7 @@ static NSPointerArray *vcObservers;
     }
 }
 
-+ (void)addVCObserver:(id <AKViewObserver>)vcObserver {
++ (void)addViewObserver:(id <AKViewObserver>)viewObserver {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         NSArray <NSString *> *classNames = [NSDictionary dictionaryWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"AKViewDispatcherConfig.plist"]][@"DispatchedViewControllers"];
@@ -124,15 +124,15 @@ static NSPointerArray *vcObservers;
             }
         }
     });
-    [vcObservers addPointer:(__bridge void * _Nullable)(vcObserver)];
+    [viewObservers addPointer:(__bridge void * _Nullable)(viewObserver)];
 }
 
-+ (void)removeVCObserver:(id <AKViewObserver>)vcObserver {
++ (void)removeViewObserver:(id <AKViewObserver>)viewObserver {
     NSUInteger indx = 0;
-    for (; indx < vcObservers.count; indx++) {
-        if ([vcObservers pointerAtIndex:indx] == (__bridge void * _Nullable)(vcObserver)) break;
+    for (; indx < viewObservers.count; indx++) {
+        if ([viewObservers pointerAtIndex:indx] == (__bridge void * _Nullable)(viewObserver)) break;
     }
-    if (indx < vcObservers.count) [vcObservers removePointerAtIndex:indx];
+    if (indx < viewObservers.count) [viewObservers removePointerAtIndex:indx];
 }
 
 + (UIViewController *)visibleViewController {
