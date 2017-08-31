@@ -21,6 +21,7 @@
 @interface AKViewDispatcher : NSObject
 
 + (UIViewController *)visibleViewController;
++ (UIViewController *)visibleViewControllerFrom:(UIViewController *)vc;
 
 + (void)addVCObserver:(id <AKViewObserver>)vcObserver;
 + (void)removeVCObserver:(id <AKViewObserver>)vcObserver;

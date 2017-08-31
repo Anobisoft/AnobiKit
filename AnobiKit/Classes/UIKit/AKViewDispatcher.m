@@ -136,17 +136,17 @@ static NSPointerArray *vcObservers;
 }
 
 + (UIViewController *)visibleViewController {
-    return [self getVisibleViewControllerFrom:[UIApplication sharedApplication].keyWindow.rootViewController];
+    return [self visibleViewControllerFrom:[UIApplication sharedApplication].keyWindow.rootViewController];
 }
 
-+ (UIViewController *)getVisibleViewControllerFrom:(UIViewController *)vc {
++ (UIViewController *)visibleViewControllerFrom:(UIViewController *)vc {
     if ([vc isKindOfClass:[UINavigationController class]]) {
-        return [self getVisibleViewControllerFrom:((UINavigationController *)vc).visibleViewController];
+        return [self visibleViewControllerFrom:((UINavigationController *)vc).visibleViewController];
     } else if ([vc isKindOfClass:[UITabBarController class]]) {
-        return [self getVisibleViewControllerFrom:((UITabBarController *)vc).selectedViewController];
+        return [self visibleViewControllerFrom:((UITabBarController *)vc).selectedViewController];
     } else {
         if (vc.presentedViewController) {
-            return [self getVisibleViewControllerFrom:vc.presentedViewController];
+            return [self visibleViewControllerFrom:vc.presentedViewController];
         } else {
             return vc;
         }
