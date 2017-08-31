@@ -95,18 +95,17 @@ static NSPointerArray *viewObservers;
     
     BOOL didAddMethod =
     class_addMethod(c,
-                    originalSelector,
-                    method_getImplementation(swizzledMethod),
-                    method_getTypeEncoding(swizzledMethod));
+                    swizzledSelector,
+                    method_getImplementation(originalMethod),
+                    method_getTypeEncoding(originalMethod));
     
     if (didAddMethod) {
         class_replaceMethod(c,
-                            swizzledSelector,
-                            method_getImplementation(originalMethod),
-                            method_getTypeEncoding(originalMethod));
-    } else {
-        method_exchangeImplementations(originalMethod, swizzledMethod);
+                            originalSelector,
+                            method_getImplementation(swizzledMethod),
+                            method_getTypeEncoding(swizzledMethod));
     }
+    
 }
 
 + (void)addViewObserver:(id <AKViewObserver>)viewObserver {
