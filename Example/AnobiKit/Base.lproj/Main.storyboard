@@ -23,10 +23,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GTK-Ls-KaL" customClass="AKGrainbomatedView">
-                                <rect key="frame" x="20" y="72" width="335" height="323"/>
+                                <rect key="frame" x="20" y="72" width="335" height="133.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bgc-C8-dFD" customClass="AKGridView">
-                                        <rect key="frame" x="33.5" y="32.5" width="268" height="258"/>
+                                        <rect key="frame" x="33.5" y="13.5" width="268" height="106.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" red="0.98823529409999999" green="0.35294117650000001" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <userDefinedRuntimeAttributes>
@@ -48,7 +48,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AyV-DH-4W0">
-                                <rect key="frame" x="20" y="415" width="335" height="188"/>
+                                <rect key="frame" x="20" y="225.5" width="335" height="377.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="IGu-Ki-BU0" style="IBUITableViewCellStyleDefault" id="kls-ji-Q8U">
@@ -76,7 +76,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXh-QT-f9L">
-                                <rect key="frame" x="157" y="218.5" width="60" height="30"/>
+                                <rect key="frame" x="157" y="124" width="60" height="30"/>
                                 <color key="backgroundColor" red="0.2901960784" green="0.73333333329999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="awP-gL-SVe"/>
@@ -114,11 +114,11 @@
                             <constraint firstAttribute="trailing" secondItem="g2j-mL-SGj" secondAttribute="trailing" constant="8" id="OeC-Ow-dsc"/>
                             <constraint firstItem="Mvr-aV-6Um" firstAttribute="top" secondItem="AyV-DH-4W0" secondAttribute="bottom" constant="20" id="PUZ-JN-XrB"/>
                             <constraint firstItem="QXh-QT-f9L" firstAttribute="centerY" secondItem="Bgc-C8-dFD" secondAttribute="centerY" id="YzA-kt-D7c"/>
-                            <constraint firstItem="GTK-Ls-KaL" firstAttribute="centerY" secondItem="TpU-gO-2f1" secondAttribute="centerY" constant="-100" id="ZLI-m7-gr9"/>
                             <constraint firstItem="GTK-Ls-KaL" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="ayP-Y9-5aQ"/>
                             <constraint firstItem="g2j-mL-SGj" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="8" id="eFQ-4U-s2e"/>
                             <constraint firstItem="g2j-mL-SGj" firstAttribute="leading" secondItem="mD8-6r-SVu" secondAttribute="trailing" constant="8" id="oYB-ba-Axp"/>
                             <constraint firstItem="mD8-6r-SVu" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" constant="8" id="q26-Kz-aoX"/>
+                            <constraint firstItem="GTK-Ls-KaL" firstAttribute="height" secondItem="TpU-gO-2f1" secondAttribute="height" multiplier="0.2" id="sXW-s1-Ty8"/>
                             <constraint firstItem="GTK-Ls-KaL" firstAttribute="top" secondItem="g2j-mL-SGj" secondAttribute="top" id="vuO-9b-QII"/>
                             <constraint firstItem="GTK-Ls-KaL" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" constant="20" id="x3f-4L-F7c"/>
                         </constraints>

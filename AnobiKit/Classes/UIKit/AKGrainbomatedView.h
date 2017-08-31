@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+IB_DESIGNABLE
+
 @interface AKGrainbomatedView : UIView
 
-
+@property (nonatomic) IBInspectable CGFloat blickWidth;
+@property (nonatomic) IBInspectable CGFloat blickDuration;
 
 @end
