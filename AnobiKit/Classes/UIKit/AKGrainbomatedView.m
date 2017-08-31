@@ -99,8 +99,8 @@ static CGFloat atanPI8;
 
 - (void)redrawParaLayers {    
     cathetus = self.bounds.size.height * atanPI8;
-    if (self.blickWidth < 4) {
-        self.blickWidth = self.bounds.size.width * 0.05;
+    if (self.blickWidth < 8) {
+        _blickWidth = self.bounds.size.width * 0.05;
     }
     
 #if TARGET_INTERFACE_BUILDER
