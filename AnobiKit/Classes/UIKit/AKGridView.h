@@ -15,5 +15,4 @@ IB_DESIGNABLE
 @property (nonatomic) IBInspectable CGSize cellSize;
 @property (nonatomic) IBInspectable CGFloat lineWidth;
 
-
 @end

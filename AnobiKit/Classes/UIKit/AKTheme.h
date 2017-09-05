@@ -12,38 +12,45 @@
 #define AKThemeColorKey_mainBackground @"mainBackground"
 #define AKThemeColorKey_mainTint @"mainTint"
 #define AKThemeColorKey_mainText @"mainText"
-#define AKThemeColorKey_mainTitle @"mainTitle"
 #define AKThemeColorKey_mainSubtext @"mainSubtext"
+#define AKThemeColorKey_mainTitle @"mainTitle"
+#define AKThemeColorKey_mainSubtitle @"mainSubtitle"
 
-#define AKThemeColorKey_tableBackground @"tableBackground"
+
 #define AKThemeColorKey_tableTint @"tableTint"
-#define AKThemeColorKey_tableSeparator @"tableSeparator"
-#define AKThemeColorKey_tableCellBackground @"tableCellBackground"
-#define AKThemeColorKey_tableSecondaryCellBackground @"tableSecondaryCellBackground"
-#define AKThemeColorKey_tableInactiveCellTint @"tableInactiveCellTint"
 #define AKThemeColorKey_tableText @"tableText"
+#define AKThemeColorKey_tableTitle @"tableTitle"
+#define AKThemeColorKey_tableSubtitle @"tableSubtitle"
+#define AKThemeColorKey_tableSeparator @"tableSeparator"
+#define AKThemeColorKey_tableBackground @"tableBackground"
+#define AKThemeColorKey_tableSectionHeaderBackground @"tableSectionHeaderBackground"
+#define AKThemeColorKey_tableCellBackground @"tableCellBackground"
+#define AKThemeColorKey_tableSelectedCellBackground @"tableSelectedCellBackground"
+#define AKThemeColorKey_tableSecondaryCellBackground @"tableSecondaryCellBackground"
+#define AKThemeColorKey_tableCellTint @"tableInactiveCellTint"
+#define AKThemeColorKey_tableInactiveCellTint @"tableInactiveCellTint"
 
-//#define AKThemeColorKey_ @""
 
-#define AKThemeColorKey_navibar @"navibar"
-#define AKThemeColorKey_navibarTint @"navibarTint"
-#define AKThemeColorKey_navibarTitle @"navibarTitle"
-#define AKThemeColorKey_navibarBackground @"navibarBackground"
+#define AKThemeColorKey_naviBarTint @"naviBarTint"
+#define AKThemeColorKey_naviTint @"naviTint"
+#define AKThemeColorKey_naviTitle @"naviTitle"
+#define AKThemeColorKey_naviBackground @"naviBackground"
 
 
-#define AKThemeColorKey_toolbar @"toolbar"
-#define AKThemeColorKey_toolbarTint @"toolbarTint"
-#define AKThemeColorKey_toolbarBackground @"toolbarBackground"
-#define AKThemeColorKey_toolbarPositive @"toolbarPositive"
-#define AKThemeColorKey_toolbarNegative @"toolbarNegative"
-#define AKThemeColorKey_toolbarPositiveTint @"toolbarPositiveTint"
-#define AKThemeColorKey_toolbarNegativeTint @"toolbarNegativeTint"
+#define AKThemeColorKey_toolBarTint @"toolBarTint"
+#define AKThemeColorKey_toolTint @"toolTint"
+#define AKThemeColorKey_toolBackground @"toolBackground"
+#define AKThemeColorKey_toolPositive @"toolPositive"
+#define AKThemeColorKey_toolNegative @"toolNegative"
+#define AKThemeColorKey_toolPositiveTint @"toolPositiveTint"
+#define AKThemeColorKey_toolNegativeTint @"toolNegativeTint"
 
 
 #define AKThemeColorKey_searchbar @"searchbar"
 #define AKThemeColorKey_searchbarTint @"searchbarTint"
 
 
+//#define AKThemeColorKey_ @""
 
 @interface AKTheme : NSObject <DisableStdInstantiating, KeyedSubscript, IndexedSubscript>
 

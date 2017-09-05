@@ -17,9 +17,12 @@ typedef struct {
 AK3DVector AK3DVectorMake(float x, float y, float z);
 
 @interface CAAnimation (AKFlipAnimation)
+
 + (instancetype)flipWithPiCoef:(float)piCoef rotationVector:(AK3DVector)vector;
 + (instancetype)flipWithPiCoef:(float)piCoef rotationVector:(AK3DVector)vector dutation:(CGFloat)duration;
+
 @end
+
 
 @interface CALayer (AKFlipAnimation)
 
