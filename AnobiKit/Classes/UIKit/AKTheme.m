@@ -7,7 +7,7 @@
 //
 
 #import "AKTheme.h"
-#import "AKConfigs.h"
+#import "AKConfig.h"
 #import "UIColor+AnobiKit.h"
 
 #define AKThemeConfigName @"AKThemes"
@@ -29,7 +29,7 @@ static NSString *currentThemeName;
 
 + (void)initialize {
     [super initialize];
-    NSDictionary *configThemes = [AKConfigs shared][AKThemeConfigName][AKThemeConfigKey_Themes];
+    NSDictionary *configThemes = [AKConfig shared][AKThemeConfigName][AKThemeConfigKey_Themes];
     NSMutableDictionary <NSString *, NSDictionary *> *themesMutable = [NSMutableDictionary new];
     NSMutableDictionary <NSString *, id> *themeMutable = [NSMutableDictionary new];
     NSMutableDictionary <NSString *, UIColor *> *colorsMutable = [NSMutableDictionary new];
@@ -65,7 +65,7 @@ static NSString *currentThemeName;
     themes = themesMutable.copy;
     
     currentThemeName = [[NSUserDefaults standardUserDefaults] objectForKey:AKThemeUDKey_CurrentThemeName];
-    if (!currentThemeName) currentThemeName = [AKConfigs shared][AKThemeConfigName][AKThemeConfigKey_DefaultTheme];
+    if (!currentThemeName) currentThemeName = [AKConfig shared][AKThemeConfigName][AKThemeConfigKey_DefaultTheme];
     if (!currentThemeName) currentThemeName = configThemes.allKeys.firstObject;
     if (!currentThemeName) @throw NSUndefinedKeyException;
 }

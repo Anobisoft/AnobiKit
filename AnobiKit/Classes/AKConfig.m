@@ -1,12 +1,12 @@
 //
-//  AKConfigs.m
+//  AKConfig.m
 //  AnobiKit
 //
 //  Created by Stanislav Pletnev on 14.03.17.
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 
-#import "AKConfigs.h"
+#import "AKConfig.h"
 #import "NSBundle+AnobiKit.h"
 
 @implementation NSURL (AnobiKit)
@@ -20,15 +20,10 @@
 
 @end
 
-@implementation AKConfigs
+@implementation AKConfig
 
-+ (instancetype)shared {
-    static id instance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        instance = [[self alloc] init];
-    });
-    return instance;
++ (instancetype)configs {
+	return [self shared];
 }
 
 + (id)configWithName:(NSString *)name {
@@ -60,7 +55,7 @@
 }
 
 + (NSDictionary *)defaultConfig {
-    return [self configWithName:AKConfigsDefaultName];
+    return [self configWithName:AKConfigDefaultName];
 }
 
 #pragma mark -

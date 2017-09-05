@@ -1,5 +1,5 @@
 //
-//  AKConfigs.h
+//  AKConfig.h
 //  AnobiKit
 //
 //  Created by Stanislav Pletnev on 14.03.17.
@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AKTypes.h"
 
 @interface NSURL (AnobiKit)
 
@@ -15,15 +16,12 @@
 
 @end
 
-#define AKConfigsDefaultName @"AKMainConfig"
+#define AKConfigDefaultName @"AKMainConfig"
 
-@interface AKConfigs<__covariant CollectionType> : NSObject
+@interface AKConfig<__covariant CollectionType> : AKSingleton <KeyedSubscript>
 
++ (instancetype)configs;
 + (CollectionType)configWithName:(NSString *)name;
-+ (instancetype)shared;
-+ (instancetype)new NS_UNAVAILABLE;
-- (instancetype)init NS_UNAVAILABLE;
-- (CollectionType)objectForKeyedSubscript:(NSString *)key;
 
 + (NSURL *)documentsURL;
 + (NSURL *)documentsFileURLWithName:(NSString *)fn;
@@ -36,9 +34,6 @@
 + (NSURL *)defaultContainer;
 + (NSURL *)defaultDataFileURLWithName:(NSString *)fn; //shared as default
 + (NSURL *)defaultDataFileURLWithName:(NSString *)fn version:(NSUInteger)ver;
-
-
-
 
 
 @end

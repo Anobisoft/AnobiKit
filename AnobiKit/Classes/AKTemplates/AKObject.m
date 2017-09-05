@@ -108,7 +108,7 @@ static NSDictionary <Class, NSArray<NSString *> *> *serializableProperties;
 }
 
 + (BOOL)mergeObject:(AKObject *)a toObject:(AKObject *)b {
-    if (![b.class isSubclassOfClass:a.class]) {
+    if (![b isKindOfClass:a.class]) {
         @throw NSInternalInconsistencyException;
     }
     BOOL haschanged = false;
@@ -134,8 +134,8 @@ static NSDictionary <Class, NSArray<NSString *> *> *serializableProperties;
 - (instancetype)copy {
     id newinstance = [self.class new];
     for (NSString *key in self.serializableProperties) {
-        id value = [self valueForKey:key];
-        [newinstance setValue:value forKey:key];
+        NSObject *value = [self valueForKey:key];
+		[newinstance setValue:value.copy forKey:key];
     }
     return newinstance;
 }

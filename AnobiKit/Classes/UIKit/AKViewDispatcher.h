@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AKTypes.h"
 
 @protocol AKViewObserver <NSObject>
 @optional
@@ -18,17 +19,12 @@
 
 @end
 
-@interface AKViewDispatcher : NSObject
+@interface AKViewDispatcher : NSObject <Abstract>
 
 + (UIViewController *)visibleViewController;
 + (UIViewController *)visibleViewControllerFrom:(UIViewController *)vc;
 
 + (void)addViewObserver:(id <AKViewObserver>)viewObserver;
 + (void)removeViewObserver:(id <AKViewObserver>)viewObserver;
-
-//Abstract class
-+ (instancetype)new NS_UNAVAILABLE;
-+ (instancetype)alloc NS_UNAVAILABLE;
-
 
 @end

@@ -1,5 +1,5 @@
 //
-//  CALayer+AKFlipAnimation.h
+//  AKAnimation.h
 //  AnobiKit
 //
 //  Created by Stanislav Pletnev on 2017-01-13
@@ -16,10 +16,14 @@ typedef struct {
 
 AK3DVector AK3DVectorMake(float x, float y, float z);
 
+@interface CAAnimation (AKFlipAnimation)
++ (instancetype)flipWithPiCoef:(float)piCoef rotationVector:(AK3DVector)vector;
++ (instancetype)flipWithPiCoef:(float)piCoef rotationVector:(AK3DVector)vector dutation:(CGFloat)duration;
+@end
+
 @interface CALayer (AKFlipAnimation)
 
 - (void)addFlipAnimation:(CAAnimation *)animation;
 - (void)addFlipAnimation:(CAAnimation *)animation withDuration:(NSTimeInterval)duration;
-+ (CAKeyframeAnimation *)flipAnimationWithPiСoef:(float)piCoef rotationVector:(AK3DVector)vector;
 
 @end

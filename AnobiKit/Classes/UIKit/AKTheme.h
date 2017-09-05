@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AKTypes.h"
 
 #define AKThemeColorKey_mainBackground @"mainBackground"
 #define AKThemeColorKey_mainTint @"mainTint"
@@ -44,7 +45,7 @@
 
 
 
-@interface AKTheme : NSObject
+@interface AKTheme : NSObject <DisableStdInstantiating, KeyedSubscript, IndexedSubscript>
 
 @property (readonly) NSString *name;
 @property (readonly) NSDictionary *keyedColors;
@@ -53,12 +54,9 @@
 - (UIColor *)objectForKeyedSubscript:(NSString *)key;
 - (UIColor *)objectAtIndexedSubscript:(NSUInteger)idx;
 
-+ (instancetype)themeNamed:(NSString *)name;
 + (instancetype)currentTheme;
 + (void)setCurrentThemeNamed:(NSString *)name;
++ (instancetype)themeNamed:(NSString *)name;
 + (NSArray<NSString *> *)allNames;
-
-+ (instancetype)new NS_UNAVAILABLE;
-- (instancetype)init NS_UNAVAILABLE;
 
 @end
