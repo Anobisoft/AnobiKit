@@ -25,6 +25,7 @@ static NSMutableDictionary <Class, __kindof AKSingleton *> *uniqueInstances;
 	id instance = uniqueInstances[self];
 	if (!instance) {
 		instance = [[self alloc] init];
+		uniqueInstances[(id <NSCopying>)self] = instance;
 	}
 	return instance;
 }
