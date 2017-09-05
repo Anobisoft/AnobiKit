@@ -29,7 +29,7 @@ static NSString *currentThemeName;
 
 + (void)initialize {
     [super initialize];
-    NSDictionary *configThemes = [AKConfig shared][AKThemeConfigName][AKThemeConfigKey_Themes];
+    NSDictionary *configThemes = [AKConfig<NSDictionary *> shared][AKThemeConfigName][AKThemeConfigKey_Themes];
     NSMutableDictionary <NSString *, NSDictionary *> *themesMutable = [NSMutableDictionary new];
     NSMutableDictionary <NSString *, id> *themeMutable = [NSMutableDictionary new];
     NSMutableDictionary <NSString *, UIColor *> *colorsMutable = [NSMutableDictionary new];

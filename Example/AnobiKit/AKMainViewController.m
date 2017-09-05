@@ -8,7 +8,7 @@
 
 #import "AKMainViewController.h"
 #import "AKTheme.h"
-#import "CALayer+AKFlipAnimation.h"
+#import "AKAnimation.h"
 
 @interface AKMainViewController() <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -27,7 +27,7 @@
     self.tableView.tableFooterView = [UIView new];
     [self updateUIWithCurrentTheme];
     
-    flipAnimation = [CALayer flipAnimationWithPiСoef:2.0 rotationVector:AK3DVectorMake(0.3, 0.5, 0)];
+    flipAnimation = [CAAnimation flipWithPiCoef:2.0 rotationVector:AK3DVectorMake(0.3, 0.5, 0)];
     
 }
 
@@ -56,15 +56,14 @@
         self.navigationController.toolbar.barStyle = currentTheme.barStyle;
         
         self.navigationController.navigationBar.barTintColor =
-        self.navigationController.toolbar.barTintColor = currentTheme[AKThemeColorKey_navibar];
+        self.navigationController.toolbar.barTintColor = currentTheme[AKThemeColorKey_naviBarTint];
         self.navigationController.toolbar.translucent = false;
         self.navigationController.toolbar.clipsToBounds = false;
         
-        self.navigationController.navigationBar.tintColor =
-        self.navigationController.toolbar.tintColor = currentTheme[AKThemeColorKey_navibarTint];
+        self.navigationController.navigationBar.tintColor = currentTheme[AKThemeColorKey_naviTint];
         
         NSMutableDictionary *titleTextAttributes = self.navigationController.navigationBar.titleTextAttributes.mutableCopy;
-        titleTextAttributes[NSForegroundColorAttributeName] = currentTheme[AKThemeColorKey_navibarTitle];
+        titleTextAttributes[NSForegroundColorAttributeName] = currentTheme[AKThemeColorKey_naviTitle];
         self.navigationController.navigationBar.titleTextAttributes = titleTextAttributes;
         
         self.view.backgroundColor = currentTheme[AKThemeColorKey_mainBackground];

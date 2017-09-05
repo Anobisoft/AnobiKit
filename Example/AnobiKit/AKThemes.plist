@@ -18,16 +18,16 @@
 				<string>#880000</string>
 				<key>mainSubtext</key>
 				<string>#AAAAFF</string>
-				<key>navibar</key>
+				<key>naviBarTint</key>
 				<string>#AABBCC</string>
-				<key>navibarTint</key>
+				<key>naviTint</key>
 				<string>#332211</string>
-				<key>navibarTitle</key>
+				<key>naviTitle</key>
 				<string>#FFCCFF</string>
 				<key>tableBackground</key>
 				<string>#3333AA</string>
 				<key>tableSeparator</key>
-				<string>#EEEEEE</string>
+				<string>#FF4477</string>
 				<key>tableCellBackground</key>
 				<string>#EEEEEE</string>
 				<key>tableSecondaryCellBackground</key>
@@ -65,11 +65,11 @@
 				<string>#FFFFFF</string>
 				<key>mainSubtext</key>
 				<string>#D0D0D0</string>
-				<key>navibar</key>
+				<key>naviBarTint</key>
 				<string>#121212</string>
-				<key>navibarTint</key>
+				<key>naviTint</key>
 				<string>#A9A9A9</string>
-				<key>navibarTitle</key>
+				<key>naviTitle</key>
 				<string>#FFFFFF</string>
 				<key>tableBackground</key>
 				<string>#0E0E0E</string>
@@ -112,11 +112,11 @@
 				<string>#252525</string>
 				<key>mainSubtext</key>
 				<string>#B4B4B4</string>
-				<key>navibar</key>
+				<key>naviBarTint</key>
 				<string>#FFFFFF</string>
-				<key>navibarTint</key>
+				<key>naviTint</key>
 				<string>#A9A9A9</string>
-				<key>navibarTitle</key>
+				<key>naviTitle</key>
 				<string>#252525</string>
 				<key>tableBackground</key>
 				<string>#F1F1F1 </string>

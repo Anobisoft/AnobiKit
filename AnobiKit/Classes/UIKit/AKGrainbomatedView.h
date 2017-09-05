@@ -14,5 +14,6 @@ IB_DESIGNABLE
 
 @property (nonatomic) IBInspectable CGFloat blickWidth;
 @property (nonatomic) IBInspectable CGFloat blickDuration;
+@property IBInspectable BOOL vertical;
 
 @end

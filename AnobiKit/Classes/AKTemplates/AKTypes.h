@@ -28,15 +28,23 @@
 @end
 
 @protocol KeyedSubscript <NSObject>
-- (id)objectForKeyedSubscript:(NSString *)key;
+- (__kindof NSObject *)objectForKeyedSubscript:(__kindof NSObject<NSCopying> *)key;
 @end
 
 @protocol IndexedSubscript <NSObject>
-- (UIColor *)objectAtIndexedSubscript:(NSUInteger)idx;
+- (__kindof NSObject *)objectAtIndexedSubscript:(NSUInteger)idx;
 @end
 
-typedef void (^AKProcedure)(id object);
+@protocol MutableKeyedSubscript <KeyedSubscript>
+- (void)setObject:(__kindof NSObject *)obj forKeyedSubscript:(__kindof NSObject<NSCopying> *)key;
+@end
+
+@protocol MutableIndexedSubscript <IndexedSubscript>
+- (void)setObject:(__kindof NSObject *)obj forIndexedSubscript:(NSUInteger)idx;
+@end
+
+typedef void (^AKProcedure)(__kindof NSObject *object);
 typedef void (^AKBlock)(void);
-typedef id (^AKFunction)(id object);
+typedef __kindof NSObject * (^AKFunction)(__kindof NSObject *object);
 
 #endif /* AKTypes_h */

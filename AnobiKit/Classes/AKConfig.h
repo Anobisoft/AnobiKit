@@ -20,6 +20,8 @@
 
 @interface AKConfig<__covariant CollectionType> : AKSingleton <KeyedSubscript>
 
+- (CollectionType)objectForKeyedSubscript:(__kindof NSObject<NSCopying> *)cfgName;
+
 + (instancetype)configs;
 + (CollectionType)configWithName:(NSString *)name;
 

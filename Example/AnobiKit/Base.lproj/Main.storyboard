@@ -46,6 +46,12 @@
                                     <constraint firstItem="Bgc-C8-dFD" firstAttribute="centerX" secondItem="GTK-Ls-KaL" secondAttribute="centerX" id="dyg-hX-fyJ"/>
                                     <constraint firstItem="Bgc-C8-dFD" firstAttribute="centerY" secondItem="GTK-Ls-KaL" secondAttribute="centerY" id="my6-4C-x7Q"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="vertical" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="blickWidth">
+                                        <real key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AyV-DH-4W0">
                                 <rect key="frame" x="20" y="225.5" width="335" height="377.5"/>
@@ -77,7 +83,7 @@
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXh-QT-f9L">
                                 <rect key="frame" x="157" y="124" width="60" height="30"/>
-                                <color key="backgroundColor" red="0.2901960784" green="0.73333333329999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="awP-gL-SVe"/>
                                     <constraint firstAttribute="height" constant="30" id="jDR-7t-ig1"/>

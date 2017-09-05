@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 #
 
   s.name             = 'AnobiKit'
-  s.version          = '0.0.23'
+  s.version          = '0.0.24'
   s.summary          = 'AnobiKit - set of various independent classes and categories useful to Objective-C iOS Developer.'
 
 # This description is used to generate tags and improve search results.
