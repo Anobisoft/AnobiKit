@@ -14,12 +14,18 @@
 	return [self shared];
 }
 
+static NSMutableDictionary <Class, __kindof AKSingleton *> *uniqueInstances;
+
++ (void)initialize {
+	[super initialize];
+	uniqueInstances = [NSMutableDictionary new];
+}
+
 + (instancetype)shared {
-	static id instance = nil;
-	static dispatch_once_t onceToken;
-	dispatch_once(&onceToken, ^{
+	id instance = uniqueInstances[self];
+	if (!instance) {
 		instance = [[self alloc] init];
-	});
+	}
 	return instance;
 }
 
