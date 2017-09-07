@@ -9,7 +9,7 @@
 #ifndef AKTypes_h
 #define AKTypes_h
 
-typedef void (^AKProcedure)(id, ...);
+typedef void (^AKProcedure)(id);
 typedef void (^AKBlock)(void);
 typedef id (^AKFunction)(id);
 
