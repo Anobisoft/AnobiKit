@@ -45,5 +45,9 @@ static NSMutableDictionary *sounds;
     [[self soundWithName:soundName] loop];
 }
 
++ (void)freeSound:(NSString *)soundName {
+    [sounds removeObjectForKey:soundName];
+}
+
 
 @end

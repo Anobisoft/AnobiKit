@@ -14,7 +14,7 @@
     NSUInteger location = 0;
     NSUInteger length = [self length];
     unichar charBuffer[length];
-    [self getCharacters:charBuffer];
+    [self getCharacters:charBuffer range:NSMakeRange(location, length)];
     
     for (; location < length; location++) {
         if (![characterSet characterIsMember:charBuffer[location]]) {
@@ -29,7 +29,7 @@
     NSUInteger location = 0;
     NSUInteger length = [self length];
     unichar charBuffer[length];
-    [self getCharacters:charBuffer];
+    [self getCharacters:charBuffer range:NSMakeRange(location, length)];
     
     for (; length > 0; length--) {
         if (![characterSet characterIsMember:charBuffer[length - 1]]) {

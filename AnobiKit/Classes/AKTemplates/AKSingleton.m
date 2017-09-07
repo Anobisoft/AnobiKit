@@ -10,10 +10,6 @@
 
 @implementation AKSingleton
 
-+ (instancetype)new {
-	return [self shared];
-}
-
 static NSMutableDictionary <Class, __kindof AKSingleton *> *uniqueInstances;
 
 + (void)initialize {
@@ -28,6 +24,10 @@ static NSMutableDictionary <Class, __kindof AKSingleton *> *uniqueInstances;
 		uniqueInstances[(id <NSCopying>)self] = instance;
 	}
 	return instance;
+}
+
++ (instancetype)new {
+    return [self shared];
 }
 
 - (id)copy {

@@ -15,35 +15,38 @@
     return [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:self];
 }
 
-- (NSArray *)selectFrom:(NSString *)entity {
-    return [self selectFrom:entity limit:0];
+- (NSArray *)selectFrom:(NSString *)e {
+    return [self selectFrom:e limit:0];
 }
 
-- (NSArray *)selectFrom:(NSString *)entity limit:(NSUInteger)limit {
-    return [self selectFrom:entity orderBy:nil limit:limit];
+- (NSArray *)selectFrom:(NSString *)e limit:(NSUInteger)l {
+    return [self selectFrom:e orderBy:nil limit:l];
 }
 
-- (NSArray *)selectFrom:(NSString *)entity orderBy:(nullable NSArray <NSSortDescriptor *> *)sortDescriptors {
-    return [self selectFrom:entity orderBy:sortDescriptors limit:0];
+- (NSArray *)selectFrom:(NSString *)e orderBy:(nullable NSArray <NSSortDescriptor *> *)sds {
+    return [self selectFrom:e orderBy:sds limit:0];
 }
 
-- (NSArray *)selectFrom:(NSString *)entity orderBy:(nullable NSArray <NSSortDescriptor *> *)sortDescriptors limit:(NSUInteger)limit {
-    return [self selectFrom:entity where:nil orderBy:sortDescriptors limit:limit];
+- (NSArray *)selectFrom:(NSString *)e orderBy:(nullable NSArray <NSSortDescriptor *> *)sds limit:(NSUInteger)l {
+    return [self selectFrom:e where:nil orderBy:sds limit:l];
 }
 
-- (NSArray *)selectFrom:(NSString *)entity where:(NSPredicate *)clause {
-    return [self selectFrom:entity where:clause limit:0];
+- (NSArray *)selectFrom:(NSString *)e where:(NSPredicate *)c {
+    return [self selectFrom:e where:c limit:0];
 }
 
-- (NSArray *)selectFrom:(NSString *)entity where:(NSPredicate *)clause limit:(NSUInteger)limit {
-    return [self selectFrom:entity where:clause orderBy:nil limit:limit];
+- (NSArray *)selectFrom:(NSString *)e where:(NSPredicate *)c limit:(NSUInteger)l {
+    return [self selectFrom:e where:c orderBy:nil limit:l];
 }
 
-- (NSArray *)selectFrom:(NSString *)entity where:(NSPredicate *)clause orderBy:(nullable NSArray <NSSortDescriptor *> *)sortDescriptors {
-    return [self selectFrom:entity where:clause orderBy:sortDescriptors limit:0];
+- (NSArray *)selectFrom:(NSString *)e where:(NSPredicate *)c orderBy:(nullable NSArray <NSSortDescriptor *> *)sds {
+    return [self selectFrom:e where:c orderBy:sds limit:0];
 }
 
-- (NSArray *)selectFrom:(NSString *)entity where:(NSPredicate *)clause orderBy:(nullable NSArray <NSSortDescriptor *> *)sortDescriptors limit:(NSUInteger)limit {
+- (NSArray *)selectFrom:(NSString *)entity
+                  where:(NSPredicate *)clause
+                orderBy:(nullable NSArray <NSSortDescriptor *> *)sortDescriptors
+                  limit:(NSUInteger)limit {
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:entity];
     request.predicate = clause;
     [request setSortDescriptors:sortDescriptors];

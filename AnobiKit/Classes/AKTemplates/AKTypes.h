@@ -9,6 +9,10 @@
 #ifndef AKTypes_h
 #define AKTypes_h
 
+typedef void (^AKProcedure)(id, ...);
+typedef void (^AKBlock)(void);
+typedef id (^AKFunction)(id);
+
 #import "AKObject.h"
 #import "AKSingleton.h"
 
@@ -43,8 +47,6 @@
 - (void)setObject:(__kindof NSObject *)obj forIndexedSubscript:(NSUInteger)idx;
 @end
 
-typedef void (^AKProcedure)(__kindof NSObject *object);
-typedef void (^AKBlock)(void);
-typedef __kindof NSObject * (^AKFunction)(__kindof NSObject *object);
+
 
 #endif /* AKTypes_h */

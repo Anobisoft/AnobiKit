@@ -21,7 +21,7 @@ $ gem install cocoapods
 To integrate **AnobiKit** into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```
-platform :ios, '9.3'
+platform :ios, '8.3'
 use_frameworks!
 target 'TargetName' do
 pod 'AnobiKit'

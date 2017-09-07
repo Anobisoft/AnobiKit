@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
+#import "AKTypes.h"
 
-@interface AKSound : NSObject
+@interface AKSound : NSObject <DisableStdInstantiating>
 
 + (instancetype)soundWithName:(NSString *)name;
 
@@ -17,8 +18,5 @@
 - (void)stop;
 - (void)pause;
 - (void)loop;
-
-+ (instancetype)new NS_UNAVAILABLE;
-- (instancetype)init NS_UNAVAILABLE;
 
 @end

@@ -7,16 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AKTypes.h"
 
-@interface AKSoundPlayer : NSObject
+@interface AKSoundPlayer : NSObject <Abstract>
 
 + (void)playSound:(NSString *)soundName;
 + (void)stopSound:(NSString *)soundName;
 + (void)pauseSound:(NSString *)soundName;
 + (void)loopSound:(NSString *)soundName;
-
-//abstract
-+ (instancetype)new NS_UNAVAILABLE;
-- (instancetype)init NS_UNAVAILABLE;
++ (void)freeSound:(NSString *)soundName;
 
 @end
