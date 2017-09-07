@@ -6,7 +6,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/AnobiKit.svg?style=flat)](http://cocoapods.org/pods/AnobiKit)
 [![Twitter](https://img.shields.io/badge/twitter-@Anobisoft-blue.svg?style=flat)](http://twitter.com/Anobisoft)
 
-Set of various independent classes and categories useful to Objective-C iOS Developer.
+Collection of various independent classes and categories useful to Objective-C iOS Developer.
 
 ## Example
 
@@ -22,7 +22,6 @@ To integrate **AnobiKit** into your Xcode project using CocoaPods, specify it in
 
 ```
 platform :ios, '8.3'
-use_frameworks!
 target 'TargetName' do
 pod 'AnobiKit'
 end
@@ -32,7 +31,7 @@ Then, run the following command:
 $ pod install
 ```
 ## Requirements
-Minimum iOS Target is ios **9.3**.
+Minimum iOS Target is ios **8.3**.
 
 ## Usage
 Any way you can.

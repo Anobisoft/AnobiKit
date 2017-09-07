@@ -2,17 +2,17 @@
 //  AKAppDelegate.m
 //  AnobiKit
 //
-//  Created by Anobisoft on 08/02/2017.
+//  Created by Stanislav Pletnev on 08/02/2017.
 //  Copyright (c) 2017 Anobisoft. All rights reserved.
 //
 
 #import "AKAppDelegate.h"
-//#import "AKTheme.h"
+
 
 @implementation AKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//    [AKTheme setCurrentThemeNamed:@"Example"];
+
     return YES;
 }
 
