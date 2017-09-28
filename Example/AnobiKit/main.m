@@ -8,9 +8,12 @@
 
 @import UIKit;
 #import "AKAppDelegate.h"
+#import <AnobiKit/AnobiKit.h>
 
 int main(int argc, char * argv[])
 {
+    NSLog(@"MainConfig\n%@", [AKConfig configs][@"AKExampleConfig"]);
+    return 0;
     @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AKAppDelegate class]));
     }

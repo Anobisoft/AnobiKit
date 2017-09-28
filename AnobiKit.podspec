@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name             = 'AnobiKit'
-  s.version          = '0.0.29'
+  s.version          = '0.1.0'
   s.summary          = 'AnobiKit - collection of various independent classes and categories useful to Objective-C iOS Developer.'
 
   s.description      = <<-DESC
@@ -28,11 +28,11 @@ longer...
 # s.tvos.deployment_target = "9.0"
 
   s.source       = { :git => "https://github.com/Anobisoft/AnobiKit.git", :tag => "v#{s.version}" }
-  s.source_files  = "AnobiKit/Classes/*.{h,m}", "AnobiKit/Classes/**/*.{h,m}"
-# s.public_header_files = "Classes/*.h", "Classes/**/*.h"
+  s.source_files  = "AnobiKit/Classes/**/*.{h,m}"
+# s.public_header_files = "AnobiKit/Classes/**/*.h"
 # s.exclude_files = "Classes/Exclude"
 # s.resource  = "icon.png"
-s.resources = "AnobiKit/Resources/*.plist"
+  s.resources = "AnobiKit/Resources/*.plist"
 # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
   s.framework  = "Foundation"

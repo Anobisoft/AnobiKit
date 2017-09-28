@@ -8,7 +8,6 @@
 
 #import "AKAppDelegate.h"
 
-
 @implementation AKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
