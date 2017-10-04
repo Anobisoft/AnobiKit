@@ -10,7 +10,29 @@
 @import ObjectiveC.runtime;
 
 @implementation AKPropertyMap
+
++ (instancetype)mapWithPropertyKey:(NSString *)propertyKey
+                          objClass:(Class<AKObjectMapping>)objClass
+                            objMap:(AKObjectMap *)objMap {
+    return [[self alloc] initWithPropertyKey:(NSString *)propertyKey
+                                    objClass:(Class<AKObjectMapping>)objClass
+                                      objMap:(AKObjectMap *)objMap];
+}
+
+- (instancetype)initWithPropertyKey:(NSString *)propertyKey
+                           objClass:(Class<AKObjectMapping>)objClass
+                             objMap:(AKObjectMap *)objMap {
+    if (self = [super init]) {
+        self.propertyKey = propertyKey;
+        self.objClass = objClass;
+        self.objMap = objMap;
+    }
+    return self;
+}
+
+
 @end
+
 
 @implementation AKObject (Mapping)
 
@@ -23,18 +45,18 @@
         [representation enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
             NSString *propertyKey = key;
             AKPropertyMap *propertyMap = mapping[key];
-            if (propertyMap) propertyKey = mapping[key].propertyKey;
-            Class objClass = mapping[key].objClass;
+            if (propertyMap) propertyKey = propertyMap.propertyKey ?: key;
+            Class objClass = propertyMap.objClass;
             if (objClass && [objClass isSubclassOfClass:[AKObject class]]) { //mapped
                 if ([obj isKindOfClass:[NSArray class]]) {
                     NSMutableArray *mutableArray = [NSMutableArray new];
                     for (NSDictionary *objRepresentation in obj) {
-                        id newPropertyInstance = [mapping[key].objClass instatiateWithExternalRepresentation:objRepresentation mapping:mapping[key].objMap];
+                        id newPropertyInstance = [mapping[key].objClass instatiateWithExternalRepresentation:objRepresentation mapping:propertyMap.objMap];
                         [mutableArray addObject:newPropertyInstance];
                     }
                     [self setValue:mutableArray.copy forKey:propertyKey];
                 } else {
-                    id newPropertyInstance = [mapping[key].objClass instatiateWithExternalRepresentation:obj mapping:mapping[key].objMap];
+                    id newPropertyInstance = [propertyMap.objClass instatiateWithExternalRepresentation:obj mapping:propertyMap.objMap];
                     [self setValue:newPropertyInstance forKey:propertyKey];
                 }
             } else {  //automap
@@ -90,7 +112,8 @@
                     }
                     
                     if (propertyClass && [propertyClass isSubclassOfClass:[AKObject class]]) {
-                        [propertyClass instatiateWithExternalRepresentation:obj mapping:mapping[key].objMap];
+                        id newPropertyInstance = [propertyClass instatiateWithExternalRepresentation:obj mapping:propertyMap.objMap];
+                        [self setValue:newPropertyInstance forKey:propertyKey];
                     } else {
                         @try {
                             [self setValue:obj forKey:propertyKey]; // try to set representation object to property as is (NSDictionary)

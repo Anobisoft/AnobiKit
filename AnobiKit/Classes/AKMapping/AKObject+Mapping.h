@@ -13,6 +13,9 @@
 @protocol AKObjectMapping;
 
 @interface AKPropertyMap : NSObject
++ (instancetype)mapWithPropertyKey:(NSString *)propertyKey
+                          objClass:(Class<AKObjectMapping>)objClass
+                            objMap:(AKObjectMap *)objMap;
 @property NSString *propertyKey;
 @property Class<AKObjectMapping> objClass;
 @property AKObjectMap *objMap;
