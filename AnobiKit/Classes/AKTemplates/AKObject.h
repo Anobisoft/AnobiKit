@@ -11,8 +11,8 @@
 @interface AKObject : NSObject <NSSecureCoding>
 
 + (NSSet<NSString *> *)propertyExclusions;
-@property (readonly) NSArray <NSString *> *serializableProperties;
 + (NSArray<NSString *> *)serializableProperties;
+- (NSArray<NSString *> *)serializableProperties;
 
 - (BOOL)mergeToObject:(AKObject *)obj;
 - (BOOL)mergeFromObject:(AKObject *)obj;
