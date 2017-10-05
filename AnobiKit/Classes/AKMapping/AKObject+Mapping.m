@@ -1,9 +1,9 @@
 //
 //  AKObject+Mapping.m
-//  Pods
+//  AnobiKit
 //
 //  Created by Stanislav Pletnev on 29.09.17.
-//
+//  Copyright © 2017 Anobisoft. All rights reserved.
 //
 
 #import "AKObject+Mapping.h"
@@ -11,21 +11,34 @@
 
 @implementation AKPropertyMap
 
++ (instancetype)mapWithPropertyKey:(NSString *)propertyKey {
+    return [[self alloc] initWithPropertyKey:propertyKey
+                                 objectClass:nil
+                                   objectMap:nil];
+}
+
++ (instancetype)mapWithObjectClass:(Class<AKObjectMapping>)objectClass
+                         objectMap:(NSDictionary<NSString *,AKPropertyMap *> *)objectMap {
+    return [[self alloc] initWithPropertyKey:nil
+                                 objectClass:objectClass
+                                   objectMap:objectMap];
+}
+
 + (instancetype)mapWithPropertyKey:(NSString *)propertyKey
-                          objClass:(Class<AKObjectMapping>)objClass
-                            objMap:(AKObjectMap *)objMap {
-    return [[self alloc] initWithPropertyKey:(NSString *)propertyKey
-                                    objClass:(Class<AKObjectMapping>)objClass
-                                      objMap:(AKObjectMap *)objMap];
+                          objectClass:(Class<AKObjectMapping>)objectClass
+                            objectMap:(AKObjectMap *)objectMap {
+    return [[self alloc] initWithPropertyKey:propertyKey
+                                 objectClass:objectClass
+                                   objectMap:objectMap];
 }
 
 - (instancetype)initWithPropertyKey:(NSString *)propertyKey
-                           objClass:(Class<AKObjectMapping>)objClass
-                             objMap:(AKObjectMap *)objMap {
+                           objectClass:(Class<AKObjectMapping>)objectClass
+                             objectMap:(AKObjectMap *)objectMap {
     if (self = [super init]) {
         self.propertyKey = propertyKey;
-        self.objClass = objClass;
-        self.objMap = objMap;
+        self.objectClass = objectClass;
+        self.objectMap = objectMap;
     }
     return self;
 }
@@ -36,27 +49,27 @@
 
 @implementation AKObject (Mapping)
 
-+ (instancetype)instatiateWithExternalRepresentation:(NSDictionary *)representation mapping:(AKObjectMap *)mapping {
-    return [[self alloc] initWithExternalRepresentation:representation mapping:mapping];
++ (instancetype)instatiateWithExternalRepresentation:(NSDictionary *)representation {
+    return [[self alloc] initWithExternalRepresentation:representation objectMap:[self objectMap]];
 }
 
-- (instancetype)initWithExternalRepresentation:(NSDictionary *)representation mapping:(AKObjectMap *)mapping {
+- (instancetype)initWithExternalRepresentation:(NSDictionary *)representation objectMap:(AKObjectMap *)objectMap {
     if (self = [super init]) {
         [representation enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
             NSString *propertyKey = key;
-            AKPropertyMap *propertyMap = mapping[key];
+            AKPropertyMap *propertyMap = objectMap[key];
             if (propertyMap) propertyKey = propertyMap.propertyKey ?: key;
-            Class objClass = propertyMap.objClass;
-            if (objClass && [objClass isSubclassOfClass:[AKObject class]]) { //mapped
+            Class objectClass = propertyMap.objectClass;
+            if (objectClass && [objectClass isSubclassOfClass:[AKObject class]]) { //mapped
                 if ([obj isKindOfClass:[NSArray class]]) {
                     NSMutableArray *mutableArray = [NSMutableArray new];
                     for (NSDictionary *objRepresentation in obj) {
-                        id newPropertyInstance = [mapping[key].objClass instatiateWithExternalRepresentation:objRepresentation mapping:propertyMap.objMap];
+                        id newPropertyInstance = [propertyMap.objectClass instatiateWithExternalRepresentation:objRepresentation];
                         [mutableArray addObject:newPropertyInstance];
                     }
                     [self setValue:mutableArray.copy forKey:propertyKey];
                 } else {
-                    id newPropertyInstance = [propertyMap.objClass instatiateWithExternalRepresentation:obj mapping:propertyMap.objMap];
+                    id newPropertyInstance = [propertyMap.objectClass instatiateWithExternalRepresentation:obj];
                     [self setValue:newPropertyInstance forKey:propertyKey];
                 }
             } else {  //automap
@@ -112,7 +125,7 @@
                     }
                     
                     if (propertyClass && [propertyClass isSubclassOfClass:[AKObject class]]) {
-                        id newPropertyInstance = [propertyClass instatiateWithExternalRepresentation:obj mapping:propertyMap.objMap];
+                        id newPropertyInstance = [propertyClass instatiateWithExternalRepresentation:obj];
                         [self setValue:newPropertyInstance forKey:propertyKey];
                     } else {
                         @try {
