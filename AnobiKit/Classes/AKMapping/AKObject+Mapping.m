@@ -54,6 +54,10 @@
     if ([self respondsToSelector:@selector(objectMap)]) {
         objectMap = [self objectMap];
     }
+    return [self instatiateWithExternalRepresentation:representation objectMap:objectMap];
+}
+
++ (instancetype)instatiateWithExternalRepresentation:(NSDictionary *)representation objectMap:(AKObjectMap *)objectMap {
     return [[self alloc] initWithExternalRepresentation:representation objectMap:objectMap];
 }
 
@@ -68,12 +72,12 @@
                 if ([obj isKindOfClass:[NSArray class]]) {
                     NSMutableArray *mutableArray = [NSMutableArray new];
                     for (NSDictionary *objRepresentation in obj) {
-                        id newPropertyInstance = [propertyMap.objectClass instatiateWithExternalRepresentation:objRepresentation];
+                        id newPropertyInstance = [propertyMap.objectClass instatiateWithExternalRepresentation:objRepresentation objectMap:propertyMap.objectMap];
                         [mutableArray addObject:newPropertyInstance];
                     }
                     [self setValue:mutableArray.copy forKey:propertyKey];
                 } else {
-                    id newPropertyInstance = [propertyMap.objectClass instatiateWithExternalRepresentation:obj];
+                    id newPropertyInstance = [propertyMap.objectClass instatiateWithExternalRepresentation:obj objectMap:propertyMap.objectMap];
                     [self setValue:newPropertyInstance forKey:propertyKey];
                 }
             } else {  //automap
@@ -129,7 +133,7 @@
                     }
                     
                     if (propertyClass && [propertyClass isSubclassOfClass:[AKObject class]]) {
-                        id newPropertyInstance = [propertyClass instatiateWithExternalRepresentation:obj];
+                        id newPropertyInstance = [propertyClass instatiateWithExternalRepresentation:obj objectMap:propertyMap.objectMap];
                         [self setValue:newPropertyInstance forKey:propertyKey];
                     } else {
                         @try {
