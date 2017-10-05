@@ -50,7 +50,11 @@
 @implementation AKObject (Mapping)
 
 + (instancetype)instatiateWithExternalRepresentation:(NSDictionary *)representation {
-    return [[self alloc] initWithExternalRepresentation:representation objectMap:[self objectMap]];
+    AKObjectMap *objectMap = nil;
+    if ([self respondsToSelector:@selector(objectMap)]) {
+        objectMap = [self objectMap];
+    }
+    return [[self alloc] initWithExternalRepresentation:representation objectMap:objectMap];
 }
 
 - (instancetype)initWithExternalRepresentation:(NSDictionary *)representation objectMap:(AKObjectMap *)objectMap {
