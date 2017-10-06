@@ -9,56 +9,19 @@
 #import "AKObject+Mapping.h"
 @import ObjectiveC.runtime;
 
-@implementation AKPropertyMap
-
-+ (instancetype)mapWithPropertyKey:(NSString *)propertyKey {
-    return [[self alloc] initWithPropertyKey:propertyKey
-                                 objectClass:nil
-                                   objectMap:nil];
-}
-
-+ (instancetype)mapWithObjectClass:(Class<AKObjectMapping>)objectClass
-                         objectMap:(NSDictionary<NSString *,AKPropertyMap *> *)objectMap {
-    return [[self alloc] initWithPropertyKey:nil
-                                 objectClass:objectClass
-                                   objectMap:objectMap];
-}
-
-+ (instancetype)mapWithPropertyKey:(NSString *)propertyKey
-                          objectClass:(Class<AKObjectMapping>)objectClass
-                            objectMap:(AKObjectMap *)objectMap {
-    return [[self alloc] initWithPropertyKey:propertyKey
-                                 objectClass:objectClass
-                                   objectMap:objectMap];
-}
-
-- (instancetype)initWithPropertyKey:(NSString *)propertyKey
-                           objectClass:(Class<AKObjectMapping>)objectClass
-                             objectMap:(AKObjectMap *)objectMap {
-    if (self = [super init]) {
-        self.propertyKey = propertyKey;
-        self.objectClass = objectClass;
-        self.objectMap = objectMap;
-    }
-    return self;
-}
-
-
-@end
-
-
 @implementation AKObject (Mapping)
 
++ (AKObjectMap *)objectMap {
+    return nil;
+}
+
 + (instancetype)instatiateWithExternalRepresentation:(NSDictionary *)representation {
-    AKObjectMap *objectMap = nil;
-    if ([self respondsToSelector:@selector(objectMap)]) {
-        objectMap = [self objectMap];
-    }
-    return [self instatiateWithExternalRepresentation:representation objectMap:objectMap];
+    return [self instatiateWithExternalRepresentation:representation objectMap:[self objectMap]];
 }
 
 + (instancetype)instatiateWithExternalRepresentation:(NSDictionary *)representation objectMap:(AKObjectMap *)objectMap {
-    return [[self alloc] initWithExternalRepresentation:representation objectMap:objectMap];
+    AKObjectMap *selfMap = objectMap ?: [self objectMap];
+    return [[self alloc] initWithExternalRepresentation:representation objectMap:selfMap];
 }
 
 - (instancetype)initWithExternalRepresentation:(NSDictionary *)representation objectMap:(AKObjectMap *)objectMap {
@@ -68,7 +31,7 @@
             AKPropertyMap *propertyMap = objectMap[key];
             if (propertyMap) propertyKey = propertyMap.propertyKey ?: key;
             Class objectClass = propertyMap.objectClass;
-            if (objectClass && [objectClass isSubclassOfClass:[AKObject class]]) { //mapped
+            if (objectClass && [objectClass conformsToProtocol:@protocol(AKObjectMapping)]) {
                 if ([obj isKindOfClass:[NSArray class]]) {
                     NSMutableArray *mutableArray = [NSMutableArray new];
                     for (NSDictionary *objRepresentation in obj) {
@@ -99,7 +62,7 @@
                                     objtypestr[classstrlen] = '\0';
                                     NSString *className = [NSString stringWithUTF8String:objtypestr];
                                     propertyClass = NSClassFromString(className);
-                                    NSLog(@"[DEBUG] @property %@ %@ / Class %@ founded", className, propertyKey, propertyClass ?: @"not");
+                                    NSLog(@"[DEBUG] /AUTOMAP/ @property %@ %@ / Class %@ founded", className, propertyKey, propertyClass ?: @"not");
 
                                 }/* else {
                                     unsigned long protocollen = len-classstrlen-2-3;
@@ -119,16 +82,16 @@
                                     }
                                 } //*/
                             } else {
-                                NSLog(@"[DEBUG] @property id %@", propertyKey);
+                                NSLog(@"[DEBUG] /AUTOMAP/ @property id %@", propertyKey);
                             }
                         } break;
                         case '*':
                         case '^':
                         case '{': {
-                            NSLog(@"[ERROR] @property %s %@ / class '%@' is not KVC-compliant for the key '%@'", type, propertyKey, self.class, propertyKey);
+                            NSLog(@"[ERROR] /AUTOMAP/ @property %s %@ / class '%@' is not KVC-compliant for the key '%@'", type, propertyKey, self.class, propertyKey);
                         } break;
                         default:
-                            NSLog(@"[DEBUG] @property %s %@", type, propertyKey);
+                            NSLog(@"[DEBUG] /AUTOMAP/ @property %s %@", type, propertyKey);
                             break;
                     }
                     
