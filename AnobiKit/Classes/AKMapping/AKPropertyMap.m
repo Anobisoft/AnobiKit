@@ -11,16 +11,28 @@
 @implementation AKPropertyMap
 
 + (instancetype)mapWithPropertyKey:(NSString *)propertyKey {
-    return [[self alloc] initWithPropertyKey:propertyKey
-                                 objectClass:nil
-                                   objectMap:nil];
+    return [self mapWithPropertyKey:propertyKey objectClass:nil objectMap:nil];
 }
 
++ (instancetype)mapWithObjectClass:(Class<AKObjectMapping>)objectClass {
+    return [self mapWithPropertyKey:nil objectClass:objectClass objectMap:nil];
+}
+
++ (instancetype)mapWithObjectMap:(NSDictionary<NSString *,AKPropertyMap *> *)objectMap {
+    return [self mapWithPropertyKey:nil objectClass:nil objectMap:objectMap];
+}
+
++ (instancetype)mapWithPropertyKey:(NSString *)propertyKey
+                       objectClass:(Class<AKObjectMapping>)objectClass {
+    return [self mapWithPropertyKey:propertyKey objectClass:objectClass objectMap:nil];
+}
++ (instancetype)mapWithPropertyKey:(NSString *)propertyKey
+                         objectMap:(AKObjectMap *)objectMap {
+    return [self mapWithPropertyKey:propertyKey objectClass:nil objectMap:objectMap];
+}
 + (instancetype)mapWithObjectClass:(Class<AKObjectMapping>)objectClass
-                         objectMap:(NSDictionary<NSString *,AKPropertyMap *> *)objectMap {
-    return [[self alloc] initWithPropertyKey:nil
-                                 objectClass:objectClass
-                                   objectMap:objectMap];
+                         objectMap:(AKObjectMap *)objectMap {
+	return [self mapWithPropertyKey:nil objectClass:objectClass objectMap:objectMap];
 }
 
 + (instancetype)mapWithPropertyKey:(NSString *)propertyKey
