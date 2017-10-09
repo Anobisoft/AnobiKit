@@ -9,18 +9,6 @@
 #import "AKObject.h"
 #import <objc/runtime.h>
 
-@interface NSObject(NSSecureCoding) <NSSecureCoding>
-@end
-@implementation NSObject(NSSecureCoding)
-- (void)encodeWithCoder:(NSCoder *)aCoder { }
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    return [self init];
-}
-+ (BOOL)supportsSecureCoding {
-    return true;
-}
-@end
-
 @implementation AKObject {
     
 }
@@ -40,7 +28,7 @@ static NSDictionary <Class, NSArray<NSString *> *> *serializableProperties;
 
     NSMutableArray<NSString *> *serializablePropertiesM = [NSMutableArray new];
     unsigned int propertyCount = 0;
-    objc_property_t * properties = class_copyPropertyList(self, &propertyCount);
+    objc_property_t *properties = class_copyPropertyList(self, &propertyCount);
     for (unsigned int i = 0; i < propertyCount; ++i) {
         unsigned int attrCount = 0;
         objc_property_attribute_t *propertyAttributeList = property_copyAttributeList(properties[i], &attrCount);
@@ -66,26 +54,40 @@ static NSDictionary <Class, NSArray<NSString *> *> *serializableProperties;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    if (self = [super initWithCoder:aDecoder]) {
-        for (NSString *propertyKey in self.serializableProperties) {
-            [self setValue:[aDecoder decodeObjectForKey:propertyKey] forKey:propertyKey];
+    if (self = [super init]) {
+        Class superClass = [self class];
+        while (superClass != [AKObject class]) {
+            for (NSString *propertyKey in superClass.serializableProperties) {
+                [self setValue:[aDecoder decodeObjectForKey:propertyKey] forKey:propertyKey];
+            }
+            superClass = [superClass superclass];
         }
     }
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    [super encodeWithCoder:aCoder];
-    for (NSString *propertyKey in self.serializableProperties) {
-        [aCoder encodeObject:[self valueForKey:propertyKey] forKey:propertyKey];
+    Class superClass = [self class];
+    while (superClass != [AKObject class]) {
+        for (NSString *propertyKey in superClass.serializableProperties) {
+            [aCoder encodeObject:[self valueForKey:propertyKey] forKey:propertyKey];
+        }
+        superClass = [superClass superclass];
     }
 }
 
 - (NSString *)description {
     NSMutableDictionary *properties = [NSMutableDictionary new];
-    for (NSString *propertyKey in self.serializableProperties) {
-        [properties setValue:[self valueForKey:propertyKey] ?: @"nil" forKey:propertyKey];
+    
+    Class superClass = [self class];
+    while (superClass != [AKObject class]) {
+        for (NSString *propertyKey in superClass.serializableProperties) {
+            [properties setValue:[self valueForKey:propertyKey] ?: @"nil" forKey:propertyKey];
+        }
+        superClass = [superClass superclass];
     }
+    
+
     
     return [NSString stringWithFormat:@"%@ %@", [super description], properties.copy];
 }
