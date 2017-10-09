@@ -9,6 +9,18 @@
 #import "AKObject.h"
 #import <objc/runtime.h>
 
+@interface NSObject(NSSecureCoding) <NSSecureCoding>
+@end
+@implementation NSObject(NSSecureCoding)
+- (void)encodeWithCoder:(NSCoder *)aCoder { }
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    return [self init];
+}
++ (BOOL)supportsSecureCoding {
+    return true;
+}
+@end
+
 @implementation AKObject {
     
 }
@@ -38,7 +50,6 @@ static NSDictionary <Class, NSArray<NSString *> *> *serializableProperties;
         }
         if (j == attrCount) {
             NSString *propertyKey = [NSString stringWithUTF8String:property_getName(properties[i])];
-
             if ( !([self propertyExclusions] && [[self propertyExclusions] containsObject:propertyKey]) ) {
                 [serializablePropertiesM addObject:propertyKey];
             }
@@ -55,7 +66,7 @@ static NSDictionary <Class, NSArray<NSString *> *> *serializableProperties;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    if (self = [super init]) {
+    if (self = [super initWithCoder:aDecoder]) {
         for (NSString *propertyKey in self.serializableProperties) {
             [self setValue:[aDecoder decodeObjectForKey:propertyKey] forKey:propertyKey];
         }
@@ -64,6 +75,7 @@ static NSDictionary <Class, NSArray<NSString *> *> *serializableProperties;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
+    [super encodeWithCoder:aCoder];
     for (NSString *propertyKey in self.serializableProperties) {
         [aCoder encodeObject:[self valueForKey:propertyKey] forKey:propertyKey];
     }
