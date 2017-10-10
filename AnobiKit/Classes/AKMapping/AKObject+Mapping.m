@@ -100,7 +100,11 @@
                             [self setValue:newPropertyInstance forKey:propertyKey];
                         } else {
                             @try {
-                                [self setValue:obj forKey:propertyKey]; // try to set representation object to property as is (NSDictionary)
+                                if ([obj isKindOfClass:[NSNull class]]) { // try to set representation object to property as is (NSDictionary)
+                                    [self setValue:nil forKey:propertyKey];
+                                } else {
+                                    [self setValue:obj forKey:propertyKey];
+                                }
                             } @catch (NSException *exception) {
                                 NSLog(@"[ERROR] exception: %@", exception);
                             }
@@ -110,7 +114,11 @@
                     }
                 } else {
                     @try {
-                        [self setValue:obj forKey:propertyKey]; // try to set representation object to property as is (id)
+                        if ([obj isKindOfClass:[NSNull class]]) { // try to set representation object to property as is (id)
+                            [self setValue:nil forKey:propertyKey];
+                        } else {
+                            [self setValue:obj forKey:propertyKey];
+                        }
                     } @catch (NSException *exception) {
                         NSLog(@"[ERROR] exception: %@", exception);
                     }
