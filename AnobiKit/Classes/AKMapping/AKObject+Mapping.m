@@ -27,6 +27,8 @@
 - (instancetype)initWithExternalRepresentation:(NSDictionary *)representation objectMap:(AKObjectMap *)objectMap {
     if (self = [super init]) {
         [representation enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+            if (!obj) return ;
+            if ([obj isKindOfClass:[NSNull class]]) return ;
             NSString *propertyKey = key;
             AKPropertyMap *propertyMap = objectMap[key];
             if (propertyMap) propertyKey = propertyMap.propertyKey ?: key;
