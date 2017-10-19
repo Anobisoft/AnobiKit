@@ -136,7 +136,7 @@
     for (NSString *key in self.serializableProperties) {
         NSValue *value = [self valueForKey:key];
         if ([value respondsToSelector:@selector(keyedRepresentation)]) {
-            NSValue<AKObjectMapping> *valueRepresentation = value;
+            NSValue<AKObjectMapping> *valueRepresentation = (NSValue<AKObjectMapping> *)value;
             value = valueRepresentation.keyedRepresentation;
         } else {
             value = value.copy;

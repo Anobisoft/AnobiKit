@@ -1,5 +1,5 @@
 PODS:
-  - AnobiKit (0.1.5)
+  - AnobiKit (0.1.12)
 
 DEPENDENCIES:
   - AnobiKit (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  AnobiKit: b26b344161a20337e63a6b053bcaf98fa749edeb
+  AnobiKit: 0734916e2426031e1b74fbbd82758e0c4e47afd7
 
 PODFILE CHECKSUM: a824e41b2410d8218eb6d8b22704697880d58250
 
