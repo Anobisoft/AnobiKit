@@ -16,7 +16,7 @@
 }
 
 + (instancetype)instatiateWithExternalRepresentation:(NSDictionary *)representation {
-    return [self instatiateWithExternalRepresentation:representation objectMap:[self objectMap]];
+    return [self instatiateWithExternalRepresentation:representation objectMap:nil];
 }
 
 + (instancetype)instatiateWithExternalRepresentation:(NSDictionary *)representation objectMap:(AKObjectMap *)objectMap {
@@ -129,6 +129,21 @@
         }];
     }
     return self;
+}
+
+- (NSDictionary *)keyedRepresentation {
+    NSMutableDictionary *representation = [NSMutableDictionary new];
+    for (NSString *key in self.serializableProperties) {
+        NSValue *value = [self valueForKey:key];
+        if ([value respondsToSelector:@selector(keyedRepresentation)]) {
+            NSValue<AKObjectMapping> *valueRepresentation = value;
+            value = valueRepresentation.keyedRepresentation;
+        } else {
+            value = value.copy;
+        }
+        [representation setValue:value forKey:key];
+    }
+    return representation.copy;
 }
 
 @end
