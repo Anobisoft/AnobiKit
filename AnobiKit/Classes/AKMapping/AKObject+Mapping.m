@@ -134,9 +134,9 @@
 - (NSDictionary *)keyedRepresentation {
     NSMutableDictionary *representation = [NSMutableDictionary new];
     for (NSString *key in self.serializableProperties) {
-        NSValue *value = [self valueForKey:key];
-        if ([value respondsToSelector:@selector(keyedRepresentation)]) {
-            NSValue<AKObjectMapping> *valueRepresentation = (NSValue<AKObjectMapping> *)value;
+        NSObject *value = [self valueForKey:key];
+        if ([value conformsToProtocol:@protocol(AKObjectReverseMapping)]) {
+            id<AKObjectReverseMapping> valueRepresentation = (id<AKObjectReverseMapping>)value;
             value = valueRepresentation.keyedRepresentation;
         } else {
             value = value.copy;

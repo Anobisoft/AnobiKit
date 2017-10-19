@@ -18,8 +18,11 @@
 + (AKObjectMap *)objectMap;
 @optional
 + (instancetype)instatiateWithExternalRepresentation:(NSDictionary *)representation;
-- (NSDictionary *)keyedRepresentation;
+@end
 
+@protocol AKObjectReverseMapping <NSObject>
+@required
+- (NSDictionary *)keyedRepresentation;
 @end
 
 #import <AnobiKit/AKPropertyMap.h>

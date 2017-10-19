@@ -148,7 +148,7 @@ static NSDictionary <Class, NSArray<NSString *> *> *serializableProperties;
 - (instancetype)copy {
     id newinstance = [self.class new];
     for (NSString *key in self.serializableProperties) {
-        NSValue *value = [self valueForKey:key];
+        NSObject *value = [self valueForKey:key];
 		[newinstance setValue:value.copy forKey:key];
     }
     return newinstance;
