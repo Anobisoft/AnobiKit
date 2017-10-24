@@ -1,15 +1,15 @@
 //
-//  AKObject+Mapping.m
+//  AKMappedObject.m
 //  AnobiKit
 //
 //  Created by Stanislav Pletnev on 29.09.17.
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 
-#import "AKObject+Mapping.h"
+#import "AKMappedObject.h"
 @import ObjectiveC.runtime;
 
-@implementation AKObject(Mapping)
+@implementation AKMappedObject
 
 + (AKObjectMap *)objectMap {
     return nil;

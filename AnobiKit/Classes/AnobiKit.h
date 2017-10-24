@@ -19,7 +19,7 @@
 #import <AnobiKit/AKSoundPlayer.h>
 #import <AnobiKit/NSString+AnobiKit.h>
 #import <AnobiKit/AKObject.h>
-#import <AnobiKit/AKObject+Mapping.h>
+#import <AnobiKit/AKMappedObject.h>
 #import <AnobiKit/AKSingleton.h>
 #import <AnobiKit/AKReachability.h>
 

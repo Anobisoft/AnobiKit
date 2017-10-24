@@ -1,5 +1,5 @@
 //
-//  AKObject+Mapping.h
+//  AKMappedObject.h
 //  AnobiKit
 //
 //  Created by Stanislav Pletnev on 29.09.17.
@@ -9,7 +9,7 @@
 #import <AnobiKit/AKObject.h>
 #import <AnobiKit/AKObjectMapping.h>
 
-@interface AKObject(Mapping) <AKObjectMapping, AKObjectReverseMapping>
+@interface AKMappedObject : AKObject <AKObjectMapping, AKObjectReverseMapping>
 
 
 
