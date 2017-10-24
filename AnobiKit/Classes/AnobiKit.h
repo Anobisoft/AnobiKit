@@ -21,5 +21,5 @@
 #import <AnobiKit/AKObject.h>
 #import <AnobiKit/AKObject+Mapping.h>
 #import <AnobiKit/AKSingleton.h>
-#import <AnobiKit/Reachability.h>
+#import <AnobiKit/AKReachability.h>
 

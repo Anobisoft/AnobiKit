@@ -9,7 +9,7 @@
 #import <AnobiKit/AKObject.h>
 #import <AnobiKit/AKObjectMapping.h>
 
-@interface AKObject (Mapping) <AKObjectMapping, AKObjectReverseMapping>
+@interface AKObject(Mapping) <AKObjectMapping, AKObjectReverseMapping>
 
 
 

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AKTypes.h"
+#import <AnobiKit/AKTypes.h>
 
 @interface NSURL (AnobiKit)
 
