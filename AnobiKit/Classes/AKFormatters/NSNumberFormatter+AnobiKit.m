@@ -19,26 +19,36 @@
     return defaultFormatter;
 }
 
-- (NSString *)currencyStyleStringFromNumber:(NSNumber *)num currencyCode:(NSString *)cc {
-    self.numberStyle = NSNumberFormatterCurrencyStyle;
-    if (cc) self.currencyCode = cc;
-    else self.currencySymbol = @"";
-    return [self stringFromNumber:num];
++ (instancetype)currencyStyleWithCode:(NSString *)currencyCode {
+    static NSMutableDictionary<NSString *, NSNumberFormatter *> *instancesByCurrencyCode;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instancesByCurrencyCode = [NSMutableDictionary new];
+    });
+    NSNumberFormatter *formatter = instancesByCurrencyCode[currencyCode ?: @""];
+    if (!formatter) {
+        formatter = [NSNumberFormatter new];
+        formatter.numberStyle = NSNumberFormatterCurrencyStyle;
+        if (currencyCode) formatter.currencyCode = currencyCode;
+        else formatter.currencySymbol = @"";
+    }
+    return formatter;
 }
 
-- (NSString *)currencyStyleStringFromNumber:(NSNumber *)num currencyCode:(NSString *)cc precision:(NSUInteger)p {
++ (instancetype)percentStyle {
+    static NSNumberFormatter *percentStyleFormatter;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        percentStyleFormatter = [NSNumberFormatter new];
+        percentStyleFormatter.numberStyle = NSNumberFormatterPercentStyle;
+    });
+    return percentStyleFormatter;
+}
+
+- (NSString *)stringFromNumber:(NSNumber *)number withPrecision:(NSUInteger)p {
     self.maximumFractionDigits = p;
-    return [self currencyStyleStringFromNumber:num currencyCode:cc];
+    return [self stringFromNumber:number];
 }
 
-- (NSString *)stringFromNumber:(NSNumber *)num numberStyle:(NSNumberFormatterStyle)nstyle precision:(NSUInteger)p {
-    self.maximumFractionDigits = p;
-    return [self stringFromNumber:num numberStyle:nstyle];
-}
-
-- (NSString *)stringFromNumber:(NSNumber *)num numberStyle:(NSNumberFormatterStyle)nstyle {
-    self.numberStyle = nstyle;
-    return [self stringFromNumber:num];
-}
 
 @end

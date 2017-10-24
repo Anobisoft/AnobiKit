@@ -11,10 +11,8 @@
 @interface NSNumberFormatter (AnobiKit)
 
 + (instancetype)defaultFormatter;
-- (NSString *)stringFromNumber:(NSNumber *)num numberStyle:(NSNumberFormatterStyle)nstyle;
-- (NSString *)stringFromNumber:(NSNumber *)num numberStyle:(NSNumberFormatterStyle)nstyle precision:(NSUInteger)p;
-- (NSString *)currencyStyleStringFromNumber:(NSNumber *)num currencyCode:(NSString *)cc;
-- (NSString *)currencyStyleStringFromNumber:(NSNumber *)num currencyCode:(NSString *)cc precision:(NSUInteger)p;
-
++ (instancetype)currencyStyleWithCode:(NSString *)currencyCode;
++ (instancetype)percentStyle;
+- (NSString *)stringFromNumber:(NSNumber *)number withPrecision:(NSUInteger)p;
 
 @end
