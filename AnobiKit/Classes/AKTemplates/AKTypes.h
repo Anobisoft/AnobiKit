@@ -24,7 +24,7 @@ typedef id (^AKFunction)(id);
 
 @end
 
-@protocol DisableStdInstantiating <NSObject>
+@protocol DisableNSInit <NSObject>
 
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)init NS_UNAVAILABLE;
