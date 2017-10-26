@@ -9,24 +9,16 @@
 #import "AKObject.h"
 #import <objc/runtime.h>
 
-@protocol AKObjectDeepcopy
-- (instancetype)deepcopy;
-@end
-
-@interface NSArray(Deepcopy) <AKObjectDeepcopy>
-@end
-
-@interface NSDictionary(Deepcopy) <AKObjectDeepcopy>
-@end
-
-@implementation NSArray(Deepcopy)
+@implementation NSArray(AKDeepCopying)
 
 - (instancetype)deepcopy {
     NSMutableArray *mutable = [NSMutableArray new];
-    for (NSObject *object in self) {
-        if ([object conformsToProtocol:@protocol(AKObjectDeepcopy)]) {
-            [mutable addObject:((id<AKObjectDeepcopy>)object).deepcopy];
+    for (id value in self) {
+        if ([value conformsToProtocol:@protocol(AKDeepCopying)]) {
+            id<AKDeepCopying> object = value;
+            [mutable addObject:object.deepcopy];
         } else {
+            NSObject *object = value;
             [mutable addObject:object.copy];
         }
     }
@@ -35,15 +27,18 @@
 
 @end
 
-@implementation NSDictionary(Deepcopy)
+@implementation NSDictionary(AKDeepCopying) 
 
 - (instancetype)deepcopy {
     NSMutableDictionary *mutable = [NSMutableDictionary new];
     for (NSObject<NSCopying> *key in self.allKeys) {
-        if ([self[key] conformsToProtocol:@protocol(AKObjectDeepcopy)]) {
-            [mutable setObject:((id<AKObjectDeepcopy>)self[key]).deepcopy forKey:key];
+        id value = self[key];
+        if ([value conformsToProtocol:@protocol(AKDeepCopying)]) {
+            id<AKDeepCopying> object = value;
+            [mutable setObject:object.deepcopy forKey:key];
         } else {
-            [mutable setObject:((NSObject *)self[key]).copy forKey:key];
+            NSObject *object = value;
+            [mutable setObject:object.copy forKey:key];
         }
     }
     return mutable.copy;
@@ -192,8 +187,19 @@ static NSDictionary <Class, NSArray<NSString *> *> *serializableProperties;
     id newinstance = [self.class new];
     for (NSString *key in self.serializableProperties) {
         id value = [self valueForKey:key];
-        if ([value conformsToProtocol:@protocol(AKObjectDeepcopy)]) {
-            [newinstance setValue:((id<AKObjectDeepcopy>)value).deepcopy forKey:key];
+        NSObject *object = value;
+        [newinstance setValue:object.copy forKey:key];
+    }
+    return newinstance;
+}
+
+- (instancetype)deepcopy {
+    id newinstance = [self.class new];
+    for (NSString *key in self.serializableProperties) {
+        id value = [self valueForKey:key];
+        if ([value conformsToProtocol:@protocol(AKDeepCopying)]) {
+            id<AKDeepCopying> deepCopyingReadyObject = value;
+            [newinstance setValue:deepCopyingReadyObject.deepcopy forKey:key];
         } else {
             NSObject *object = value;
             [newinstance setValue:object.copy forKey:key];

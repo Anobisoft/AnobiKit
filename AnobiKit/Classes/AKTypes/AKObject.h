@@ -8,7 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AKObject : NSObject <NSSecureCoding>
+@protocol AKDeepCopying
+- (instancetype)deepcopy;
+@end
+
+@interface NSArray(AKDeepCopying) <AKDeepCopying>
+@end
+
+@interface NSDictionary(AKDeepCopying) <AKDeepCopying>
+@end
+
+@interface AKObject : NSObject <NSSecureCoding, AKDeepCopying>
 
 + (NSSet<NSString *> *)propertyExclusions;
 + (NSArray<NSString *> *)serializableProperties;
