@@ -18,13 +18,21 @@ typedef enum : NSInteger {
 	AKRStatusReachableViaWWAN
 } AKReachabilityStatus;
 
+@class AKReachability;
+
+@protocol AKReachabilityDelegate
+@required
+- (void)reachability:(AKReachability *)reachability didChangeStatus:(AKReachabilityStatus)status;
+@end
+
 @interface AKReachability : NSObject <DisableStdInstantiating>
 
-+ (instancetype)reachabilityWithHostName:(NSString *)hostName;
++ (instancetype)reachabilityWithHostname:(NSString *)hostname;
 + (instancetype)reachabilityWithAddress:(const struct sockaddr *)hostAddress;
 + (instancetype)reachabilityForInternetConnection;
 
 @property (readonly) AKReachabilityStatus currentStatus;
+@property (weak, nonatomic) id<AKReachabilityDelegate> delegate;
 
 @end
 
