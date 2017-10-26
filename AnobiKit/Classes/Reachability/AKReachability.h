@@ -25,7 +25,7 @@ typedef enum : NSInteger {
 - (void)reachability:(AKReachability *)reachability didChangeStatus:(AKReachabilityStatus)status;
 @end
 
-@interface AKReachability : NSObject <DisableStdInstantiating>
+@interface AKReachability : NSObject <DisableNSInit>
 
 + (instancetype)reachabilityWithHostname:(NSString *)hostname;
 + (instancetype)reachabilityWithAddress:(const struct sockaddr *)hostAddress;

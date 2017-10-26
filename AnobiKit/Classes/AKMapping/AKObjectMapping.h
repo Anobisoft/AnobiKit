@@ -26,3 +26,4 @@
 @end
 
 #import <AnobiKit/AKPropertyMap.h>
+#import <AnobiKit/AKMappedObject.h>

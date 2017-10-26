@@ -7,9 +7,11 @@
 //
 
 #import <AnobiKit/AKTypes.h>
+#import <AnobiKit/AKObjectMapping.h>
 #import <AnobiKit/AKConfig.h>
+#import <AnobiKit/AKReachability.h>
 #import <AnobiKit/NSBundle+AnobiKit.h>
-#import <AnobiKit/NSUUID+AnobiKit.h>
+#import <AnobiKit/AKUUID.h>
 #import <AnobiKit/NSManagedObjectContext+AnobiKit.h>
 #import <AnobiKit/NSCalendar+AnobiKit.h>
 #import <AnobiKit/NSDate+AnobiKit.h>
@@ -18,8 +20,5 @@
 #import <AnobiKit/AKSound.h>
 #import <AnobiKit/AKSoundPlayer.h>
 #import <AnobiKit/NSString+AnobiKit.h>
-#import <AnobiKit/AKObject.h>
-#import <AnobiKit/AKMappedObject.h>
-#import <AnobiKit/AKSingleton.h>
-#import <AnobiKit/AKReachability.h>
+
 

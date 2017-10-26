@@ -6,7 +6,7 @@
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 
-#import "NSUUID+AnobiKit.h"
+#import "AKUUID.h"
 
 @implementation NSUUID (AnobiKit)
 

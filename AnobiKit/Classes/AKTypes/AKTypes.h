@@ -6,15 +6,15 @@
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 
+#import <AnobiKit/AKObject.h>
+#import <AnobiKit/AKSingleton.h>
+
 #ifndef AKTypes_h
 #define AKTypes_h
 
 typedef void (^AKProcedure)(id);
 typedef void (^AKBlock)(void);
 typedef id (^AKFunction)(id);
-
-#import "AKObject.h"
-#import "AKSingleton.h"
 
 @protocol Abstract <NSObject>
 

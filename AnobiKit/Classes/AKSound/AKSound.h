@@ -10,7 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "AKTypes.h"
 
-@interface AKSound : NSObject <DisableStdInstantiating>
+@interface AKSound : NSObject <DisableNSInit>
 
 + (instancetype)soundWithName:(NSString *)name;
 
