@@ -99,19 +99,21 @@
 
 @synthesize delegate = _delegate;
 - (void)setDelegate:(id<AKReachabilityDelegate>)delegate {
-    if (_delegate != delegate) {
-        if (_delegate && _reachabilityRef) {
-            SCNetworkReachabilityUnscheduleFromRunLoop(_reachabilityRef, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
-        }
-        if (delegate) {
+    if (delegate) {
+        if (!_delegate) {
             SCNetworkReachabilityContext context = {0, (__bridge void *)(self), NULL, NULL, NULL};
             if (SCNetworkReachabilitySetCallback(_reachabilityRef, AKReachabilityCallback, &context)) {
                 if (SCNetworkReachabilityScheduleWithRunLoop(_reachabilityRef, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode)) {
                     _delegate = delegate;
                 }
             }
+        } else {
+            _delegate = delegate;
         }
+    } else {
+        if (_reachabilityRef) SCNetworkReachabilityUnscheduleFromRunLoop(_reachabilityRef, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
     }
+
 }
 
 static void AKReachabilityCallback(__unused SCNetworkReachabilityRef target, SCNetworkReachabilityFlags flags, void* info) {
