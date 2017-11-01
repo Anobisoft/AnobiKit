@@ -55,7 +55,7 @@
                     } else {
                         [self try2setObject:obj forKey:propertyKey]; // try to set representation object to property as is (JSON object representation)
                     }
-                    free(property);
+//                    free(property);
                 } else {
                     NSLog(@"[WARNING] Representation keyed '%@' skipped: setter not found.", propertyKey);
                 }
