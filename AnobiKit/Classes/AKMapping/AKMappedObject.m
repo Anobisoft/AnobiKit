@@ -116,13 +116,32 @@
     }
 }
 
+id AKObjectReverseMappingRepresentation(id object) {
+    if ([object conformsToProtocol:@protocol(AKObjectReverseMapping)]) {
+        return ((id<AKObjectReverseMapping>)object).keyedRepresentation;
+    }
+    return object;
+}
+
 - (NSDictionary *)keyedRepresentation {
     NSMutableDictionary *representation = [NSMutableDictionary new];
     for (NSString *key in self.serializableProperties) {
         NSObject *value = [self valueForKey:key];
-        if ([value conformsToProtocol:@protocol(AKObjectReverseMapping)]) {
-            id<AKObjectReverseMapping> valueRepresentation = (id<AKObjectReverseMapping>)value;
-            value = valueRepresentation.keyedRepresentation;
+        value = AKObjectReverseMappingRepresentation(value);
+        if ([value isKindOfClass:[NSDictionary class]]) {
+            NSDictionary *origin = (NSDictionary *)value;
+            NSMutableDictionary *mutable = [NSMutableDictionary new];            
+            [origin enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+                mutable[key] = AKObjectReverseMappingRepresentation(obj);
+            }];
+            value = mutable.copy;
+        } else if ([value conformsToProtocol:@protocol(NSFastEnumeration)]) {
+            NSMutableArray *mutable = [NSMutableArray new];
+            id<NSFastEnumeration> enumeratable = (id<NSFastEnumeration>)value;
+            for (id item in enumeratable) {
+                [mutable addObject:AKObjectReverseMappingRepresentation(item)];
+            }
+            value = mutable.copy;
         } else {
             value = value.copy;
         }

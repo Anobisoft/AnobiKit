@@ -12,15 +12,16 @@
 - (instancetype)deepcopy;
 @end
 
+@interface NSDictionary(AKDeepCopying) <AKDeepCopying>
+@end
 @interface NSArray(AKDeepCopying) <AKDeepCopying>
 @end
-
-@interface NSDictionary(AKDeepCopying) <AKDeepCopying>
+@interface NSSet(AKDeepCopying) <AKDeepCopying>
 @end
 
 @interface AKObject : NSObject <NSSecureCoding, AKDeepCopying>
 
-+ (NSSet<NSString *> *)propertyExclusions;
++ (NSArray<NSString *> *)propertyExclusions;
 + (NSArray<NSString *> *)serializableProperties;
 - (NSArray<NSString *> *)serializableProperties;
 
