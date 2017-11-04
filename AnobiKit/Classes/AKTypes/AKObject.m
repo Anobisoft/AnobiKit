@@ -50,7 +50,7 @@ id AKDeepCopy(id object) {
 @implementation NSSet(AKDeepCopying)
 
 - (instancetype)deepcopy {
-    NSMutableArray *mutable = [NSMutableArray new];
+    NSMutableSet *mutable = [NSMutableSet new];
     for (id obj in self) {
         [mutable addObject:AKDeepCopy(obj)];
     }
