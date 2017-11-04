@@ -103,49 +103,40 @@ static NSDictionary <Class, NSArray<NSString *> *> *serializableProperties;
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super init]) {
-        Class superClass = [self class];
-        while (superClass != [AKObject class]) {
-            for (NSString *propertyKey in superClass.serializableProperties) {
-                [self setValue:[aDecoder decodeObjectForKey:propertyKey] forKey:propertyKey];
-            }
-            superClass = [superClass superclass];
+        for (NSString *propertyKey in self.serializableProperties) {
+            [self setValue:[aDecoder decodeObjectForKey:propertyKey] forKey:propertyKey];
         }
     }
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    Class superClass = [self class];
-    while (superClass != [AKObject class]) {
-        for (NSString *propertyKey in superClass.serializableProperties) {
-            [aCoder encodeObject:[self valueForKey:propertyKey] forKey:propertyKey];
-        }
-        superClass = [superClass superclass];
+    for (NSString *propertyKey in self.serializableProperties) {
+        [aCoder encodeObject:[self valueForKey:propertyKey] forKey:propertyKey];
     }
 }
 
 - (NSString *)description {
     NSMutableDictionary *properties = [NSMutableDictionary new];
     
-    Class superClass = [self class];
-    while (superClass != [AKObject class]) {
-        for (NSString *propertyKey in superClass.serializableProperties) {
-            [properties setValue:[self valueForKey:propertyKey] ?: @"nil" forKey:propertyKey];
-        }
-        superClass = [superClass superclass];
+    for (NSString *propertyKey in self.serializableProperties) {
+        properties[propertyKey] = [self valueForKey:propertyKey] ?: @"nil";
     }
-    
-
     
     return [NSString stringWithFormat:@"%@ %@", [super description], properties.copy];
 }
 
 - (NSArray<NSString *> *)serializableProperties {
-    return serializableProperties[self.class];
+    return self.class.serializableProperties;
 }
 
 + (NSArray<NSString *> *)serializableProperties {
-    return serializableProperties[self];
+    Class superclass = [self superclass];
+    if (superclass == [AKObject class]) {
+        return serializableProperties[self];
+    } else {
+        return [serializableProperties[self] arrayByAddingObjectsFromArray:superclass.serializableProperties];
+    }
 }
 
 - (BOOL)isEqual:(id)object {
