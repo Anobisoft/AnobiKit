@@ -1,5 +1,5 @@
 //
-//  NSUUID+AnobiKit.m
+//  AKUUID.m
 //  AnobiKit
 //
 //  Created by Stanislav Pletnev on 20.01.17.
@@ -8,7 +8,7 @@
 
 #import "AKUUID.h"
 
-@implementation NSUUID (AnobiKit)
+@implementation AKUUID
 
 - (NSData *)data {
     uuid_t bytes;
@@ -30,8 +30,8 @@
 
 @implementation NSData (AnobiKit)
 
-- (NSUUID *)UUID {
-    return [NSUUID UUIDWithData:self];
+- (AKUUID *)UUID {
+    return [AKUUID UUIDWithData:self];
 }
 
 - (NSString *)UUIDString {

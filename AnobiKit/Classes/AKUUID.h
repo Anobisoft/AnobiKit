@@ -1,5 +1,5 @@
 //
-//  NSUUID+AnobiKit.h
+//  AKUUID.h
 //  AnobiKit
 //
 //  Created by Stanislav Pletnev on 20.01.17.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSUUID (AnobiKit)
+@interface AKUUID : NSUUID
 
 - (NSData *)data;
 + (instancetype)UUIDWithData:(NSData *)data;
@@ -18,7 +18,7 @@
 
 @interface NSData (AnobiKit)
 
-- (NSUUID *)UUID;
+- (AKUUID *)UUID;
 - (NSString *)UUIDString;
 
 @end
