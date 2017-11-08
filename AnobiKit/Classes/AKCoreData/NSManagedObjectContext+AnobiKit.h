@@ -14,21 +14,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSManagedObject *)insertTo:(NSString *)entityName;
 
-- (NSArray *)selectFrom:(NSString *)entity;
-- (NSArray *)selectFrom:(NSString *)entity limit:(NSUInteger)limit;
-- (NSArray *)selectFrom:(NSString *)entity
+- (NSArray *)selectFrom:(NSString *)entityName;
+- (NSArray *)selectFrom:(NSString *)entityName limit:(NSUInteger)limit;
+- (NSArray *)selectFrom:(NSString *)entityName
                 orderBy:(nullable NSArray <NSSortDescriptor *> *)sortDescriptors;
-- (NSArray *)selectFrom:(NSString *)entity
+- (NSArray *)selectFrom:(NSString *)entityName
                 orderBy:(nullable NSArray <NSSortDescriptor *> *)sortDescriptors limit:(NSUInteger)limit;
 
-- (NSArray *)selectFrom:(NSString *)entity
+- (NSArray *)selectFrom:(NSString *)entityName
                   where:(nullable NSPredicate *)clause;
-- (NSArray *)selectFrom:(NSString *)entity
+- (NSArray *)selectFrom:(NSString *)entityName
                   where:(nullable NSPredicate *)clause limit:(NSUInteger)limit;
-- (NSArray *)selectFrom:(NSString *)entity
+- (NSArray *)selectFrom:(NSString *)entityName
                   where:(nullable NSPredicate *)clause
                 orderBy:(nullable NSArray <NSSortDescriptor *> *)sortDescriptors;
-- (NSArray *)selectFrom:(NSString *)entity
+- (NSArray *)selectFrom:(NSString *)entityName
                   where:(nullable NSPredicate *)clause
                 orderBy:(nullable NSArray <NSSortDescriptor *> *)sortDescriptors limit:(NSUInteger)limit;
 

@@ -47,7 +47,7 @@
                   where:(NSPredicate *)clause
                 orderBy:(nullable NSArray <NSSortDescriptor *> *)sortDescriptors
                   limit:(NSUInteger)limit {
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:entity];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entity];
     request.predicate = clause;
     [request setSortDescriptors:sortDescriptors];
     [request setFetchLimit:limit];
