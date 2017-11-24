@@ -17,6 +17,7 @@ typedef void (^PlacemarkFetchBlock)(AKPlacemarkDetector *detector, NSArray<CLPla
 
 @implementation AKPlacemarkDetector {
     PlacemarkFetchBlock _fetchBlock;
+    CLLocationManager *locationManager;
 }
 
 + (instancetype)detectorWithFetchBlock:(PlacemarkFetchBlock)fetchBlock {
@@ -25,7 +26,10 @@ typedef void (^PlacemarkFetchBlock)(AKPlacemarkDetector *detector, NSArray<CLPla
 
 - (instancetype)initWithFetchBlock:(PlacemarkFetchBlock)fetchBlock {
     if (fetchBlock && (self = [super init])) {
-        CLLocationManager *locationManager = [CLLocationManager new];
+        locationManager = [CLLocationManager new];
+        if ([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+            [locationManager requestWhenInUseAuthorization];
+        }
         locationManager.delegate = self;
         locationManager.distanceFilter = kCLDistanceFilterNone;
         locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
