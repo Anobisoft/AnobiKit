@@ -12,9 +12,9 @@
 #ifndef AKTypes_h
 #define AKTypes_h
 
-typedef void (^AKProcedure)(id);
+typedef void (^AKProcedure)(id object);
 typedef void (^AKBlock)(void);
-typedef id (^AKFunction)(id);
+typedef id (^AKFunction)(id object);
 
 @protocol Abstract <NSObject>
 
