@@ -10,7 +10,6 @@
 
 @interface NSNumberFormatter (AnobiKit)
 
-+ (instancetype)defaultFormatter;
 + (instancetype)currencyStyleWithCode:(NSString *)currencyCode;
 + (instancetype)percentStyle;
 - (NSString *)stringFromNumber:(NSNumber *)number withPrecision:(NSUInteger)p;

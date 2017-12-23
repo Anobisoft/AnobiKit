@@ -24,9 +24,8 @@
 
 @interface NSDate (DateFormatter)
 
-- (NSString *)stringForLog;
-- (NSString *)localizedStringWithTimeZone:(NSTimeZone *)timeZone dateStyle:(NSDateFormatterStyle)dstyle timeStyle:(NSDateFormatterStyle)tstyle;
-
+- (NSString *)localizedStringWithDateStyle:(NSDateFormatterStyle)dstyle timeStyle:(NSDateFormatterStyle)tstyle;
+- (NSString *)localizedStringWithDateStyle:(NSDateFormatterStyle)dstyle timeStyle:(NSDateFormatterStyle)tstyle timeZone:(NSTimeZone *)timeZone;
 
 @end
 

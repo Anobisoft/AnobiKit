@@ -48,37 +48,27 @@
 }
 
 - (NSDate *)CCDayStartWithTimeZone:(NSTimeZone *)timeZone {
-    static NSCalendar *cachedCalendar = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        cachedCalendar = [NSCalendar currentCalendar]; //static local copy
-    });
-    cachedCalendar.timeZone = timeZone;
-    return [cachedCalendar startOfDayForDate:self];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    calendar.timeZone = timeZone;
+    return [calendar startOfDayForDate:self];
 }
 
 @end
 
 @implementation NSDate (DateFormatter)
 
-- (NSString *)stringForLog {
-    return [NSDateFormatter localizedStringFromDate:self
-                                          dateStyle:NSDateFormatterMediumStyle
-                                          timeStyle:NSDateFormatterShortStyle];
+- (NSString *)localizedStringWithDateStyle:(NSDateFormatterStyle)dstyle
+                                 timeStyle:(NSDateFormatterStyle)tstyle {
+    return [NSDateFormatter localizedStringFromDate:self dateStyle:dstyle timeStyle:tstyle];
 }
-
-- (NSString *)localizedStringWithTimeZone:(NSTimeZone *)timeZone
-                                dateStyle:(NSDateFormatterStyle)dstyle
-                                timeStyle:(NSDateFormatterStyle)tstyle {
-    static NSDateFormatter *cachedFormatter = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        cachedFormatter = [NSDateFormatter new];
-    });
-    cachedFormatter.timeZone = timeZone;
-    cachedFormatter.dateStyle = dstyle;
-    cachedFormatter.timeStyle = tstyle;
-    return [cachedFormatter stringFromDate:self];
+- (NSString *)localizedStringWithDateStyle:(NSDateFormatterStyle)dstyle
+                                 timeStyle:(NSDateFormatterStyle)tstyle
+                                  timeZone:(NSTimeZone *)timeZone {
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    formatter.dateStyle = dstyle;
+    formatter.timeStyle = tstyle;
+    formatter.timeZone = timeZone;
+    return [formatter stringFromDate:self];
 }
 
 @end

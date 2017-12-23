@@ -10,39 +10,18 @@
 
 @implementation NSNumberFormatter (AnobiKit)
 
-+ (instancetype)defaultFormatter {
-    static id defaultFormatter = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        defaultFormatter = [NSNumberFormatter new];
-    });
-    return defaultFormatter;
-}
-
 + (instancetype)currencyStyleWithCode:(NSString *)currencyCode {
-    static NSMutableDictionary<NSString *, NSNumberFormatter *> *instancesByCurrencyCode;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        instancesByCurrencyCode = [NSMutableDictionary new];
-    });
-    NSNumberFormatter *formatter = instancesByCurrencyCode[currencyCode ?: @""];
-    if (!formatter) {
-        formatter = [NSNumberFormatter new];
-        formatter.numberStyle = NSNumberFormatterCurrencyStyle;
-        if (currencyCode) formatter.currencyCode = currencyCode;
-        else formatter.currencySymbol = @"";
-    }
+    NSNumberFormatter *formatter = [NSNumberFormatter new];
+    formatter.numberStyle = NSNumberFormatterCurrencyStyle;
+    if (currencyCode) formatter.currencyCode = currencyCode;
+    else formatter.currencySymbol = @"";
     return formatter;
 }
 
 + (instancetype)percentStyle {
-    static NSNumberFormatter *percentStyleFormatter;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        percentStyleFormatter = [NSNumberFormatter new];
-        percentStyleFormatter.numberStyle = NSNumberFormatterPercentStyle;
-    });
-    return percentStyleFormatter;
+    NSNumberFormatter *formatter = [NSNumberFormatter new];
+    formatter.numberStyle = NSNumberFormatterPercentStyle;
+    return formatter;
 }
 
 - (NSString *)stringFromNumber:(NSNumber *)number withPrecision:(NSUInteger)p {
