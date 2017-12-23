@@ -18,5 +18,6 @@
 - (void)stop;
 - (void)pause;
 - (void)loop;
+- (void)loop:(NSInteger)l;
 
 @end
