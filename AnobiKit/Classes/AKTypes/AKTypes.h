@@ -6,15 +6,11 @@
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 
-#import <AnobiKit/AKObject.h>
+#import <AnobiKit/AKCodableObject.h>
 #import <AnobiKit/AKSingleton.h>
 
 #ifndef AKTypes_h
 #define AKTypes_h
-
-typedef void (^AKProcedure)(id object);
-typedef void (^AKBlock)(void);
-typedef id (^AKFunction)(id object);
 
 @protocol Abstract <NSObject>
 
@@ -46,7 +42,5 @@ typedef id (^AKFunction)(id object);
 @protocol MutableIndexedSubscript <IndexedSubscript>
 - (void)setObject:(__kindof NSObject *)obj forIndexedSubscript:(NSUInteger)idx;
 @end
-
-
 
 #endif /* AKTypes_h */

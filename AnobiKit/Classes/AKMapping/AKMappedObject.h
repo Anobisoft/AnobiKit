@@ -6,10 +6,10 @@
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 
-#import <AnobiKit/AKObject.h>
+#import <AnobiKit/AKCodableObject.h>
 #import <AnobiKit/AKObjectMapping.h>
 
-@interface AKMappedObject : AKObject <AKObjectMapping, AKObjectReverseMapping>
+@interface AKMappedObject : AKCodableObject <AKObjectMapping, AKObjectReverseMapping>
 
 
 

@@ -48,14 +48,13 @@
             } else {  //automap
                 objc_property_t property = class_getProperty(object_getClass(self), [propertyKey UTF8String]);
                 if (property) {
-                    Class propertyClass = [self classOfProperty:property];
+                    Class propertyClass = property_getClass(property);
                     if (propertyClass && [propertyClass conformsToProtocol:@protocol(AKObjectMapping)]) {
                         id newPropertyInstance = [propertyClass instatiateWithExternalRepresentation:obj objectMap:propertyMap.objectMap];
                         [self setValue:newPropertyInstance forKey:propertyKey];
                     } else {
                         [self try2setObject:obj forKey:propertyKey]; // try to set representation object to property as is (JSON object representation)
                     }
-//                    free(property);
                 } else {
                     NSLog(@"[WARNING] Representation keyed '%@' skipped: setter not found.", propertyKey);
                 }
@@ -65,42 +64,25 @@
     return self;
 }
 
-- (Class)classOfProperty:(objc_property_t)property {
+Class property_getClass(objc_property_t property) {
     char *type = property_copyAttributeValue(property, "T");
     unsigned long len = strlen(type);
-    switch (type[0]) {
-        case '@': {
-            if (len > 3) {
-                unsigned long classstrlen;
-                for (classstrlen = 0; (classstrlen < len && type[classstrlen] != '<') ; classstrlen++) ;
-                classstrlen -= classstrlen == len ? 3 : 2;
-                if (classstrlen > 0) {
-                    char objtypestr[classstrlen+1];
-                    memcpy(objtypestr, type+2, classstrlen);
-                    objtypestr[classstrlen] = '\0';
-                    NSString *className = [NSString stringWithUTF8String:objtypestr];
-                    return NSClassFromString(className);
-                    //*/
-                    /*
-                    Class propertyClass = NSClassFromString(className);
-                    NSLog(@"[DEBUG] /AUTOMAP/ @property %@ %@ / Class %@ founded", className, propertyKey, propertyClass ?: @"not");
-                    return propertyClass;
-                    //*/
-                }
-            } /*else {
-                NSLog(@"[DEBUG] /AUTOMAP/ @property id %@", propertyKey);
-            } //*/
-        } break;
-        /*
-        case '*':
-        case '^':
-        case '{': {
-            NSLog(@"[ERROR] /AUTOMAP/ @property %s %@ / class '%@' is not KVC-compliant for the key '%@'", type, propertyKey, self.class, propertyKey);
-        } break;
-        default:
-            NSLog(@"[DEBUG] /AUTOMAP/ @property %s %@", type, propertyKey);
-            break; //*/
+    if (type[0] == '@' && len > 3) {
+        unsigned long classstrlen;
+        for (classstrlen = 0; ; classstrlen++) {
+            char l = type[classstrlen+2];
+            if (l == '"' || l == '<') break;
+        }
+        if (classstrlen > 0) {
+            char objtypestr[classstrlen+1];
+            memcpy(objtypestr, type+2, classstrlen);
+            objtypestr[classstrlen] = '\0';
+            NSString *className = [NSString stringWithUTF8String:objtypestr];
+            free(type);
+            return NSClassFromString(className);
+        }
     }
+    free(type);
     return nil;
 }
 
@@ -125,29 +107,27 @@ id AKObjectReverseMappingRepresentation(id object) {
 
 - (NSDictionary *)keyedRepresentation {
     NSMutableDictionary *representation = [NSMutableDictionary new];
-    for (NSString *key in self.serializableProperties) {
+    for (NSString *key in self.readableProperties) {
         NSObject *value = [self valueForKey:key];
         value = AKObjectReverseMappingRepresentation(value);
         if ([value isKindOfClass:[NSDictionary class]]) {
             NSDictionary *origin = (NSDictionary *)value;
-            NSMutableDictionary *mutable = [NSMutableDictionary new];            
+            NSMutableDictionary *mutable = [NSMutableDictionary new];
             [origin enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
                 mutable[key] = AKObjectReverseMappingRepresentation(obj);
             }];
-            value = mutable.copy;
+            value = mutable;
         } else if ([value conformsToProtocol:@protocol(NSFastEnumeration)]) {
             NSMutableArray *mutable = [NSMutableArray new];
             id<NSFastEnumeration> enumeratable = (id<NSFastEnumeration>)value;
             for (id item in enumeratable) {
                 [mutable addObject:AKObjectReverseMappingRepresentation(item)];
             }
-            value = mutable.copy;
-        } else {
-            value = value.copy;
+            value = mutable;
         }
         [representation setValue:value forKey:key];
     }
-    return representation.copy;
+    return representation;
 }
 
 @end

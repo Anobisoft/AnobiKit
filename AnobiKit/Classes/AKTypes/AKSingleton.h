@@ -11,7 +11,6 @@
 @interface AKSingleton : NSObject
 
 + (instancetype)shared;
-
 + (instancetype)allocWithZone:(struct _NSZone *)zone NS_UNAVAILABLE;
 - (instancetype)init NS_UNAVAILABLE;
 
