@@ -109,6 +109,7 @@ id AKObjectReverseMappingRepresentation(id object) {
     NSMutableDictionary *representation = [NSMutableDictionary new];
     for (NSString *key in self.readableProperties) {
         NSObject *value = [self valueForKey:key];
+        if (!value) continue;
         value = AKObjectReverseMappingRepresentation(value);
         if ([value isKindOfClass:[NSDictionary class]]) {
             NSDictionary *origin = (NSDictionary *)value;
