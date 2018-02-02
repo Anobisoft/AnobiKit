@@ -110,7 +110,10 @@ BOOL readonly(const char * attrs) {
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     for (NSString *propertyKey in self.writableProperties) {
-        [aCoder encodeObject:[self valueForKey:propertyKey] forKey:propertyKey];
+        id obj = [self valueForKey:propertyKey];
+        if ([obj conformsToProtocol:@protocol(NSSecureCoding)]) {
+            [aCoder encodeObject:obj forKey:propertyKey];
+        }
     }
 }
 
