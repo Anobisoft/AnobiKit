@@ -40,4 +40,34 @@
     return [self substringWithRange:NSMakeRange(location, length - location)];
 }
 
+- (BOOL)isValidEmail {
+    NSError *error = nil;
+    NSDataDetector *detector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeLink
+                                                               error:&error];
+    __block BOOL emailDetected = false;
+    
+    [detector enumerateMatchesInString:self
+                               options:kNilOptions
+                                 range:NSMakeRange(0, self.length)
+                            usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
+                                if (result.URL && [[result.URL scheme] isEqualToString:@"mailto"]) {
+                                    NSString *abs = result.URL.absoluteString;
+                                    if ([abs isEqualToString:self]) {
+                                        emailDetected = true;
+                                        *stop = true;
+                                    } else {
+                                        NSString *abs_scheme_cut;
+                                        abs_scheme_cut = [abs stringByReplacingOccurrencesOfString:result.URL.scheme withString:@""];
+                                        abs_scheme_cut = [abs_scheme_cut stringByTrimmingLeadingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@":"]];
+                                        if ([abs_scheme_cut isEqualToString:self]) {
+                                            emailDetected = true;
+                                            *stop = true;
+                                        }
+                                    }
+                                }
+                            }];
+    
+    return emailDetected;
+}
+
 @end
