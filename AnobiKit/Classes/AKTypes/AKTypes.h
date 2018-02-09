@@ -12,7 +12,7 @@
 #ifndef AKTypes_h
 #define AKTypes_h
 
-@protocol Abstract <NSObject>
+@protocol Abstract
 
 + (instancetype)new NS_UNAVAILABLE;
 + (instancetype)allocWithZone:(struct _NSZone *)zone NS_UNAVAILABLE;
@@ -20,18 +20,18 @@
 
 @end
 
-@protocol DisableNSInit <NSObject>
+@protocol DisableNSInit
 
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)init NS_UNAVAILABLE;
 
 @end
 
-@protocol KeyedSubscript <NSObject>
+@protocol KeyedSubscript
 - (__kindof NSObject *)objectForKeyedSubscript:(__kindof NSObject<NSCopying> *)key;
 @end
 
-@protocol IndexedSubscript <NSObject>
+@protocol IndexedSubscript
 - (__kindof NSObject *)objectAtIndexedSubscript:(NSUInteger)idx;
 @end
 

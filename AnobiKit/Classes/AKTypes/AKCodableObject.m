@@ -76,7 +76,7 @@ BOOL readonly(const char * attrs) {
         writablePropertiesByClass = [NSMutableDictionary new];
         readonlyPropertiesByClass = [NSMutableDictionary new];
     });
-
+    if (self == [AKCodableObject class]) return;
     NSMutableArray *rwProperties = [NSMutableArray new];
     NSMutableArray *roProperties = [NSMutableArray new];
     unsigned int propertyCount = 0;

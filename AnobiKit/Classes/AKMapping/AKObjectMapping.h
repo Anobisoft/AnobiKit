@@ -12,7 +12,7 @@
 
 @class AKPropertyMap;
 
-@protocol AKObjectMapping <NSObject>
+@protocol AKObjectMapping
 @required
 + (instancetype)instatiateWithExternalRepresentation:(NSDictionary *)representation objectMap:(AKObjectMap *)objectMap;
 + (AKObjectMap *)objectMap;
@@ -20,7 +20,7 @@
 + (instancetype)instatiateWithExternalRepresentation:(NSDictionary *)representation;
 @end
 
-@protocol AKObjectReverseMapping <NSObject>
+@protocol AKObjectReverseMapping
 @required
 - (NSDictionary *)keyedRepresentation;
 @end
