@@ -47,12 +47,4 @@
     return [self configWithName:key];
 }
 
-+ (NSDictionary *)defaultConfig {
-    return [self configWithName:AKDefaultConfigName];
-}
-
-
-
-
-
 @end

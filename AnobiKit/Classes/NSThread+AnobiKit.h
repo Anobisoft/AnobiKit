@@ -8,7 +8,11 @@
 #import <Foundation/Foundation.h>
 
 void dispatch_syncmain(void (^block)(void));
+void dispatch_asyncmain(void (^block)(void));
 
 @interface NSThread (AnobiKit)
+
++ (void)performSyncBlockOnMain:(void (^)(void))block;
++ (void)performAsyncBlockOnMain:(void (^)(void))block;
 
 @end

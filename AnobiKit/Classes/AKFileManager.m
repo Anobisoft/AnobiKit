@@ -47,6 +47,7 @@ static NSMutableDictionary<NSString *, NSURL *> *URLByAppGroupIdentifiers = nil;
     dispatch_once(&onceToken, ^{
         URLByAppGroupIdentifiers = [NSMutableDictionary new];
     });
+    if (!appGrId) appGrId = [@"appgroup." stringByAppendingString:[NSBundle mainBundle].bundleIdentifier];
     NSURL *tryURL = URLByAppGroupIdentifiers[appGrId];
     if (!tryURL) {
         tryURL = [[self defaultManager] containerURLForSecurityApplicationGroupIdentifier:appGrId];
@@ -54,7 +55,6 @@ static NSMutableDictionary<NSString *, NSURL *> *URLByAppGroupIdentifiers = nil;
     BOOL isDirectory = NO;
     if (tryURL && [[self defaultManager] fileExistsAtPath:tryURL.path isDirectory:&isDirectory] && isDirectory) {
         URLByAppGroupIdentifiers[appGrId] = tryURL;
-        
     }
     return tryURL ?: [self documentsURL];
 }

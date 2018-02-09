@@ -8,13 +8,25 @@
 #import "NSThread+AnobiKit.h"
 
 void dispatch_syncmain(void (^block)(void)) {
-    if ([NSThread isMainThread]) {
+    [NSThread performSyncBlockOnMain:block];
+}
+
+void dispatch_asyncmain(void (^block)(void)) {
+    dispatch_async(dispatch_get_main_queue(), block);
+}
+
+@implementation NSThread (AnobiKit)
+
++ (void)performSyncBlockOnMain:(void (^)(void))block {
+    if ([self isMainThread]) {
         block();
     } else {
         dispatch_sync(dispatch_get_main_queue(), block);
     }
 }
 
-@implementation NSThread (AnobiKit)
++ (void)performAsyncBlockOnMain:(void (^)(void))block {
+    dispatch_asyncmain(block);
+}
 
 @end
