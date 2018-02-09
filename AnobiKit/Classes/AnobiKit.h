@@ -8,7 +8,8 @@
 
 #import <AnobiKit/AKTypes.h>
 #import <AnobiKit/AKObjectMapping.h>
-#import <AnobiKit/AKConfig.h>
+#import <AnobiKit/AKConfigManager.h>
+#import <AnobiKit/AKFileManager.h>
 #import <AnobiKit/AKReachability.h>
 #import <AnobiKit/AKUUID.h>
 

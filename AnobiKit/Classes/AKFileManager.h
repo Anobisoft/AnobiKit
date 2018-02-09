@@ -1,13 +1,11 @@
 //
-//  AKConfig.h
+//  AKFileManager.h
 //  AnobiKit
 //
-//  Created by Stanislav Pletnev on 14.03.17.
-//  Copyright © 2017 Anobisoft. All rights reserved.
+//  Created by Stanislav Pletnev on 09.02.2018.
 //
 
 #import <Foundation/Foundation.h>
-#import <AnobiKit/AKTypes.h>
 
 @interface NSURL (AnobiKit)
 
@@ -16,14 +14,8 @@
 
 @end
 
-#define AKConfigDefaultName @"AKMainConfig"
 
-@interface AKConfig<__covariant CollectionType> : AKSingleton <KeyedSubscript>
-
-- (CollectionType)objectForKeyedSubscript:(__kindof NSObject<NSCopying> *)cfgName;
-
-+ (instancetype)configs;
-+ (CollectionType)configWithName:(NSString *)name;
+@interface AKFileManager : NSFileManager
 
 + (NSURL *)documentsURL;
 + (NSURL *)documentsFileURLWithName:(NSString *)fn;
@@ -36,6 +28,5 @@
 + (NSURL *)defaultContainer;
 + (NSURL *)defaultDataFileURLWithName:(NSString *)fn; //shared as default
 + (NSURL *)defaultDataFileURLWithName:(NSString *)fn version:(NSUInteger)ver;
-
 
 @end
