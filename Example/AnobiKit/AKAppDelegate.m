@@ -7,11 +7,12 @@
 //
 
 #import "AKAppDelegate.h"
+#import <AnobiKit/AnobiKit.h>
 
 @implementation AKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
+    NSLog(@"MainConfig\n%@", [AKConfigManager manager][@"AKExampleConfig"]);
     return YES;
 }
 
