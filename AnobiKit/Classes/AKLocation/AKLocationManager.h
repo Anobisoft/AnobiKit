@@ -11,6 +11,8 @@
 
 @interface AKLocationManager : NSObject
 
-+ (void)placemarkFetch:(void (^)(NSArray<CLPlacemark *> *placemarks))fetchBlock;
++ (instancetype)manager;
++ (instancetype)managerWithQOSClass:(qos_class_t)qos;
+- (void)placemarkFetch:(void (^)(NSArray<CLPlacemark *> *placemarks, NSError *error))fetchBlock;
 
 @end
