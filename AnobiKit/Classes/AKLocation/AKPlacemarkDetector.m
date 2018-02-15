@@ -3,6 +3,7 @@
 //  AnobiKit
 //
 //  Created by Stanislav Pletnev on 14.02.2018.
+//  Copyright © 2018 Anobisoft. All rights reserved.
 //
 
 #import "AKPlacemarkDetector.h"
@@ -47,14 +48,17 @@
             NSError *error = [NSError errorWithDomain:@"AKLocationManager" code:-1
                                              userInfo:@{NSLocalizedDescriptionKey : @"Core Location Authorization Restricted"}];
             _fetchBlock(self, nil, error);
+            _fetchBlock = nil;
         } break;
         case kCLAuthorizationStatusDenied:
         default: {
             NSError *error = [NSError errorWithDomain:@"AKLocationManager" code:-1
                                              userInfo:@{NSLocalizedDescriptionKey : @"Core Location Authorization Denied"}];
             _fetchBlock(self, nil, error);
+            _fetchBlock = nil;
         } break;
     }
+    
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
@@ -85,6 +89,7 @@
     dispatch_async(_queue, ^{
         dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
         self->_fetchBlock(self, result, lastError);
+        self->_fetchBlock = nil;
     });
 }
 
