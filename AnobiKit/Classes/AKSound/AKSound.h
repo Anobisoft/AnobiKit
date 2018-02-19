@@ -13,11 +13,14 @@
 @interface AKSound : NSObject <DisableNSInit>
 
 + (instancetype)soundWithName:(NSString *)name;
+@property NSInteger numberOfLoops;
 
 - (void)play;
 - (void)stop;
 - (void)pause;
 - (void)loop;
 - (void)loop:(NSInteger)l;
+- (BOOL)isPlaing;
+
 
 @end

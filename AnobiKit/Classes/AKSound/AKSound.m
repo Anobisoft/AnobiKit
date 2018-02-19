@@ -18,7 +18,7 @@
 
 - (instancetype)initWithName:(NSString *)name {
     if (self = [super init]) {
-        NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:name];
+        NSString *path = [name isAbsolutePath] ? name : [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:name];
         if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
             NSURL *fileURL = [NSURL fileURLWithPath:path];
             NSError *error;
@@ -52,6 +52,18 @@
 
 - (void)loop:(NSInteger)l {
     audioPlayer.numberOfLoops = l;
+}
+
+- (BOOL)isPlaing {
+    return audioPlayer.playing;
+}
+
+- (NSInteger)numberOfLoops {
+    return audioPlayer.numberOfLoops;
+}
+
+- (void)setNumberOfLoops:(NSInteger)numberOfLoops {
+    audioPlayer.numberOfLoops = numberOfLoops;
 }
 
 @end
