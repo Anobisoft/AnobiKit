@@ -25,7 +25,7 @@ To integrate **AnobiKit** into your Xcode project using CocoaPods, specify it in
 ```
 platform :ios, '8.3'
 target 'TargetName' do
-pod 'AnobiKit'
+    pod 'AnobiKit'
 end
 ```
 Then, run the following command:
@@ -34,9 +34,6 @@ $ pod install
 ```
 ## Requirements
 Minimum iOS Target is ios **8.3**.
-
-## Usage
-Any way you can.
 
 ## License
 AnobiKit is released under the MIT license. See LICENSE for details.
