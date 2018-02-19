@@ -3,6 +3,7 @@
 //  AnobiKit
 //
 //  Created by Stanislav Pletnev on 06.10.17.
+//  Copyright © 2017 Anobisoft. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
