@@ -10,23 +10,15 @@
 #import "NSThread+AnobiKit.h"
 #import "AKPlacemarkDetector.h"
 
-@implementation AKLocationManager {
-    dispatch_queue_t queue;
-    NSMutableArray *detectors;
-}
+@interface AKLocationManager()
+@property NSMutableArray *detectors;
+@end
 
-+ (instancetype)manager {
-    return [self managerWithQOSClass:QOS_CLASS_DEFAULT];
-}
+@implementation AKLocationManager
 
-+ (instancetype)managerWithQOSClass:(qos_class_t)qos {
-    return [[self alloc] initWithQOSClass:qos];
-}
-
-- (instancetype)initWithQOSClass:(qos_class_t)qos {
+- (instancetype)init {
     if (self = [super init]) {
-        detectors = [NSMutableArray new];
-        queue = dispatch_get_global_queue(qos, 0);
+        self.detectors = [NSMutableArray new];
     }
     return self;
 }
@@ -34,9 +26,10 @@
 - (void)placemarkFetch:(void (^)(NSArray<CLPlacemark *> *placemarks, NSError *error))fetchBlock {
     if (!fetchBlock) return;
     dispatch_asyncmain(^{
-        [self->detectors addObject:[AKPlacemarkDetector detectorWithQueue:self->queue fetchBlock:^(AKPlacemarkDetector *detector, NSArray<CLPlacemark *> *placemarks, NSError *error) {
+        //hold detector, hold self (with detector fetchBlock)
+        [self.detectors addObject:[AKPlacemarkDetector detectorWithFetchBlock:^(AKPlacemarkDetector *detector, NSArray<CLPlacemark *> *placemarks, NSError *error) {
             dispatch_asyncmain(^{
-                [self->detectors removeObject:detector];
+                [self.detectors removeObject:detector]; //free detector
                 fetchBlock(placemarks, error);
             });
         }]];
