@@ -41,33 +41,65 @@
 }
 
 - (BOOL)isValidEmail {
+    return [self isValidLinkWithScheme:@"mailto"];
+}
+
+- (BOOL)isValidLinkWithScheme:(NSString *)scheme {
+    return [self isValidType:NSTextCheckingTypeLink
+                    withTest:^BOOL(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags) {
+        return result.URL && [[result.URL scheme] isEqualToString:scheme];
+    }];
+}
+
+- (BOOL)isValidPhonenumber {
+    return [self isValidType:NSTextCheckingTypePhoneNumber];
+}
+
+- (BOOL)isValidType:(NSTextCheckingType)type {
+    return [self isValidType:type withTest:nil];
+}
+
+- (BOOL)isValidType:(NSTextCheckingType)type withTest:(BOOL (^)(NSTextCheckingResult *result, NSMatchingFlags flags))test {
+    NSError *error;
+    NSDataDetector *detector = [NSDataDetector dataDetectorWithTypes:type
+                                                               error:&error];
+    NSRange range = NSMakeRange(0, self.length);
+    __block BOOL valid = false;
+    [detector enumerateMatchesInString:self
+                               options:NSMatchingReportCompletion
+                                 range:range
+                            usingBlock:^(NSTextCheckingResult * _Nullable result,
+                                         NSMatchingFlags flags,
+                                         BOOL * _Nonnull stop) {
+        if (result.resultType & type
+            && NSEqualRanges(result.range, range)
+            && (test ? test(result, flags) : true)) *stop = valid = true;
+    }];
+    return valid;
+}
+
+/*
+- (BOOL)isValidEmailDeprecated {
     NSError *error = nil;
     NSDataDetector *detector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeLink
                                                                error:&error];
-    __block BOOL emailDetected = false;
-    
+    if (error) NSLog(@"[ERROR] %@", error);
+    __block BOOL valid = false;
+    NSRange range = NSMakeRange(0, self.length);
     [detector enumerateMatchesInString:self
-                               options:kNilOptions
-                                 range:NSMakeRange(0, self.length)
-                            usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
-                                if (result.URL && [[result.URL scheme] isEqualToString:@"mailto"]) {
-                                    NSString *abs = result.URL.absoluteString;
-                                    if ([abs isEqualToString:self]) {
-                                        emailDetected = true;
-                                        *stop = true;
-                                    } else {
-                                        NSString *abs_scheme_cut;
-                                        abs_scheme_cut = [abs stringByReplacingOccurrencesOfString:result.URL.scheme withString:@""];
-                                        abs_scheme_cut = [abs_scheme_cut stringByTrimmingLeadingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@":"]];
-                                        if ([abs_scheme_cut isEqualToString:self]) {
-                                            emailDetected = true;
-                                            *stop = true;
-                                        }
-                                    }
+                               options:NSMatchingReportCompletion //kNilOptions
+                                 range:range
+                            usingBlock:^(NSTextCheckingResult * _Nullable result,
+                                         NSMatchingFlags flags,
+                                         BOOL * _Nonnull stop) {
+                                if (result.URL
+                                    && [[result.URL scheme] isEqualToString:@"mailto"]
+                                    && NSEqualRanges(result.range, range)) {
+                                    *stop = valid = true;
                                 }
                             }];
-    
-    return emailDetected;
+return valid;
 }
+ */
 
 @end

@@ -13,5 +13,9 @@
 - (NSString *)stringByTrimmingLeadingCharactersInSet:(NSCharacterSet *)characterSet;
 - (NSString *)stringByTrimmingTrailingCharactersInSet:(NSCharacterSet *)characterSet;
 - (BOOL)isValidEmail;
+- (BOOL)isValidLinkWithScheme:(NSString *)scheme;
+- (BOOL)isValidPhonenumber;
+- (BOOL)isValidType:(NSTextCheckingType)type;
+- (BOOL)isValidType:(NSTextCheckingType)type withTest:(BOOL (^)(NSTextCheckingResult *result, NSMatchingFlags flags))test;
 
 @end
