@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 #import <netinet/in.h>
-#import "AKTypes.h"
+#import <AnobiKit/AKTypes.h>
 
 typedef enum : NSInteger {
+    AKRStatusInvalid = -1,
 	AKRStatusNotReachable = 0,
 	AKRStatusConnectionNotRequired,
 	AKRStatusReachableViaWiFi,
@@ -30,6 +31,9 @@ typedef enum : NSInteger {
 + (instancetype)reachabilityWithHostname:(NSString *)hostname;
 + (instancetype)reachabilityWithAddress:(const struct sockaddr *)hostAddress;
 + (instancetype)reachabilityForInternetConnection;
+
+- (void)hold;
+- (void)free;
 
 @property (readonly) AKReachabilityStatus currentStatus;
 @property (weak, nonatomic) id<AKReachabilityDelegate> delegate;

@@ -17,6 +17,8 @@
 
 @implementation AKReachability {
     SCNetworkReachabilityRef _reachabilityRef;
+    NSString *host;
+    AKReachabilityStatus _currentStatus;
 }
 
 - (instancetype)initWithNetworkReachabilityRef:(SCNetworkReachabilityRef)reachabilityRef {
@@ -28,8 +30,9 @@
     return self;
 }
 
+static NSMutableDictionary<NSString *, AKReachability *> *rechabilityByHostname;
+
 + (instancetype)reachabilityWithHostname:(NSString *)hostname {
-    static NSMutableDictionary<NSString *, AKReachability *> *rechabilityByHostname;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         rechabilityByHostname = [NSMutableDictionary new];
@@ -38,7 +41,8 @@
     if (instance) return instance;
     SCNetworkReachabilityRef reachabilityRef = SCNetworkReachabilityCreateWithName(NULL, [hostname UTF8String]);
     instance = reachabilityRef ? [[self alloc] initWithNetworkReachabilityRef:reachabilityRef] : nil;
-    if (instance) rechabilityByHostname[hostname] = instance;
+    instance->host = hostname;
+    instance->_currentStatus = AKRStatusInvalid;
     return instance;
 }
 
@@ -47,17 +51,14 @@
     return reachabilityRef ? [[self alloc] initWithNetworkReachabilityRef:reachabilityRef] : nil;
 }
 
+static AKReachability *holdedInstance;
+
 + (instancetype)reachabilityForInternetConnection {
-    static AKReachability *singleInstance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        struct sockaddr_in zeroAddress;
-        bzero(&zeroAddress, sizeof(zeroAddress));
-        zeroAddress.sin_len = sizeof(zeroAddress);
-        zeroAddress.sin_family = AF_INET;
-        singleInstance = [self reachabilityWithAddress:(const struct sockaddr *)&zeroAddress];
-    });
-    return singleInstance;
+    struct sockaddr_in zeroAddress;
+    bzero(&zeroAddress, sizeof(zeroAddress));
+    zeroAddress.sin_len = sizeof(zeroAddress);
+    zeroAddress.sin_family = AF_INET;
+    return [self reachabilityWithAddress:(const struct sockaddr *)&zeroAddress];
 }
 
 - (void)dealloc {
@@ -67,8 +68,23 @@
     }
 }
 
+- (void)hold {
+    if (host) {
+        rechabilityByHostname[host] = self;
+    } else {
+        holdedInstance = self;
+    }
+}
 
-+ (AKReachabilityStatus)networkStatusForFlags:(SCNetworkReachabilityFlags)flags {
+- (void)free {
+    if (host && self == rechabilityByHostname[host]) {
+        [rechabilityByHostname removeObjectForKey:host];
+    } else {
+        if (holdedInstance == self) holdedInstance = nil;
+    }
+}
+
+AKReachabilityStatus AKReachabilityStatusForFlags(SCNetworkReachabilityFlags flags) {
     if (!(flags & kSCNetworkReachabilityFlagsReachable)) {
         return AKRStatusNotReachable;
     }
@@ -89,12 +105,14 @@
 
 
 - (AKReachabilityStatus)currentStatus {
-    AKReachabilityStatus status = AKRStatusNotReachable;
-    SCNetworkReachabilityFlags flags;
-    if (SCNetworkReachabilityGetFlags(_reachabilityRef, &flags)) {
-        status = [AKReachability networkStatusForFlags:flags];
-    }    
-    return status;
+    if (_currentStatus == AKRStatusInvalid || !_delegate) {
+        _currentStatus = AKRStatusNotReachable;
+        SCNetworkReachabilityFlags flags;
+        if (SCNetworkReachabilityGetFlags(_reachabilityRef, &flags)) {
+            _currentStatus = AKReachabilityStatusForFlags(flags);
+        }
+    }
+    return _currentStatus;
 }
 
 @synthesize delegate = _delegate;
@@ -111,9 +129,9 @@
             _delegate = delegate;
         }
     } else {
+        _delegate = delegate;
         if (_reachabilityRef) SCNetworkReachabilityUnscheduleFromRunLoop(_reachabilityRef, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
     }
-
 }
 
 static void AKReachabilityCallback(__unused SCNetworkReachabilityRef target, SCNetworkReachabilityFlags flags, void* info) {
@@ -121,7 +139,9 @@ static void AKReachabilityCallback(__unused SCNetworkReachabilityRef target, SCN
     if ([(__bridge NSObject *)info isKindOfClass:[AKReachability class]]) {
         AKReachability *reachability = (__bridge AKReachability *)info;
         if (reachability.delegate) {
-            [reachability.delegate reachability:reachability didChangeStatus:[AKReachability networkStatusForFlags:flags]];
+            AKReachabilityStatus status = AKReachabilityStatusForFlags(flags);
+            reachability->_currentStatus = status;
+            [reachability.delegate reachability:reachability didChangeStatus:status];
         }
     } else {
         NSLog(@"[ERROR] info was wrong class in AKReachabilityCallback");
