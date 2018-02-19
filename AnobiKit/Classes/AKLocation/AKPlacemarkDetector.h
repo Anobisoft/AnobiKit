@@ -10,6 +10,6 @@
 
 @class CLPlacemark;
 @interface AKPlacemarkDetector : NSObject
-+ (instancetype)detectorWithQueue:(dispatch_queue_t)queue fetchBlock:(void (^)(AKPlacemarkDetector *detector, NSArray<CLPlacemark *> *placemarks, NSError *error))fetchBlock;
++ (instancetype)detectorWithFetchBlock:(void (^)(AKPlacemarkDetector *detector, NSArray<CLPlacemark *> *placemarks, NSError *error))fetchBlock;
 
 @end

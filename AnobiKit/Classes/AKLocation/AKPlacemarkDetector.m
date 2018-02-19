@@ -16,14 +16,13 @@
 @implementation AKPlacemarkDetector {
     void (^_fetchBlock)(AKPlacemarkDetector *detector, NSArray<CLPlacemark *> *placemarks, NSError *error);
     CLLocationManager *locationManager;
-    dispatch_queue_t _queue;
 }
 
-+ (instancetype)detectorWithQueue:(dispatch_queue_t)queue fetchBlock:(void (^)(AKPlacemarkDetector *detector, NSArray<CLPlacemark *> *placemarks, NSError *error))fetchBlock {
-    return [[self alloc] initWithQueue:queue fetchBlock:fetchBlock];
++ (instancetype)detectorWithFetchBlock:(void (^)(AKPlacemarkDetector *detector, NSArray<CLPlacemark *> *placemarks, NSError *error))fetchBlock {
+    return [[self alloc] initWithFetchBlock:fetchBlock];
 }
 
-- (instancetype)initWithQueue:(dispatch_queue_t)queue fetchBlock:(void (^)(AKPlacemarkDetector *detector, NSArray<CLPlacemark *> *placemarks, NSError *error))fetchBlock {
+- (instancetype)initWithFetchBlock:(void (^)(AKPlacemarkDetector *detector, NSArray<CLPlacemark *> *placemarks, NSError *error))fetchBlock {
     if (fetchBlock && (self = [super init])) {
         locationManager = [CLLocationManager new];
         locationManager.delegate = self;
@@ -48,14 +47,14 @@
             NSError *error = [NSError errorWithDomain:@"AKLocationManager" code:-1
                                              userInfo:@{NSLocalizedDescriptionKey : @"Core Location Authorization Restricted"}];
             _fetchBlock(self, nil, error);
-            _fetchBlock = nil;
+            _fetchBlock = nil; //free
         } break;
         case kCLAuthorizationStatusDenied:
         default: {
             NSError *error = [NSError errorWithDomain:@"AKLocationManager" code:-1
                                              userInfo:@{NSLocalizedDescriptionKey : @"Core Location Authorization Denied"}];
             _fetchBlock(self, nil, error);
-            _fetchBlock = nil;
+            _fetchBlock = nil; //free
         } break;
     }
     
@@ -86,10 +85,10 @@
                            dispatch_group_leave(group);
                        }];
     }
-    dispatch_async(_queue, ^{
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0), ^{
         dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
         self->_fetchBlock(self, result, lastError);
-        self->_fetchBlock = nil;
+        self->_fetchBlock = nil; //free
     });
 }
 
