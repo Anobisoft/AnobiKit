@@ -3,6 +3,7 @@
 //  AnobiKit
 //
 //  Created by Stanislav Pletnev on 09.02.2018.
+//  Copyright © 2018 Anobisoft. All rights reserved.
 //
 
 #import "AKFileManager.h"
