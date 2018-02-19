@@ -3,7 +3,7 @@
 //  AnobiKit
 //
 //  Created by Stanislav Pletnev on 11.06.16.
-//  Copyright © 2016 Anobisoft.com. All rights reserved.
+//  Copyright © 2016 Anobisoft. All rights reserved.
 //
 
 #import "NSManagedObjectContext+AnobiKit.h"
@@ -53,7 +53,7 @@
     [request setFetchLimit:limit];
     NSError *error = nil;
     NSArray *entities = [self executeFetchRequest:request error:&error];
-    if (error) NSLog(@"[ERROR] %s %@\n%@", __PRETTY_FUNCTION__, error.localizedDescription, error.userInfo);
+    if (error) NSLog(@"[ERROR] %s %@", __PRETTY_FUNCTION__, error);
     return entities;
 }
 
