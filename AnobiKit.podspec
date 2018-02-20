@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name             = 'AnobiKit'
-  s.version          = '0.2.7'
+  s.version          = '0.2.8'
   s.summary          = 'AnobiKit - collection of various independent classes and categories useful to Objective-C iOS Developer.'
 
   s.description      = <<-DESC
@@ -30,7 +30,7 @@ much more longer...
 # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
   s.framework  = "Foundation"
-# s.frameworks = "SomeFramework", "AnotherFramework", "CoreData", "CoreLocation"
+# s.frameworks = "Foundation", "CoreData", "CoreLocation"
 
   s.requires_arc = true
 # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }

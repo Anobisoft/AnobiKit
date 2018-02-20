@@ -119,17 +119,23 @@ BOOL readonly(const char * attrs) {
 
 - (NSString *)description {
     NSMutableDictionary *properties = [NSMutableDictionary new];
-    for (NSString *propertyKey in self.writableProperties) {
+    properties[@" ---"] = @"<* readonly";
+    for (NSString *propertyKey in self.readonlyProperties) {
         properties[propertyKey] = [self valueForKey:propertyKey] ?: @"nil";
     }
-    for (NSString *propertyKey in self.readonlyProperties) {
+    properties[@" ---"] = @"<* readwrite";
+    for (NSString *propertyKey in self.writableProperties) {
         properties[propertyKey] = [self valueForKey:propertyKey] ?: @"nil";
     }
     return [NSString stringWithFormat:@"%@ %@", [super description], properties];
 }
 
+@synthesize writableProperties = _writableProperties;
 - (NSArray<NSString *> *)writableProperties {
-    return self.class.writableProperties;
+    if (!_writableProperties) {
+        _writableProperties = self.class.writableProperties;
+    }
+    return _writableProperties;
 }
 
 + (NSArray<NSString *> *)writableProperties {
@@ -137,12 +143,18 @@ BOOL readonly(const char * attrs) {
     if (superclass == [AKCodableObject class]) {
         return writablePropertiesByClass[self];
     } else {
-        return [writablePropertiesByClass[self] arrayByAddingObjectsFromArray:superclass.writableProperties];
+        NSArray<NSString *> *selfrwp = writablePropertiesByClass[self];
+        NSArray<NSString *> *superwp = superclass.writableProperties;
+        return selfrwp ? [selfrwp arrayByAddingObjectsFromArray:superwp] : superwp;
     }
 }
 
+@synthesize readonlyProperties = _readonlyProperties;
 - (NSArray<NSString *> *)readonlyProperties {
-    return self.class.readonlyProperties;
+    if (!_readonlyProperties) {
+        _readonlyProperties = self.class.readonlyProperties;
+    }
+    return _readonlyProperties;
 }
 
 + (NSArray<NSString *> *)readonlyProperties {
@@ -150,19 +162,27 @@ BOOL readonly(const char * attrs) {
     if (superclass == [AKCodableObject class]) {
         return readonlyPropertiesByClass[self];
     } else {
-        return [readonlyPropertiesByClass[self] arrayByAddingObjectsFromArray:superclass.readonlyProperties];
+        NSArray<NSString *> *selfrop = readonlyPropertiesByClass[self];
+        NSArray<NSString *> *superop = superclass.readonlyProperties;
+        return selfrop ? [selfrop arrayByAddingObjectsFromArray:superop] : superop;
     }
 }
 
+@synthesize readableProperties = _readableProperties;
 - (NSArray<NSString *> *)readableProperties {
-    return self.class.readableProperties;
+    if (!_readableProperties) {
+        _readableProperties = self.class.readableProperties;
+    }
+    return _readableProperties;
 }
 
 + (NSArray<NSString *> *)readableProperties {
-    if (self.writableProperties.count && self.readonlyProperties.count) {
-        return [self.writableProperties arrayByAddingObjectsFromArray:self.readonlyProperties];
+    NSArray<NSString *> *selfrop = self.readonlyProperties;
+    NSArray<NSString *> *selfrwp = self.writableProperties;
+    if (selfrop.count && selfrwp.count) {
+        return [selfrop arrayByAddingObjectsFromArray:selfrwp];
     }
-    return self.writableProperties.count ? self.writableProperties : self.readonlyProperties;
+    return selfrop.count ? selfrop : selfrwp;
 }
 
 - (BOOL)isEqual:(id)object {
