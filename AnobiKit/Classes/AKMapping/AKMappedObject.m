@@ -105,6 +105,41 @@ id AKObjectReverseMappingRepresentation(id object) {
     return object;
 }
 
++ (NSDictionary<NSString *, NSDateFormatter *> *)dateFormatters {
+    return nil;
+}
+
+static Class __NSCFBooleanClass = nil;
++ (void)initialize {
+    [super initialize];
+    __NSCFBooleanClass = NSClassFromString(@"__NSCFBoolean");
+}
+
+static NSDateFormatter *_defaultDateFormatter;
++ (void)setDefaultDateFormatter:(NSDateFormatter *)defaultDateFormatter {
+    _defaultDateFormatter = defaultDateFormatter;
+}
+
++ (NSDateFormatter *)defaultDateFormatter {
+    if (!_defaultDateFormatter) {
+        _defaultDateFormatter = [NSDateFormatter new];
+    }
+    return _defaultDateFormatter;
+}
+
++ (NSString *)stringFromBoolean:(BOOL)b {
+    return b ? @"true" : @"false";
+}
+
++ (NSString *)stringFromBoolean:(BOOL)b property:(NSString *)property {
+    return nil;
+}
+
+BOOL AKBoolValue(id obj) {
+    NSNumber *number = obj;
+    return number.boolValue;
+}
+
 - (NSDictionary *)keyedRepresentation {
     NSMutableDictionary *representation = [NSMutableDictionary new];
     for (NSString *key in self.readableProperties) {
@@ -125,6 +160,12 @@ id AKObjectReverseMappingRepresentation(id object) {
                 [mutable addObject:AKObjectReverseMappingRepresentation(item)];
             }
             value = mutable;
+        } else if ([value isKindOfClass:[NSDate class]]) {
+            NSDateFormatter *df = self.class.dateFormatters[key] ?: self.class.defaultDateFormatter;
+            value = [df stringFromDate:(NSDate *)value];
+        } else if ([value isKindOfClass:__NSCFBooleanClass]) {
+            BOOL b = AKBoolValue(value);
+            value = [self.class stringFromBoolean:b property:key] ?: [self.class stringFromBoolean:b];
         }
         [representation setValue:value forKey:key];
     }
