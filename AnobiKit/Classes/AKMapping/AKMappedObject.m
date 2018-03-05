@@ -116,9 +116,6 @@ static Class __NSCFBooleanClass = nil;
 }
 
 static NSDateFormatter *_defaultDateFormatter;
-+ (void)setDefaultDateFormatter:(NSDateFormatter *)defaultDateFormatter {
-    _defaultDateFormatter = defaultDateFormatter;
-}
 
 + (NSDateFormatter *)defaultDateFormatter {
     if (!_defaultDateFormatter) {
