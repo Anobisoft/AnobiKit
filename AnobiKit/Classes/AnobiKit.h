@@ -20,6 +20,7 @@
 #import <AnobiKit/NSBundle+AnobiKit.h>
 #import <AnobiKit/NSString+AnobiKit.h>
 #import <AnobiKit/NSDate+AnobiKit.h>
+#import <AnobiKit/NSObject+AnobiKit.h>
 #import <AnobiKit/NSNumberFormatter+AnobiKit.h>
 #import <AnobiKit/NSDateFormatter+AnobiKit.h>
 #import <AnobiKit/NSManagedObjectContext+AnobiKit.h>
