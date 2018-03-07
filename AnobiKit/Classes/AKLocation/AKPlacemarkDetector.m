@@ -92,4 +92,19 @@
     });
 }
 
+
+- (void)locationManagerDidPauseLocationUpdates:(CLLocationManager *)manager {
+#ifdef DEBUG
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+#endif
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+#ifdef DEBUG
+    NSLog(@"%s %@", __PRETTY_FUNCTION__, error);
+#endif
+    self->_fetchBlock(self, nil, error);
+    self->_fetchBlock = nil; //free
+}
+
 @end
