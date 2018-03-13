@@ -115,13 +115,8 @@ static Class __NSCFBooleanClass = nil;
     __NSCFBooleanClass = NSClassFromString(@"__NSCFBoolean");
 }
 
-static NSDateFormatter *_defaultDateFormatter;
-
 + (NSDateFormatter *)defaultDateFormatter {
-    if (!_defaultDateFormatter) {
-        _defaultDateFormatter = [NSDateFormatter new];
-    }
-    return _defaultDateFormatter;
+    return nil;
 }
 
 + (NSString *)stringFromBoolean:(BOOL)b {
@@ -159,7 +154,9 @@ BOOL AKBoolValue(id obj) {
             value = mutable;
         } else if ([value isKindOfClass:[NSDate class]]) {
             NSDateFormatter *df = self.class.dateFormatters[key] ?: self.class.defaultDateFormatter;
-            value = [df stringFromDate:(NSDate *)value];
+            if (df) {
+                value = [df stringFromDate:(NSDate *)value];
+            }
         } else if ([value isKindOfClass:__NSCFBooleanClass]) {
             BOOL b = AKBoolValue(value);
             value = [self.class stringFromBoolean:b property:key] ?: [self.class stringFromBoolean:b];
