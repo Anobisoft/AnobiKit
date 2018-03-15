@@ -13,6 +13,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSLog(@"MainConfig\n%@", [AKConfigManager manager][@"AKExampleConfig"]);
+    NSLog(@"%@", [NSBundle UIKit]);
+    NSLog(@"%@", [[NSBundle UIKit] localizedStringForKey:@"Camera"]);
+    
     return YES;
 }
 

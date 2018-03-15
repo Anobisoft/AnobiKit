@@ -10,6 +10,13 @@
 
 @implementation NSBundle (AnobiKit)
 
+NSString * UIKitLocalizedString(NSString *key) {
+    return [[NSBundle UIKit] localizedStringForKey:key];
+}
+NSString * AKLocalizedString(NSString *key) {
+    return [[NSBundle mainBundle] localizedStringForKey:key];
+}
+
 + (NSString *)appVersion {
     return [NSString stringWithFormat:@"%@b%@", [self appShortVersion], [self appBuildVersion]];
 }
@@ -31,7 +38,7 @@
 }
 
 + (instancetype)UIKit {
-    return [self bundleWithIdentifier:@"com.apple.UIKit"];
+    return [self bundleForClass:UIApplication.class];
 }
 
 - (NSArray<NSString *> *)localizationKeys {

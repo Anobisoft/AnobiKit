@@ -11,6 +11,9 @@
 
 @interface NSBundle (AnobiKit)
 
+NSString * UIKitLocalizedString(NSString *key);
+NSString * AKLocalizedString(NSString *key);
+
 + (NSString *)appVersion;
 + (NSString *)appShortVersion;
 + (NSString *)appBuildVersion;
