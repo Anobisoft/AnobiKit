@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface NSBundle (AnobiKit)
 
 + (NSString *)appVersion;
@@ -15,5 +16,9 @@
 + (NSString *)appBuildVersion;
 + (NSString *)appName;
 + (NSString *)appDisplayName;
+
++ (instancetype)UIKit;
+- (NSArray<NSString *> *)UIKitLocalizationKeys;
+- (NSString *)localizedStringForKey:(NSString *)key;
 
 @end

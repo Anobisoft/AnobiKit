@@ -8,6 +8,8 @@
 
 #import "NSBundle+AnobiKit.h"
 
+#define UIKitBundle [NSBundle bundleWithIdentifier:@"com.apple.UIKit"]
+
 @implementation NSBundle (AnobiKit)
 
 + (NSString *)appVersion {
@@ -30,7 +32,18 @@
     return [NSBundle mainBundle].infoDictionary[@"CFBundleDisplayName"] ?: [self appName];
 }
 
++ (instancetype)UIKit {
+    return [self bundleWithIdentifier:@"com.apple.UIKit"];
+}
 
+- (NSArray<NSString *> *)UIKitLocalizationKeys {
+    NSString *path = [UIKitBundle pathForResource:@"Localizable" ofType:@"strings"];
+    return [NSDictionary dictionaryWithContentsOfFile:path].allKeys;
+}
+
+- (NSString *)localizedStringForKey:(NSString *)key {
+    return [self localizedStringForKey:key value:nil table:nil];
+}
 
 
 
