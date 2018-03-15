@@ -20,7 +20,7 @@ NSString * AKLocalizedString(NSString *key);
 + (NSString *)appName;
 + (NSString *)appDisplayName;
 
-+ (instancetype)UIKit;
++ (instancetype)UIKitBundle;
 - (NSArray<NSString *> *)localizationKeys;
 - (NSString *)localizedStringForKey:(NSString *)key;
 

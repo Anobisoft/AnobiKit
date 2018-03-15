@@ -11,7 +11,7 @@
 @implementation NSBundle (AnobiKit)
 
 NSString * UIKitLocalizedString(NSString *key) {
-    return [[NSBundle UIKit] localizedStringForKey:key];
+    return [[NSBundle UIKitBundle] localizedStringForKey:key];
 }
 NSString * AKLocalizedString(NSString *key) {
     return [[NSBundle mainBundle] localizedStringForKey:key];
@@ -37,7 +37,7 @@ NSString * AKLocalizedString(NSString *key) {
     return [NSBundle mainBundle].infoDictionary[@"CFBundleDisplayName"] ?: [self appName];
 }
 
-+ (instancetype)UIKit {
++ (instancetype)UIKitBundle {
     return [self bundleForClass:UIApplication.class];
 }
 
