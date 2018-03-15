@@ -18,7 +18,7 @@
 + (NSString *)appDisplayName;
 
 + (instancetype)UIKit;
-- (NSArray<NSString *> *)UIKitLocalizationKeys;
+- (NSArray<NSString *> *)localizationKeys;
 - (NSString *)localizedStringForKey:(NSString *)key;
 
 @end
