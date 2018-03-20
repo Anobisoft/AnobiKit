@@ -40,7 +40,7 @@
 @end
 
 @protocol MutableIndexedSubscript <IndexedSubscript>
-- (void)setObject:(__kindof NSObject *)obj forIndexedSubscript:(NSUInteger)idx;
+- (void)setObject:(__kindof NSObject *)obj atIndexedSubscript:(NSUInteger)idx;
 @end
 
 #endif /* AKTypes_h */
