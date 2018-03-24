@@ -3,6 +3,7 @@
 //  AnobiKit
 //
 //  Created by Stanislav Pletnev on 06.03.2018.
+//  Copyright © 2018 Anobisoft. All rights reserved.
 //
 
 #import "NSObject+AnobiKit.h"
@@ -10,12 +11,11 @@
 
 @implementation NSObject (AnobiKit)
 
-+ (void)inheritMethod:(SEL)sel from:(Class)parent {
-    Method method = class_getInstanceMethod(parent, sel);
-    class_addMethod(self,
-                    sel,
-                    method_getImplementation(method),
-                    method_getTypeEncoding(method));
++ (BOOL)inheritMethod:(SEL)selector from:(Class)parent {
+    Method method = class_getInstanceMethod(parent, selector);
+    return class_addMethod(self, selector,
+                           method_getImplementation(method),
+                           method_getTypeEncoding(method));
 }
 
 @end

@@ -13,8 +13,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSLog(@"MainConfig\n%@", [AKConfigManager manager][@"AKExampleConfig"]);
-    NSLog(@"%@", [NSBundle UIKit]);
-    NSLog(@"%@", [[NSBundle UIKit] localizedStringForKey:@"Camera"]);
+    NSLog(@"%@", [NSBundle UIKitBundle]);
+    NSLog(@"%@", [[NSBundle UIKitBundle] localizedStringForKey:@"Redo"]);
     
     return YES;
 }

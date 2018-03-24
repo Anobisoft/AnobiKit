@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name             = 'AnobiKit'
-  s.version          = '0.2.18'
+  s.version          = '0.2.19'
   s.summary          = 'AnobiKit - collection of various independent classes and categories useful to Objective-C iOS Developer.'
 
   s.description      = <<-DESC
@@ -17,21 +17,12 @@ much more longer...
   s.author             = { "Stanislav Pletnev" => "anobisoft@gmail.com" }
   s.social_media_url   = "https://twitter.com/Anobisoft"
 
-#  s.platform     = :ios, "8.3"
-#  When using multiple platforms
-  s.ios.deployment_target = "8.3"
-# s.osx.deployment_target = "10.7"
-# s.watchos.deployment_target = "2.0"
-# s.tvos.deployment_target = "9.0"
-
+  s.platform     = :ios, "8.3"
   s.source       = { :git => "https://github.com/Anobisoft/AnobiKit.git", :tag => "v#{s.version}" }
   s.source_files  = "AnobiKit/Classes/**/*.{h,m}"
   s.resources = "AnobiKit/Resources/*.plist"
-# s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
   s.framework  = "Foundation"
-# s.frameworks = "Foundation", "CoreData", "CoreLocation"
-
   s.requires_arc = true
 # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
 
