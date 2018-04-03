@@ -28,19 +28,19 @@
 @end
 
 @protocol KeyedSubscript
-- (__kindof NSObject *)objectForKeyedSubscript:(__kindof NSObject<NSCopying> *)key;
+- (id)objectForKeyedSubscript:(id)key;
 @end
 
 @protocol IndexedSubscript
-- (__kindof NSObject *)objectAtIndexedSubscript:(NSUInteger)idx;
+- (id)objectAtIndexedSubscript:(NSUInteger)idx;
 @end
 
 @protocol MutableKeyedSubscript <KeyedSubscript>
-- (void)setObject:(__kindof NSObject *)obj forKeyedSubscript:(__kindof NSObject<NSCopying> *)key;
+- (void)setObject:(id)obj forKeyedSubscript:(id<NSCopying>)key;
 @end
 
 @protocol MutableIndexedSubscript <IndexedSubscript>
-- (void)setObject:(__kindof NSObject *)obj atIndexedSubscript:(NSUInteger)idx;
+- (void)setObject:(id)obj atIndexedSubscript:(NSUInteger)idx;
 @end
 
 #endif /* AKTypes_h */

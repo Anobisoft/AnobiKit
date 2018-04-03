@@ -1,33 +1,33 @@
 //
-//  AKSingleton.m
+//  AKWeakSingleton.m
 //  Pods
 //
 //  Created by Stanislav Pletnev on 05.09.17.
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 
-#import "AKSingleton.h"
+#import "AKWeakSingleton.h"
 #import "NSThread+AnobiKit.h"
 
-@implementation AKSingleton
+@implementation AKWeakSingleton
 
-static NSMutableDictionary<Class, __kindof AKSingleton *> *uniqueInstances;
+static NSMapTable<Class, __kindof AKWeakSingleton *> *uniqueInstances;
 
 + (void)initialize {
 	[super initialize];
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        uniqueInstances = [NSMutableDictionary new];
+        uniqueInstances = [NSMapTable weakToWeakObjectsMapTable];
     });
 }
 
 + (instancetype)shared {
     __block id instance;
     dispatch_syncmain(^{
-        instance = uniqueInstances[self];
+        instance = [uniqueInstances objectForKey:self];
         if (!instance) {
             instance = [[self alloc] init];
-            uniqueInstances[(id<NSCopying>)self] = instance;
+            [uniqueInstances setObject:instance forKey:self];
         }
     });
 	return instance;
@@ -43,14 +43,6 @@ static NSMutableDictionary<Class, __kindof AKSingleton *> *uniqueInstances;
 
 - (id)mutableCopy {
 	return self;
-}
-
-+ (void)free {
-    [uniqueInstances removeObjectForKey:self];
-}
-
-- (void)free {
-    [self.class free];
 }
 
 @end
