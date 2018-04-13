@@ -37,6 +37,9 @@
         if ([representation isKindOfClass:NSNull.class]) {
             return nil;
         }
+        if (![representation isKindOfClass:NSDictionary.class]) {
+            return nil;
+        }
         [representation enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
             NSString *propertyKey = key;
             AKPropertyMap *propertyMap = objectMap[key];
@@ -91,20 +94,22 @@
                         [self try2setObject:newPropertyInstance forKey:propertyKey];
                         return ;
                     }
-                    if ([propertyClass isSubclassOfClass:NSDate.class]) {
-                        NSDateFormatter *df = self.class.dateFormatters[key] ?: self.class.defaultDateFormatter;
-                        if (df) {
-                            [self try2setObject:[df dateFromString:obj] forKey:propertyKey];
-                            return ;
-                        }
-                    } else {
-                        if ([propertyClass isSubclassOfClass:NSURL.class]) {
-                            [self try2setObject:[NSURL URLWithString:obj] forKey:propertyKey];
-                            return ;
-                        }
-                        if ([propertyClass isSubclassOfClass:NSUUID.class]) {
-                            [self try2setObject:[AKUUID UUIDWithUUIDString:obj] forKey:propertyKey];
-                            return ;
+                    if ([obj isKindOfClass:NSString.class]) {
+                        if ([propertyClass isSubclassOfClass:NSDate.class]) {
+                            NSDateFormatter *df = self.class.dateFormatters[key] ?: self.class.defaultDateFormatter;
+                            if (df) {
+                                [self try2setObject:[df dateFromString:obj] forKey:propertyKey];
+                                return ;
+                            }
+                        } else {
+                            if ([propertyClass isSubclassOfClass:NSURL.class]) {
+                                [self try2setObject:[NSURL URLWithString:obj] forKey:propertyKey];
+                                return ;
+                            }
+                            if ([propertyClass isSubclassOfClass:NSUUID.class]) {
+                                [self try2setObject:[AKUUID UUIDWithUUIDString:obj] forKey:propertyKey];
+                                return ;
+                            }
                         }
                     }
                 }
