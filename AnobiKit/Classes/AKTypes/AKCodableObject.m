@@ -64,9 +64,10 @@ static NSMutableDictionary <Class, NSArray<NSString *> *> *readonlyPropertiesByC
 BOOL readonly(const char * attrs) {
     size_t l = strlen(attrs);
     for (size_t i = 0; i < l; i++) {
-        BOOL prevSeparator = i == 0 || attrs[i-1] == ',';
-        BOOL nextSeparator = i+1 == l || attrs[i+1] == ',';
-        if (attrs[i] == 'R' && prevSeparator && nextSeparator) return true;
+        if (attrs[i] == 'R'
+            && (i == 0 || attrs[i-1] == ',') // prev symbol is separator
+            && (i+1 == l || attrs[i+1] == ',') // next symbol is separator
+            ) return true;
     }
     return false;
 }
