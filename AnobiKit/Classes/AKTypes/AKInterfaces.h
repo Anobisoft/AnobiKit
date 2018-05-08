@@ -1,24 +1,13 @@
 //
-//  AKTypes.h
+//  AKInterfaces.h
 //  AnobiKit
 //
 //  Created by Stanislav Pletnev on 03.02.17.
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 
-#import <AnobiKit/AKCodableObject.h>
-#import <AnobiKit/AKSingleton.h>
-
-#ifndef AKTypes_h
-#define AKTypes_h
-
-@protocol Abstract
-
-+ (instancetype)new NS_UNAVAILABLE;
-+ (instancetype)allocWithZone:(struct _NSZone *)zone NS_UNAVAILABLE;
-+ (instancetype)alloc NS_UNAVAILABLE;
-
-@end
+#ifndef AKInterfaces_h
+#define AKInterfaces_h
 
 @protocol DisableNSInit
 
@@ -43,4 +32,4 @@
 - (void)setObject:(id)obj atIndexedSubscript:(NSUInteger)idx;
 @end
 
-#endif /* AKTypes_h */
+#endif /* AKInterfaces_h */

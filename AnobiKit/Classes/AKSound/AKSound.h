@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
-#import "AKTypes.h"
+#import <AnobiKit/AKInterfaces.h>
 
 @interface AKSound : NSObject <DisableNSInit>
 

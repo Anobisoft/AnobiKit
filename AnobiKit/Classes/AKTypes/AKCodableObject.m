@@ -73,7 +73,6 @@ BOOL readonly(const char * attrs) {
 }
 
 + (void)initialize {
-    [super initialize];
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         writablePropertiesByClass = [NSMutableDictionary new];

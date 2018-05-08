@@ -14,7 +14,6 @@
 static NSMapTable<Class, __kindof AKWeakSingleton *> *uniqueInstances;
 
 + (void)initialize {
-	[super initialize];
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         uniqueInstances = [NSMapTable weakToWeakObjectsMapTable];

@@ -169,8 +169,10 @@ id AKObjectReverseMappingRepresentation(id object) {
 
 static Class __NSCFBooleanClass = nil;
 + (void)initialize {
-    [super initialize];
-    __NSCFBooleanClass = NSClassFromString(@"__NSCFBoolean");
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        __NSCFBooleanClass = NSClassFromString(@"__NSCFBoolean");
+    });    
 }
 
 + (NSDateFormatter *)defaultDateFormatter {

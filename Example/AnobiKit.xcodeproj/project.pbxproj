@@ -211,7 +211,6 @@
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
 				33EB54D2806ED45B97EB2A98 /* [CP] Embed Pods Frameworks */,
-				CDCF5DE481D402B128639CEA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -230,8 +229,6 @@
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				0012C5378D2806B2441D73F6 /* [CP] Embed Pods Frameworks */,
-				5F80AF07C012624EA8F50656 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -310,21 +307,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0012C5378D2806B2441D73F6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnobiKit_Tests/Pods-AnobiKit_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		33EB54D2806ED45B97EB2A98 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -341,21 +323,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnobiKit_Example/Pods-AnobiKit_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5F80AF07C012624EA8F50656 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnobiKit_Tests/Pods-AnobiKit_Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6CDDA1F9538FB50D4BDEC4EE /* [CP] Check Pods Manifest.lock */ = {
@@ -392,26 +359,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CDCF5DE481D402B128639CEA /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-AnobiKit_Example/Pods-AnobiKit_Example-resources.sh",
-				"${PODS_ROOT}/../../AnobiKit/Resources/AKMainConfigExample.plist",
-				"${PODS_ROOT}/../../AnobiKit/Resources/AKThemesExample.plist",
-				"${PODS_ROOT}/../../AnobiKit/Resources/AKViewDispatcherConfigExample.plist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnobiKit_Example/Pods-AnobiKit_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

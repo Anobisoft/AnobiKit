@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 #import <netinet/in.h>
-#import <AnobiKit/AKTypes.h>
+#import <AnobiKit/AKInterfaces.h>
 
 typedef enum : NSInteger {
     AKRStatusInvalid = -1,

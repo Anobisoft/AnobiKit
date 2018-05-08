@@ -14,7 +14,6 @@
 static NSMutableDictionary<Class, __kindof AKSingleton *> *uniqueInstances;
 
 + (void)initialize {
-	[super initialize];
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         uniqueInstances = [NSMutableDictionary new];

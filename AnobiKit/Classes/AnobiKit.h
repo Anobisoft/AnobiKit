@@ -6,15 +6,16 @@
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 
-#import <AnobiKit/AKTypes.h>
+#import <AnobiKit/AKInterfaces.h>
+#import <AnobiKit/AKCodableObject.h>
 #import <AnobiKit/AKObjectMapping.h>
 #import <AnobiKit/AKConfigManager.h>
 #import <AnobiKit/AKFileManager.h>
 #import <AnobiKit/AKReachability.h>
 #import <AnobiKit/AKUUID.h>
+#import <AnobiKit/AKSingleton.h>
 
 #import <AnobiKit/AKSound.h>
-#import <AnobiKit/AKSoundPlayer.h>
 
 #import <AnobiKit/NSThread+AnobiKit.h>
 #import <AnobiKit/NSBundle+AnobiKit.h>

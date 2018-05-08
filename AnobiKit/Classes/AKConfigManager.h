@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AnobiKit/AKTypes.h>
+#import <AnobiKit/AKSingleton.h>
+#import <AnobiKit/AKInterfaces.h>
 
 @interface AKConfigManager : AKSingleton <KeyedSubscript>
 
