@@ -173,7 +173,7 @@ static Class __NSCFBooleanClass = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         __NSCFBooleanClass = NSClassFromString(@"__NSCFBoolean");
-    });    
+    });
 }
 
 + (NSDateFormatter *)defaultDateFormatter {

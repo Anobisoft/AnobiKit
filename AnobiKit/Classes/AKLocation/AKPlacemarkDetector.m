@@ -9,12 +9,13 @@
 #import "AKPlacemarkDetector.h"
 #import <CoreLocation/CoreLocation.h>
 
-@interface AKPlacemarkDetector() <CLLocationManagerDelegate>
+typedef void(^AKPlacemarkDetectorFetchBlock)(AKPlacemarkDetector *detector, NSArray<CLPlacemark *> *placemarks, NSError *error);
 
+@interface AKPlacemarkDetector() <CLLocationManagerDelegate>
+@property (nonatomic) AKPlacemarkDetectorFetchBlock fetchBlock;
 @end
 
 @implementation AKPlacemarkDetector {
-    void (^_fetchBlock)(AKPlacemarkDetector *detector, NSArray<CLPlacemark *> *placemarks, NSError *error);
     CLLocationManager *locationManager;
 }
 
@@ -27,7 +28,7 @@
         locationManager = [CLLocationManager new];
         locationManager.delegate = self;
         [locationManager requestWhenInUseAuthorization];
-        _fetchBlock = fetchBlock;
+        self.fetchBlock = fetchBlock;
     }
     return self;
 }
@@ -46,15 +47,15 @@
         case kCLAuthorizationStatusRestricted: {
             NSError *error = [NSError errorWithDomain:@"AKLocationManager" code:-1
                                              userInfo:@{NSLocalizedDescriptionKey : @"Core Location Authorization Restricted"}];
-            _fetchBlock(self, nil, error);
-            _fetchBlock = nil; //free
+            if (self.fetchBlock) self.fetchBlock(self, nil, error);
+            self.fetchBlock = nil; //free
         } break;
         case kCLAuthorizationStatusDenied:
         default: {
             NSError *error = [NSError errorWithDomain:@"AKLocationManager" code:-1
                                              userInfo:@{NSLocalizedDescriptionKey : @"Core Location Authorization Denied"}];
-            _fetchBlock(self, nil, error);
-            _fetchBlock = nil; //free
+            if (self.fetchBlock) self.fetchBlock(self, nil, error);
+            self.fetchBlock = nil; //free
         } break;
     }
     
@@ -87,8 +88,8 @@
     }
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0), ^{
         dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
-        self->_fetchBlock(self, result, lastError);
-        self->_fetchBlock = nil; //free
+        if (self.fetchBlock) self.fetchBlock(self, result, lastError);
+        self.fetchBlock = nil; //free
     });
 }
 
@@ -103,8 +104,8 @@
 #ifdef DEBUG
     NSLog(@"%s %@", __PRETTY_FUNCTION__, error);
 #endif
-    self->_fetchBlock(self, nil, error);
-    self->_fetchBlock = nil; //free
+    if (self.fetchBlock) self.fetchBlock(self, nil, error);
+    self.fetchBlock = nil; //free
 }
 
 @end
