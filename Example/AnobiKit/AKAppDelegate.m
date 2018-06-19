@@ -16,6 +16,10 @@
     NSLog(@"%@", [NSBundle UIKitBundle]);
     NSLog(@"%@", [[NSBundle UIKitBundle] localizedStringForKey:@"Redo"]);
     
+    NSString *email4test = @"dldklsfjghdfjklsgh_@atakdjvbl-asdfk.aldfgkadfgjk.lag";
+    NSString *validationResult = email4test.isValidEmail ? @"isValidEmail" : @"isInvalidEmail";
+    NSLog(@"'%@' %@", email4test, validationResult);
+    
     return YES;
 }
 

@@ -59,47 +59,33 @@
     return [self isValidType:type withTest:nil];
 }
 
-- (BOOL)isValidType:(NSTextCheckingType)type withTest:(BOOL (^)(NSTextCheckingResult *result, NSMatchingFlags flags))test {
+- (BOOL)isValidType:(NSTextCheckingType)type withTest:(BOOL (^)(NSTextCheckingResult *result,
+                                                                NSMatchingFlags flags))test {
     NSError *error;
     NSDataDetector *detector = [NSDataDetector dataDetectorWithTypes:type
                                                                error:&error];
-    NSRange range = NSMakeRange(0, self.length);
+    NSRange fullRange = NSMakeRange(0, self.length);
     __block BOOL valid = false;
+    
+    void(^testBlock)(NSTextCheckingResult * _Nullable result,
+                          NSMatchingFlags flags,
+                          BOOL * _Nonnull stop) = ^(NSTextCheckingResult * _Nullable result,
+                                                    NSMatchingFlags flags,
+                                                    BOOL * _Nonnull stop) {
+        BOOL isExpectedType = (result.resultType & type);
+        BOOL rangeOK = isExpectedType && NSEqualRanges(result.range, fullRange);
+        BOOL testOK = rangeOK && (test ? test(result, flags) : true);
+        if (testOK) {
+            *stop = valid = true;
+        }
+    };
+    
     [detector enumerateMatchesInString:self
                                options:NSMatchingReportCompletion
-                                 range:range
-                            usingBlock:^(NSTextCheckingResult * _Nullable result,
-                                         NSMatchingFlags flags,
-                                         BOOL * _Nonnull stop) {
-        if (result.resultType & type
-            && NSEqualRanges(result.range, range)
-            && (test ? test(result, flags) : true)) *stop = valid = true;
-    }];
+                                 range:fullRange
+                            usingBlock:testBlock];
+    
     return valid;
 }
-
-/*
-- (BOOL)isValidEmailDeprecated {
-    NSError *error = nil;
-    NSDataDetector *detector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeLink
-                                                               error:&error];
-    if (error) NSLog(@"[ERROR] %@", error);
-    __block BOOL valid = false;
-    NSRange range = NSMakeRange(0, self.length);
-    [detector enumerateMatchesInString:self
-                               options:NSMatchingReportCompletion //kNilOptions
-                                 range:range
-                            usingBlock:^(NSTextCheckingResult * _Nullable result,
-                                         NSMatchingFlags flags,
-                                         BOOL * _Nonnull stop) {
-                                if (result.URL
-                                    && [[result.URL scheme] isEqualToString:@"mailto"]
-                                    && NSEqualRanges(result.range, range)) {
-                                    *stop = valid = true;
-                                }
-                            }];
-return valid;
-}
- */
 
 @end
