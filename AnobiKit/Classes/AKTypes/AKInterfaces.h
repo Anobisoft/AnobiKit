@@ -9,13 +9,6 @@
 #ifndef AKInterfaces_h
 #define AKInterfaces_h
 
-@protocol DisableNSInit
-
-+ (instancetype)new NS_UNAVAILABLE;
-- (instancetype)init NS_UNAVAILABLE;
-
-@end
-
 @protocol KeyedSubscript
 - (id)objectForKeyedSubscript:(id)key;
 @end

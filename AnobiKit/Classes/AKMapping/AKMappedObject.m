@@ -6,18 +6,14 @@
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 
-@protocol AKMutable
-
-- (void)addObject:(id)object;
-
-@end
-
 
 #import "AKMappedObject.h"
 #import "AKUUID.h"
 @import ObjectiveC.runtime;
 
 @implementation AKMappedObject
+
+#pragma mark - AKObjectMapping
 
 + (AKObjectMap *)objectMap {
     return nil;
@@ -29,96 +25,101 @@
 
 + (instancetype)instatiateWithExternalRepresentation:(NSDictionary *)representation objectMap:(AKObjectMap *)objectMap {
     AKObjectMap *selfMap = objectMap ?: [self objectMap];
+    if ([representation isKindOfClass:NSArray.class] || [representation isKindOfClass:NSSet.class]) {
+        AKPropertyMap *itemMap = [AKPropertyMap mapWithObjectClass:self objectMap:selfMap];
+        return [self collectionWithExternalRepresentation:representation withClass:representation.class propertyMap:itemMap];
+    }
     return [[self alloc] initWithExternalRepresentation:representation objectMap:selfMap];
 }
 
 - (instancetype)initWithExternalRepresentation:(NSDictionary *)representation objectMap:(AKObjectMap *)objectMap {
-    if (self = [super init]) {
-        if ([representation isKindOfClass:NSNull.class]) {
-            return nil;
-        }
-        if (![representation isKindOfClass:NSDictionary.class]) {
-            return nil;
-        }
+    if ([representation isKindOfClass:NSNull.class]) {
+        return nil;
+    }
+
+    if (self = [self init]) {
         [representation enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
             NSString *propertyKey = key;
             AKPropertyMap *propertyMap = objectMap[key];
-            if (propertyMap) propertyKey = propertyMap.propertyKey ?: key;
-            objc_property_t property = class_getProperty(object_getClass(self), [propertyKey UTF8String]);
-            if (!property) {
-                NSLog(@"[WARNING] Representation keyed '%@' skipped: setter not found.", propertyKey);
-                return ;
+            if (propertyMap.propertyKey) {
+                propertyKey = propertyMap.propertyKey;
             }
-            Class propertyClass = property_getClass(property);
-            Class mapClass = propertyMap.objectClass;
-            if (mapClass) {
-                if ([mapClass conformsToProtocol:@protocol(AKObjectMapping)]) {
-                    if ([obj conformsToProtocol:@protocol(NSFastEnumeration)]) {
-                        if (![propertyClass isSubclassOfClass:NSArray.class] && ![propertyClass isSubclassOfClass:NSSet.class]) {
-                            @throw [NSException exceptionWithName:@"AKPropertyMapException"
-                                                           reason:@"object representation conformsToProtocol NSFastEnumeration, but property class is not subclassOfClass NSArray or NSSet"
-                                                         userInfo:@{ @"objectMap" : objectMap,
-                                                                     @"key" : key,
-                                                                     @"representation" : representation,
-                                                                     @"propertyClass" : propertyClass,
-                                                                     }];
-                            return ;
-                        }
-                        BOOL targetMutable = [propertyClass instancesRespondToSelector:@selector(addObject:)];
-                        NSMutableSet *mutableContainer = [propertyClass new];
-                        if (!targetMutable) mutableContainer = mutableContainer.mutableCopy;
-                        for (NSDictionary *objRepresentation in obj) {
-                            id newPropertyInstance = [mapClass instatiateWithExternalRepresentation:objRepresentation objectMap:propertyMap.objectMap];
-                            if (newPropertyInstance) {
-                                [mutableContainer addObject:newPropertyInstance];
-                            }
-                        }
-                        if (!targetMutable) mutableContainer = mutableContainer.copy;
-                        [self try2setObject:mutableContainer forKey:propertyKey];
-                    } else {
-                        id newPropertyInstance = [mapClass instatiateWithExternalRepresentation:obj objectMap:propertyMap.objectMap];
-                        [self try2setObject:newPropertyInstance forKey:propertyKey];
-                    }
-                } else {
-                    @throw [NSException exceptionWithName:@"AKPropertyMapException"
-                                                   reason:@"propertyMap.objectClass not conformsToProtocol <AKObjectMapping>"
-                                                 userInfo:@{ @"objectMap" : objectMap,
-                                                             @"key" : key,
-                                                             @"propertyMap" : propertyMap,
-                                                             @"propertyMap.objectClass" : propertyMap.objectClass }];
-                }
-            } else {  //automap
-                if (propertyClass) {
-                    if ([propertyClass conformsToProtocol:@protocol(AKObjectMapping)]) {
-                        id newPropertyInstance = [propertyClass instatiateWithExternalRepresentation:obj objectMap:propertyMap.objectMap];
-                        [self try2setObject:newPropertyInstance forKey:propertyKey];
-                        return ;
-                    }
-                    if ([obj isKindOfClass:NSString.class]) {
-                        if ([propertyClass isSubclassOfClass:NSDate.class]) {
-                            NSDateFormatter *df = self.class.dateFormatters[key] ?: self.class.defaultDateFormatter;
-                            if (df) {
-                                [self try2setObject:[df dateFromString:obj] forKey:propertyKey];
-                                return ;
-                            }
-                        } else {
-                            if ([propertyClass isSubclassOfClass:NSURL.class]) {
-                                [self try2setObject:[NSURL URLWithString:obj] forKey:propertyKey];
-                                return ;
-                            }
-                            if ([propertyClass isSubclassOfClass:NSUUID.class]) {
-                                [self try2setObject:[AKUUID UUIDWithUUIDString:obj] forKey:propertyKey];
-                                return ;
-                            }
-                        }
-                    }
-                }
-                [self try2setObject:obj forKey:propertyKey]; // try to set representation object to property as is (JSON object representation)
-            }
-            
+            [self mapExternalRepresentation:obj forKey:propertyKey propertyMap:propertyMap];
         }];
     }
     return self;
+}
+
+- (void)mapExternalRepresentation:(id)obj forKey:(NSString *)propertyKey propertyMap:(AKPropertyMap *)propertyMap {
+    objc_property_t property = class_getProperty(object_getClass(self), [propertyKey UTF8String]);
+    if (!property) {
+        NSLog(@"[WARNING] %@ map: representation keyed '%@' skipped: setter not found.", self.class, propertyKey);
+        return ;
+    }
+    Class mapClass = propertyMap.objectClass;
+    Class propertyClass = property_getClass(property);
+    if (mapClass) {
+        NSAssert([mapClass conformsToProtocol:@protocol(AKObjectMapping)], @"class [%@] in map [%@] must conformsToProtocol <AKObjectMapping>", mapClass, propertyMap);
+        if ([obj conformsToProtocol:@protocol(NSFastEnumeration)]) {
+            NSAssert([propertyClass isSubclassOfClass:NSArray.class] || [propertyClass isSubclassOfClass:NSSet.class], @"Property class [%@] must be subclass of class NSArray (or NSSet), since external representation is NSFastEnumeration type [%@] (propertyMap %@)", propertyClass, ((NSObject *)obj).class, propertyMap.debugDescription);
+            id collection = [self.class collectionWithExternalRepresentation:obj withClass:propertyClass propertyMap:propertyMap];
+            [self try2setObject:collection forKey:propertyKey];
+        } else {
+            id newPropertyInstance = [mapClass instatiateWithExternalRepresentation:obj objectMap:propertyMap.objectMap];
+            [self try2setObject:newPropertyInstance forKey:propertyKey];
+        }
+    } else {  //automap
+        [self automapExternalRepresentation:obj forKey:propertyKey propertyClass:propertyClass propertyMap:propertyMap];
+    }
+}
+
++ (id)collectionWithExternalRepresentation:(id<NSObject, NSFastEnumeration>)obj withClass:(Class)collectionClass propertyMap:(AKPropertyMap *)propertyMap {
+    if (![collectionClass isSubclassOfClass:NSArray.class] && ![collectionClass isSubclassOfClass:NSSet.class]) {
+        collectionClass = obj.class;
+    }
+    BOOL targetMutable = [collectionClass instancesRespondToSelector:@selector(addObject:)];
+    NSMutableArray *collection = [collectionClass new];
+    if (!targetMutable) {
+        collection = collection.mutableCopy;
+    }
+    Class mapClass = propertyMap.objectClass;
+    for (NSDictionary *objRepresentation in obj) {
+        id newPropertyInstance = [mapClass instatiateWithExternalRepresentation:objRepresentation objectMap:propertyMap.objectMap];
+        if (newPropertyInstance) { // skip NSNull
+            [collection addObject:newPropertyInstance];
+        }
+    }
+    if (!targetMutable) collection = collection.copy;
+    return collection;
+}
+
+- (void)automapExternalRepresentation:(id)obj forKey:(NSString *)propertyKey propertyClass:(Class)propertyClass propertyMap:(AKPropertyMap *)propertyMap {
+    if (propertyClass) {
+        if ([propertyClass conformsToProtocol:@protocol(AKObjectMapping)]) {
+            id newPropertyInstance = [propertyClass instatiateWithExternalRepresentation:obj objectMap:propertyMap.objectMap];
+            [self try2setObject:newPropertyInstance forKey:propertyKey];
+            return ;
+        }
+        if ([obj isKindOfClass:NSString.class]) {
+            if ([propertyClass isSubclassOfClass:NSDate.class]) {
+                NSDateFormatter *df = self.class.dateFormatters[propertyKey] ?: self.class.defaultDateFormatter;
+                if (df) {
+                    [self try2setObject:[df dateFromString:obj] forKey:propertyKey];
+                    return ;
+                }
+            } else {
+                if ([propertyClass isSubclassOfClass:NSURL.class]) {
+                    [self try2setObject:[NSURL URLWithString:obj] forKey:propertyKey];
+                    return ;
+                }
+                if ([propertyClass isSubclassOfClass:NSUUID.class]) {
+                    [self try2setObject:[AKUUID UUIDWithUUIDString:obj] forKey:propertyKey];
+                    return ;
+                }
+            }
+        }
+    }
+    [self try2setObject:obj forKey:propertyKey]; // try to set representation object to property as is (JSON object representation)
 }
 
 Class property_getClass(objc_property_t property) {
@@ -155,6 +156,8 @@ Class property_getClass(objc_property_t property) {
         NSLog(@"[ERROR] exception: %@", exception);
     }
 }
+
+#pragma mark - AKObjectReverseMapping
 
 id AKObjectReverseMappingRepresentation(id object) {
     if ([object conformsToProtocol:@protocol(AKObjectReverseMapping)]) {

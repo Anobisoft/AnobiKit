@@ -8,13 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
-#import <AnobiKit/AKInterfaces.h>
 
-@interface AKSound : NSObject <DisableNSInit>
+@interface AKSound : NSObject
 
-+ (instancetype)soundWithName:(NSString *)name;
 @property (readonly) BOOL isPlaing;
 @property NSInteger numberOfLoops;
+
++ (instancetype)soundWithName:(NSString *)name;
++ (instancetype)new NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 - (void)play;
 - (void)stop;

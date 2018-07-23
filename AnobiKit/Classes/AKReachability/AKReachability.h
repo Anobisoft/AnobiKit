@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 #import <netinet/in.h>
-#import <AnobiKit/AKInterfaces.h>
 
 typedef enum : NSInteger {
     AKRStatusInvalid = -1,
@@ -26,11 +25,14 @@ typedef enum : NSInteger {
 - (void)reachability:(AKReachability *)reachability didChangeStatus:(AKReachabilityStatus)status;
 @end
 
-@interface AKReachability : NSObject <DisableNSInit>
+@interface AKReachability : NSObject
 
 + (instancetype)reachabilityWithHostname:(NSString *)hostname;
 + (instancetype)reachabilityWithAddress:(const struct sockaddr *)hostAddress;
 + (instancetype)reachabilityForInternetConnection;
+
++ (instancetype)new NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 - (void)hold;
 - (void)free;

@@ -8,49 +8,8 @@
 
 #import "AKCodableObject.h"
 #import <objc/runtime.h>
+#import <AKDeepCopyingUtilities.h>
 
-id AKDeepCopy(id object) {
-    if ([object conformsToProtocol:@protocol(AKDeepCopying)]) {
-        return [(id<AKDeepCopying>)object deepcopy];
-    }
-    if ([object conformsToProtocol:@protocol(NSCopying)]) {
-        return [(id<NSCopying>)object copyWithZone:nil];
-    }
-    return object;
-}
-
-@interface NSDictionary(AKDeepCopying) <AKDeepCopying> @end
-@implementation NSDictionary(AKDeepCopying)
-- (instancetype)deepcopy {
-    NSMutableDictionary *mutable = [NSMutableDictionary new];
-    [self enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-        mutable[key] = AKDeepCopy(obj);
-    }];
-    return mutable.copy;
-}
-@end
-
-@interface NSArray(AKDeepCopying) <AKDeepCopying> @end
-@implementation NSArray(AKDeepCopying)
-- (instancetype)deepcopy {
-    NSMutableArray *mutable = [NSMutableArray new];
-    for (id obj in self) {
-        [mutable addObject:AKDeepCopy(obj)];
-    }
-    return mutable.copy;
-}
-@end
-
-@interface NSSet(AKDeepCopying) <AKDeepCopying> @end
-@implementation NSSet(AKDeepCopying)
-- (instancetype)deepcopy {
-    NSMutableSet *mutable = [NSMutableSet new];
-    for (id obj in self) {
-        [mutable addObject:AKDeepCopy(obj)];
-    }
-    return mutable.copy;
-}
-@end
 
 @implementation AKCodableObject
 
@@ -238,11 +197,15 @@ BOOL readonly(const char * attrs) {
     return self.deepcopy;
 }
 
+- (id)mutableCopy {
+    return self.deepcopy;
+}
+
 - (instancetype)deepcopy {
     id newinstance = [self.class new];
     for (NSString *key in self.writableProperties) {
         id value = [self valueForKey:key];
-        [newinstance setValue:AKDeepCopy(value) forKey:key];
+        [newinstance setValue:AKMakeDeepCopy(value) forKey:key];
     }
     return newinstance;
 }

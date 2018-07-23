@@ -6,11 +6,7 @@
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
-@protocol AKDeepCopying
-- (instancetype)deepcopy;
-@end
+#import "AKDeepCopying.h"
 
 @interface AKCodableObject : NSObject <NSSecureCoding, AKDeepCopying>
 @property (readonly) NSArray<NSString *> *readableProperties;

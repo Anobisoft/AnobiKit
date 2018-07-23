@@ -11,9 +11,6 @@
 
 @interface AKMappedObject : AKCodableObject <AKObjectMapping, AKObjectReverseMapping>
 
-@property (class, readonly) NSDateFormatter *defaultDateFormatter;
-@property (class, readonly) NSDictionary<NSString *, NSDateFormatter *> *dateFormatters;
-+ (NSString *)stringFromBoolean:(BOOL)b;
-+ (NSString *)stringFromBoolean:(BOOL)b property:(NSString *)property;
+
 
 @end

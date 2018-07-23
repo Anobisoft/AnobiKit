@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name             = 'AnobiKit'
-  s.version          = '0.3.3'
+  s.version          = '0.4.0'
   s.summary          = 'AnobiKit - collection of various independent classes and categories useful to Objective-C iOS Developer.'
 
   s.description      = <<-DESC
@@ -20,6 +20,7 @@ much more longer...
   s.platform     = :ios, "8.3"
   s.source       = { :git => "https://github.com/Anobisoft/AnobiKit.git", :tag => "v#{s.version}" }
   s.source_files  = "AnobiKit/Classes/**/*.{h,m}"
+  s.private_header_files = "AnobiKit/Classes/_Private/*.h"
   s.resources = "AnobiKit/Resources/*.plist"
 
   s.framework  = "Foundation"

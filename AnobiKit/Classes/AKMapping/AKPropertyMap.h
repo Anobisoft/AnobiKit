@@ -26,9 +26,8 @@
                        objectClass:(Class<AKObjectMapping>)objectClass
                          objectMap:(AKObjectMap *)objectMap;
 
-
-@property NSString *propertyKey;
-@property Class<AKObjectMapping> objectClass;
-@property AKObjectMap *objectMap;
+@property (nonatomic) NSString *propertyKey;
+@property (nonatomic) Class<AKObjectMapping> objectClass;
+@property (nonatomic) AKObjectMap *objectMap;
 
 @end

@@ -8,12 +8,14 @@
 
 #import "AKAppDelegate.h"
 #import <AnobiKit/AnobiKit.h>
+#import <AnobiKit/NSArray+AKDeepCopying.h>
 
 @implementation AKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSLog(@"MainConfig\n%@", [AKConfigManager manager][@"AKExampleConfig"]);
     NSLog(@"%@", [NSBundle UIKitBundle]);
+    NSLog(@"%@", [NSBundle UIKitBundle].localizationKeys);
     NSLog(@"%@", [[NSBundle UIKitBundle] localizedStringForKey:@"Redo"]);
     
     NSString *email4test = @"dldklsfjghdfjklsgh_@atakdjvbl-asdfk.aldfgkadfgjk.lag";

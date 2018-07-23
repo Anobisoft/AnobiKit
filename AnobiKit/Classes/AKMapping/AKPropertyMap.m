@@ -46,12 +46,16 @@
 - (instancetype)initWithPropertyKey:(NSString *)propertyKey
                         objectClass:(Class<AKObjectMapping>)objectClass
                           objectMap:(AKObjectMap *)objectMap {
-    if (self = [super init]) {
+    if (self = [self init]) {
         self.propertyKey = propertyKey;
         self.objectClass = objectClass;
         self.objectMap = objectMap;
     }
     return self;
+}
+
+- (NSString *)debugDescription {
+    return [NSString stringWithFormat:@"%@ propertyKey:%@, objectClass:%@, objectMapKeys:%@", super.description, self.propertyKey, self.objectClass, self.objectMap.allKeys];
 }
 
 @end
