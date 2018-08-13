@@ -8,7 +8,28 @@
 [![License](https://img.shields.io/cocoapods/l/AnobiKit.svg?style=flat)](http://cocoapods.org/pods/AnobiKit)
 [![Twitter](https://img.shields.io/badge/twitter-@Anobisoft-blue.svg?style=flat)](http://twitter.com/Anobisoft)
 
-Collection of various independent classes and categories useful to Objective-C iOS Developer.
+Utilities collection useful to Objective-C iOS Developer.
+
+AKBundle
+AKConfigManager
+AKFileManager
+AKMultipleInheritance
+AKReachability
+AKThread
+AKUUID
+AKVersion
+
+AKCodableObject
+AKCoreData
+AKDate
+AKDeepCopying
+AKDesign
+AKFormatters
+AKLocationManager
+AKObjectMapping
+AKSound
+AKStrings
+
 
 ## Example
 

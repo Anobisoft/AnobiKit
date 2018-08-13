@@ -3,19 +3,18 @@
 //  AnobiKit
 //
 //  Created by Stanislav Pletnev on 08/02/2017.
-//  Copyright (c) 2017 Anobisoft. All rights reserved.
+//  Copyright © 2017 Anobisoft. All rights reserved.
 //
 
 #import "AKAppDelegate.h"
 #import <AnobiKit/AnobiKit.h>
-#import <AnobiKit/NSArray+AKDeepCopying.h>
 
 @implementation AKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSLog(@"MainConfig\n%@", [AKConfigManager manager][@"AKExampleConfig"]);
     NSLog(@"%@", [NSBundle UIKitBundle]);
-    NSLog(@"%@", [NSBundle UIKitBundle].localizationKeys);
+    NSLog(@"%@", [NSBundle UIKitBundle].localizationTable.allKeys);
     NSLog(@"%@", [[NSBundle UIKitBundle] localizedStringForKey:@"Redo"]);
     
     NSString *email4test = @"dldklsfjghdfjklsgh_@atakdjvbl-asdfk.aldfgkadfgjk.lag";

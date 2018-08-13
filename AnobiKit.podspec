@@ -2,14 +2,31 @@
 Pod::Spec.new do |s|
 
   s.name             = 'AnobiKit'
-  s.version          = '0.4.0'
-  s.summary          = 'AnobiKit - collection of various independent classes and categories useful to Objective-C iOS Developer.'
+  s.version          = '0.5.0'
+  s.summary          = 'AnobiKit - utilities collection useful to Objective-C iOS Developer.'
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
-Description should be longer than summary.
-more longer
-much more longer...
+  AnobiKit - utilities collection useful to Objective-C iOS Developer.
+  ---
+  AKBundle
+  AKConfigManager
+  AKFileManager
+  AKMultipleInheritance
+  AKReachability
+  AKThread
+  AKUUID
+  AKVersion
+  ---
+  AKCodableObject
+  AKCoreData
+  AKDate
+  AKDeepCopying
+  AKDesign
+  AKFormatters
+  AKLocationManager
+  AKObjectMapping
+  AKSound
+  AKStrings
                        DESC
 
   s.homepage     = "https://github.com/Anobisoft/AnobiKit"
@@ -19,9 +36,8 @@ much more longer...
 
   s.platform     = :ios, "8.3"
   s.source       = { :git => "https://github.com/Anobisoft/AnobiKit.git", :tag => "v#{s.version}" }
-  s.source_files  = "AnobiKit/Classes/**/*.{h,m}"
-  s.private_header_files = "AnobiKit/Classes/_Private/*.h"
-  s.resources = "AnobiKit/Resources/*.plist"
+  s.source_files  = "AnobiKit/**/*.{h,m}"
+  s.private_header_files = "AnobiKit/_Private/*.h"
 
   s.framework  = "Foundation"
   s.requires_arc = true
