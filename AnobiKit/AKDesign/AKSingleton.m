@@ -42,7 +42,7 @@ static NSMutableDictionary<NSString *, __kindof AKSingleton *> *uniqueInstances;
 }
 
 + (void)free {
-    [uniqueInstances removeObjectForKey:self];
+    [uniqueInstances removeObjectForKey:NSStringFromClass(self)];
 }
 
 - (void)free {
