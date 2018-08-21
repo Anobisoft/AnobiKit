@@ -12,6 +12,8 @@
 @interface AKConfigManager : AKSingleton <KeyedSubscript>
 
 + (instancetype)manager;
+
 - (id)configWithName:(NSString *)name;
+- (void)setCachesize:(NSUInteger)cachesize;
 
 @end

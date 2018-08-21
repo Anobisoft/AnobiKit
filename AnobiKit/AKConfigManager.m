@@ -17,6 +17,17 @@
 	return [self shared];
 }
 
+- (void)setCachesize:(NSUInteger)cachesize {
+    if (cachesize) {
+        if (!configsCache) {
+            configsCache = [NSCache new];
+        }
+        configsCache.totalCostLimit = cachesize;
+    } else {
+        configsCache = nil;
+    }
+}
+
 - (instancetype)init {
     if (self = [super init]) {
         configsCache = [NSCache new];
