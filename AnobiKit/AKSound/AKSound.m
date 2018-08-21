@@ -19,19 +19,21 @@
 - (instancetype)initWithName:(NSString *)name {
     if (self = [super init]) {
         NSString *path = [name isAbsolutePath] ? name : [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:name];
-        if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-            NSURL *fileURL = [NSURL fileURLWithPath:path];
-            NSError *error;
-            audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL error:&error];
-            if (error) NSLog(@"[ERROR] %@", error);
-            if (audioPlayer) return self;
-        } else {
+        if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
             @throw [NSException exceptionWithName:@"FileNotFoundException"
                                            reason:[NSString stringWithFormat:@"file '%@' not found", path]
                                          userInfo:nil];
+            return nil;
         }
+        NSURL *fileURL = [NSURL fileURLWithPath:path];
+        NSError *error;
+        audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL error:&error];
+        if (error) {
+            @throw error;
+        }
+        if (!audioPlayer) return nil;
     }
-    return nil;
+    return self;
 }
 
 - (void)play {

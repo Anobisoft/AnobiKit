@@ -9,12 +9,13 @@
 #import "AKDeepCopyingUtilities.h"
 #import "AKDeepCopying.h"
 
-id AKMakeDeepCopy(NSObject *object) {
+__kindof NSObject * AKMakeDeepCopy(__kindof NSObject *object) {
     if ([object conformsToProtocol:@protocol(AKDeepCopying)]) {
-        return [(id<AKDeepCopying>)object deepcopy];
+        id<AKDeepCopying> deepCopySupported = object;
+        return deepCopySupported.deepcopy;
     }
     if ([object conformsToProtocol:@protocol(NSCopying)]) {
-        return [object copy];
+        return object.copy;
     }
     return object;
 }
