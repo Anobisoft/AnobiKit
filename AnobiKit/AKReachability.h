@@ -27,18 +27,17 @@ typedef enum : NSInteger {
 
 @interface AKReachability : NSObject
 
++ (instancetype)reachabilityForInternetConnection;
 + (instancetype)reachabilityWithHostname:(NSString *)hostname;
 + (instancetype)reachabilityWithAddress:(const struct sockaddr *)hostAddress;
-+ (instancetype)reachabilityForInternetConnection;
 
-+ (instancetype)new NS_UNAVAILABLE;
 - (instancetype)init NS_UNAVAILABLE;
 
 - (void)hold;
 - (void)free;
 
 @property (readonly) AKReachabilityStatus currentStatus;
-@property (weak, nonatomic) id<AKReachabilityDelegate> delegate;
+@property (nonatomic, weak) id<AKReachabilityDelegate> delegate;
 
 @end
 
