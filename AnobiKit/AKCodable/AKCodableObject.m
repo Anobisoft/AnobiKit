@@ -32,12 +32,14 @@ BOOL readonly(const char * attrs) {
 }
 
 + (void)load {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        writablePropertiesByClass = [NSMutableDictionary new];
-        readonlyPropertiesByClass = [NSMutableDictionary new];
-    });
+    writablePropertiesByClass = [NSMutableDictionary new];
+    readonlyPropertiesByClass = [NSMutableDictionary new];
+}
+
++ (void)initialize {
     if (self == AKCodableObject.class) return;
+    [super initialize];
+    
     NSMutableArray *rwProperties = [NSMutableArray new];
     NSMutableArray *roProperties = [NSMutableArray new];
     unsigned int propertyCount = 0;
@@ -61,7 +63,7 @@ BOOL readonly(const char * attrs) {
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    if (self = [super init]) {
+    if (self = [self init]) {
         for (NSString *propertyKey in self.writableProperties) {
             [self setValue:[aDecoder decodeObjectForKey:propertyKey] forKey:propertyKey];
         }
@@ -99,11 +101,10 @@ BOOL readonly(const char * attrs) {
     Class superclass = [self superclass];
     if (superclass == [AKCodableObject class]) {
         return writablePropertiesByClass[NSStringFromClass(self)];
-    } else {
-        NSArray<NSString *> *selfrwp = writablePropertiesByClass[NSStringFromClass(self)];
-        NSArray<NSString *> *superwp = superclass.writableProperties;
-        return selfrwp ? [selfrwp arrayByAddingObjectsFromArray:superwp] : superwp;
     }
+    NSArray<NSString *> *selfrwp = writablePropertiesByClass[NSStringFromClass(self)];
+    NSArray<NSString *> *superwp = superclass.writableProperties;
+    return selfrwp ? [selfrwp arrayByAddingObjectsFromArray:superwp] : superwp;
 }
 
 - (NSArray<NSString *> *)readonlyProperties {
@@ -114,11 +115,10 @@ BOOL readonly(const char * attrs) {
     Class superclass = [self superclass];
     if (superclass == [AKCodableObject class]) {
         return readonlyPropertiesByClass[NSStringFromClass(self)];
-    } else {
-        NSArray<NSString *> *selfrop = readonlyPropertiesByClass[NSStringFromClass(self)];
-        NSArray<NSString *> *superop = superclass.readonlyProperties;
-        return selfrop ? [selfrop arrayByAddingObjectsFromArray:superop] : superop;
     }
+    NSArray<NSString *> *selfrop = readonlyPropertiesByClass[NSStringFromClass(self)];
+    NSArray<NSString *> *superop = superclass.readonlyProperties;
+    return selfrop ? [selfrop arrayByAddingObjectsFromArray:superop] : superop;
 }
 
 - (NSArray<NSString *> *)readableProperties {
