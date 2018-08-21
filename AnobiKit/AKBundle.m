@@ -27,6 +27,8 @@ NSString * const CFBundleDisplayNameKey = @"CFBundleDisplayName";
 
 
 
+#pragma mark - Application name
+
 + (NSString *)appName {
     return self.mainBundle.infoDictionary[(id)kCFBundleNameKey];
 }
@@ -36,6 +38,8 @@ NSString * const CFBundleDisplayNameKey = @"CFBundleDisplayName";
 }
 
 
+
+#pragma mark - Application version
 
 + (NSString *)appVersion {
     return [NSString stringWithFormat:@"v%@ build %@", [self appShortVersion], [self appBuildVersion]];
@@ -51,13 +55,26 @@ NSString * const CFBundleDisplayNameKey = @"CFBundleDisplayName";
 
 
 
+#pragma mark - Localization
+
 - (NSDictionary<NSString *, NSString *> *)localizationTable {
     return [self localizationTableWithName:@"Localizable"];
 }
 
 - (NSDictionary<NSString *, NSString *> *)localizationTableWithName:(NSString *)name {
     NSString *path = [self pathForResource:name ofType:@"strings"];
-    return [NSDictionary dictionaryWithContentsOfFile:path];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    NSError *error = nil;
+    id obj = [NSPropertyListSerialization propertyListWithData:data options:NSPropertyListImmutable format:NULL error:&error];
+    if (error && obj == nil) {
+        @throw error;
+        return nil;
+    }
+    if ([obj isKindOfClass:NSDictionary.class]) {
+        return obj;
+    }    
+    @throw NSInternalInconsistencyException;
+    return nil;
 }
 
 - (NSString *)localizedStringForKey:(NSString *)key {
