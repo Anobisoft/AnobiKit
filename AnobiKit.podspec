@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name             = 'AnobiKit'
-  s.version          = '0.5.1'
+  s.version          = '0.5.2'
   s.summary          = 'AnobiKit - utilities collection useful to Objective-C iOS Developer.'
 
   s.description      = <<-DESC
@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
   AKObjectMapping
   AKSound
   AKStrings
-                       DESC
+DESC
 
   s.homepage     = "https://github.com/Anobisoft/AnobiKit"
   s.license      = { :type => "MIT", :file => "LICENSE" }

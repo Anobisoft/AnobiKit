@@ -26,7 +26,7 @@
 }
 
 - (NSDate *)CCNextDay {
-    return [[NSDate cachedCurrentCalendar] dateByAddingUnit:NSCalendarUnitDay value:1 toDate:self options:0];
+    return [self CCAddUnit:NSCalendarUnitDay value:1];
 }
 
 - (NSDate *)CCNextDayStart {
@@ -34,7 +34,7 @@
 }
 
 - (NSDate *)CCPreviousDay {
-    return [[NSDate cachedCurrentCalendar] dateByAddingUnit:NSCalendarUnitDay value:-1 toDate:self options:0];
+    return [self CCAddUnit:NSCalendarUnitDay value:-1];
 }
 
 - (NSDate *)CCPreviousDayStart {
@@ -53,6 +53,10 @@
     NSCalendar *calendar = [NSCalendar currentCalendar];
     calendar.timeZone = timeZone;
     return [calendar startOfDayForDate:self];
+}
+
+- (NSDate *)CCAddUnit:(NSCalendarUnit)unit value:(NSInteger)value {
+    return [[NSDate cachedCurrentCalendar] dateByAddingUnit:unit value:value toDate:self options:0];
 }
 
 @end
@@ -76,6 +80,26 @@
     formatter.timeStyle = tstyle;
     formatter.timeZone = timeZone;
     return [formatter stringFromDate:self];
+}
+
+@end
+
+@implementation NSDate (Comparison)
+
+- (BOOL)earlyStricly:(NSDate *)date {
+    return [self compare:date] == NSOrderedAscending;
+}
+
+- (BOOL)earlyInclusively:(NSDate *)date {
+    return [self compare:date] != NSOrderedDescending;
+}
+
+- (BOOL)laterStricly:(NSDate *)date {
+    return [self compare:date] == NSOrderedDescending;
+}
+
+- (BOOL)laterInclusively:(NSDate *)date {
+    return [self compare:date] != NSOrderedAscending;
 }
 
 @end
