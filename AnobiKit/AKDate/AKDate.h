@@ -29,8 +29,8 @@
 
 @interface NSDate (Comparison)
 
-- (BOOL)earlyStricly:(NSDate *)date;
-- (BOOL)earlyInclusively:(NSDate *)date;
+- (BOOL)earlierStricly:(NSDate *)date;
+- (BOOL)earlierInclusively:(NSDate *)date;
 - (BOOL)laterStricly:(NSDate *)date;
 - (BOOL)laterInclusively:(NSDate *)date;
 

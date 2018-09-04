@@ -86,11 +86,11 @@
 
 @implementation NSDate (Comparison)
 
-- (BOOL)earlyStricly:(NSDate *)date {
+- (BOOL)earlierStricly:(NSDate *)date {
     return [self compare:date] == NSOrderedAscending;
 }
 
-- (BOOL)earlyInclusively:(NSDate *)date {
+- (BOOL)earlierInclusively:(NSDate *)date {
     return [self compare:date] != NSOrderedDescending;
 }
 
