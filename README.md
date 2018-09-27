@@ -33,7 +33,7 @@ AKStrings
 
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+To run the example project, clone the repo, and run `pod install --project-directory=Example` first.
 
 ## Installation with CocoaPods
 [CocoaPods](http://cocoapods.org/) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like **AnobiKit** in your projects. You can install it with the following command:
