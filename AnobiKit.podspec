@@ -16,7 +16,7 @@ DESC
   s.social_media_url   = 'https://twitter.com/Anobisoft'
 
   s.platform     = :ios, '8.3'
-  s.source       = { :git => 'https://github.com/Anobisoft/AnobiKit.git', :tag => 'v#{s.version}' }
+  s.source       = { :git => 'https://github.com/Anobisoft/AnobiKit.git', :tag => '#{s.version}' }
   s.source_files  = 'AnobiKit/**/*.{h,m}'
   
   s.subspec 'AKFoundation' do |ss|
