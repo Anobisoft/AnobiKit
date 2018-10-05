@@ -6,8 +6,8 @@
 //  Copyright © 2018 Anobisoft. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "AKDeepCopying.h"
 
-@interface NSDictionary (AKDeepCopying)
+@interface NSDictionary (AKDeepCopying) <AKDeepCopying>
 
 @end

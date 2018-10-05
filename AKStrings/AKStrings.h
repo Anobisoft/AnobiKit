@@ -6,10 +6,5 @@
 //  Copyright © 2018 Anobisoft. All rights reserved.
 //
 
-#ifndef AKStrings_h
-#define AKStrings_h
-
 #import <AnobiKit/NSString+AKDataValidation.h>
 #import <AnobiKit/NSString+Trimming.h>
-
-#endif /* AKStrings_h */
