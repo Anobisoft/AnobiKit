@@ -1,18 +1,24 @@
 //
-//  AKDesign.h
+//  AKFoundation.h
 //  AnobiKit
 //
 //  Created by Stanislav Pletnev on 03.02.17.
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 
-#ifndef AKDesign_h
-#define AKDesign_h
+#import <Foundation/Foundation.h>
 
+#import <AnobiKit/AKDeepCopying.h>
+#import <AnobiKit/AKException.h>
+#import <AnobiKit/AKMultipleInheritance.h>
 #import <AnobiKit/AKSingleton.h>
 #import <AnobiKit/AKWeakSingleton.h>
-#import <AnobiKit/AKDeepCopying.h>
-#import <AnobiKit/AKMultipleInheritance.h>
+#import <AnobiKit/AKThread.h>
+#import <AnobiKit/AKVersion.h>
+#import <AnobiKit/NSBundle+AnobiKit.h>
+
+#ifndef AKDesign_h
+#define AKDesign_h
 
 @protocol KeyedSubscript
 - (id)objectForKeyedSubscript:(id)key;

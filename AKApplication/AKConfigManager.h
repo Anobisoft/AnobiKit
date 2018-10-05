@@ -6,8 +6,7 @@
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <AnobiKit/AKDesign.h>
+#import <AnobiKit/AKFoundation.h>
 
 @interface AKConfigManager : AKSingleton <KeyedSubscript>
 

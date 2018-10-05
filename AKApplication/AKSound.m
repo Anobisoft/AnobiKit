@@ -9,6 +9,7 @@
 #import "AKSound.h"
 #import "AKFileManager.h"
 #import <AnobiKit/AKException.h>
+#import <AVFoundation/AVFoundation.h>
 
 @implementation AKSound {
     AVAudioPlayer *audioPlayer;

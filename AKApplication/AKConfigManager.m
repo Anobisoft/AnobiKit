@@ -7,8 +7,8 @@
 //
 
 #import "AKConfigManager.h"
-#import "NSBundle+AnobiKit.h"
-#import "AKFileManager.h"
+#import <AnobiKit/NSBundle+AnobiKit.h>
+#import <AnobiKit/AKFileManager.h>
 #import <AnobiKit/AKException.h>
 
 @implementation AKConfigManager {

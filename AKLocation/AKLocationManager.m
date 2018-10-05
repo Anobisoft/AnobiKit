@@ -7,7 +7,7 @@
 //
 
 #import "AKLocationManager.h"
-#import <AnobiKit/AKThread.h>
+#import <AnobiKit/AKFoundation.h>
 #import "AKPlacemarkDetector.h"
 
 @interface AKLocationManager()
