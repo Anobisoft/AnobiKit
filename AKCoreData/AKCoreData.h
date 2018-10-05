@@ -9,6 +9,6 @@
 #ifndef AKCoreData_h
 #define AKCoreData_h
 
-#import <AnobiKit/NSManagedObjectContext+AnobiKit.h>
-
 #endif /* AKCoreData_h */
+
+#import <AnobiKit/NSManagedObjectContext+AnobiKit.h>

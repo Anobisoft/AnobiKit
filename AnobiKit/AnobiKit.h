@@ -8,12 +8,9 @@
 
 #import <AnobiKit/AKFoundation.h>
 #import <AnobiKit/AKApplication.h>
+#import <AnobiKit/AKLocationManager.h>
 
 #import <AnobiKit/AKCoding.h>
 #import <AnobiKit/AKFormatters.h>
-#import <AnobiKit/AKCoreData.h>
 #import <AnobiKit/AKStrings.h>
-
-#import <AnobiKit/AKLocationManager.h>
-
-
+#import <AnobiKit/AKCoreData.h>

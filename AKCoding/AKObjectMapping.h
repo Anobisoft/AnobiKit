@@ -9,6 +9,9 @@
 
 #import <Foundation/Foundation.h>
 
+#ifndef AKObjectMapping_h
+#define AKObjectMapping_h
+
 #define AKObjectMap NSDictionary<NSString *, AKPropertyMap *>
 #define AKMutableObjectMap NSMutableDictionary<NSString *, AKPropertyMap *>
 
@@ -41,6 +44,8 @@
 + (NSString *)stringFromBoolean:(BOOL)b property:(NSString *)property;
 
 @end
+
+#endif /* AKObjectMapping_h */
 
 #import <AnobiKit/AKPropertyMap.h>
 #import <AnobiKit/AKMappedObject.h>
