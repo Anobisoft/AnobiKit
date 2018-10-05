@@ -7,7 +7,7 @@
 //
 
 #import "AKSingleton.h"
-#import "AKThread.h"
+#import <AnobiKit/AKThread.h>
 
 @implementation AKSingleton
 

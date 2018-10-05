@@ -21,8 +21,13 @@
     AKReachabilityStatus _currentStatus;
 }
 
+static AKReachability *_cachedInstance;
+static NSMutableDictionary<NSString *, AKReachability *> *_hostRechabilityInstanceCache;
+
+#pragma mark - instantiate
+
 + (instancetype)new {
-    return self.reachabilityForInternetConnection;
+    return _cachedInstance ?: self.reachabilityForInternetConnection;
 }
 
 + (instancetype)reachabilityWithAddress:(const struct sockaddr *)hostAddress {
@@ -50,13 +55,13 @@
     return [self reachabilityWithAddress:(const struct sockaddr *)&zeroAddress];
 }
 
-static NSMutableDictionary<NSString *, AKReachability *> *_rechabilityByHostname;
+
 
 + (instancetype)reachabilityWithHostname:(NSString *)hostname {
-    if (!_rechabilityByHostname) {
-        _rechabilityByHostname = [NSMutableDictionary new];
+    if (!_hostRechabilityInstanceCache) {
+        _hostRechabilityInstanceCache = [NSMutableDictionary new];
     }
-    id cachedInstance = _rechabilityByHostname[hostname];
+    id cachedInstance = _hostRechabilityInstanceCache[hostname];
     if (cachedInstance) return cachedInstance;
     
     SCNetworkReachabilityRef reachabilityRef = SCNetworkReachabilityCreateWithName(NULL, [hostname UTF8String]);
@@ -74,8 +79,7 @@ static NSMutableDictionary<NSString *, AKReachability *> *_rechabilityByHostname
     return self;
 }
 
-
-
+#pragma mark - dealloc
 
 - (void)dealloc {
     self.delegate = nil;
@@ -84,23 +88,25 @@ static NSMutableDictionary<NSString *, AKReachability *> *_rechabilityByHostname
     }
 }
 
-static AKReachability *_holdedInstance;
+#pragma mark - holding instances
 
 - (void)hold {
     if (_host) {
-        _rechabilityByHostname[_host] = self;
+        _hostRechabilityInstanceCache[_host] = self;
     } else {
-        _holdedInstance = self;
+        _cachedInstance = self;
     }
 }
 
 - (void)free {
-    if (_host && self == _rechabilityByHostname[_host]) {
-        [_rechabilityByHostname removeObjectForKey:_host];
+    if (_host && self == _hostRechabilityInstanceCache[_host]) {
+        [_hostRechabilityInstanceCache removeObjectForKey:_host];
     } else {
-        if (_holdedInstance == self) _holdedInstance = nil;
+        if (_cachedInstance == self) _cachedInstance = nil;
     }
 }
+
+#pragma mark - status
 
 AKReachabilityStatus AKReachabilityStatusForFlags(SCNetworkReachabilityFlags flags) {
     if (!(flags & kSCNetworkReachabilityFlagsReachable)) {
@@ -121,7 +127,6 @@ AKReachabilityStatus AKReachabilityStatusForFlags(SCNetworkReachabilityFlags fla
     return result;
 }
 
-
 - (AKReachabilityStatus)currentStatus {
     if (_currentStatus == AKRStatusInvalid || !_delegate) {
         _currentStatus = AKRStatusNotReachable;
@@ -133,7 +138,7 @@ AKReachabilityStatus AKReachabilityStatusForFlags(SCNetworkReachabilityFlags fla
     return _currentStatus;
 }
 
-
+#pragma mark - delegate
 
 @synthesize delegate = _delegate;
 

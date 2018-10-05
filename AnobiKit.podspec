@@ -30,6 +30,7 @@ DESC
   end
   
   s.subspec 'AKApplication' do |ss|
+      ss.dependency 'AnobiKit/AKDesign'
       ss.source_files = 'AKApplication/**/*.{h,m,mm}'
       ss.public_header_files = 'AKApplication/*.h'
   end
