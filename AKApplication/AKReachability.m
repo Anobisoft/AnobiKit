@@ -30,8 +30,8 @@ static NSMutableDictionary<NSString *, AKReachability *> *_hostRechabilityInstan
     return _cachedInstance ?: self.reachabilityForInternetConnection;
 }
 
-+ (instancetype)reachabilityWithAddress:(const struct sockaddr *)hostAddress {
-    SCNetworkReachabilityRef reachabilityRef = SCNetworkReachabilityCreateWithAddress(kCFAllocatorDefault, hostAddress);
++ (instancetype)reachabilityWithSocketAddress:(const struct sockaddr *)socketAddress {
+    SCNetworkReachabilityRef reachabilityRef = SCNetworkReachabilityCreateWithAddress(kCFAllocatorDefault, socketAddress);
     if (!reachabilityRef) {
         return nil;
     }
@@ -52,7 +52,7 @@ static NSMutableDictionary<NSString *, AKReachability *> *_hostRechabilityInstan
     bzero(&zeroAddress, sizeof(zeroAddress));
     zeroAddress.sin_len = sizeof(zeroAddress);
     zeroAddress.sin_family = AF_INET;
-    return [self reachabilityWithAddress:(const struct sockaddr *)&zeroAddress];
+    return [self reachabilityWithSocketAddress:(const struct sockaddr *)&zeroAddress];
 }
 
 
