@@ -11,12 +11,12 @@
 
 #pragma mark -
 
-UIAlertAction *UILocalizedActionMake(NSString *localizationKey, UIAlertActionStyle style, dispatch_block_t handler) {
+UIAlertAction *UIKitLocalizedActionMake(NSString *localizationKey, UIAlertActionStyle style, dispatch_block_t handler) {
     return UIAlertActionMake(UIKitLocalizedString(localizationKey), style, handler);
 }
 
-UIAlertAction *UILocalizedActionDefaultStyleMake(NSString *localizationKey, dispatch_block_t handler) {
-    return UILocalizedActionMake(localizationKey, UIAlertActionStyleDefault, handler);
+UIAlertAction *UIKitLocalizedActionDefaultStyleMake(NSString *localizationKey, dispatch_block_t handler) {
+    return UIKitLocalizedActionMake(localizationKey, UIAlertActionStyleDefault, handler);
 }
 
 UIAlertAction *UIAlertActionMake(NSString *title, UIAlertActionStyle style, dispatch_block_t handler) {

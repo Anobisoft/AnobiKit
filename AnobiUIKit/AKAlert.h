@@ -20,8 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark -
 
-UIAlertAction *UILocalizedActionMake(NSString *localizationKey, UIAlertActionStyle style, dispatch_block_t handler);
-UIAlertAction *UILocalizedActionDefaultStyleMake(NSString *localizationKey, dispatch_block_t handler);
+UIAlertAction *UIKitLocalizedActionMake(NSString *localizationKey, UIAlertActionStyle style, dispatch_block_t handler);
+UIAlertAction *UIKitLocalizedActionDefaultStyleMake(NSString *localizationKey, dispatch_block_t handler);
 
 UIAlertAction *UIAlertOKAction(dispatch_block_t handler);
 UIAlertAction *UIAlertCancelAction(__nullable dispatch_block_t handler);
