@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (UIPopoverArrowDirection)alertControllerPresentationPermittedArrowDirections;
 @end
 
-#pragma mark -
+#pragma mark - UIKitLocalized
 
 UIAlertAction *UIKitLocalizedActionMake(NSString *localizationKey, UIAlertActionStyle style, dispatch_block_t handler);
 UIAlertAction *UIKitLocalizedActionDefaultStyleMake(NSString *localizationKey, dispatch_block_t handler);
@@ -34,47 +34,66 @@ UIAlertAction *UIAlertActionDefaultStyleMake(NSString *title, __nullable dispatc
 
 @interface UIViewController (UIAlert) <UIAlertConfigurator>
 
-- (void)showNotice:(NSString *)title
-        completion:(__nullable dispatch_block_t)completion;
-- (void)showNotice:(NSString *)title message:(NSString  * _Nullable)message
-        completion:(__nullable dispatch_block_t)completion;
-
-- (void)showDialog:(NSString *)title
-                ok:(dispatch_block_t)ok
-            cancel:(__nullable dispatch_block_t)cancel;
-- (void)showDialog:(NSString *)title message:(NSString  * _Nullable)message
-                ok:(dispatch_block_t)ok
-            cancel:(__nullable dispatch_block_t)cancel;
-
-- (void)showDialog:(NSString *)title
-            action:(UIAlertAction *)action
-            cancel:(__nullable dispatch_block_t)cancel;
-- (void)showDialog:(NSString *)title message:(NSString  * _Nullable)message
-            action:(UIAlertAction *)action
-            cancel:(__nullable dispatch_block_t)cancel;
-
-- (void)showDialog:(NSString *)title
-              redo:(dispatch_block_t)redo cancel:(__nullable dispatch_block_t)cancel;
-- (void)showDialog:(NSString *)title message:(NSString  * _Nullable)message
-              redo:(dispatch_block_t)redo cancel:(__nullable dispatch_block_t)cancel;
-
-
-- (void)showAlert:(NSString *)title
-          actions:(NSArray<UIAlertAction *> *)actions;
-- (void)showAlert:(NSString *)title message:(NSString * _Nullable)message
-          actions:(NSArray<UIAlertAction *> *)actions;
-- (void)showAlert:(NSString *)title message:(NSString * _Nullable)message
-          actions:(NSArray<UIAlertAction *> *)actions cancel:(__nullable dispatch_block_t)cancel;
-- (void)showAlert:(NSString *)title
-          actions:(NSArray<UIAlertAction *> *)actions cancel:(__nullable dispatch_block_t)cancel;
-
-
 - (void)showAlert:(NSString *)title message:(NSString * _Nullable)message
           actions:(NSArray<UIAlertAction *> *)actions
      configurator:(id<UIAlertConfigurator> _Nullable)configurator;
+
+- (void)showAlert:(NSString *)title
+          actions:(NSArray<UIAlertAction *> *)actions
+     configurator:(id<UIAlertConfigurator> _Nullable)configurator;
+
 - (void)showAlert:(NSString *)title message:(NSString * _Nullable)message
           actions:(NSArray<UIAlertAction *> *)actions cancel:(__nullable dispatch_block_t)cancel
      configurator:(id<UIAlertConfigurator> _Nullable)configurator;
+
+- (void)showAlert:(NSString *)title
+          actions:(NSArray<UIAlertAction *> *)actions cancel:(__nullable dispatch_block_t)cancel
+     configurator:(id<UIAlertConfigurator> _Nullable)configurator;
+
+#pragma mark - self configuration
+
+- (void)showAlert:(NSString *)title message:(NSString * _Nullable)message
+          actions:(NSArray<UIAlertAction *> *)actions;
+
+- (void)showAlert:(NSString *)title
+          actions:(NSArray<UIAlertAction *> *)actions;
+
+- (void)showAlert:(NSString *)title message:(NSString * _Nullable)message
+          actions:(NSArray<UIAlertAction *> *)actions cancel:(__nullable dispatch_block_t)cancel;
+
+- (void)showAlert:(NSString *)title
+          actions:(NSArray<UIAlertAction *> *)actions cancel:(__nullable dispatch_block_t)cancel;
+
+#pragma mark - OK
+
+- (void)showNotice:(NSString *)title
+        completion:(__nullable dispatch_block_t)completion;
+
+- (void)showNotice:(NSString *)title message:(NSString  * _Nullable)message
+        completion:(__nullable dispatch_block_t)completion;
+
+#pragma mark - Dialog
+
+- (void)showDialog:(NSString *)title message:(NSString  * _Nullable)message
+                ok:(dispatch_block_t)ok cancel:(__nullable dispatch_block_t)cancel;
+
+- (void)showDialog:(NSString *)title
+                ok:(dispatch_block_t)ok cancel:(__nullable dispatch_block_t)cancel;
+
+- (void)showDialog:(NSString *)title message:(NSString  * _Nullable)message
+            action:(UIAlertAction *)action cancel:(__nullable dispatch_block_t)cancel;
+
+- (void)showDialog:(NSString *)title
+            action:(UIAlertAction *)action cancel:(__nullable dispatch_block_t)cancel;
+
+#pragma mark - Redo
+
+- (void)showDialog:(NSString *)title message:(NSString  * _Nullable)message
+              redo:(dispatch_block_t)redo cancel:(__nullable dispatch_block_t)cancel;
+
+- (void)showDialog:(NSString *)title
+              redo:(dispatch_block_t)redo cancel:(__nullable dispatch_block_t)cancel;
+
 
 @end
 

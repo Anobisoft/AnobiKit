@@ -157,7 +157,7 @@ BOOL SourceAvailable(UIImagePickerControllerSourceType sourceType) {
         if (availableIndexes[sourceTypeIndex]) {
             UIImagePickerControllerSourceType sourceType = supportedImageSources[sourceTypeIndex];
             NSString *localizationKey = self.sourceLocalizationMap[@(sourceType)];
-            UIAlertAction *action = UILocalizedActionDefaultStyleMake(localizationKey, ^{
+            UIAlertAction *action = UIKitLocalizedActionDefaultStyleMake(localizationKey, ^{
                 [self selectSource:sourceType];
                 [viewController presentViewController:self.pickerController
                                              animated:true completion:nil];
