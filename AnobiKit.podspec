@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name             = 'AnobiKit'
-  s.version          = '0.6.0'
+  s.version          = '0.7.0'
   s.summary          = 'AnobiKit - utilities collection useful to Objective-C iOS Developer.'
 
   s.description      = <<-DESC
@@ -44,10 +44,7 @@ DESC
       ss.frameworks = 'CoreLocation'
   end
   
-  s.subspec 'AKCoreData' do |ss|
-      ss.source_files = 'AKCoreData/**/*.{h,m,mm}'
-      ss.public_header_files = 'AKCoreData/*.h'
-  end
+  
   
   s.subspec 'AKStrings' do |ss|
       ss.source_files = 'AKStrings/**/*.{h,m,mm}'
@@ -58,6 +55,21 @@ DESC
       ss.source_files = 'AKFormatters/**/*.{h,m,mm}'
       ss.public_header_files = 'AKFormatters/*.h'
   end
+  
+  s.subspec 'AKCoreData' do |ss|
+      ss.source_files = 'AKCoreData/**/*.{h,m,mm}'
+      ss.public_header_files = 'AKCoreData/*.h'
+  end
+  
+  
+ 
+  s.subspec 'AnobiUIKit' do |ss|
+      ss.dependency 'AnobiKit/AKFoundation'
+      ss.dependency 'AnobiKit/AKStrings'
+      ss.source_files = 'AnobiUIKit/**/*.{h,m,mm}'
+      ss.public_header_files = 'AnobiUIKit/**/*.h'
+  end
+  
   
   s.frameworks = 'Foundation'
   s.requires_arc = true

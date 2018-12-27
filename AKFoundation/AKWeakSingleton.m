@@ -14,7 +14,7 @@
 static NSMapTable<NSString *, __kindof AKWeakSingleton *> *uniqueInstances;
 
 + (void)load {
-    uniqueInstances = [NSMapTable weakToWeakObjectsMapTable];
+    uniqueInstances = [NSMapTable strongToWeakObjectsMapTable];
 }
 
 + (instancetype)shared {
