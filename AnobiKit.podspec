@@ -15,7 +15,8 @@ DESC
   s.author             = { 'Stanislav Pletnev' => 'anobisoft@gmail.com' }
   s.social_media_url   = 'https://twitter.com/Anobisoft'
 
-  s.platform     = :ios, '8.3'
+  s.ios.deployment_target  = '9.3'
+  s.watch.deployment_target  = '3.0'
   s.source       = { :git => 'https://github.com/Anobisoft/AnobiKit.git', :tag => s.version.to_s }
   s.source_files  = 'AnobiKit/**/*.{h,m}'
   

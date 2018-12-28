@@ -51,9 +51,9 @@ UIAlertAction *UIAlertOKAction(dispatch_block_t handler) {
 
 @implementation UIViewController (UIAlert)
 
-- (void)showAlert:(NSString *)title message:(NSString * _Nullable)message
-          actions:(NSArray<UIAlertAction *> *)actions
-     configurator:(id<UIAlertConfigurator> _Nullable)configurator {
+- (UIAlertController *)alertWithTitle:(NSString *)title message:(NSString * _Nullable)message
+                              actions:(NSArray<UIAlertAction *> *)actions
+                         configurator:(id<UIAlertConfigurator> _Nullable)configurator {
     
     if (!configurator) {
         configurator = self;
@@ -102,6 +102,14 @@ UIAlertAction *UIAlertOKAction(dispatch_block_t handler) {
         alert.popoverPresentationController.permittedArrowDirections = arrowDirections;
     }
     
+    return alert;
+}
+
+- (void)showAlert:(NSString *)title message:(NSString * _Nullable)message
+          actions:(NSArray<UIAlertAction *> *)actions
+     configurator:(id<UIAlertConfigurator> _Nullable)configurator {
+    
+    UIAlertController *alert = [self alertWithTitle:title message:message actions:actions configurator:configurator];
     [self presentViewController:alert animated:true completion:nil];
 }
 

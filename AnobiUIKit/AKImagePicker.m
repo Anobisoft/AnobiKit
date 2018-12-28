@@ -12,11 +12,11 @@
 @interface AKImagePicker() <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertConfigurator>
 
 @property (nonatomic, weak) UIView *sourceView;
-@property (nonatomic, assign) CGRect sourceRect;
-- (void)showOnViewController:(__kindof UIViewController *)viewController;
-
+@property (nonatomic) CGRect sourceRect;
 @property (nonatomic) UIImagePickerController *pickerController;
 @property (nonatomic) NSDictionary *sourceLocalizationMap;
+
+- (void)showOnViewController:(__kindof UIViewController *)viewController;
 
 @end
 
@@ -115,7 +115,7 @@ BOOL SourceAvailable(UIImagePickerControllerSourceType sourceType) {
 
 
 #pragma mark -
-#pragma mark - Alert
+#pragma mark - UIAlertConfigurator
 
 - (UIAlertControllerStyle)alertControllerPreferredStyle {
     if (self.alertPreferredStyle >= 0) {
@@ -137,6 +137,10 @@ BOOL SourceAvailable(UIImagePickerControllerSourceType sourceType) {
 - (UIPopoverArrowDirection)alertControllerPresentationPermittedArrowDirections {
     return self.permittedArrowDirections;
 }
+
+
+#pragma mark -
+#pragma mark - Protected
 
 - (void)showOnViewController:(__kindof UIViewController *)viewController {
     
@@ -184,7 +188,7 @@ BOOL SourceAvailable(UIImagePickerControllerSourceType sourceType) {
 
 
 #pragma mark -
-#pragma mark - Delegate
+#pragma mark - UIImagePickerControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage *image = picker.allowsEditing ? info[UIImagePickerControllerEditedImage] : info[UIImagePickerControllerOriginalImage];

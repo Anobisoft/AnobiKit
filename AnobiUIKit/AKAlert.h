@@ -20,10 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - UIKitLocalized
 
-UIAlertAction *UIKitLocalizedActionMake(NSString *localizationKey, UIAlertActionStyle style, dispatch_block_t handler);
-UIAlertAction *UIKitLocalizedActionDefaultStyleMake(NSString *localizationKey, dispatch_block_t handler);
+UIAlertAction *UIKitLocalizedActionMake(NSString *localizationKey, UIAlertActionStyle style, __nullable dispatch_block_t handler);
+UIAlertAction *UIKitLocalizedActionDefaultStyleMake(NSString *localizationKey, __nullable dispatch_block_t handler);
 
-UIAlertAction *UIAlertOKAction(dispatch_block_t handler);
+UIAlertAction *UIAlertOKAction(__nullable dispatch_block_t handler);
 UIAlertAction *UIAlertCancelAction(__nullable dispatch_block_t handler);
 UIAlertAction *UIAlertRedoAction(dispatch_block_t handler);
 
@@ -33,6 +33,10 @@ UIAlertAction *UIAlertActionDefaultStyleMake(NSString *title, __nullable dispatc
 #pragma mark -
 
 @interface UIViewController (UIAlert) <UIAlertConfigurator>
+
+- (UIAlertController *)alertWithTitle:(NSString *)title message:(NSString * _Nullable)message
+                              actions:(NSArray<UIAlertAction *> *)actions
+                         configurator:(id<UIAlertConfigurator> _Nullable)configurator;
 
 - (void)showAlert:(NSString *)title message:(NSString * _Nullable)message
           actions:(NSArray<UIAlertAction *> *)actions
