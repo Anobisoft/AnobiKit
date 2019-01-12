@@ -22,8 +22,13 @@
 
 @interface AKViewDispatcher : NSObject <AKViewObserver>
 
-+ (__kindof UIViewController *)visibleViewController;
-+ (__kindof UIViewController *)visibleViewControllerFrom:(__kindof UIViewController *)vc;
+#if TARGET_OS_IPHONE
+
++ (__kindof UIViewController *)visibleViewController __IOS_EXTENSION_UNAVAILABLE("Use view controller based solutions where appropriate instead.");
++ (__kindof UIViewController *)visibleViewControllerFrom:(__kindof UIViewController *)vc __IOS_EXTENSION_UNAVAILABLE("Use view controller based solutions where appropriate instead.");
+
+#endif
+
 
 + (void)addViewObserver:(id<AKViewObserver>)viewObserver forClass:(Class)c;
 + (void)removeViewObserver:(id<AKViewObserver>)viewObserver fromClass:(Class)c;
