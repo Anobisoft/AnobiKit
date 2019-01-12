@@ -6,8 +6,9 @@
 //  Copyright © 2018 Anobisoft. All rights reserved.
 //
 
-#import "UIViewController+AnobiKit.h"
+#if TARGET_OS_IOS
 
+#import "UIViewController+AnobiKit.h"
 
 @implementation UIViewController (AnobiKit)
 
@@ -29,3 +30,4 @@
 
 @end
 
+#endif

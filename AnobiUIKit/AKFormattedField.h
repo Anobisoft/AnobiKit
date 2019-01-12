@@ -6,6 +6,8 @@
 //  Copyright © 2018 Anobisoft. All rights reserved.
 //
 
+#if TARGET_OS_IOS
+
 #import <UIKit/UIKit.h>
 
 @interface AKFormattedField : UITextField
@@ -13,3 +15,5 @@
 @property (nonatomic) IBInspectable NSString *pattern;
 @property (readonly) NSString *formattedText;
 @end
+
+#endif

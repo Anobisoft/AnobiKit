@@ -6,6 +6,8 @@
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 
+
+
 #import <UIKit/UIKit.h>
 
 static NSString * const AKThemeConfigAppearanceSchemaKey = @"AppearanceSchema";
@@ -23,10 +25,15 @@ static NSString * const AKThemeConfigBarStyleKey = @"BarStyle";
 @property (readonly) NSString *name;
 @property (readonly) NSDictionary<NSString *, UIColor *> *keyedColors;
 @property (readonly) NSArray<UIColor *> *indexedColors;
-@property (readonly) UIBarStyle barStyle;
-@property (readonly) UIStatusBarStyle statusBarStyle;
+
+#if TARGET_OS_IOS
+
+@property (readonly) UIBarStyle barStyle __WATCHOS_UNAVAILABLE;
+@property (readonly) UIStatusBarStyle statusBarStyle __WATCHOS_UNAVAILABLE;
 
 - (void)applyAppearanceSchema;
+
+#endif
 
 - (UIColor *)objectForKeyedSubscript:(NSString *)key;
 - (UIColor *)objectAtIndexedSubscript:(NSUInteger)idx;

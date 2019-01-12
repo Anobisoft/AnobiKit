@@ -6,6 +6,8 @@
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 
+#if TARGET_OS_IOS
+
 #import "AKViewDispatcher.h"
 #import <objc/runtime.h>
 
@@ -194,3 +196,5 @@ static NSMutableDictionary<NSString *, NSHashTable *> *observersPoolByViewClass;
 }
 
 @end
+
+#endif

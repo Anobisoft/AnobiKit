@@ -6,6 +6,7 @@
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 
+#if TARGET_OS_IOS
 
 typedef enum : NSUInteger {
     AKImagePickerSourceOptionAuto = 0,
@@ -52,3 +53,4 @@ static NSInteger supportedImageSources[] = {
 
 @end
 
+#endif

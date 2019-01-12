@@ -17,7 +17,10 @@ typedef struct {
 AK3DVector AK3DVectorMake(CGFloat x, CGFloat y, CGFloat z);
 AK3DVector AK3DVectorReverse(AK3DVector vector);
 
+#if TARGET_OS_IOS
+
 extern CFTimeInterval const AKAnimationDefaultDuration;
+extern double const AKAnimationDefaultFrameFrequency;
 
 @interface CAAnimation (AnobiAnimation)
 
@@ -28,10 +31,11 @@ extern CFTimeInterval const AKAnimationDefaultDuration;
 
 @end
 
-
 @interface CALayer (AnobiAnimation)
 
 - (void)addFlipAnimation:(CAAnimation *)animation;
 - (void)addFlipAnimation:(CAAnimation *)animation withDuration:(NSTimeInterval)duration;
 
 @end
+
+#endif

@@ -92,12 +92,15 @@ typedef void(^AKPlacemarkDetectorFetchBlock)(AKPlacemarkDetector *detector, NSAr
     });
 }
 
+#if TARGET_OS_IOS
 
 - (void)locationManagerDidPauseLocationUpdates:(CLLocationManager *)manager {
 #ifdef DEBUG
     NSLog(@"%s", __PRETTY_FUNCTION__);
 #endif
 }
+
+#endif
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
 #ifdef DEBUG

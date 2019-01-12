@@ -6,6 +6,8 @@
 //  Copyright © 2019 Anobisoft. All rights reserved.
 //
 
+#if TARGET_OS_IOS
+
 #import <UIKit/UIKit.h>
 #import "UIAlertConfigurator.h"
 
@@ -80,3 +82,5 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
+#endif

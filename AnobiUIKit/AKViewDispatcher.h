@@ -6,6 +6,8 @@
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 
+#if TARGET_OS_IOS
+
 #import <UIKit/UIKit.h>
 
 @protocol AKViewObserver <NSObject>
@@ -32,3 +34,5 @@
 + (instancetype)observerForClasses:(NSArray<Class> *)classes;
 
 @end
+
+#endif

@@ -6,9 +6,11 @@
 //  Copyright © 2018 Anobisoft. All rights reserved.
 //
 
+#if TARGET_OS_IOS
+
 #import "AKFormattedField.h"
 
-@interface AKFormattedField()<UITextFieldDelegate>
+@interface AKFormattedField() <UITextFieldDelegate>
 
 @end
 
@@ -200,3 +202,5 @@
 }
 
 @end
+
+#endif

@@ -6,6 +6,8 @@
 //  Copyright © 2019 Anobisoft. All rights reserved.
 //
 
+#if TARGET_OS_IOS
+
 #import "UIViewController+Alert.h"
 #import "UIAlertAction+AnobiKit.h"
 
@@ -176,5 +178,6 @@
     [self showDialog:title message:nil redo:redo cancel:cancel];
 }
 
-
 @end
+
+#endif

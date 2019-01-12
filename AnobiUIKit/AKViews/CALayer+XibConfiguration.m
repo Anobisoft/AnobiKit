@@ -6,6 +6,8 @@
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 
+#if TARGET_OS_IOS
+
 #import "CALayer+XibConfiguration.h"
 
 @implementation CALayer (XibConfiguration)
@@ -18,5 +20,6 @@
     return [UIColor colorWithCGColor:self.borderColor];
 }
 
-
 @end
+
+#endif

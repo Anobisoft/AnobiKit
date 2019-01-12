@@ -6,6 +6,8 @@
 //  Copyright © 2019 Anobisoft. All rights reserved.
 //
 
+#if TARGET_OS_IOS
+
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -31,3 +33,5 @@ UIAlertAction *UIAlertRedoAction(dispatch_block_t handler);
 @end
 
 NS_ASSUME_NONNULL_END
+
+#endif

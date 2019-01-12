@@ -6,6 +6,8 @@
 //  Copyright © 2018 Anobisoft. All rights reserved.
 //
 
+#if TARGET_OS_IOS
+
 #import "AKTableViewController.h"
 
 @implementation AKTableViewController {
@@ -79,3 +81,5 @@
 }
 
 @end
+
+#endif

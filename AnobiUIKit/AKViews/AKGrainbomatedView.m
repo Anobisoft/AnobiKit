@@ -6,6 +6,8 @@
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 
+#if TARGET_OS_IOS
+
 #import "AKGrainbomatedView.h"
 
 @interface AKGrainbomatedView ()
@@ -72,6 +74,6 @@
     [self.gradientLayer removeAnimationForKey:@"gradientAnimation"];
 }
 
-
-
 @end
+
+#endif

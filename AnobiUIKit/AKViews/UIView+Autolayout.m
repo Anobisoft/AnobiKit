@@ -6,6 +6,8 @@
 //  Copyright © 2016 Anobisoft. All rights reserved.
 //
 
+#if TARGET_OS_IOS
+
 #import "UIView+Autolayout.h"
 
 @implementation UIView (Autolayout)
@@ -22,3 +24,5 @@
 }
 
 @end
+
+#endif

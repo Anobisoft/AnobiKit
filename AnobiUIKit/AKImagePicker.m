@@ -6,6 +6,8 @@
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 
+#if TARGET_OS_IOS
+
 #import "AKImagePicker.h"
 #import "AKAlert.h"
 
@@ -225,3 +227,5 @@ BOOL SourceAvailable(UIImagePickerControllerSourceType sourceType) {
 }
 
 @end
+
+#endif

@@ -6,6 +6,8 @@
 //  Copyright © 2018 Anobisoft. All rights reserved.
 //
 
+#if TARGET_OS_IOS
+
 #import <UIKit/UIKit.h>
 
 @interface AKTableViewController : UITableViewController
@@ -15,3 +17,5 @@
 @property (readonly, assign) CGRect contentBounds;
 
 @end
+
+#endif

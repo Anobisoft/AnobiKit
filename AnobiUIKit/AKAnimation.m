@@ -24,6 +24,8 @@ AK3DVector AK3DVectorReverse(AK3DVector vector) {
     return v;
 }
 
+#if TARGET_OS_IOS
+
 CFTimeInterval const AKAnimationDefaultDuration = 0.6;
 double const AKAnimationDefaultFrameFrequency = 48;
 
@@ -82,3 +84,5 @@ NSUInteger AKFrameCount(CFTimeInterval duration, double frameFrequency) {
 }
 
 @end
+
+#endif

@@ -6,6 +6,8 @@
 //  Copyright © 2019 Anobisoft. All rights reserved.
 //
 
+#if TARGET_OS_IOS
+
 #import "UIAlertAction+AnobiKit.h"
 #import <AnobiKit/AKFoundation.h>
 
@@ -51,3 +53,5 @@ UIAlertAction *UIAlertOKAction(dispatch_block_t handler) {
 @dynamic image;
 
 @end
+
+#endif

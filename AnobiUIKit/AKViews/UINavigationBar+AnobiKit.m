@@ -6,6 +6,8 @@
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 
+#if TARGET_OS_IOS
+
 #import "UINavigationBar+AnobiKit.h"
 
 @implementation UINavigationBar (AnobiKit)
@@ -24,3 +26,5 @@
 }
 
 @end
+
+#endif

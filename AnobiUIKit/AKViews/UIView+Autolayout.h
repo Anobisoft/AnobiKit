@@ -6,8 +6,7 @@
 //  Copyright © 2016 Anobisoft. All rights reserved.
 //
 
-#ifndef UIView_Autolayout_h
-#define UIView_Autolayout_h
+#if TARGET_OS_IOS
 
 #import <UIKit/UIKit.h>
 

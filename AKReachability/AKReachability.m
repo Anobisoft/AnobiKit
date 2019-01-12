@@ -6,6 +6,8 @@
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 
+#if TARGET_OS_IOS
+
 #import <arpa/inet.h>
 #import <ifaddrs.h>
 #import <netdb.h>
@@ -179,3 +181,4 @@ static void AKReachabilityCallback(__unused SCNetworkReachabilityRef target, SCN
 
 @end
 
+#endif

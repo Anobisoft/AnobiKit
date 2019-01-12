@@ -6,6 +6,8 @@
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 
+#if TARGET_OS_IOS
+
 #import <QuartzCore/QuartzCore.h>
 
 @interface CALayer (XibConfiguration)
@@ -13,3 +15,5 @@
 @property (nonatomic, assign) UIColor *borderUIColor;
 
 @end
+
+#endif

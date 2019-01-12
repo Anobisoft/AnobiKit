@@ -6,6 +6,8 @@
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 
+#if TARGET_OS_IOS
+
 #import <UIKit/UIKit.h>
 
 IB_DESIGNABLE
@@ -16,3 +18,5 @@ IB_DESIGNABLE
 @property (nonatomic) IBInspectable CGFloat lineWidth;
 
 @end
+
+#endif

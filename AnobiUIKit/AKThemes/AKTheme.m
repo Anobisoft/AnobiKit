@@ -12,7 +12,7 @@
 
 @interface AKTheme ()
 
-@property (readonly) NSDictionary<NSString *, NSDictionary *> *appearanceSchema;
+@property (readonly) NSDictionary<NSString *, NSDictionary *> *appearanceSchema __WATCHOS_UNAVAILABLE;
 
 @end
 
@@ -46,14 +46,19 @@
         }
         _indexedColors = indexedColorsM.copy;
         
-        _appearanceSchema = config[AKThemeConfigAppearanceSchemaKey];
+#if TARGET_OS_IOS
         
         NSString *barStyleString = config[AKThemeConfigBarStyleKey];
         BOOL black = [barStyleString isEqualToString:@"Black"] || [barStyleString isEqualToString:@"Dark"];
         _barStyle = black ? UIBarStyleBlack : UIBarStyleDefault;
         _statusBarStyle = black ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
         
-        if (!barStyleString && !_keyedColors.count && !_indexedColors.count) {
+        _appearanceSchema = config[AKThemeConfigAppearanceSchemaKey];
+        
+        if (!_keyedColors.count && !_indexedColors.count && !barStyleString && !_appearanceSchema) {
+#else
+        if (!_keyedColors.count && !_indexedColors.count) {
+#endif
             @throw [NSException exceptionWithName:@"AKThemeEmptyConfig" reason:@"theme config is empty" userInfo:@{@"name" : name, @"config" : config}];
             return nil;
         }
@@ -68,6 +73,8 @@
 - (UIColor *)objectAtIndexedSubscript:(NSUInteger)idx {
     return _indexedColors[idx];
 }
+    
+#if TARGET_OS_IOS
 
 - (void)applyAppearanceSchema {    
     Protocol *appearanceProtocol = @protocol(UIAppearance);
@@ -109,5 +116,7 @@
         }
     }
 }
+
+#endif
 
 @end
