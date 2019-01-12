@@ -29,7 +29,7 @@ typedef enum : NSInteger {
 
 + (instancetype)reachabilityForInternetConnection;
 + (instancetype)reachabilityWithHostname:(NSString *)hostname;
-+ (instancetype)reachabilityWithAddress:(const struct sockaddr *)hostAddress;
++ (instancetype)reachabilityWithSocketAddress:(const struct sockaddr *)socketAddress;
 
 - (instancetype)init NS_UNAVAILABLE;
 

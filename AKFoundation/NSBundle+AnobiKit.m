@@ -7,13 +7,19 @@
 //
 
 #import "NSBundle+AnobiKit.h"
-
-NSString * UIKitLocalizedString(NSString *key) {
-    return [[NSBundle UIKitBundle] localizedStringForKey:key];
-}
+#import <WatchKit/WatchKit.h>
+#import <WatchKit/WKDefines.h>
+#import <WatchKit/WKInterfaceObject.h>
+#import <WatchKit/WKInterfaceImage.h>
+#import <UIKit/UIGeometry.h>
+#import <UIKit/UIAccessibilityConstants.h>
 
 NSString * AKLocalizedString(NSString *key) {
     return [[NSBundle mainBundle] localizedStringForKey:key];
+}
+
+NSString * UIKitLocalizedString(NSString *key) {
+    return [[NSBundle UIKitBundle] localizedStringForKey:key];
 }
 
 NSString * const CFBundleShortVersionKey = @"CFBundleShortVersionString";
@@ -21,11 +27,9 @@ NSString * const CFBundleDisplayNameKey = @"CFBundleDisplayName";
 
 @implementation NSBundle (AnobiKit)
 
-+ (instancetype)UIKitBundle {
-    return [self bundleForClass:UIApplication.class];
++ (NSBundle *)UIKitBundle {
+    return [self bundleForClass:UIColor.class];
 }
-
-
 
 #pragma mark - Application name
 

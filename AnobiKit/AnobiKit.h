@@ -7,7 +7,7 @@
 //
 
 #import <AnobiKit/AKFoundation.h>
-#import <AnobiKit/AKApplication.h>
+#import <AnobiKit/AKReachability.h>
 #import <AnobiKit/AKLocationManager.h>
 
 #import <AnobiKit/AKCoding.h>
