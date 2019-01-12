@@ -8,15 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import <AnobiKit/AKDeepCopying.h>
-#import <AnobiKit/AKException.h>
-#import <AnobiKit/AKMultipleInheritance.h>
-#import <AnobiKit/AKSingleton.h>
-#import <AnobiKit/AKWeakSingleton.h>
-#import <AnobiKit/AKThread.h>
-#import <AnobiKit/AKVersion.h>
-#import <AnobiKit/NSBundle+AnobiKit.h>
-
 #ifndef AKDesign_h
 #define AKDesign_h
 
@@ -37,3 +28,17 @@
 @end
 
 #endif /* AKDesign_h */
+
+#import <AnobiKit/AKDeepCopying.h>
+#import <AnobiKit/AKException.h>
+#import <AnobiKit/AKMultipleInheritance.h>
+#import <AnobiKit/AKSingleton.h>
+#import <AnobiKit/AKWeakSingleton.h>
+#import <AnobiKit/AKThread.h>
+#import <AnobiKit/AKVersion.h>
+#import <AnobiKit/AKConfigManager.h>
+#import <AnobiKit/AKFileManager.h>
+#import <AnobiKit/AKSound.h>
+#import <AnobiKit/NSBundle+AnobiKit.h>
+#import <AnobiKit/NSDate+AnobiKit.h>
+

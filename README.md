@@ -8,28 +8,7 @@
 [![License](https://img.shields.io/cocoapods/l/AnobiKit.svg?style=flat)](http://cocoapods.org/pods/AnobiKit)
 [![Twitter](https://img.shields.io/badge/twitter-@Anobisoft-blue.svg?style=flat)](http://twitter.com/Anobisoft)
 
-Utilities collection useful to Objective-C iOS Developer.
-
-AKBundle
-AKConfigManager
-AKFileManager
-AKMultipleInheritance
-AKReachability
-AKThread
-AKUUID
-AKVersion
-
-AKCodableObject
-AKCoreData
-AKDate
-AKDeepCopying
-AKDesign
-AKFormatters
-AKLocationManager
-AKObjectMapping
-AKSound
-AKStrings
-
+Utilities collection useful to iOS Developer.
 
 ## Example
 
@@ -44,9 +23,16 @@ $ gem install cocoapods
 To integrate **AnobiKit** into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```
-platform :ios, '8.3'
+use_frameworks!
+
 target 'TargetName' do
-    pod 'AnobiKit'
+  platform :ios, '9.3'
+  pod 'AnobiKit'
+end
+
+target 'WatchTargetName' do
+  platform :watchos, '3.0'
+  pod 'AnobiKit'
 end
 ```
 Then, run the following command:
@@ -54,7 +40,7 @@ Then, run the following command:
 $ pod install
 ```
 ## Requirements
-Minimum iOS Target is ios **8.3**.
+Minimum iOS Target is ios **9.3**.
 
 ## License
 AnobiKit is released under the MIT license. See LICENSE for details.

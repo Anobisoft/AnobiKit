@@ -157,28 +157,28 @@ BOOL readonly(const char * attrs) {
     return true;
 }
 
-+ (BOOL)mergeObject:(__kindof AKCodableObject *)a toObject:(__kindof AKCodableObject *)b {
++ (BOOL)complementObject:(__kindof AKCodableObject *)a withObject:(__kindof AKCodableObject *)b {
     if (![b isKindOfClass:a.class]) {
         @throw NSInternalInconsistencyException;
     }
     BOOL haschanged = false;
     for (NSString *key in a.writableProperties) {
-        id value = [b valueForKey:key];
-        if (!value) { //field is empty
-            id newValue = [a valueForKey:key];
-            [b setValue:newValue forKey:key];
+        id value = [a valueForKey:key];
+        if (!value) { // field is empty
+            value = [b valueForKey:key];
+            [a setValue:value forKey:key];
             haschanged = true;
         }
     }
     return haschanged;
 }
 
-- (BOOL)mergeToObject:(__kindof AKCodableObject *)obj {
-    return [self.class mergeObject:self toObject:obj];
+- (BOOL)complementObject:(__kindof AKCodableObject *)obj {
+    return [self.class complementObject:obj withObject:self];
 }
 
-- (BOOL)mergeFromObject:(__kindof AKCodableObject *)obj {
-    return [self.class mergeObject:obj toObject:self];
+- (BOOL)complementWithObject:(__kindof AKCodableObject *)obj {
+    return [self.class complementObject:self withObject:obj];
 }
 
 - (instancetype)copy {

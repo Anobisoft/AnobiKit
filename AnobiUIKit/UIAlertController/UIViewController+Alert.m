@@ -1,55 +1,15 @@
 //
-//  AKAlert.m
-//  AnobiUIKit
+//  UIViewController+Alert.m
+//  AnobiKit
 //
-//  Created by Stanislav Pletnev on 13/08/2018.
-//  Copyright © 2018 Anobisoft. All rights reserved.
+//  Created by Stanislav Pletnev on 11/01/2019.
+//  Copyright © 2019 Anobisoft. All rights reserved.
 //
 
-#import "AKAlert.h"
-#import <AnobiKit/AKFoundation.h>
+#import "UIViewController+Alert.h"
+#import "UIAlertAction+AnobiKit.h"
 
-#pragma mark - action make functions
-
-UIAlertAction *UIAlertActionMake(NSString *title, UIAlertActionStyle style, dispatch_block_t handler) {
-    return [UIAlertAction actionWithTitle:AKLocalizedString(title)
-                                    style:style
-                                  handler:^(UIAlertAction *action) {
-                                      if (handler) handler();
-                                  }];
-}
-
-UIAlertAction *UIAlertActionDefaultStyleMake(NSString *title, dispatch_block_t handler) {
-    return UIAlertActionMake(title, UIAlertActionStyleDefault, handler);
-}
-
-#pragma mark - UIKitLocalized action make functions
-
-UIAlertAction *UIKitLocalizedActionMake(NSString *localizationKey, UIAlertActionStyle style, dispatch_block_t handler) {
-    return UIAlertActionMake(UIKitLocalizedString(localizationKey), style, handler);
-}
-
-UIAlertAction *UIKitLocalizedActionDefaultStyleMake(NSString *localizationKey, dispatch_block_t handler) {
-    return UIKitLocalizedActionMake(localizationKey, UIAlertActionStyleDefault, handler);
-}
-
-
-UIAlertAction *UIAlertCancelAction(dispatch_block_t handler) {
-    return UIKitLocalizedActionMake(@"Cancel", UIAlertActionStyleCancel, handler);
-}
-
-UIAlertAction *UIAlertRedoAction(dispatch_block_t handler) {
-    return UIKitLocalizedActionDefaultStyleMake(@"Redo", handler);
-}
-
-UIAlertAction *UIAlertOKAction(dispatch_block_t handler) {
-    return UIKitLocalizedActionDefaultStyleMake(@"OK", handler);
-}
-
-
-#pragma mark -
-
-@implementation UIViewController (UIAlert)
+@implementation UIViewController (Alert)
 
 - (UIAlertController *)alertWithTitle:(NSString *)title message:(NSString * _Nullable)message
                               actions:(NSArray<UIAlertAction *> *)actions

@@ -18,8 +18,8 @@
 - (NSArray<NSString *> *)writableProperties;
 - (NSArray<NSString *> *)readonlyProperties;
 
-- (BOOL)mergeToObject:(__kindof AKCodableObject *)obj;
-- (BOOL)mergeFromObject:(__kindof AKCodableObject *)obj;
+- (BOOL)complementObject:(__kindof AKCodableObject *)obj;
+- (BOOL)complementWithObject:(__kindof AKCodableObject *)obj;
 - (BOOL)isEmpty;
 
 @end
