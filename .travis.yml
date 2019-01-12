@@ -7,6 +7,8 @@ language: objective-c
 cache: cocoapods
 podfile: Example/Podfile
 before_install:
+- rvm install ruby-2.5.3
+- rvm use ruby-2.5.3 --default
 - gem install cocoapods -v '1.5.3'
 - pod install --project-directory=Example
 script:
