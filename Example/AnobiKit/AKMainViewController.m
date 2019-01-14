@@ -7,7 +7,6 @@
 //
 
 #import "AKMainViewController.h"
-#import <AnobiKit/AnobiKit.h>
 
 @interface AKMainViewController()
 
@@ -23,11 +22,6 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    UIAlertAction *imageAction = UIAlertActionDefaultStyleMake(@"", ^{
-        NSLog(@"Close alert");
-    });
-    imageAction.image = [UIImage imageNamed:@"checkmark"];
-    [self showAlert:nil actions:@[imageAction]];
 }
 
 - (UIAlertControllerStyle)alertControllerPreferredStyle {

@@ -12,9 +12,6 @@
 #ifndef AKObjectMapping_h
 #define AKObjectMapping_h
 
-#define AKObjectMap NSDictionary<NSString *, AKPropertyMap *>
-#define AKMutableObjectMap NSMutableDictionary<NSString *, AKPropertyMap *>
-
 @class AKPropertyMap;
 
 #pragma mark -
@@ -22,8 +19,8 @@
 @protocol AKObjectMapping
 
 @required
-+ (instancetype)instatiateWithExternalRepresentation:(NSDictionary *)representation objectMap:(AKObjectMap *)objectMap;
-+ (AKObjectMap *)objectMap;
++ (instancetype)instatiateWithExternalRepresentation:(NSDictionary *)representation objectMap:(NSDictionary<NSString *, AKPropertyMap *> *)objectMap;
++ (NSDictionary<NSString *, AKPropertyMap *> *)objectMap;
 
 @optional
 + (instancetype)instatiateWithExternalRepresentation:(NSDictionary *)representation;

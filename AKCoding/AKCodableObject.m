@@ -37,8 +37,8 @@ BOOL readonly(const char * attrs) {
 }
 
 + (void)initialize {
-    if (self == AKCodableObject.class) return;
     [super initialize];
+    if (self == AKCodableObject.class) return;    
     
     NSMutableArray *rwProperties = [NSMutableArray new];
     NSMutableArray *roProperties = [NSMutableArray new];

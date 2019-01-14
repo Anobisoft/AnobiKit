@@ -13,21 +13,21 @@
 
 + (instancetype)mapWithPropertyKey:(NSString *)propertyKey;
 + (instancetype)mapWithObjectClass:(Class<AKObjectMapping>)objectClass;
-+ (instancetype)mapWithObjectMap:(AKObjectMap *)objectMap;
++ (instancetype)mapWithObjectMap:(NSDictionary<NSString *, AKPropertyMap *> *)objectMap;
 
 + (instancetype)mapWithPropertyKey:(NSString *)propertyKey
                        objectClass:(Class<AKObjectMapping>)objectClass;
 + (instancetype)mapWithPropertyKey:(NSString *)propertyKey
-                       objectMap:(AKObjectMap *)objectMap;
+                       objectMap:(NSDictionary<NSString *, AKPropertyMap *> *)objectMap;
 + (instancetype)mapWithObjectClass:(Class<AKObjectMapping>)objectClass
-                         objectMap:(AKObjectMap *)objectMap;
+                         objectMap:(NSDictionary<NSString *, AKPropertyMap *> *)objectMap;
 
 + (instancetype)mapWithPropertyKey:(NSString *)propertyKey
                        objectClass:(Class<AKObjectMapping>)objectClass
-                         objectMap:(AKObjectMap *)objectMap;
+                         objectMap:(NSDictionary<NSString *, AKPropertyMap *> *)objectMap;
 
 @property (nonatomic) NSString *propertyKey;
 @property (nonatomic) Class<AKObjectMapping> objectClass;
-@property (nonatomic) AKObjectMap *objectMap;
+@property (nonatomic) NSDictionary<NSString *, AKPropertyMap *> *objectMap;
 
 @end

@@ -27,17 +27,18 @@
     return [self mapWithPropertyKey:propertyKey objectClass:objectClass objectMap:nil];
 }
 + (instancetype)mapWithPropertyKey:(NSString *)propertyKey
-                         objectMap:(AKObjectMap *)objectMap {
+                         objectMap:(NSDictionary<NSString *, AKPropertyMap *> *)objectMap {
     return [self mapWithPropertyKey:propertyKey objectClass:nil objectMap:objectMap];
 }
 + (instancetype)mapWithObjectClass:(Class<AKObjectMapping>)objectClass
-                         objectMap:(AKObjectMap *)objectMap {
+                         objectMap:(NSDictionary<NSString *, AKPropertyMap *> *)objectMap {
 	return [self mapWithPropertyKey:nil objectClass:objectClass objectMap:objectMap];
 }
 
 + (instancetype)mapWithPropertyKey:(NSString *)propertyKey
                        objectClass:(Class<AKObjectMapping>)objectClass
-                         objectMap:(AKObjectMap *)objectMap {
+                         objectMap:(NSDictionary<NSString *, AKPropertyMap *> *)objectMap {
+    
     return [[self alloc] initWithPropertyKey:propertyKey
                                  objectClass:objectClass
                                    objectMap:objectMap];
@@ -45,7 +46,7 @@
 
 - (instancetype)initWithPropertyKey:(NSString *)propertyKey
                         objectClass:(Class<AKObjectMapping>)objectClass
-                          objectMap:(AKObjectMap *)objectMap {
+                          objectMap:(NSDictionary<NSString *, AKPropertyMap *> *)objectMap {
     if (self = [self init]) {
         self.propertyKey = propertyKey;
         self.objectClass = objectClass;

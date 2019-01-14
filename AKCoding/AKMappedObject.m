@@ -15,7 +15,7 @@
 
 #pragma mark - AKObjectMapping
 
-+ (AKObjectMap *)objectMap {
++ (NSDictionary<NSString *, AKPropertyMap *> *)objectMap {
     return nil;
 }
 
@@ -23,8 +23,10 @@
     return [self instatiateWithExternalRepresentation:representation objectMap:nil];
 }
 
-+ (instancetype)instatiateWithExternalRepresentation:(NSDictionary *)representation objectMap:(AKObjectMap *)objectMap {
-    AKObjectMap *selfMap = objectMap ?: [self objectMap];
++ (instancetype)instatiateWithExternalRepresentation:(NSDictionary *)representation
+                                           objectMap:(NSDictionary<NSString *, AKPropertyMap *> *)objectMap {
+    
+    NSDictionary<NSString *, AKPropertyMap *> *selfMap = objectMap ?: [self objectMap];
     if ([representation isKindOfClass:NSArray.class] || [representation isKindOfClass:NSSet.class]) {
         AKPropertyMap *itemMap = [AKPropertyMap mapWithObjectClass:self objectMap:selfMap];
         return [self collectionWithExternalRepresentation:representation withClass:representation.class propertyMap:itemMap];
@@ -32,11 +34,12 @@
     return [[self alloc] initWithExternalRepresentation:representation objectMap:selfMap];
 }
 
-- (instancetype)initWithExternalRepresentation:(NSDictionary *)representation objectMap:(AKObjectMap *)objectMap {
+- (instancetype)initWithExternalRepresentation:(NSDictionary *)representation
+                                     objectMap:(NSDictionary<NSString *, AKPropertyMap *> *)objectMap {
+    
     if ([representation isKindOfClass:NSNull.class]) {
         return nil;
     }
-
     if (self = [self init]) {
         [representation enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
             NSString *propertyKey = key;
@@ -50,7 +53,10 @@
     return self;
 }
 
-- (void)mapExternalRepresentation:(id)obj forKey:(NSString *)propertyKey propertyMap:(AKPropertyMap *)propertyMap {
+- (void)mapExternalRepresentation:(id)obj
+                           forKey:(NSString *)propertyKey
+                      propertyMap:(AKPropertyMap *)propertyMap {
+    
     objc_property_t property = class_getProperty(object_getClass(self), [propertyKey UTF8String]);
     if (!property) {
         NSLog(@"[WARNING] %@ map: representation keyed '%@' skipped: setter not found.", self.class, propertyKey);
@@ -73,7 +79,10 @@
     }
 }
 
-+ (id)collectionWithExternalRepresentation:(id<NSObject, NSFastEnumeration>)obj withClass:(Class)collectionClass propertyMap:(AKPropertyMap *)propertyMap {
++ (id)collectionWithExternalRepresentation:(id<NSObject, NSFastEnumeration>)obj
+                                 withClass:(Class)collectionClass
+                               propertyMap:(AKPropertyMap *)propertyMap {
+    
     if (![collectionClass isSubclassOfClass:NSArray.class] && ![collectionClass isSubclassOfClass:NSSet.class]) {
         collectionClass = obj.class;
     }
@@ -93,7 +102,11 @@
     return collection;
 }
 
-- (void)automapExternalRepresentation:(id)obj forKey:(NSString *)propertyKey propertyClass:(Class)propertyClass propertyMap:(AKPropertyMap *)propertyMap {
+- (void)automapExternalRepresentation:(id)obj
+                               forKey:(NSString *)propertyKey
+                        propertyClass:(Class)propertyClass
+                          propertyMap:(AKPropertyMap *)propertyMap {
+    
     if (propertyClass) {
         if ([propertyClass conformsToProtocol:@protocol(AKObjectMapping)]) {
             id newPropertyInstance = [propertyClass instatiateWithExternalRepresentation:obj objectMap:propertyMap.objectMap];
