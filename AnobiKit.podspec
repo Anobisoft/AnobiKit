@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name             = 'AnobiKit'
-  s.version          = '0.9.2'
+  s.version          = '0.10.0'
   s.summary          = 'AnobiKit - utilities collection useful to Objective-C iOS Developer.'
 
   s.description      = <<-DESC
@@ -58,15 +58,6 @@ DESC
   s.subspec 'AKCoreData' do |ss|
       ss.source_files = 'AKCoreData/**/*.{h,m,mm}'
       ss.public_header_files = 'AKCoreData/*.h'
-  end
-  
-  
-  
-  s.subspec 'AnobiUIKit' do |ss|
-      ss.dependency 'AnobiKit/AKFoundation'
-      ss.dependency 'AnobiKit/AKStrings'
-      ss.source_files = 'AnobiUIKit/**/*.{h,m,mm}'
-      ss.public_header_files = 'AnobiUIKit/**/*.h'
   end
   
   

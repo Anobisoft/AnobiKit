@@ -11,9 +11,8 @@
 #import <AnobiKit/AKFormatters.h>
 #import <AnobiKit/AKStrings.h>
 #import <AnobiKit/AKCoreData.h>
+#import <AnobiKit/AKLocationManager.h>
 
 #if TARGET_OS_IOS
 #import <AnobiKit/AKReachability.h>
-#import <AnobiKit/AKLocationManager.h>
-#import <AnobiKit/AnobiUIKit.h>
 #endif
