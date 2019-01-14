@@ -26,17 +26,17 @@ static NSString * const AKThemeConfigBarStyleKey = @"BarStyle";
 @property (readonly) NSDictionary<NSString *, UIColor *> *keyedColors;
 @property (readonly) NSArray<UIColor *> *indexedColors;
 
-#if TARGET_OS_IOS
+- (UIColor *)objectForKeyedSubscript:(NSString *)key;
+- (UIColor *)objectAtIndexedSubscript:(NSUInteger)idx;
 
-@property (readonly) UIBarStyle barStyle __WATCHOS_UNAVAILABLE;
-@property (readonly) UIStatusBarStyle statusBarStyle __WATCHOS_UNAVAILABLE;
+#if TARGET_OS_IOS && !TARGET_IS_EXTENSION
+
+@property (readonly) UIBarStyle barStyle;
+@property (readonly) UIStatusBarStyle statusBarStyle;
 
 - (void)applyAppearanceSchema;
 
 #endif
-
-- (UIColor *)objectForKeyedSubscript:(NSString *)key;
-- (UIColor *)objectAtIndexedSubscript:(NSUInteger)idx;
 
 @end
 

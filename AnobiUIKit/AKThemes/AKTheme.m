@@ -46,7 +46,7 @@
         }
         _indexedColors = indexedColorsM.copy;
         
-#if TARGET_OS_IOS
+#if TARGET_OS_IOS && !TARGET_IS_EXTENSION
         
         NSString *barStyleString = config[AKThemeConfigBarStyleKey];
         BOOL black = [barStyleString isEqualToString:@"Black"] || [barStyleString isEqualToString:@"Dark"];
@@ -74,7 +74,7 @@
     return _indexedColors[idx];
 }
     
-#if TARGET_OS_IOS
+#if TARGET_OS_IOS && !TARGET_IS_EXTENSION
 
 - (void)applyAppearanceSchema {    
     Protocol *appearanceProtocol = @protocol(UIAppearance);
@@ -108,7 +108,7 @@
 }
 
 - (void)reloadAppearance {
-    NSArray * windows = [UIApplication sharedApplication].windows;
+    NSArray *windows = UIApplication.sharedApplication.windows;
     for (UIWindow *window in windows) {
         for (UIView *view in window.subviews) {
             [view removeFromSuperview];

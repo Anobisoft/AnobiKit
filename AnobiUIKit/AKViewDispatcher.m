@@ -190,7 +190,7 @@ static NSMutableDictionary<NSString *, NSHashTable *> *observersPoolByViewClass;
 }
 
 
-#if TARGET_OS_IPHONE
+#if TARGET_OS_IOS && !TARGET_IS_EXTENSION
 
 + (__kindof UIViewController *)visibleViewController {
     return [self visibleViewControllerFrom:UIApplication.sharedApplication.keyWindow.rootViewController];
