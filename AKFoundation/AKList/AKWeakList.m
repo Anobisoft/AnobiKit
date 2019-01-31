@@ -74,8 +74,20 @@
 }
 
 - (void)clear {
-    self.root = self.tail = nil;
+    AKWeakBox *current = self.root;
+    AKWeakBox *next;
+    while ((next = current.next)) {
+        next.prev = nil;
+        current.next = nil;
+        current = next;
+    }
+    self.tail = nil;
+    self.root = nil;
     _count = 0;
+}
+
+- (void)dealloc {
+    [self clear];
 }
 
 - (NSUInteger)strictlyCount {
