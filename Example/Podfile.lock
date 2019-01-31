@@ -1,21 +1,21 @@
 PODS:
-  - AnobiKit (0.10.0):
-    - AnobiKit/AKCoding (= 0.10.0)
-    - AnobiKit/AKCoreData (= 0.10.0)
-    - AnobiKit/AKFormatters (= 0.10.0)
-    - AnobiKit/AKFoundation (= 0.10.0)
-    - AnobiKit/AKLocation (= 0.10.0)
-    - AnobiKit/AKReachability (= 0.10.0)
-    - AnobiKit/AKStrings (= 0.10.0)
-  - AnobiKit/AKCoding (0.10.0):
+  - AnobiKit (0.10.2):
+    - AnobiKit/AKCoding (= 0.10.2)
+    - AnobiKit/AKCoreData (= 0.10.2)
+    - AnobiKit/AKFormatters (= 0.10.2)
+    - AnobiKit/AKFoundation (= 0.10.2)
+    - AnobiKit/AKLocation (= 0.10.2)
+    - AnobiKit/AKReachability (= 0.10.2)
+    - AnobiKit/AKStrings (= 0.10.2)
+  - AnobiKit/AKCoding (0.10.2):
     - AnobiKit/AKFoundation
-  - AnobiKit/AKCoreData (0.10.0)
-  - AnobiKit/AKFormatters (0.10.0)
-  - AnobiKit/AKFoundation (0.10.0)
-  - AnobiKit/AKLocation (0.10.0):
+  - AnobiKit/AKCoreData (0.10.2)
+  - AnobiKit/AKFormatters (0.10.2)
+  - AnobiKit/AKFoundation (0.10.2)
+  - AnobiKit/AKLocation (0.10.2):
     - AnobiKit/AKFoundation
-  - AnobiKit/AKReachability (0.10.0)
-  - AnobiKit/AKStrings (0.10.0)
+  - AnobiKit/AKReachability (0.10.2)
+  - AnobiKit/AKStrings (0.10.2)
 
 DEPENDENCIES:
   - AnobiKit (from `../`)
@@ -25,7 +25,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AnobiKit: 5a763865a0bade4ab90428fc158a9894fce370aa
+  AnobiKit: e86aadae1768e7d502fce05e4e0dd1ff929dabdd
 
 PODFILE CHECKSUM: e226ca51a9b47f67aab122bd62fa3556db6d7979
 
