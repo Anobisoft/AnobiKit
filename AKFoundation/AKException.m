@@ -42,7 +42,7 @@
 @implementation AKFileNotFoundException
 
 + (instancetype)exceptionWithPath:(NSString *)path {
-    return [self exceptionWithReason:nil userInfo:@{ @"path" : path }];
+    return [self exceptionWithReason:path userInfo:@{ @"path" : path }];
 }
 
 @end

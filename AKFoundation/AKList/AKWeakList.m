@@ -1,23 +1,24 @@
 //
 //  AKWeakList.m
-//  SKManager
+//  AKSyncData
 //
-//  Created by Stanislav Pletnev on 31/01/2019.
+//  Created by Stanislav Pletnev on 2018-10-14
+//  Copyright © 2018 Anobisoft. All rights reserved.
 //
 
 #import "AKWeakList.h"
 
-@interface WeakBox : NSObject
+@interface AKWeakBox : NSObject
 
 @property (nonatomic, weak) id object;
-@property (nonatomic, strong) WeakBox *next;
-@property (nonatomic, strong) WeakBox *prev;
+@property (nonatomic, strong) AKWeakBox *next;
+@property (nonatomic, strong) AKWeakBox *prev;
 
 - (void)remove;
 
 @end
 
-@implementation WeakBox
+@implementation AKWeakBox
 
 - (void)remove {
     if (self.prev) {
@@ -32,16 +33,15 @@
 
 @interface AKWeakList ()
 
-@property (nonatomic) WeakBox *root;
-@property (nonatomic) WeakBox *tail;
-
+@property (nonatomic) AKWeakBox *root;
+@property (nonatomic) AKWeakBox *tail;
 
 @end
 
 @implementation AKWeakList
 
 - (void)enumerateWithBlock:(void (^)(id object))block {
-    WeakBox *current = self.root;
+    AKWeakBox *current = self.root;
     while (current != nil) {
         if (current.object) {
             block(current.object);
@@ -63,7 +63,7 @@
     if (!object) {
         return;
     }
-    WeakBox *box = [WeakBox new];
+    AKWeakBox *box = [AKWeakBox new];
     if (!self.root) {
         self.root = box;
     }

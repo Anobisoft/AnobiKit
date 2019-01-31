@@ -1,8 +1,9 @@
 //
 //  AKWeakList.h
-//  SKManager
+//  AKSyncData
 //
-//  Created by Stanislav Pletnev on 31/01/2019.
+//  Created by Stanislav Pletnev on 2018-10-14
+//  Copyright © 2018 Anobisoft. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
