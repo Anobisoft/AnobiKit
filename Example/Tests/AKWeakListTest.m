@@ -37,8 +37,11 @@
         count++;
         [self.list addObject:object];
         XCTAssertEqual(self.list.count, count);
-        
     }
+    XCTAssertEqual(self.list.count, self.array.count);
+    [self.list enumerateWithBlock:^(id  _Nonnull object) {
+        XCTAssertTrue([self.array containsObject:object]);
+    }];
 }
 
 @end

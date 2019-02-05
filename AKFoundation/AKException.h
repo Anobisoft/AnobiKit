@@ -21,8 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (AKException)
 
-- (void)throwExceptionWithReason:(nullable NSString *)reason;
-- (void)throwExceptionWithReason:(nullable NSString *)reason userInfo:(nullable NSDictionary *)userInfo;
+- (AKException *)exceptionWithReason:(nullable NSString *)reason;
+- (AKException *)exceptionWithReason:(nullable NSString *)reason userInfo:(nullable NSDictionary *)userInfo;
 
 @end
 

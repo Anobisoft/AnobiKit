@@ -6,6 +6,7 @@ target 'AnobiKit_Example' do
   pod 'AnobiKit', :path => '../'
 
   target 'AnobiKit_Tests' do
+      #pod 'AnobiKit', '~> 0.10.3', :testspecs => ['Tests']
     use_frameworks!
     inherit! :search_paths
   end

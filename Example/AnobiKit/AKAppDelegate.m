@@ -51,9 +51,30 @@
     NSLog(@"Application version: %@", version.debugDescription);
 }
 
+- (void)listExample {
+    AKList *list = [AKList listWithItemClass:NSClassFromString(@"AKListItemCustomBox")];
+    NSString *x = [NSString stringWithFormat:@"r%@", @(random())];
+    NSString *y = [NSString stringWithFormat:@"r%@", @(random())];
+    NSString *z = [NSString stringWithFormat:@"r%@", @(random())];
+
+    [list addObject:x];
+    [list addObject:y];
+    [list addObject:z];
+    [list enumerateWithBlock:^(id  _Nonnull object) {
+        NSLog(@"%@", object);
+    }];
+    NSLog(@"--");
+    dispatch_asyncmain(^{
+        [list enumerateWithBlock:^(id  _Nonnull object) {
+            NSLog(@"%@", object);
+        }];
+        NSLog(@"--");
+    });
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [self bundleExample];
+    [self listExample];
     return YES;
 }
 

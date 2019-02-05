@@ -19,20 +19,24 @@
 }
 
 + (instancetype)exceptionWithReason:(NSString *)reason userInfo:(NSDictionary *)userInfo {
-    return [[self alloc] initWithName:NSStringFromClass(self) reason:reason userInfo:userInfo];
+    return [self exception:NSStringFromClass(self) reason:reason userInfo:userInfo];
+}
+
++ (instancetype)exception:(NSString *)exception reason:(NSString *)reason userInfo:(NSDictionary *)userInfo {
+    return [[self alloc] initWithName:exception reason:reason userInfo:userInfo];
 }
 
 @end
 
 @implementation NSObject (AKException)
 
-- (void)throwExceptionWithReason:(nullable NSString *)reason {
-    [self throwExceptionWithReason:reason userInfo:nil];
+- (AKException *)exceptionWithReason:(nullable NSString *)reason {
+    return [self exceptionWithReason:reason userInfo:nil];
 }
 
-- (void)throwExceptionWithReason:(nullable NSString *)reason userInfo:(nullable NSDictionary *)userInfo {
-    NSString *exceptionName = [NSString stringWithFormat:@"%@Exception", NSStringFromClass(self.class)];
-    @throw [NSException exceptionWithName:exceptionName reason:reason userInfo:userInfo];
+- (AKException *)exceptionWithReason:(nullable NSString *)reason userInfo:(nullable NSDictionary *)userInfo {
+    NSString *exception = [NSStringFromClass(self.class) stringByAppendingString:@"Exception"];
+    return [AKException exception:exception reason:reason userInfo:userInfo];
 }
 
 @end
