@@ -7,12 +7,11 @@
 //
 
 @import XCTest;
-
-#import <AnobiKit/AnobiKit.h>
+@import AnobiKit;
 
 @interface AKWeakListTest : XCTestCase
 
-@property AKWeakList *list;
+@property AKList *list;
 @property NSArray *array;
 
 @end
@@ -21,7 +20,7 @@
 
 - (void)setUp {
     [super setUp];
-    self.list = [AKWeakList new];
+    self.list = [AKList weak];
     self.array = @[@1, @2, @3, @4, @5, @6, @7];
 }
 

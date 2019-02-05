@@ -7,8 +7,7 @@
 //
 
 @import XCTest;
-
-#import <AnobiKit/AnobiKit.h>
+@import AnobiKit;
 
 @interface NSStringsConcatenationTest : XCTestCase
 

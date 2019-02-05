@@ -19,51 +19,51 @@ DESC
   s.watchos.deployment_target  = '3.0'
   
   s.source       = { :git => 'https://github.com/Anobisoft/AnobiKit.git', :tag => s.version.to_s }
-  s.source_files  = 'AnobiKit/**/*.{h,m}'
+  s.source_files  = 'AnobiKit/AnobiKit.h'
   
   s.subspec 'AKFoundation' do |ss|
-      ss.source_files = 'AKFoundation/**/*.{h,m,mm}'
-      ss.public_header_files = 'AKFoundation/**/*.h'
+      ss.source_files = 'AnobiKit/AKFoundation/**/*.{h,m,mm}'
+      ss.public_header_files = 'AnobiKit/AKFoundation/**/*.h'
   end
   
   s.subspec 'AKCoding' do |ss|
       ss.dependency 'AnobiKit/AKFoundation'
-      ss.source_files = 'AKCoding/**/*.{h,m,mm}'
-      ss.public_header_files = 'AKCoding/*.h'
+      ss.source_files = 'AnobiKit/AKCoding/**/*.{h,m,mm}'
+      ss.public_header_files = 'AnobiKit/AKCoding/*.h'
   end
   
   s.subspec 'AKList' do |ss|
       ss.dependency 'AnobiKit/AKFoundation'
-      ss.source_files = 'AKList/**/*.{h,m,mm}'
-      ss.public_header_files = 'AKList/*.h'
+      ss.source_files = 'AnobiKit/AKList/**/*.{h,m,mm}'
+      ss.public_header_files = 'AnobiKit/AKList/*.h'
   end
   
   s.subspec 'AKReachability' do |ss|
-      ss.source_files = 'AKReachability/**/*.{h,m,mm}'
-      ss.public_header_files = 'AKReachability/*.h'
+      ss.source_files = 'AnobiKit/AKReachability/**/*.{h,m,mm}'
+      ss.public_header_files = 'AnobiKit/AKReachability/*.h'
   end
   
   s.subspec 'AKLocation' do |ss|
       ss.dependency 'AnobiKit/AKFoundation'
-      ss.source_files = 'AKLocation/**/*.{h,m,mm}'
-      ss.public_header_files = 'AKLocation/*.h'
-      ss.private_header_files = 'AKLocation/Private/*.h'
+      ss.source_files = 'AnobiKit/AKLocation/**/*.{h,m,mm}'
+      ss.public_header_files = 'AnobiKit/AKLocation/*.h'
+      ss.private_header_files = 'AnobiKit/AKLocation/Private/*.h'
       ss.frameworks = 'CoreLocation'
   end
   
   s.subspec 'AKStrings' do |ss|
-      ss.source_files = 'AKStrings/**/*.{h,m,mm}'
-      ss.public_header_files = 'AKStrings/*.h'
+      ss.source_files = 'AnobiKit/AKStrings/**/*.{h,m,mm}'
+      ss.public_header_files = 'AnobiKit/AKStrings/*.h'
   end
   
   s.subspec 'AKFormatters' do |ss|
-      ss.source_files = 'AKFormatters/**/*.{h,m,mm}'
-      ss.public_header_files = 'AKFormatters/*.h'
+      ss.source_files = 'AnobiKit/AKFormatters/**/*.{h,m,mm}'
+      ss.public_header_files = 'AnobiKit/AKFormatters/*.h'
   end
   
   s.subspec 'AKCoreData' do |ss|
-      ss.source_files = 'AKCoreData/**/*.{h,m,mm}'
-      ss.public_header_files = 'AKCoreData/*.h'
+      ss.source_files = 'AnobiKit/AKCoreData/**/*.{h,m,mm}'
+      ss.public_header_files = 'AnobiKit/AKCoreData/*.h'
   end
   
   
