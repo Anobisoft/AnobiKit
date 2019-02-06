@@ -52,24 +52,27 @@
 }
 
 - (void)listExample {
+    NSLog(@"AKList with custom box example");
     AKList *list = [AKList listWithItemClass:NSClassFromString(@"AKListItemCustomBox")];
-    NSString *x = [NSString stringWithFormat:@"r%@", @(random())];
-    NSString *y = [NSString stringWithFormat:@"r%@", @(random())];
-    NSString *z = [NSString stringWithFormat:@"r%@", @(random())];
-
-    [list addObject:x];
-    [list addObject:y];
-    [list addObject:z];
-    [list enumerateWithBlock:^(id  _Nonnull object) {
-        NSLog(@"%@", object);
-    }];
-    NSLog(@"--");
-    dispatch_asyncmain(^{
+    @autoreleasepool {
+        id x = [NSUUID UUID];
+        id y = [NSUUID UUID];
+        id z = [NSUUID UUID];
+        
+        [list addObject:x];
+        [list addObject:y];
+        [list addObject:z];
+        NSLog(@"-- enumerate");
         [list enumerateWithBlock:^(id  _Nonnull object) {
             NSLog(@"%@", object);
         }];
-        NSLog(@"--");
-    });
+        NSLog(@"-- release objects");
+    }
+    NSLog(@"-- enumerate");
+    [list enumerateWithBlock:^(id  _Nonnull object) {
+        NSLog(@"%@", object);
+    }];
+    NSLog(@"-- done");
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

@@ -20,8 +20,7 @@
 
 - (void)setUp {
     [super setUp];
-    self.list = [AKList weak];
-    self.array = @[@1, @2, @3, @4, @5, @6, @7];
+
 }
 
 - (void)tearDown {
@@ -30,18 +29,34 @@
     self.array = nil;
 }
 
-- (void)testAddAndEnumeration {
-    NSUInteger count = 0;
-    for (id object in self.array) {
-        count++;
-        [self.list addObject:object];
-        XCTAssertEqual(self.list.count, count);
+- (void)testReleasing {
+    @autoreleasepool {
+        self.list = [AKList weak];
+        self.array = @[[NSUUID UUID],
+                       [NSUUID UUID],
+                       [NSUUID UUID],
+                       [NSUUID UUID],
+                       [NSUUID UUID],
+                       [NSUUID UUID],
+                       [NSUUID UUID]];
+        
+        
+        NSUInteger count = 0;
+        for (id object in self.array) {
+            count++;
+            [self.list addObject:object];
+            XCTAssertEqual(self.list.count, count);
+        }
+        XCTAssertEqual(self.list.count, self.array.count);
+        [self.list enumerateWithBlock:^(id  _Nonnull object) {
+            XCTAssertTrue([self.array containsObject:object]);
+        }];
+        // free some
+        self.array = [self.array subarrayWithRange:NSMakeRange(2, 3)];
     }
-    XCTAssertEqual(self.list.count, self.array.count);
-    [self.list enumerateWithBlock:^(id  _Nonnull object) {
-        XCTAssertTrue([self.array containsObject:object]);
-    }];
+    XCTAssertEqual(self.list.strictlyCount, self.array.count);
 }
+
 
 @end
 

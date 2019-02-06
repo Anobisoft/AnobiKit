@@ -9,6 +9,8 @@
 @import XCTest;
 @import AnobiKit;
 
+#define OriginStringValue @"origin"
+
 @interface NSStringsConcatenationTest : XCTestCase
 
 @property NSString *origin;
@@ -19,7 +21,8 @@
 
 - (void)setUp {
     [super setUp];
-    self.origin = @"origin";
+    
+    self.origin = OriginStringValue;
 }
 
 - (void)tearDown {
@@ -30,7 +33,7 @@
 - (void)testConcatMethod {
     NSString *result = [self.origin : @"1" : @"2" : @"3" : @"4ATATAT"];
     XCTAssertEqualObjects(result, @"origin1234ATATAT");
-    XCTAssertEqualObjects(self.origin, @"origin");
+    XCTAssertEqualObjects(self.origin, OriginStringValue);
 }
 
 @end
