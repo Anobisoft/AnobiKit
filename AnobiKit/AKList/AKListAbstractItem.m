@@ -28,6 +28,10 @@
     return nil;
 }
 
+- (BOOL)respondsToSelector:(SEL)selector {
+    return [super respondsToSelector:selector] || [self.object respondsToSelector:selector];
+}
+
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
     [anInvocation invokeWithTarget:self.object];
 }
