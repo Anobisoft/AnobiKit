@@ -9,6 +9,11 @@
 @import XCTest;
 @import AnobiKit;
 
+@interface AKWeakListItem : AKListAbstractItem
+@end
+@implementation AKWeakListItem
+@end
+
 @interface AKWeakListTest : XCTestCase
 
 @property AKList *list;
@@ -55,6 +60,33 @@
         self.array = [self.array subarrayWithRange:NSMakeRange(2, 3)];
     }
     XCTAssertEqual(self.list.strictlyCount, self.array.count);
+}
+
+- (void)testExceptions {
+    @try {
+        self.list = [AKList listWithItemClass:NSString.class];
+    } @catch (NSException *exception) {
+        XCTAssertTrue([exception isKindOfClass:AKProtocolException.class]);
+    }
+    
+    self.list = [AKList listWithItemClass:AKWeakListItem.class];    
+    @try {
+        [self.list addObject:@"test"];
+    } @catch (NSException *exception) {
+        XCTAssertTrue([exception isKindOfClass:AKProtocolException.class]);
+    } @finally {
+        self.list = nil;
+    }
+}
+
+- (void)testForwardingInvocation {
+    self.list = [AKList new];
+    NSString *object = @"test";
+    [self.list addObject:object];
+    [self.list enumerateItemsWithBlock:^(id _Nonnull item) {
+        NSUInteger length = [item length];
+        XCTAssertEqual(length, object.length);
+    }];
 }
 
 

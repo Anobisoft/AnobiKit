@@ -17,17 +17,18 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)exception;
 + (instancetype)exceptionWithReason:(nullable NSString *)reason;
 + (instancetype)exceptionWithReason:(nullable NSString *)reason userInfo:(nullable NSDictionary *)userInfo;
-+ (instancetype)exception:(NSString *)name reason:(NSString *)reason userInfo:(NSDictionary *)userInfo;
-
 
 @end
 
 @interface NSObject (AKException)
 
-- (AKException *)exceptionWithReason:(nullable NSString *)reason;
-- (AKException *)exceptionWithReason:(nullable NSString *)reason userInfo:(nullable NSDictionary *)userInfo;
+- (__kindof AKException *)exceptionWithReason:(nullable NSString *)reason;
+- (__kindof AKException *)exceptionWithReason:(nullable NSString *)reason userInfo:(nullable NSDictionary *)userInfo;
 
 + (AKInstantiationException *)abstractClassInstantiationException;
+
++ (BOOL)conformsToProtocolThrows:(Protocol *)protocol;
+- (BOOL)conformsToProtocolThrows:(Protocol *)protocol;
 
 @end
 
@@ -47,6 +48,16 @@ NS_ASSUME_NONNULL_END
 
 @end
 
-@interface AbstractMethodException : AKException
+@interface AKAbstractMethodException : AKException
+
+@end
+
+@interface AKProtocolException : AKException
+
++ (instancetype)class:(Class)class notConformsProtocol:(Protocol *)protocol;
+
+@end
+
+@interface AKIllegalArgumentException : AKException
 
 @end

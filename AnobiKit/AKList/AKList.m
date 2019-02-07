@@ -32,8 +32,7 @@
 }
 
 + (instancetype)listWithItemClass:(Class)class {
-    if (![class conformsToProtocol:@protocol(AKListItem)]) {
-        @throw [self exceptionWithReason:@"class must conforms to <AKListItem> protocol"];
+    if (![class conformsToProtocolThrows:@protocol(AKListItem)]) {
         return nil;
     }
     return [[self alloc] initWithItemClass:class];
@@ -58,8 +57,8 @@
     if (!item) {
         return;
     }
-    if (![item conformsToProtocol:@protocol(AKListItem)]) {
-        @throw [self exceptionWithReason:@"item not conforms to <AKListItem> protocol"];
+    if (![(id)item conformsToProtocolThrows:@protocol(AKListItem)]) {
+        return;
     }
     if (!self.root) {
         self.root = item;
@@ -80,6 +79,10 @@
 }
 
 - (void)enumerateItemsWithBlock:(void (^)(id<AKListItem> item))block {
+    if (!block) {
+        @throw [AKIllegalArgumentException exceptionWithReason:@"block is null"];
+        return;
+    }
     id<AKListItem> current = self.root;
     while (current != nil) {
         if (current.object) {
@@ -99,6 +102,10 @@
 }
 
 - (void)enumerateWithBlock:(void (^)(id object))block {
+    if (!block) {
+        @throw [AKIllegalArgumentException exceptionWithReason:@"block is null"];
+        return;
+    }
     [self enumerateItemsWithBlock:^(id<AKListItem>  _Nonnull item) {
         block(item.object);
     }];

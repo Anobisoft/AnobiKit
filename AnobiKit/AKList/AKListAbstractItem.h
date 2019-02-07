@@ -14,7 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly) ObjectType object; // override!
 
+/** Instantiation method
+ @throws InstantiationException, AbstractMethodException
+ */
 + (instancetype):(ObjectType)object;
+
+/** @throws AbstractMethodException */
 - (instancetype)initWithObject:(ObjectType)object;
 
 @end

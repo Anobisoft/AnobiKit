@@ -24,15 +24,20 @@
 }
 
 - (instancetype)initWithObject:(id)object {
-    @throw [AbstractMethodException exception];
+    @throw [AKAbstractMethodException exception];
     return nil;
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
-    if ([self.object respondsToSelector:anInvocation.selector]) {
-        [anInvocation invokeWithTarget:self.object];
-        return;
+    [anInvocation invokeWithTarget:self.object];
+}
+
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    NSMethodSignature *signature = [super methodSignatureForSelector:aSelector];
+    if (!signature) {
+        signature = [self.object methodSignatureForSelector:aSelector];
     }
+    return signature;
 }
 
 @end

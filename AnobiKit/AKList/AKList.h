@@ -28,11 +28,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)new;  // retained items
 + (instancetype)weak;  // weak items
+/** @throws ProtocolException */
 + (instancetype)listWithItemClass:(Class<AKListItem>)itemClass; // custom items
 
+/** @throws ProtocolException */
 - (void)addObject:(ObjectType)object;
+/** @throws ProtocolException */
 - (void)addItem:(id<AKListItem>)item; // for custom
 
+/** @throws IllegalArgumentException */
 - (void)enumerateWithBlock:(void (^)(ObjectType object))block;
 - (void)enumerateItemsWithBlock:(void (^)(id<AKListItem> item))block;
 

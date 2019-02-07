@@ -8,6 +8,8 @@
 
 #import "AKException.h"
 
+static NSString * const AKExceptionNameSuffix = @"Exception";
+
 @implementation AKException
 
 + (instancetype)exception {
@@ -19,38 +21,56 @@
 }
 
 + (instancetype)exceptionWithReason:(NSString *)reason userInfo:(NSDictionary *)userInfo {
-    return [self exception:NSStringFromClass(self) reason:reason userInfo:userInfo];
-}
-
-+ (instancetype)exception:(NSString *)name reason:(NSString *)reason userInfo:(NSDictionary *)userInfo {
-    return [[self alloc] initWithName:name reason:reason userInfo:userInfo];
+    return [[self alloc] initWithName:NSStringFromClass(self) reason:reason userInfo:userInfo];
 }
 
 @end
 
 @implementation NSObject (AKException)
 
++ (NSString *)classIdentifier {
+    NSString *classBundleIdentifier = [NSBundle bundleForClass:self].bundleIdentifier;
+    return [classBundleIdentifier stringByAppendingFormat:@".%@", NSStringFromClass(self)];
+}
+
+- (NSString *)classIdentifier {
+    return self.class.classIdentifier;
+}
+
 - (AKException *)exceptionWithReason:(nullable NSString *)reason {
     return [self exceptionWithReason:reason userInfo:nil];
 }
 
 - (AKException *)exceptionWithReason:(nullable NSString *)reason userInfo:(nullable NSDictionary *)userInfo {
-    NSString *name = [NSStringFromClass(self.class) stringByAppendingString:@"Exception"];
-    return [AKException exception:name reason:reason userInfo:userInfo];
+    NSString *name = NSStringFromClass(self.class);
+    if (![name hasSuffix:AKExceptionNameSuffix]) {
+        name = [name stringByAppendingString:AKExceptionNameSuffix];
+    }
+    return [[AKException alloc] initWithName:name reason:reason userInfo:userInfo];
 }
 
 + (AKInstantiationException *)abstractClassInstantiationException {
-    NSString *classBundleIdentifier = [NSBundle bundleForClass:self].bundleIdentifier;
-    NSString *classIdentifier = [classBundleIdentifier stringByAppendingFormat:@".%@", NSStringFromClass(self)];
-    NSString *reason = [NSString stringWithFormat:@"Could not instantiate class [%@]: Is it an abstract class?", classIdentifier];
+    NSString *reason = [NSString stringWithFormat:@"Could not instantiate class [%@]: Is it an abstract class?", self.classIdentifier];
     return [AKInstantiationException exceptionWithReason:reason];
+}
+
++ (BOOL)conformsToProtocolThrows:(Protocol *)protocol {
+    BOOL result = [self conformsToProtocol:protocol];
+    if (!result) {
+        @throw [AKProtocolException class:self notConformsProtocol:protocol];
+    }
+    return result;
+}
+
+- (BOOL)conformsToProtocolThrows:(Protocol *)protocol {
+    return [self.class conformsToProtocolThrows:protocol];
 }
 
 @end
 
 #pragma mark - concrete exceptions
 
-@implementation AbstractMethodException
+@implementation AKAbstractMethodException
 
 + (instancetype)exception {
     NSArray *callStack = [NSThread callStackSymbols];
@@ -77,3 +97,16 @@
 
 @end
 
+@implementation AKProtocolException
+
++ (instancetype)class:(Class)class notConformsProtocol:(Protocol *)protocol {
+    NSString *protocolIdentifier = NSStringFromProtocol(protocol);
+    NSString *reason = [NSString stringWithFormat:@"class [%@] must conforms to protocol [%@]", class.classIdentifier, protocolIdentifier];
+    return [self exceptionWithReason:reason];
+}
+
+@end
+
+@implementation AKIllegalArgumentException
+
+@end
