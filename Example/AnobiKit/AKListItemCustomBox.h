@@ -6,11 +6,11 @@
 //  Copyright © 2019 anobisoft. All rights reserved.
 //
 
-#import <AnobiKit/AKListItemWeakBox.h>
+#import <AnobiKit/AKListWeakItem.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AKListItemCustomBox : AKListItemWeakBox
+@interface AKListItemCustomBox : AKListWeakItem
 
 @property (nonatomic) id something;
 

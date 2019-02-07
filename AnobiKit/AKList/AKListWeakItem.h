@@ -1,5 +1,5 @@
 //
-//  AKListItem.h
+//  AKListWeakItem.h
 //  AnobiKit
 //
 //  Created by Stanislav Pletnev on 04/02/2019.
@@ -10,14 +10,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AKListItem : AKListAbstractItem <NSCopying, NSMutableCopying>
+@interface AKListWeakItem : AKListAbstractItem <NSCopying, NSMutableCopying>
 
 @end
 
-@interface AKListMutableItem<__covariant ObjectType> : AKListItem
+@interface AKListMutableWeakItem<__covariant ObjectType> : AKListWeakItem
 
 @property (nonatomic, readwrite) ObjectType object;
 
 @end
+
 
 NS_ASSUME_NONNULL_END

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class AKInstantiationException;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AKException : NSException
@@ -15,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)exception;
 + (instancetype)exceptionWithReason:(nullable NSString *)reason;
 + (instancetype)exceptionWithReason:(nullable NSString *)reason userInfo:(nullable NSDictionary *)userInfo;
++ (instancetype)exception:(NSString *)name reason:(NSString *)reason userInfo:(NSDictionary *)userInfo;
 
 
 @end
@@ -23,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (AKException *)exceptionWithReason:(nullable NSString *)reason;
 - (AKException *)exceptionWithReason:(nullable NSString *)reason userInfo:(nullable NSDictionary *)userInfo;
+
++ (AKInstantiationException *)abstractClassInstantiationException;
 
 @end
 
@@ -33,5 +38,15 @@ NS_ASSUME_NONNULL_END
 @interface AKFileNotFoundException : AKException
 
 + (instancetype)exceptionWithPath:(NSString *)path;
+
+@end
+
+@interface AKInstantiationException : AKException
+
++ (instancetype)abstractClassInstantiationException;
+
+@end
+
+@interface AbstractMethodException : AKException
 
 @end

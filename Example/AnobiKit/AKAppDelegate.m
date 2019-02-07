@@ -66,7 +66,7 @@
         [list enumerateWithBlock:^(id  _Nonnull object) {
             NSLog(@"%@", object);
         }];
-        NSLog(@"-- release objects");
+        NSLog(@"-- autorelease objects");
     }
     NSLog(@"-- enumerate");
     [list enumerateWithBlock:^(id  _Nonnull object) {

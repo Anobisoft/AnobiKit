@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name             = 'AnobiKit'
-  s.version          = '0.11.0'
+  s.version          = '0.12.0'
   s.summary          = 'AnobiKit - utilities collection useful to Objective-C iOS Developer.'
 
   s.description      = <<-DESC

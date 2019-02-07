@@ -22,8 +22,8 @@
     return [self exception:NSStringFromClass(self) reason:reason userInfo:userInfo];
 }
 
-+ (instancetype)exception:(NSString *)exception reason:(NSString *)reason userInfo:(NSDictionary *)userInfo {
-    return [[self alloc] initWithName:exception reason:reason userInfo:userInfo];
++ (instancetype)exception:(NSString *)name reason:(NSString *)reason userInfo:(NSDictionary *)userInfo {
+    return [[self alloc] initWithName:name reason:reason userInfo:userInfo];
 }
 
 @end
@@ -35,13 +35,31 @@
 }
 
 - (AKException *)exceptionWithReason:(nullable NSString *)reason userInfo:(nullable NSDictionary *)userInfo {
-    NSString *exception = [NSStringFromClass(self.class) stringByAppendingString:@"Exception"];
-    return [AKException exception:exception reason:reason userInfo:userInfo];
+    NSString *name = [NSStringFromClass(self.class) stringByAppendingString:@"Exception"];
+    return [AKException exception:name reason:reason userInfo:userInfo];
+}
+
++ (AKInstantiationException *)abstractClassInstantiationException {
+    NSString *classBundleIdentifier = [NSBundle bundleForClass:self].bundleIdentifier;
+    NSString *classIdentifier = [classBundleIdentifier stringByAppendingFormat:@".%@", NSStringFromClass(self)];
+    NSString *reason = [NSString stringWithFormat:@"Could not instantiate class [%@]: Is it an abstract class?", classIdentifier];
+    return [AKInstantiationException exceptionWithReason:reason];
 }
 
 @end
 
 #pragma mark - concrete exceptions
+
+@implementation AbstractMethodException
+
++ (instancetype)exception {
+    NSArray *callStack = [NSThread callStackSymbols];
+    NSString *abstractMethod = callStack[callStack.count - 2];
+    NSString *reason = [NSString stringWithFormat:@"Could not call abstract method [%@]: it must be overridden", abstractMethod];
+    return [self exceptionWithReason:reason];
+}
+
+@end
 
 @implementation AKFileNotFoundException
 
@@ -50,3 +68,12 @@
 }
 
 @end
+
+@implementation AKInstantiationException
+
++ (instancetype)abstractClassInstantiationException {
+    return [self exceptionWithReason:@"could not instantiate abstract class"];
+}
+
+@end
+

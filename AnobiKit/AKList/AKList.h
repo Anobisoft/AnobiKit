@@ -7,28 +7,38 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AnobiKit/AKListItem.h>
-#import <AnobiKit/AKListItemBox.h>
-#import <AnobiKit/AKListItemWeakBox.h>
 
 NS_ASSUME_NONNULL_BEGIN
+
+@protocol AKListItem <NSObject>
+
+@property (nonatomic, readonly, nullable) id object;
+@property (nonatomic, strong, nullable) id<AKListItem> next;
+@property (nonatomic, strong, nullable) id<AKListItem> prev;
+
++ (instancetype):(id)object;
+
+@end
+
 
 @interface AKList<__covariant ObjectType> : NSObject
 
 @property (nonatomic, readonly) NSUInteger count;
-@property (nonatomic, readonly) NSUInteger strictlyCount; // enumerate call
+@property (nonatomic, readonly) NSUInteger strictlyCount; // cleanup call
 
-+ (instancetype)new;  // srtong boxed items
-+ (instancetype)weak;  // weak boxed items
-+ (instancetype)listWithItemClass:(Class<AKListItem>)class; // custom boxed
++ (instancetype)new;  // retained items
++ (instancetype)weak;  // weak items
++ (instancetype)listWithItemClass:(Class<AKListItem>)itemClass; // custom items
+
+- (void)addObject:(ObjectType)object;
+- (void)addItem:(id<AKListItem>)item; // for custom
 
 - (void)enumerateWithBlock:(void (^)(ObjectType object))block;
-- (void)addObject:(ObjectType)object; // strong box as default (AKListItemBox)
+- (void)enumerateItemsWithBlock:(void (^)(id<AKListItem> item))block;
 
-- (void)addItem:(id<AKListItem>)item; // for custom
 - (void)removeItem:(id<AKListItem>)item;
-
-- (void)clear;
+- (void)clear; // release all items
+- (void)cleanup; // to collapse unused items
 
 @end
 

@@ -9,8 +9,8 @@
 
 #import <AnobiKit/AKFoundation.h>
 #import "AKList.h"
-#import "AKListItemBox.h"
-#import "AKListItemWeakBox.h"
+#import "AKListItem.h"
+#import "AKListWeakItem.h"
 
 @interface AKList ()
 
@@ -24,11 +24,11 @@
 }
 
 + (instancetype)new {
-    return [[self alloc] initWithItemClass:AKListItemBox.class];
+    return [[self alloc] initWithItemClass:AKListItem.class];
 }
 
 + (instancetype)weak {
-    return [[self alloc] initWithItemClass:AKListItemWeakBox.class];
+    return [[self alloc] initWithItemClass:AKListWeakItem.class];
 }
 
 + (instancetype)listWithItemClass:(Class)class {
@@ -79,11 +79,11 @@
     }
 }
 
-- (void)enumerateWithBlock:(void (^)(id object))block {
+- (void)enumerateItemsWithBlock:(void (^)(id<AKListItem> item))block {
     id<AKListItem> current = self.root;
     while (current != nil) {
         if (current.object) {
-            block(current.object);
+            block(current);
         } else {
             [self removeItem:current];
             _count--;
@@ -96,6 +96,12 @@
         }
         current = current.next;
     }
+}
+
+- (void)enumerateWithBlock:(void (^)(id object))block {
+    [self enumerateItemsWithBlock:^(id<AKListItem>  _Nonnull item) {
+        block(item.object);
+    }];
 }
 
 - (void)clear {
@@ -115,8 +121,12 @@
     [self clear];
 }
 
-- (NSUInteger)strictlyCount {
+- (void)cleanup {
     [self enumerateWithBlock:^(id  _Nonnull object) {}];
+}
+
+- (NSUInteger)strictlyCount {
+    [self cleanup];
     return self.count;
 }
 

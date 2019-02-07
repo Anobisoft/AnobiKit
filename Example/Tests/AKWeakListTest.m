@@ -29,7 +29,7 @@
     self.array = nil;
 }
 
-- (void)testReleasing {
+- (void)testAutoreleasing {
     @autoreleasepool {
         self.list = [AKList weak];
         self.array = @[[NSUUID UUID],
