@@ -39,6 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** @throws IllegalArgumentException */
 - (void)enumerateWithBlock:(void (^)(ObjectType object))block;
 - (void)enumerateItemsWithBlock:(void (^)(id<AKListItem> item))block;
+- (void)enumerateItemsWithBreakableBlock:(BOOL (^)(id<AKListItem> item))breakableBlock;
 
 - (void)removeItem:(id<AKListItem>)item;
 - (void)clear; // release all items

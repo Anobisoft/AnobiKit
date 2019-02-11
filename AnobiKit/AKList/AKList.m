@@ -69,15 +69,6 @@
     _count++;
 }
 
-- (void)removeItem:(id<AKListItem>)item {
-    if (item.prev) {
-        item.prev.next = item.next;
-    }
-    if (item.next) {
-        item.next.prev = item.prev;
-    }
-}
-
 - (void)enumerateItemsWithBlock:(void (^)(id<AKListItem> item))block {
     if (!block) {
         @throw [AKIllegalArgumentException exceptionWithReason:@"block is null"];
@@ -101,6 +92,31 @@
     }
 }
 
+- (void)enumerateItemsWithBreakableBlock:(BOOL (^)(id<AKListItem> item))breakableBlock {
+    if (!breakableBlock) {
+        @throw [AKIllegalArgumentException exceptionWithReason:@"block is null"];
+        return;
+    }
+    id<AKListItem> current = self.root;
+    while (current != nil) {
+        if (current.object) {
+            if (breakableBlock(current)) {
+                return;
+            }
+        } else {
+            [self removeItem:current];
+            _count--;
+            if (current == self.root) {
+                self.root = current.next;
+            }
+            if (current == self.tail) {
+                self.tail = current.prev;
+            }
+        }
+        current = current.next;
+    }
+}
+
 - (void)enumerateWithBlock:(void (^)(id object))block {
     if (!block) {
         @throw [AKIllegalArgumentException exceptionWithReason:@"block is null"];
@@ -109,6 +125,15 @@
     [self enumerateItemsWithBlock:^(id<AKListItem>  _Nonnull item) {
         block(item.object);
     }];
+}
+
+- (void)removeItem:(id<AKListItem>)item {
+    if (item.prev) {
+        item.prev.next = item.next;
+    }
+    if (item.next) {
+        item.next.prev = item.prev;
+    }
 }
 
 - (void)clear {
