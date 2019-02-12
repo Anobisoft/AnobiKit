@@ -69,32 +69,45 @@
     _count++;
 }
 
-- (void)enumerateItemsWithBlock:(void (^)(id<AKListItem> item))block {
-    if (!block) {
-        @throw [AKIllegalArgumentException exceptionWithReason:@"block is null"];
+BOOL IllegalArgumentTest(id arg) {
+    BOOL illegal = arg == nil;
+    if (illegal) {
+        @throw [AKIllegalArgumentException exceptionWithReason:@"argument is nil"];
+    }
+    return illegal;
+}
+
+- (void)enumerateWithBlock:(void (^)(id object))block {
+    if (IllegalArgumentTest(block)) {
         return;
     }
-    id<AKListItem> current = self.root;
-    while (current != nil) {
-        if (current.object) {
-            block(current);
-        } else {
-            [self removeItem:current];
-            _count--;
-            if (current == self.root) {
-                self.root = current.next;
-            }
-            if (current == self.tail) {
-                self.tail = current.prev;
-            }
-        }
-        current = current.next;
+    [self enumerateItemsWithBreakableBlock:^BOOL(id<AKListItem>  _Nonnull item) {
+        block(item.object);
+        return NO;
+    }];
+}
+
+- (void)enumerateWithBreakableBlock:(BOOL (^)(id object))breakableBlock {
+    if (IllegalArgumentTest(breakableBlock)) {
+        return;
     }
+    [self enumerateItemsWithBreakableBlock:^BOOL(id<AKListItem>  _Nonnull item) {
+        return breakableBlock(item.object);
+    }];
+}
+
+- (void)enumerateItemsWithBlock:(void (^)(id<AKListItem> item))block {
+    if (IllegalArgumentTest(block)) {
+        return;
+    }
+    [self enumerateItemsWithBreakableBlock:^BOOL(id<AKListItem>  _Nonnull item) {
+        block(item);
+        return NO;
+    }];
 }
 
 - (void)enumerateItemsWithBreakableBlock:(BOOL (^)(id<AKListItem> item))breakableBlock {
-    if (!breakableBlock) {
-        @throw [AKIllegalArgumentException exceptionWithReason:@"block is null"];
+    if (IllegalArgumentTest(breakableBlock)) {
         return;
     }
     id<AKListItem> current = self.root;
@@ -117,15 +130,7 @@
     }
 }
 
-- (void)enumerateWithBlock:(void (^)(id object))block {
-    if (!block) {
-        @throw [AKIllegalArgumentException exceptionWithReason:@"block is null"];
-        return;
-    }
-    [self enumerateItemsWithBlock:^(id<AKListItem>  _Nonnull item) {
-        block(item.object);
-    }];
-}
+
 
 - (void)removeItem:(id<AKListItem>)item {
     if (item.prev) {
