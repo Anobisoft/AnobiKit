@@ -9,3 +9,4 @@
 #import <AnobiKit/NSString+AKDataValidation.h>
 #import <AnobiKit/NSString+Trimming.h>
 #import <AnobiKit/NSString+Concatenation.h>
+#import <AnobiKit/NSString+Localization.h>
