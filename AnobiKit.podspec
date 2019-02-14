@@ -52,6 +52,7 @@ DESC
   end
   
   s.subspec 'AKStrings' do |ss|
+      ss.dependency 'AnobiKit/AKFoundation'
       ss.source_files = 'AnobiKit/AKStrings/**/*.{h,m,mm}'
       ss.public_header_files = 'AnobiKit/AKStrings/*.h'
   end
