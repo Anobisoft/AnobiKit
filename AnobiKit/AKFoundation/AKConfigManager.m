@@ -56,7 +56,7 @@
     if (error) {
         @throw error;
     }
-    if ([config isKindOfClass:NSDictionary.class] || [config isKindOfClass:NSArray.class]) {
+    if (config) {
         [configsCache setObject:config forKey:name];
     }
     return config;

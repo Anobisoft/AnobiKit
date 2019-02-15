@@ -9,19 +9,19 @@
 #import "AKVersion.h"
 #import "NSBundle+AnobiKit.h"
 
-
 @implementation AKVersion
 
 + (instancetype)versionWithString:(NSString *)string {
     return [[self alloc] initWithString:string];
 }
 
-+ (instancetype)appVersion {
++ (instancetype)applicationVersion {
     static id _appVersion;
     if (_appVersion) {
         return _appVersion;
     }
-    return _appVersion = [[self alloc] initWithString:[NSBundle appShortVersion] build:[NSBundle appBuildVersion]];
+    NSBundle *mainBundle = NSBundle.mainBundle;
+    return _appVersion = [[self alloc] initWithString:mainBundle.shortVersion build:mainBundle.buildVersion];
 }
 
 - (instancetype)initWithString:(NSString *)string build:(NSString *)build {

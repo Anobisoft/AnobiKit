@@ -45,9 +45,9 @@
 }
 
 - (void)versionExample {
-    AKVersion *version = [AKVersion appVersion];
+    AKVersion *version = [AKVersion applicationVersion];
     NSLog(@"Application version: %@", version);
-    version = [AKVersion appVersion];
+    version = [AKVersion applicationVersion];
     NSLog(@"Application version: %@", version.debugDescription);
 }
 

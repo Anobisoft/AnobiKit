@@ -18,7 +18,7 @@
 
 @interface AKFileManager : NSFileManager
 
-+ (instancetype)manager;
++ (instancetype)manager; // documents directory
 + (instancetype)resourcesManager;
 + (instancetype)managerWithDirectoryURL:(NSURL *)directory;
 

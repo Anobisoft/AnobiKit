@@ -1,6 +1,6 @@
 //
 //  AKWeakSingleton.m
-//  Pods
+//  AnobiKit
 //
 //  Created by Stanislav Pletnev on 05.09.17.
 //  Copyright © 2017 Anobisoft. All rights reserved.
@@ -11,19 +11,19 @@
 
 @implementation AKWeakSingleton
 
-static NSMapTable<NSString *, __kindof AKWeakSingleton *> *uniqueInstances;
+static NSMapTable<NSString *, __kindof AKWeakSingleton *> *AKWeakSingletonUniqueInstances;
 
 + (void)load {
-    uniqueInstances = [NSMapTable strongToWeakObjectsMapTable];
+    AKWeakSingletonUniqueInstances = [NSMapTable strongToWeakObjectsMapTable];
 }
 
 + (instancetype)shared {
     __block id instance;
     dispatch_syncmain(^{
-        instance = [uniqueInstances objectForKey:NSStringFromClass(self)];
+        instance = [AKWeakSingletonUniqueInstances objectForKey:NSStringFromClass(self)];
         if (!instance) {
             instance = [[self alloc] init];
-            [uniqueInstances setObject:instance forKey:NSStringFromClass(self)];
+            [AKWeakSingletonUniqueInstances setObject:instance forKey:NSStringFromClass(self)];
         }
     });
 	return instance;

@@ -18,14 +18,23 @@ extern NSString * const CFBundleDisplayNameKey;
 
 + (NSBundle *)UIKitBundle;
 
-+ (NSString *)appName;
-+ (NSString *)appDisplayName;
+- (NSString *)name;
+- (NSString *)displayName;
 
-+ (NSString *)appVersion;
-+ (NSString *)appShortVersion;
-+ (NSString *)appBuildVersion;
+- (NSString *)version;
+- (NSString *)shortVersion;
+- (NSString *)buildVersion;
 
 - (NSString *)localizedStringForKey:(NSString *)key;
 - (NSDictionary<NSString *, NSString *> *)localizationTable;
+
+
+#pragma mark - Main bundle
+
++ (NSString *)applicationName;
++ (NSString *)applicationDisplayName;
++ (NSString *)applicationVersion;
++ (NSString *)applicationShortVersion;
++ (NSString *)applicationBuildVersion;
 
 @end

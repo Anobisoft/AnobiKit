@@ -19,7 +19,7 @@ typedef NS_ENUM(NSUInteger, AKVersionFormatStyle) {
 @interface AKVersion : NSObject
 
 + (instancetype)versionWithString:(NSString *)string; // AKVersionFormatStyleDefault or trimmed
-+ (instancetype)appVersion;
++ (instancetype)applicationVersion;
 
 @property NSUInteger major;
 @property NSUInteger minor;
@@ -30,11 +30,11 @@ typedef NS_ENUM(NSUInteger, AKVersionFormatStyle) {
 - (NSString *)stringWithFormat:(NSString *)format; // %MJ - major, %MN - minor, %P - patch, %B - build, %% - %
 - (NSString *)stringWithStyle:(AKVersionFormatStyle)style;
 
-- (NSString *)shortString; // AKVersionFormatStyleShort
-- (NSString *)string; // AKVersionFormatStyleDefault
+- (NSString *)shortString;  // AKVersionFormatStyleShort
+- (NSString *)string;       // AKVersionFormatStyleDefault
 - (NSString *)mediumString; // AKVersionFormatStyleMedium
-- (NSString *)longString; // AKVersionFormatStyleLong
-- (NSString *)fullString; // AKVersionFormatStyleFull
+- (NSString *)longString;   // AKVersionFormatStyleLong
+- (NSString *)fullString;   // AKVersionFormatStyleFull
 
 + (NSString *)trim:(NSString *)version; // right trim of ".0"
 

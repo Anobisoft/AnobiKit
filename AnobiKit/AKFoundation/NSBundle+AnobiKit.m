@@ -7,12 +7,8 @@
 //
 
 #import "NSBundle+AnobiKit.h"
-#import <WatchKit/WatchKit.h>
-#import <WatchKit/WKDefines.h>
-#import <WatchKit/WKInterfaceObject.h>
-#import <WatchKit/WKInterfaceImage.h>
-#import <UIKit/UIGeometry.h>
-#import <UIKit/UIAccessibilityConstants.h>
+#import <UIKit/UIColor.h>
+
 
 NSString * AKLocalizedString(NSString *key) {
     return [[NSBundle mainBundle] localizedStringForKey:key];
@@ -33,30 +29,48 @@ NSString * const CFBundleDisplayNameKey = @"CFBundleDisplayName";
 
 #pragma mark - Application name
 
-+ (NSString *)appName {
-    return self.mainBundle.infoDictionary[(id)kCFBundleNameKey];
+- (NSString *)name {
+    return self.infoDictionary[(id)kCFBundleNameKey];
 }
 
-+ (NSString *)appDisplayName {
-    return self.mainBundle.infoDictionary[CFBundleDisplayNameKey] ?: [self appName];
+- (NSString *)displayName {
+    return self.infoDictionary[CFBundleDisplayNameKey] ?: self.name;
 }
 
++ (NSString *)applicationName {
+    return self.mainBundle.name;
+}
+
++ (NSString *)applicationDisplayName {
+    return self.mainBundle.displayName;
+}
 
 
 #pragma mark - Application version
 
-+ (NSString *)appVersion {
-    return [NSString stringWithFormat:@"v%@ build %@", [self appShortVersion], [self appBuildVersion]];
+- (NSString *)version {
+    return [NSString stringWithFormat:@"v%@ build %@", [self shortVersion], [self buildVersion]];
 }
 
-+ (NSString *)appShortVersion {
-    return self.mainBundle.infoDictionary[CFBundleShortVersionKey];
+- (NSString *)shortVersion {
+    return self.infoDictionary[CFBundleShortVersionKey];
 }
 
-+ (NSString *)appBuildVersion {
-    return self.mainBundle.infoDictionary[(id)kCFBundleVersionKey];
+- (NSString *)buildVersion {
+    return self.infoDictionary[(id)kCFBundleVersionKey];
 }
 
++ (NSString *)applicationVersion {
+    return self.mainBundle.version;
+}
+
++ (NSString *)applicationShortVersion {
+    return self.mainBundle.shortVersion;
+}
+
++ (NSString *)applicationBuildVersion {
+    return self.mainBundle.buildVersion;
+}
 
 
 #pragma mark - Localization

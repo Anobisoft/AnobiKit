@@ -1,6 +1,6 @@
 //
 //  AKSingleton.m
-//  Pods
+//  AnobiKit
 //
 //  Created by Stanislav Pletnev on 05.09.17.
 //  Copyright © 2017 Anobisoft. All rights reserved.
@@ -11,19 +11,19 @@
 
 @implementation AKSingleton
 
-static NSMutableDictionary<NSString *, __kindof AKSingleton *> *uniqueInstances;
+static NSMutableDictionary<NSString *, __kindof AKSingleton *> *AKSingletonUniqueInstances;
 
 + (void)load {
-    uniqueInstances = [NSMutableDictionary new];
+    AKSingletonUniqueInstances = [NSMutableDictionary new];
 }
 
 + (instancetype)shared {
     __block id instance;
     dispatch_syncmain(^{
-        instance = uniqueInstances[NSStringFromClass(self)];
+        instance = AKSingletonUniqueInstances[NSStringFromClass(self)];
         if (!instance) {
             instance = [[self alloc] init];
-            uniqueInstances[NSStringFromClass(self)] = instance;
+            AKSingletonUniqueInstances[NSStringFromClass(self)] = instance;
         }
     });
 	return instance;
@@ -41,12 +41,12 @@ static NSMutableDictionary<NSString *, __kindof AKSingleton *> *uniqueInstances;
 	return self;
 }
 
-+ (void)free {
-    [uniqueInstances removeObjectForKey:NSStringFromClass(self)];
++ (void)releaseInstance {
+    [AKSingletonUniqueInstances removeObjectForKey:NSStringFromClass(self)];
 }
 
-- (void)free {
-    [self.class free];
+- (void)releaseInstance {
+    [self.class releaseInstance];
 }
 
 @end

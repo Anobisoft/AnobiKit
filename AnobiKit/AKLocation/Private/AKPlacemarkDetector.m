@@ -88,7 +88,7 @@ typedef void(^AKPlacemarkDetectorFetchBlock)(AKPlacemarkDetector *detector, NSAr
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0), ^{
         dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
         if (self.fetchBlock) self.fetchBlock(self, result, lastError);
-        self.fetchBlock = nil; //free
+        self.fetchBlock = nil; // release
     });
 }
 
@@ -107,7 +107,7 @@ typedef void(^AKPlacemarkDetectorFetchBlock)(AKPlacemarkDetector *detector, NSAr
     NSLog(@"%s %@", __PRETTY_FUNCTION__, error);
 #endif
     if (self.fetchBlock) self.fetchBlock(self, nil, error);
-    self.fetchBlock = nil; //free
+    self.fetchBlock = nil; // release
 }
 
 @end

@@ -23,13 +23,13 @@
     AKReachabilityStatus _currentStatus;
 }
 
-static AKReachability *_cachedInstance;
-static NSMutableDictionary<NSString *, AKReachability *> *_hostRechabilityInstanceCache;
+static AKReachability *AKReachability_cachedInstance;
+static NSMutableDictionary<NSString *, AKReachability *> *AKReachability_hostRechabilityInstanceCache;
 
 #pragma mark - instantiate
 
 + (instancetype)new {
-    return _cachedInstance ?: self.reachabilityForInternetConnection;
+    return AKReachability_cachedInstance ?: self.reachabilityForInternetConnection;
 }
 
 + (instancetype)reachabilityWithSocketAddress:(const struct sockaddr *)socketAddress {
@@ -60,10 +60,10 @@ static NSMutableDictionary<NSString *, AKReachability *> *_hostRechabilityInstan
 
 
 + (instancetype)reachabilityWithHostname:(NSString *)hostname {
-    if (!_hostRechabilityInstanceCache) {
-        _hostRechabilityInstanceCache = [NSMutableDictionary new];
+    if (!AKReachability_hostRechabilityInstanceCache) { // lazy cache
+        AKReachability_hostRechabilityInstanceCache = [NSMutableDictionary new];
     }
-    id cachedInstance = _hostRechabilityInstanceCache[hostname];
+    id cachedInstance = AKReachability_hostRechabilityInstanceCache[hostname];
     if (cachedInstance) return cachedInstance;
     
     SCNetworkReachabilityRef reachabilityRef = SCNetworkReachabilityCreateWithName(NULL, [hostname UTF8String]);
@@ -92,19 +92,19 @@ static NSMutableDictionary<NSString *, AKReachability *> *_hostRechabilityInstan
 
 #pragma mark - holding instances
 
-- (void)hold {
+- (void)retainInstance {
     if (_host) {
-        _hostRechabilityInstanceCache[_host] = self;
+        AKReachability_hostRechabilityInstanceCache[_host] = self;
     } else {
-        _cachedInstance = self;
+        AKReachability_cachedInstance = self;
     }
 }
 
-- (void)free {
-    if (_host && self == _hostRechabilityInstanceCache[_host]) {
-        [_hostRechabilityInstanceCache removeObjectForKey:_host];
+- (void)releaseInstance {
+    if (_host && self == AKReachability_hostRechabilityInstanceCache[_host]) {
+        [AKReachability_hostRechabilityInstanceCache removeObjectForKey:_host];
     } else {
-        if (_cachedInstance == self) _cachedInstance = nil;
+        if (AKReachability_cachedInstance == self) AKReachability_cachedInstance = nil;
     }
 }
 
@@ -145,21 +145,23 @@ AKReachabilityStatus AKReachabilityStatusForFlags(SCNetworkReachabilityFlags fla
 @synthesize delegate = _delegate;
 
 - (void)setDelegate:(id<AKReachabilityDelegate>)delegate {
-    if (delegate) {
-        if (!_delegate) {
-            SCNetworkReachabilityContext context = {0, (__bridge void *)(self), NULL, NULL, NULL};
-            if (SCNetworkReachabilitySetCallback(_reachabilityRef, AKReachabilityCallback, &context)) {
-                if (SCNetworkReachabilityScheduleWithRunLoop(_reachabilityRef, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode)) {
-                    _delegate = delegate;
-                }
-            }
-        } else {
-            _delegate = delegate;
-        }
-    } else {
+    if (!delegate) {
         _delegate = delegate;
         if (_reachabilityRef) {
             SCNetworkReachabilityUnscheduleFromRunLoop(_reachabilityRef, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
+        }
+        return;
+    }
+
+    if (_delegate) {
+        _delegate = delegate;
+        return;
+    }
+
+    SCNetworkReachabilityContext context = {0, (__bridge void *)(self), NULL, NULL, NULL};
+    if (SCNetworkReachabilitySetCallback(_reachabilityRef, AKReachabilityCallback, &context)) {
+        if (SCNetworkReachabilityScheduleWithRunLoop(_reachabilityRef, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode)) {
+            _delegate = delegate;
         }
     }
 }

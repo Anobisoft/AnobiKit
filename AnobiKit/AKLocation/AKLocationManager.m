@@ -26,10 +26,10 @@
 - (void)placemarkFetch:(void (^)(NSArray<CLPlacemark *> *placemarks, NSError *error))fetchBlock {
     if (!fetchBlock) return;
     dispatch_asyncmain(^{
-        //hold detector, hold self (with detector fetchBlock)
+        // retain detector, retain self (by detector fetchBlock)
         [self.detectors addObject:[AKPlacemarkDetector detectorWithFetchBlock:^(AKPlacemarkDetector *detector, NSArray<CLPlacemark *> *placemarks, NSError *error) {
             dispatch_asyncmain(^{
-                [self.detectors removeObject:detector]; //free detector
+                [self.detectors removeObject:detector]; // release detector
                 fetchBlock(placemarks, error);
             });
         }]];

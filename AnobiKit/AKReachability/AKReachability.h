@@ -35,8 +35,8 @@ typedef enum : NSInteger {
 
 - (instancetype)init NS_UNAVAILABLE;
 
-- (void)hold;
-- (void)free;
+- (void)retainInstance;
+- (void)releaseInstance;
 
 @property (readonly) AKReachabilityStatus currentStatus;
 @property (nonatomic, weak) id<AKReachabilityDelegate> delegate;
