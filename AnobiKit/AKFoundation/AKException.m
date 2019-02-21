@@ -3,10 +3,11 @@
 //  AnobiKit
 //
 //  Created by Stanislav Pletnev on 02/10/2018.
-//  Copyright © 2017 Anobisoft. All rights reserved.
+//  Copyright © 2018 Anobisoft. All rights reserved.
 //
 
 #import "AKException.h"
+#import "NSObject+Identification.h"
 
 static NSString * const AKExceptionNameSuffix = @"Exception";
 
@@ -27,15 +28,6 @@ static NSString * const AKExceptionNameSuffix = @"Exception";
 @end
 
 @implementation NSObject (AKException)
-
-+ (NSString *)classIdentifier {
-    NSString *classBundleIdentifier = [NSBundle bundleForClass:self].bundleIdentifier;
-    return [classBundleIdentifier stringByAppendingFormat:@".%@", NSStringFromClass(self)];
-}
-
-- (NSString *)classIdentifier {
-    return self.class.classIdentifier;
-}
 
 - (AKException *)exceptionWithReason:(nullable NSString *)reason {
     return [self exceptionWithReason:reason userInfo:nil];

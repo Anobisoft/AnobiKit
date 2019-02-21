@@ -63,8 +63,8 @@
     if (!self.root) {
         self.root = item;
     }
-    self.tail.next = item;
     item.prev = self.tail;
+    self.tail.next = item;
     self.tail = item;
     _count++;
 }
