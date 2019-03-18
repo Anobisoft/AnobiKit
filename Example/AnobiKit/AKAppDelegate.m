@@ -75,9 +75,15 @@
     NSLog(@"-- done");
 }
 
+- (void)subscriptExample {
+    NSMapTable *table = [NSMapTable strongToWeakObjectsMapTable];
+    table[@"ATATAT"] = @"OMG!";
+    NSLog(@"%@", table[@"ATATAT"]);
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [self listExample];
+    [self subscriptExample];
     return YES;
 }
 

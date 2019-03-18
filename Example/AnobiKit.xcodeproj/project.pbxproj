@@ -20,6 +20,7 @@
 		6003F5BC195388D20070C39A /* NSStringsConcatenationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* NSStringsConcatenationTest.m */; };
 		6A0C8E33220337470036207F /* AKWeakListTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0C8E32220337470036207F /* AKWeakListTest.m */; };
 		6A0C8E4B2209ADB20036207F /* AKListItemCustomBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0C8E4A2209ADB20036207F /* AKListItemCustomBox.m */; };
+		6A26EDCB223FBED900EE81A3 /* AKSubscriptTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A26EDC9223FBED900EE81A3 /* AKSubscriptTest.m */; };
 		6A7FC97821E9F47E00E6522E /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 6A7FC97721E9F47E00E6522E /* .travis.yml */; };
 		6AA3B68C1F38AEFB001D70DD /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AA3B68B1F38AEFB001D70DD /* XCTest.framework */; };
 		6AC5EBB01F56F411009D8D02 /* AKMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC5EBAF1F56F411009D8D02 /* AKMainViewController.m */; };
@@ -62,6 +63,7 @@
 		6A0C8E32220337470036207F /* AKWeakListTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKWeakListTest.m; sourceTree = "<group>"; };
 		6A0C8E492209ADB10036207F /* AKListItemCustomBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKListItemCustomBox.h; sourceTree = "<group>"; };
 		6A0C8E4A2209ADB20036207F /* AKListItemCustomBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKListItemCustomBox.m; sourceTree = "<group>"; };
+		6A26EDC9223FBED900EE81A3 /* AKSubscriptTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKSubscriptTest.m; sourceTree = "<group>"; };
 		6A7FC97721E9F47E00E6522E /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .travis.yml; path = ../.travis.yml; sourceTree = "<group>"; };
 		6AA3B68B1F38AEFB001D70DD /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6AC5EBAE1F56F411009D8D02 /* AKMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKMainViewController.h; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			children = (
 				6003F5BB195388D20070C39A /* NSStringsConcatenationTest.m */,
 				6A0C8E32220337470036207F /* AKWeakListTest.m */,
+				6A26EDC9223FBED900EE81A3 /* AKSubscriptTest.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
 			path = Tests;
@@ -394,6 +397,7 @@
 			files = (
 				6003F5BC195388D20070C39A /* NSStringsConcatenationTest.m in Sources */,
 				6A0C8E33220337470036207F /* AKWeakListTest.m in Sources */,
+				6A26EDCB223FBED900EE81A3 /* AKSubscriptTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
