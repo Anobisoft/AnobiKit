@@ -104,11 +104,7 @@
 
 - (void)testWrongIndexMutableIndexedSubscript {
     NSString *object = @"testWrongIndexMutableIndexedSubscript";
-    @try {
-        self.emptyArray[2] = object;
-    } @catch (NSException *exception) {
-        XCTAssertNotNil(exception);
-    }
+    XCTAssertThrows( self.emptyArray[2] = object );
 }
 
 
