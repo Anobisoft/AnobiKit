@@ -43,9 +43,9 @@
     XCTAssertEqualObjects(object, value);
 }
 
-- (void)testNilValue {
+- (void)testKeyedSubscriptNilValue {
     NSString *key = @"ATATAT";
-    NSString *object = @"testNilValue!";
+    NSString *object = @"testKeyedSubscriptNilValue!";
     [self.mapTable setObject:object forKey:key];
     NSString *value = self.mapTable[@"Other"];
     XCTAssertNil(value);
@@ -73,9 +73,9 @@
     XCTAssertEqualObjects(object, value);
 }
 
-- (void)testAutoReleaseMutableIndexedSubscript {
+- (void)testMutableIndexedSubscriptAutoRelease {
     @autoreleasepool {
-        NSString *object = @"testAutoReleaseMutableIndexedSubscript!";
+        NSString *object = @"testMutableIndexedSubscriptAutoRelease!";
         self.weakPointerArray[0] = object;
         NSString *value = self.weakPointerArray[0];
         XCTAssertEqualObjects(object, value);
@@ -85,24 +85,24 @@
     XCTAssertEqual(0, self.pointerArray.count);
 }
 
-- (void)testReplaceMutableIndexedSubscript {
-    NSString *object0 = @"testReplaceMutableIndexedSubscript0";
-    NSString *object1 = @"testReplaceMutableIndexedSubscript1";
-    NSString *object2 = @"testReplaceMutableIndexedSubscript2";
-    NSString *objectReplaced = @"testReplaceMutableIndexedSubscriptReplaced";
+- (void)testMutableIndexedSubscriptReplacement {
+    NSString *object0 = @"testMutableIndexedSubscript0";
+    NSString *object1 = @"testMutableIndexedSubscript1";
+    NSString *object2 = @"testMutableIndexedSubscript2";
+    NSString *replacement = @"testMutableIndexedSubscriptReplacement";
     self.pointerArray[0] = object0;
     self.pointerArray[1] = object1;
     self.pointerArray[2] = object2;
     NSString *value = self.pointerArray[1];
     XCTAssertEqualObjects(object1, value);
     XCTAssertEqual(3, self.pointerArray.count);
-    self.pointerArray[1] = objectReplaced;
+    self.pointerArray[1] = replacement;
     value = self.pointerArray[1];
-    XCTAssertEqualObjects(objectReplaced, value);
+    XCTAssertEqualObjects(replacement, value);
     XCTAssertEqual(3, self.pointerArray.count);
 }
 
-- (void)testWrongIndexMutableIndexedSubscript {
+- (void)testMutableIndexedSubscriptWrongIndexThrows {
     NSString *object = @"testWrongIndexMutableIndexedSubscript";
     XCTAssertThrows( self.emptyArray[2] = object );
 }
