@@ -44,3 +44,5 @@ Minimum iOS Target is ios **9.3**.
 
 ## License
 AnobiKit is released under the MIT license. See LICENSE for details.
+
+[![codecov.io](https://codecov.io/github/Anobisoft/AnobiKit/coverage.svg?branch=master)](https://codecov.io/github/Anobisoft/AnobiKit?branch=master)
