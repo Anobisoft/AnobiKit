@@ -1,11 +1,10 @@
 # AnobiKit
 
 [![CI Status](http://img.shields.io/travis/Anobisoft/AnobiKit.svg?style=flat)](https://travis-ci.org/Anobisoft/AnobiKit)
+[![Codecov](https://codecov.io/gh/Anobisoft/AnobiKit/branch/master/graph/badge.svg)](https://codecov.io/gh/Anobisoft/AnobiKit)
 [![Version](https://img.shields.io/cocoapods/v/AnobiKit.svg?style=flat)](http://cocoapods.org/pods/AnobiKit)
-[![Downloads](https://img.shields.io/cocoapods/dt/:AnobiKit.svg)](http://cocoapods.org/pods/AnobiKit)
 [![Platform](https://img.shields.io/cocoapods/p/AnobiKit.svg?style=flat)](http://cocoapods.org/pods/AnobiKit)
 [![Language](https://img.shields.io/github/languages/top/Anobisoft/AnobiKit.svg)](https://github.com/Anobisoft/AnobiKit)
-[![Codecov](https://codecov.io/gh/Anobisoft/AnobiKit/branch/master/graph/badge.svg)](https://codecov.io/gh/Anobisoft/AnobiKit)
 [![License](https://img.shields.io/cocoapods/l/AnobiKit.svg?style=flat)](http://cocoapods.org/pods/AnobiKit)
 [![Twitter](https://img.shields.io/badge/twitter-@Anobisoft-blue.svg?style=flat)](http://twitter.com/Anobisoft)
 
@@ -26,14 +25,14 @@ To integrate **AnobiKit** into your Xcode project using CocoaPods, specify it in
 ```
 use_frameworks!
 
-target 'TargetName' do
+target 'iOSTargetName' do
   platform :ios, '9.3'
-  pod 'AnobiKit'
+  pod 'AnobiKit', '~> 0.13.0'
 end
 
 target 'WatchTargetName' do
   platform :watchos, '3.0'
-  pod 'AnobiKit'
+  pod 'AnobiKit', '~> 0.13.0'
 end
 ```
 Then, run the following command:
@@ -41,7 +40,8 @@ Then, run the following command:
 $ pod install
 ```
 ## Requirements
-Minimum iOS Target is ios **9.3**.
+Minimum iOS Target - **9.3**
+Minimum watchOS Target - **3.0**
 
 ## License
 AnobiKit is released under the MIT license. See LICENSE for details.
