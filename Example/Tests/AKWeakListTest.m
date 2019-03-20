@@ -63,17 +63,19 @@
 }
 
 - (void)testExceptions {
+    XCTAssertThrows( self.list = [AKList listWithItemClass:NSString.class] );
     @try {
         self.list = [AKList listWithItemClass:NSString.class];
     } @catch (NSException *exception) {
         XCTAssertTrue([exception isKindOfClass:AKProtocolException.class]);
     }
     
-    self.list = [AKList listWithItemClass:AKWeakListItem.class];    
+    self.list = [AKList listWithItemClass:AKWeakListItem.class];
+    XCTAssertThrows( [self.list addObject:@"test"] );
     @try {
         [self.list addObject:@"test"];
     } @catch (NSException *exception) {
-        XCTAssertTrue([exception isKindOfClass:AKProtocolException.class]);
+        XCTAssertTrue([exception isKindOfClass:AKAbstractMethodException.class]);
     } @finally {
         self.list = nil;
     }

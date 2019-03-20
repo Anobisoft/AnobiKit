@@ -12,6 +12,6 @@ before_install:
 - gem install cocoapods -v '1.6.1'
 - pod install --project-directory=Example
 script:
-- pod lib lint && xcodebuild clean build test -workspace "Example/AnobiKit.xcworkspace" -scheme "AnobiKit_Example" -sdk iphonesimulator GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES
+- pod lib lint && xcodebuild clean build test -workspace "Example/AnobiKit.xcworkspace" -scheme "AnobiKit_Example" -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone XR,OS=12.1' GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES
 after_success:
-- bash <(curl -s https://codecov.io/bash) -t :"86fd395f-7f19-45cb-8fa9-9c04b025dfc4"
+- bash <(curl -s https://codecov.io/bash) -t :86fd395f-7f19-45cb-8fa9-9c04b025dfc4
