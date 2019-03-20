@@ -5,6 +5,7 @@
 [![Downloads](https://img.shields.io/cocoapods/dt/AnobiKit.svg)](http://cocoapods.org/pods/AnobiKit)
 [![Platform](https://img.shields.io/cocoapods/p/AnobiKit.svg?style=flat)](http://cocoapods.org/pods/AnobiKit)
 [![Language](https://img.shields.io/github/languages/top/Anobisoft/AnobiKit.svg)](https://github.com/Anobisoft/AnobiKit)
+[![Codecov](https://codecov.io/gh/Anobisoft/AnobiKit/branch/master/graph/badge.svg)](https://codecov.io/gh/Anobisoft/AnobiKit)
 [![License](https://img.shields.io/cocoapods/l/AnobiKit.svg?style=flat)](http://cocoapods.org/pods/AnobiKit)
 [![Twitter](https://img.shields.io/badge/twitter-@Anobisoft-blue.svg?style=flat)](http://twitter.com/Anobisoft)
 
@@ -44,5 +45,3 @@ Minimum iOS Target is ios **9.3**.
 
 ## License
 AnobiKit is released under the MIT license. See LICENSE for details.
-
-[![codecov.io](https://codecov.io/github/Anobisoft/AnobiKit/coverage.svg?branch=master)](https://codecov.io/github/Anobisoft/AnobiKit?branch=master)
