@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1020"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6003F589195388D20070C39A"
-               BuildableName = "AnobiKit_Example.app"
-               BlueprintName = "AnobiKit_Example"
+               BuildableName = "AnobiKit_Example_iOS.app"
+               BlueprintName = "AnobiKit_Example_iOS"
                ReferencedContainer = "container:AnobiKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6003F5AD195388D20070C39A"
-               BuildableName = "AnobiKit_Tests.xctest"
-               BlueprintName = "AnobiKit_Tests"
+               BuildableName = "AnobiKit_Tests_iOS.xctest"
+               BlueprintName = "AnobiKit_Tests_iOS"
                ReferencedContainer = "container:AnobiKit.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -43,8 +43,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "AnobiKit_Example.app"
-            BlueprintName = "AnobiKit_Example"
+            BuildableName = "AnobiKit_Example_iOS.app"
+            BlueprintName = "AnobiKit_Example_iOS"
             ReferencedContainer = "container:AnobiKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -66,8 +66,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "AnobiKit_Example.app"
-            BlueprintName = "AnobiKit_Example"
+            BuildableName = "AnobiKit_Example_iOS.app"
+            BlueprintName = "AnobiKit_Example_iOS"
             ReferencedContainer = "container:AnobiKit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -85,8 +85,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "AnobiKit_Example.app"
-            BlueprintName = "AnobiKit_Example"
+            BuildableName = "AnobiKit_Example_iOS.app"
+            BlueprintName = "AnobiKit_Example_iOS"
             ReferencedContainer = "container:AnobiKit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

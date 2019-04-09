@@ -17,3 +17,7 @@
 #if TARGET_OS_IOS
 #import <AnobiKit/AKReachability.h>
 #endif
+
+#if !TARGET_OS_MAC
+#import <AnobiKit/UIKit+AnobiKit.h>
+#endif

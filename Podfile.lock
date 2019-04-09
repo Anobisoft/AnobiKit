@@ -1,0 +1,39 @@
+PODS:
+  - AnobiKit (0.14.0):
+    - AnobiKit/AKCoding (= 0.14.0)
+    - AnobiKit/AKCoreData (= 0.14.0)
+    - AnobiKit/AKFormatters (= 0.14.0)
+    - AnobiKit/AKFoundation (= 0.14.0)
+    - AnobiKit/AKList (= 0.14.0)
+    - AnobiKit/AKLocation (= 0.14.0)
+    - AnobiKit/AKReachability (= 0.14.0)
+    - AnobiKit/AKStrings (= 0.14.0)
+    - AnobiKit/UIKit (= 0.14.0)
+  - AnobiKit/AKCoding (0.14.0):
+    - AnobiKit/AKFoundation
+  - AnobiKit/AKCoreData (0.14.0)
+  - AnobiKit/AKFormatters (0.14.0)
+  - AnobiKit/AKFoundation (0.14.0)
+  - AnobiKit/AKList (0.14.0):
+    - AnobiKit/AKFoundation
+  - AnobiKit/AKLocation (0.14.0):
+    - AnobiKit/AKFoundation
+  - AnobiKit/AKReachability (0.14.0)
+  - AnobiKit/AKStrings (0.14.0):
+    - AnobiKit/AKFoundation
+  - AnobiKit/UIKit (0.14.0):
+    - AnobiKit/AKFoundation
+
+DEPENDENCIES:
+  - AnobiKit (from `./`)
+
+EXTERNAL SOURCES:
+  AnobiKit:
+    :path: "./"
+
+SPEC CHECKSUMS:
+  AnobiKit: 5bd4d79a96d0ac750db1af19d6e046e55c87dc77
+
+PODFILE CHECKSUM: 4565f9822ef3ba426236ff86526d2aeb260e9909
+
+COCOAPODS: 1.6.1

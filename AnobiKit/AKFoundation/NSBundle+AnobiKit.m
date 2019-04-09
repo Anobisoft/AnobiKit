@@ -7,15 +7,9 @@
 //
 
 #import "NSBundle+AnobiKit.h"
-#import <UIKit/UIColor.h>
-
 
 NSString * AKLocalizedString(NSString *key) {
     return [[NSBundle mainBundle] localizedStringForKey:key];
-}
-
-NSString * UIKitLocalizedString(NSString *key) {
-    return [[NSBundle UIKitBundle] localizedStringForKey:key];
 }
 
 NSString * const CFBundleShortVersionKey = @"CFBundleShortVersionString";
@@ -23,9 +17,6 @@ NSString * const CFBundleDisplayNameKey = @"CFBundleDisplayName";
 
 @implementation NSBundle (AnobiKit)
 
-+ (NSBundle *)UIKitBundle {
-    return [self bundleForClass:UIColor.class];
-}
 
 #pragma mark - Application name
 

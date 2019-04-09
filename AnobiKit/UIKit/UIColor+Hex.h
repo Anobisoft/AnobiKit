@@ -1,10 +1,12 @@
 //
 //  UIColor+Hex.h
-//  AnobiUIKit
+//  AnobiKit
 //
 //  Created by Stanislav Pletnev on 16.06.17.
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
+
+#if !TARGET_OS_MAC
 
 #import <UIKit/UIKit.h>
 
@@ -18,3 +20,5 @@ UIColor * UIColorWithHexString(NSString *string);
 + (instancetype)colorWithHexRGB:(unsigned)icolor alpha:(CGFloat)alpha;
 
 @end
+
+#endif

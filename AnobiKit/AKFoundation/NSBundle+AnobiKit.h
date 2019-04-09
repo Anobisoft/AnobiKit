@@ -9,14 +9,11 @@
 #import <Foundation/Foundation.h>
 
 NSString * AKLocalizedString(NSString *key);
-NSString * UIKitLocalizedString(NSString *key);
 
 extern NSString * const CFBundleShortVersionKey;
 extern NSString * const CFBundleDisplayNameKey;
 
 @interface NSBundle (AnobiKit)
-
-+ (NSBundle *)UIKitBundle;
 
 - (NSString *)name;
 - (NSString *)displayName;

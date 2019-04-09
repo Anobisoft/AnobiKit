@@ -26,7 +26,13 @@ typedef void(^AKPlacemarkDetectorFetchBlock)(AKPlacemarkDetector *detector, NSAr
     if (fetchBlock && (self = [super init])) {
         locationManager = [CLLocationManager new];
         locationManager.delegate = self;
+#if TARGET_OS_MAC
+        locationManager.distanceFilter = kCLDistanceFilterNone;
+        locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
+        [locationManager startUpdatingLocation];
+#else
         [locationManager requestWhenInUseAuthorization];
+#endif
         self.fetchBlock = fetchBlock;
     }
     return self;
@@ -34,8 +40,9 @@ typedef void(^AKPlacemarkDetectorFetchBlock)(AKPlacemarkDetector *detector, NSAr
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     switch (status) {
-        case kCLAuthorizationStatusAuthorizedAlways:
-        case kCLAuthorizationStatusAuthorizedWhenInUse: {
+#if !TARGET_OS_MAC
+        case kCLAuthorizationStatusAuthorizedWhenInUse:
+        case kCLAuthorizationStatusAuthorizedAlways: {
             manager.distanceFilter = kCLDistanceFilterNone;
             manager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
             [manager startUpdatingLocation];
@@ -43,19 +50,21 @@ typedef void(^AKPlacemarkDetectorFetchBlock)(AKPlacemarkDetector *detector, NSAr
         case kCLAuthorizationStatusNotDetermined: { //WTF?!
             [manager requestWhenInUseAuthorization];
         } break;
+#endif
         case kCLAuthorizationStatusRestricted: {
             NSError *error = [NSError errorWithDomain:@"AKLocationManager" code:-1
                                              userInfo:@{NSLocalizedDescriptionKey : @"Core Location Authorization Restricted"}];
             if (self.fetchBlock) self.fetchBlock(self, nil, error);
             self.fetchBlock = nil; //free
         } break;
-        case kCLAuthorizationStatusDenied:
-        default: {
+        case kCLAuthorizationStatusDenied:{
             NSError *error = [NSError errorWithDomain:@"AKLocationManager" code:-1
                                              userInfo:@{NSLocalizedDescriptionKey : @"Core Location Authorization Denied"}];
             if (self.fetchBlock) self.fetchBlock(self, nil, error);
             self.fetchBlock = nil; //free
         } break;
+        default:
+            break;
     }
     
 }
@@ -106,8 +115,8 @@ typedef void(^AKPlacemarkDetectorFetchBlock)(AKPlacemarkDetector *detector, NSAr
 #ifdef DEBUG
     NSLog(@"%s %@", __PRETTY_FUNCTION__, error);
 #endif
-    if (self.fetchBlock) self.fetchBlock(self, nil, error);
-    self.fetchBlock = nil; // release
+//    if (self.fetchBlock) self.fetchBlock(self, nil, error);
+//    self.fetchBlock = nil; // release
 }
 
 @end

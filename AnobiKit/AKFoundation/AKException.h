@@ -32,13 +32,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-NS_ASSUME_NONNULL_END
 
 #pragma mark - concrete exceptions
 
 @interface AKFileNotFoundException : AKException
 
-+ (instancetype)exceptionWithPath:(NSString *)path;
++ (instancetype)exceptionWithPath:(nullable NSString *)path;
 
 @end
 
@@ -61,3 +60,5 @@ NS_ASSUME_NONNULL_END
 @interface AKIllegalArgumentException : AKException
 
 @end
+
+NS_ASSUME_NONNULL_END
