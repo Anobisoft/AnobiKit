@@ -8,6 +8,8 @@
 
 #import "AKAppDelegate.h"
 #import <AnobiKit/AnobiKit.h>
+#import <AnobiKit/NSBundle+UIKit.h>
+#import <AnobiKit/UIColor+Hex.h>
 
 @interface AKAppDelegate ()
 

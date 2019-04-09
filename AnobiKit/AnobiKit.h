@@ -19,5 +19,6 @@
 #endif
 
 #if !TARGET_OS_MAC
-#import <AnobiKit/UIKit+AnobiKit.h>
+#import <AnobiKit/NSBundle+UIKit.h>
+#import <AnobiKit/UIColor+Hex.h>
 #endif

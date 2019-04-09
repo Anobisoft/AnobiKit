@@ -86,13 +86,11 @@
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-//    [self listExample];
-//    [self subscriptExample];
-//    [self versionExample];
-//    [self dataValidationExample];
-    [self locationManagerExample];
-//    [self bundleExample];
-//    [self configManagerExample];
+    [self listExample];
+    [self subscriptExample];
+    [self versionExample];
+    [self dataValidationExample];
+    [self configManagerExample];
 }
 
 

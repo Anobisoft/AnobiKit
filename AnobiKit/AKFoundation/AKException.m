@@ -25,6 +25,10 @@ static NSString * const AKExceptionNameSuffix = @"Exception";
     return [[self alloc] initWithName:NSStringFromClass(self) reason:reason userInfo:userInfo];
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"%@: %@", self.class, self.reason];
+}
+
 @end
 
 @implementation NSObject (AKException)

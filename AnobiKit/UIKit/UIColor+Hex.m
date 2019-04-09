@@ -8,8 +8,6 @@
 
 #import "UIColor+Hex.h"
 
-#if !TARGET_OS_X
-
 UIColor * UIColorWithHexRGB(unsigned rgbColor, CGFloat alpha) {
     return [UIColor colorWithHexRGB:rgbColor alpha:alpha];
 }
@@ -33,13 +31,11 @@ UIColor * UIColorWithHexString(NSString *string) {
     return [self colorWithHexRGB:rgbColor alpha:alpha];
 }
 
-+ (instancetype)colorWithHexRGB:(unsigned)rgbColor alpha:(CGFloat)alpha {
-    return [self colorWithRed:(CGFloat)((rgbColor & 0xFF0000) >> 0x10) / 255.0
-                        green:(CGFloat)((rgbColor & 0x00FF00) >> 0x08) / 255.0
-                         blue:(CGFloat)((rgbColor & 0x0000FF) >> 0x00) / 255.0
++ (instancetype)colorWithHexRGB:(unsigned)rgb alpha:(CGFloat)alpha {
+    return [self colorWithRed:(CGFloat)((rgb & 0xFF0000) >> 0x10) / 255.0
+                        green:(CGFloat)((rgb & 0x00FF00) >> 0x08) / 255.0
+                         blue:(CGFloat)((rgb & 0x0000FF) >> 0x00) / 255.0
                         alpha:alpha];
 }
 
 @end
-
-#endif

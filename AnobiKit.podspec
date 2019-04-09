@@ -33,8 +33,8 @@ DESC
       ss.watchos.deployment_target  = '3.0'
       ss.tvos.deployment_target = '9.0'
       ss.dependency 'AnobiKit/AKFoundation'
-      ss.source_files = 'AnobiKit/UIKit/**/*.{h,m,mm}'
-      ss.public_header_files = 'AnobiKit/UIKit/**/*.h'
+      ss.source_files = 'AnobiKit/UIKit/*.{h,m,mm}'
+      ss.public_header_files = 'AnobiKit/UIKit/*.h'
   end
   
   s.subspec 'AKCoding' do |ss|
