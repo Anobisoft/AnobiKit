@@ -841,7 +841,7 @@
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnobiKit_Example.app/AnobiKit_Example";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnobiKit_Example_iOS.app/AnobiKit_Example_iOS";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -861,7 +861,7 @@
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnobiKit_Example.app/AnobiKit_Example";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnobiKit_Example_iOS.app/AnobiKit_Example_iOS";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
@@ -953,7 +953,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example_macOS.app/Contents/MacOS/Example_macOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnobiKit_Example_macOS.app/Contents/MacOS/AnobiKit_Example_macOS";
 			};
 			name = Debug;
 		};
@@ -984,7 +984,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example_macOS.app/Contents/MacOS/Example_macOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnobiKit_Example_macOS.app/Contents/MacOS/AnobiKit_Example_macOS";
 			};
 			name = Release;
 		};
