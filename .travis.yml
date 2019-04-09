@@ -5,13 +5,14 @@
 osx_image: xcode10.1
 language: objective-c
 cache: cocoapods
-podfile: Example/Podfile
+podfile: Podfile
 before_install:
 - rvm install ruby-2.5.3
 - rvm use ruby-2.5.3 --default
 - gem install cocoapods -v '1.6.1'
-- pod install --project-directory=Example
+- pod install
 script:
-- pod lib lint && xcodebuild clean build test -workspace "Example/AnobiKit.xcworkspace" -scheme "AnobiKit_Example" -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone XR,OS=12.1' GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES
+- pod lib lint
+- xcodebuild clean build test -workspace "AnobiKit.xcworkspace" -scheme "AnobiKit_Example_iOS" -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone XR,OS=12.1' GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES
 after_success:
 - bash <(curl -s https://codecov.io/bash)
