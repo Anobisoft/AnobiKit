@@ -6,11 +6,7 @@
 //  Copyright © 2018 Anobisoft. All rights reserved.
 //
 
-
-#import <AnobiKit/AKFoundation.h>
 #import "AKList.h"
-#import "AKListItem.h"
-#import "AKListWeakItem.h"
 
 @interface AKList ()
 
@@ -131,7 +127,6 @@ BOOL IllegalArgumentTest(id arg) {
 }
 
 
-
 - (void)removeItem:(id<AKListItem>)item {
     if (item.prev) {
         item.prev.next = item.next;
@@ -165,6 +160,133 @@ BOOL IllegalArgumentTest(id arg) {
 - (NSUInteger)strictlyCount {
     [self cleanup];
     return self.count;
+}
+
+@end
+
+#pragma mark -
+
+@implementation AKListAbstractItem
+
+@synthesize next = _next;
+@synthesize prev = _prev;
+
+@dynamic object; // abstract
+
++ (instancetype):(id)object {
+    if (self == AKListAbstractItem.class) {
+        @throw [self abstractClassInstantiationException];
+    }
+    return [[self alloc] initWithObject:object]; // abstract
+}
+
+- (instancetype)initWithObject:(id)object {
+    @throw [AKAbstractMethodException exception];
+    return nil;
+}
+
+- (BOOL)respondsToSelector:(SEL)selector {
+    return [super respondsToSelector:selector] || [self.object respondsToSelector:selector];
+}
+
+- (void)forwardInvocation:(NSInvocation *)anInvocation {
+    [anInvocation invokeWithTarget:self.object];
+}
+
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    NSMethodSignature *signature = [super methodSignatureForSelector:aSelector];
+    if (!signature) {
+        signature = [self.object methodSignatureForSelector:aSelector];
+    }
+    return signature;
+}
+
+@end
+
+#pragma mark -
+
+@interface AKListItem() {
+@protected
+    id retained;
+}
+
+@end
+
+@implementation AKListItem
+
+@dynamic object;
+
+- (instancetype)initWithObject:(id)object {
+    if (self = [self init]) {
+        retained = object;
+    }
+    return self;
+}
+
+- (id)object {
+    return retained;
+}
+
+- (id)copyWithZone:(nullable NSZone *)zone {
+    return [AKListItem :retained];
+}
+
+- (id)mutableCopyWithZone:(nullable NSZone *)zone {
+    return [AKListMutableItem :retained];
+}
+
+@end
+
+@implementation AKListMutableItem
+
+@dynamic object;
+
+- (void)setObject:(id)object {
+    retained = object;
+}
+
+@end
+
+#pragma mark -
+
+@interface AKListWeakItem() {
+@protected
+    __weak id weak;
+}
+
+@end
+
+@implementation AKListWeakItem
+
+@dynamic object;
+
+- (instancetype)initWithObject:(id)object {
+    if (self = [self init]) {
+        weak = object;
+    }
+    return self;
+}
+
+- (id)object {
+    return weak;
+}
+
+- (id)copyWithZone:(nullable NSZone *)zone {
+    return [AKListWeakItem :weak];
+}
+
+- (id)mutableCopyWithZone:(nullable NSZone *)zone {
+    return [AKListMutableWeakItem :weak];
+}
+
+@end
+
+@implementation AKListMutableWeakItem
+
+@dynamic object;
+
+- (void)setObject:(id)object {
+    weak = object;
 }
 
 @end

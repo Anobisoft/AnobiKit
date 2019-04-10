@@ -16,7 +16,7 @@ DESC
   s.social_media_url   = 'https://twitter.com/Anobisoft'
 
   s.ios.deployment_target     = '9.3'
-  s.osx.deployment_target     = '10.12'  
+  s.osx.deployment_target     = '10.12'
   s.watchos.deployment_target = '3.0'
   s.tvos.deployment_target    = '9.0'
   
@@ -29,9 +29,9 @@ DESC
   end
 
   s.subspec 'UIKit' do |ss|
-      ss.ios.deployment_target  = '9.3'
-      ss.watchos.deployment_target  = '3.0'
-      ss.tvos.deployment_target = '9.0'
+      ss.ios.deployment_target     = '9.3'
+      ss.watchos.deployment_target = '3.0'
+      ss.tvos.deployment_target    = '9.0'
       ss.dependency 'AnobiKit/AKFoundation'
       ss.source_files = 'AnobiKit/UIKit/*.{h,m,mm}'
       ss.public_header_files = 'AnobiKit/UIKit/*.h'
@@ -55,8 +55,9 @@ DESC
   end
   
   s.subspec 'AKLocation' do |ss|
-      ss.ios.deployment_target  = '9.3'
-      ss.watchos.deployment_target  = '3.0'
+      ss.ios.deployment_target     = '9.3'
+      ss.watchos.deployment_target = '3.0'
+      ss.osx.deployment_target     = '10.12'
       ss.dependency 'AnobiKit/AKFoundation'
       ss.source_files = 'AnobiKit/AKLocation/**/*.{h,m,mm}'
       ss.public_header_files = 'AnobiKit/AKLocation/*.h'

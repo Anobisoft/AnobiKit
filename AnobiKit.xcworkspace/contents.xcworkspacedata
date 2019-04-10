@@ -2,12 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/pletnev/Anobisoft/AnobiKit/AnobiKit.xcodeproj">
+      location = "group:AnobiKit.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:AnobiKit.xcodeproj">
    </FileRef>
 </Workspace>

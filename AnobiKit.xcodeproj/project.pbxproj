@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,30 +14,30 @@
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* AKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* AKAppDelegate.m */; };
-		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* NSStringsConcatenationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* NSStringsConcatenationTest.m */; };
 		6A015C8E225CF45500982E0D /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A015C8C225CF45500982E0D /* Interface.storyboard */; };
-		6A015C90225CF45500982E0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A015C8F225CF45500982E0D /* Assets.xcassets */; };
 		6A015C97225CF45600982E0D /* AnobiKit_Example_watchOS Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6A015C96225CF45500982E0D /* AnobiKit_Example_watchOS Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		6A015C9D225CF45600982E0D /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A015C9C225CF45600982E0D /* InterfaceController.m */; };
 		6A015CA0225CF45600982E0D /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A015C9F225CF45600982E0D /* ExtensionDelegate.m */; };
-		6A015CA3225CF45600982E0D /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A015CA2225CF45600982E0D /* NotificationController.m */; };
-		6A015CA5225CF45700982E0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A015CA4225CF45700982E0D /* Assets.xcassets */; };
 		6A015CAA225CF45700982E0D /* AnobiKit_Example_watchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 6A015C8A225CF45400982E0D /* AnobiKit_Example_watchOS.app */; };
-		6A0C8E33220337470036207F /* AKWeakListTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0C8E32220337470036207F /* AKWeakListTest.m */; };
-		6A0C8E4B2209ADB20036207F /* AKListItemCustomBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0C8E4A2209ADB20036207F /* AKListItemCustomBox.m */; };
+		6A015CB3225DD5C000982E0D /* NSStringsConcatenationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* NSStringsConcatenationTest.m */; };
+		6A015CB4225DDAAA00982E0D /* AKListTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0C8E32220337470036207F /* AKListTest.m */; };
+		6A015CB5225DDAAD00982E0D /* AKSubscriptTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A26EDC9223FBED900EE81A3 /* AKSubscriptTest.m */; };
+		6A015CB6225DDB1D00982E0D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B7195388D20070C39A /* Info.plist */; };
+		6A015CB7225DDB1E00982E0D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B7195388D20070C39A /* Info.plist */; };
+		6A015CBA225DDDCF00982E0D /* AKExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A015CB9225DDDCF00982E0D /* AKExample.m */; };
+		6A015CBD225DDE9700982E0D /* AKExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A015CB9225DDDCF00982E0D /* AKExample.m */; };
+		6A015CBE225DDE9A00982E0D /* AKExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A015CB9225DDDCF00982E0D /* AKExample.m */; };
+		6A015CBF225DE6BD00982E0D /* AKExampleConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6ACF197D1F7D34DC00712368 /* AKExampleConfig.plist */; };
+		6A015CC0225DE6BE00982E0D /* AKExampleConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6ACF197D1F7D34DC00712368 /* AKExampleConfig.plist */; };
+		6A0C8E33220337470036207F /* AKListTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0C8E32220337470036207F /* AKListTest.m */; };
 		6A26EDCB223FBED900EE81A3 /* AKSubscriptTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A26EDC9223FBED900EE81A3 /* AKSubscriptTest.m */; };
 		6A940766225CB36A00FEF073 /* AKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A940765225CB36A00FEF073 /* AKAppDelegate.m */; };
-		6A940769225CB36A00FEF073 /* AKMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A940768225CB36A00FEF073 /* AKMainViewController.m */; };
-		6A94076B225CB36B00FEF073 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A94076A225CB36B00FEF073 /* Assets.xcassets */; };
 		6A94076E225CB36B00FEF073 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A94076C225CB36B00FEF073 /* Main.storyboard */; };
 		6A940771225CB36B00FEF073 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A940770225CB36B00FEF073 /* main.m */; };
-		6A94077C225CB36C00FEF073 /* Example_macOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A94077B225CB36C00FEF073 /* Example_macOSTests.m */; };
 		6AA3B68C1F38AEFB001D70DD /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AA3B68B1F38AEFB001D70DD /* XCTest.framework */; };
-		6AC5EBB01F56F411009D8D02 /* AKMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC5EBAF1F56F411009D8D02 /* AKMainViewController.m */; };
 		6ACF197E1F7D34DC00712368 /* AKExampleConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6ACF197D1F7D34DC00712368 /* AKExampleConfig.plist */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		7F22F6C8C63A08FA496D5AE8 /* Pods_AnobiKit_Example_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBDA842D9B7360D746DE520A /* Pods_AnobiKit_Example_macOS.framework */; };
@@ -122,9 +122,8 @@
 		6003F59B195388D20070C39A /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* AKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* AKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKAppDelegate.m; sourceTree = "<group>"; };
-		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* AnobiKit_Tests_iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnobiKit_Tests_iOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
+		6003F5B7195388D20070C39A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* NSStringsConcatenationTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSStringsConcatenationTest.m; sourceTree = "<group>"; };
 		60629CC50642A77A297A4C61 /* Pods_AnobiKit_Tests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnobiKit_Tests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,42 +132,28 @@
 		66CCD5051E7B36D66D84737D /* Pods-AnobiKit_Tests_macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnobiKit_Tests_macOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnobiKit_Tests_macOS/Pods-AnobiKit_Tests_macOS.debug.xcconfig"; sourceTree = "<group>"; };
 		6A015C8A225CF45400982E0D /* AnobiKit_Example_watchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnobiKit_Example_watchOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A015C8D225CF45500982E0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		6A015C8F225CF45500982E0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A015C91225CF45500982E0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A015C96225CF45500982E0D /* AnobiKit_Example_watchOS Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "AnobiKit_Example_watchOS Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6A015C9B225CF45600982E0D /* InterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
-		6A015C9C225CF45600982E0D /* InterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
 		6A015C9E225CF45600982E0D /* ExtensionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtensionDelegate.h; sourceTree = "<group>"; };
 		6A015C9F225CF45600982E0D /* ExtensionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
-		6A015CA1225CF45600982E0D /* NotificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationController.h; sourceTree = "<group>"; };
-		6A015CA2225CF45600982E0D /* NotificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
-		6A015CA4225CF45700982E0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A015CA6225CF45700982E0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A015CA7225CF45700982E0D /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		6A0C8E32220337470036207F /* AKWeakListTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKWeakListTest.m; sourceTree = "<group>"; };
-		6A0C8E492209ADB10036207F /* AKListItemCustomBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKListItemCustomBox.h; sourceTree = "<group>"; };
-		6A0C8E4A2209ADB20036207F /* AKListItemCustomBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKListItemCustomBox.m; sourceTree = "<group>"; };
+		6A015CB8225DDDCF00982E0D /* AKExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AKExample.h; path = Example/AKExample.h; sourceTree = SOURCE_ROOT; };
+		6A015CB9225DDDCF00982E0D /* AKExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AKExample.m; path = Example/AKExample.m; sourceTree = SOURCE_ROOT; };
+		6A0C8E32220337470036207F /* AKListTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKListTest.m; sourceTree = "<group>"; };
 		6A26EDC9223FBED900EE81A3 /* AKSubscriptTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKSubscriptTest.m; sourceTree = "<group>"; };
 		6A940762225CB36900FEF073 /* AnobiKit_Example_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnobiKit_Example_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A940764225CB36A00FEF073 /* AKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKAppDelegate.h; sourceTree = "<group>"; };
 		6A940765225CB36A00FEF073 /* AKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKAppDelegate.m; sourceTree = "<group>"; };
-		6A940767225CB36A00FEF073 /* AKMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKMainViewController.h; sourceTree = "<group>"; };
-		6A940768225CB36A00FEF073 /* AKMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKMainViewController.m; sourceTree = "<group>"; };
-		6A94076A225CB36B00FEF073 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A94076D225CB36B00FEF073 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6A94076F225CB36B00FEF073 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A940770225CB36B00FEF073 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6A940772225CB36B00FEF073 /* Example_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Example_macOS.entitlements; sourceTree = "<group>"; };
 		6A940777225CB36C00FEF073 /* AnobiKit_Tests_macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnobiKit_Tests_macOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6A94077B225CB36C00FEF073 /* Example_macOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Example_macOSTests.m; sourceTree = "<group>"; };
-		6A94077D225CB36C00FEF073 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A940786225CC60900FEF073 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		6A940787225CC60900FEF073 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6A940788225CC60A00FEF073 /* AnobiKit.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = AnobiKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		6A94078C225CD44600FEF073 /* AnobiKit_Example_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AnobiKit_Example_macOS.entitlements; sourceTree = "<group>"; };
 		6AA3B68B1F38AEFB001D70DD /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		6AC5EBAE1F56F411009D8D02 /* AKMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKMainViewController.h; sourceTree = "<group>"; };
-		6AC5EBAF1F56F411009D8D02 /* AKMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKMainViewController.m; sourceTree = "<group>"; };
 		6ACF197D1F7D34DC00712368 /* AKExampleConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AKExampleConfig.plist; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		757DC024D75DB21ACCA256C2 /* Pods-AnobiKit_Example_macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnobiKit_Example_macOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnobiKit_Example_macOS/Pods-AnobiKit_Example_macOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -248,12 +233,8 @@
 			isa = PBXGroup;
 			children = (
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
-				6003F593195388D20070C39A /* Example_iOS */,
-				6003F5B5195388D20070C39A /* Example_iOSTests */,
-				6A015C8B225CF45500982E0D /* Example_watchOS */,
-				6A015C9A225CF45600982E0D /* Example_watchOS Extension */,
-				6A940763225CB36A00FEF073 /* Example_macOS */,
-				6A94077A225CB36C00FEF073 /* Example_macOSTests */,
+				6A015CC4225DEA5300982E0D /* Example */,
+				6003F5B5195388D20070C39A /* Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
 				8DBCACB3F18D98302CDD33E5 /* Pods */,
@@ -290,46 +271,33 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6003F593195388D20070C39A /* Example_iOS */ = {
+		6003F593195388D20070C39A /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				6ACF197D1F7D34DC00712368 /* AKExampleConfig.plist */,
 				6003F59C195388D20070C39A /* AKAppDelegate.h */,
 				6003F59D195388D20070C39A /* AKAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
-				6AC5EBAE1F56F411009D8D02 /* AKMainViewController.h */,
-				6AC5EBAF1F56F411009D8D02 /* AKMainViewController.m */,
-				6A0C8E492209ADB10036207F /* AKListItemCustomBox.h */,
-				6A0C8E4A2209ADB20036207F /* AKListItemCustomBox.m */,
-				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F595195388D20070C39A /* Info.plist */,
 				6003F596195388D20070C39A /* InfoPlist.strings */,
 				6003F59B195388D20070C39A /* Prefix.pch */,
 				6003F599195388D20070C39A /* main.m */,
 			);
-			path = Example_iOS;
+			name = iOS;
+			path = Example/iOS;
 			sourceTree = SOURCE_ROOT;
 		};
-		6003F5B5195388D20070C39A /* Example_iOSTests */ = {
+		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				6003F5BB195388D20070C39A /* NSStringsConcatenationTest.m */,
-				6A0C8E32220337470036207F /* AKWeakListTest.m */,
+				6A0C8E32220337470036207F /* AKListTest.m */,
 				6A26EDC9223FBED900EE81A3 /* AKSubscriptTest.m */,
-				6003F5B6195388D20070C39A /* Supporting Files */,
-			);
-			path = Example_iOSTests;
-			sourceTree = "<group>";
-		};
-		6003F5B6195388D20070C39A /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				6003F5B7195388D20070C39A /* Tests-Info.plist */,
+				6003F5B7195388D20070C39A /* Info.plist */,
 				6003F5B8195388D20070C39A /* InfoPlist.strings */,
 				606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */,
 			);
-			name = "Supporting Files";
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		60FF7A9C1954A5C5007DD14C /* Podspec Metadata */ = {
@@ -342,56 +310,51 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		6A015C8B225CF45500982E0D /* Example_watchOS */ = {
+		6A015C8B225CF45500982E0D /* watchOS */ = {
 			isa = PBXGroup;
 			children = (
 				6A015C8C225CF45500982E0D /* Interface.storyboard */,
-				6A015C8F225CF45500982E0D /* Assets.xcassets */,
 				6A015C91225CF45500982E0D /* Info.plist */,
 			);
-			path = Example_watchOS;
+			path = watchOS;
 			sourceTree = "<group>";
 		};
-		6A015C9A225CF45600982E0D /* Example_watchOS Extension */ = {
+		6A015C9A225CF45600982E0D /* watchOS Extension */ = {
 			isa = PBXGroup;
 			children = (
-				6A015C9B225CF45600982E0D /* InterfaceController.h */,
-				6A015C9C225CF45600982E0D /* InterfaceController.m */,
 				6A015C9E225CF45600982E0D /* ExtensionDelegate.h */,
 				6A015C9F225CF45600982E0D /* ExtensionDelegate.m */,
-				6A015CA1225CF45600982E0D /* NotificationController.h */,
-				6A015CA2225CF45600982E0D /* NotificationController.m */,
-				6A015CA4225CF45700982E0D /* Assets.xcassets */,
 				6A015CA6225CF45700982E0D /* Info.plist */,
 				6A015CA7225CF45700982E0D /* PushNotificationPayload.apns */,
 			);
-			path = "Example_watchOS Extension";
+			path = "watchOS Extension";
 			sourceTree = "<group>";
 		};
-		6A940763225CB36A00FEF073 /* Example_macOS */ = {
+		6A015CC4225DEA5300982E0D /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				6A015CB8225DDDCF00982E0D /* AKExample.h */,
+				6A015CB9225DDDCF00982E0D /* AKExample.m */,
+				6ACF197D1F7D34DC00712368 /* AKExampleConfig.plist */,
+				6003F593195388D20070C39A /* iOS */,
+				6A940763225CB36A00FEF073 /* macOS */,
+				6A015C8B225CF45500982E0D /* watchOS */,
+				6A015C9A225CF45600982E0D /* watchOS Extension */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		6A940763225CB36A00FEF073 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
 				6A94078C225CD44600FEF073 /* AnobiKit_Example_macOS.entitlements */,
 				6A940764225CB36A00FEF073 /* AKAppDelegate.h */,
 				6A940765225CB36A00FEF073 /* AKAppDelegate.m */,
-				6A940767225CB36A00FEF073 /* AKMainViewController.h */,
-				6A940768225CB36A00FEF073 /* AKMainViewController.m */,
-				6A94076A225CB36B00FEF073 /* Assets.xcassets */,
 				6A94076C225CB36B00FEF073 /* Main.storyboard */,
 				6A94076F225CB36B00FEF073 /* Info.plist */,
 				6A940770225CB36B00FEF073 /* main.m */,
-				6A940772225CB36B00FEF073 /* Example_macOS.entitlements */,
 			);
-			path = Example_macOS;
-			sourceTree = "<group>";
-		};
-		6A94077A225CB36C00FEF073 /* Example_macOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				6A94077B225CB36C00FEF073 /* Example_macOSTests.m */,
-				6A94077D225CB36C00FEF073 /* Info.plist */,
-			);
-			path = Example_macOSTests;
+			path = macOS;
 			sourceTree = "<group>";
 		};
 		8DBCACB3F18D98302CDD33E5 /* Pods */ = {
@@ -544,7 +507,7 @@
 			attributes = {
 				CLASSPREFIX = AK;
 				LastUpgradeCheck = 1020;
-				ORGANIZATIONNAME = anobisoft;
+				ORGANIZATIONNAME = Anobisoft;
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
 						ProvisioningStyle = Manual;
@@ -584,7 +547,7 @@
 				};
 			};
 			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "AnobiKit" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -614,7 +577,6 @@
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				6ACF197E1F7D34DC00712368 /* AKExampleConfig.plist in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
-				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -623,6 +585,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A015CB6225DDB1D00982E0D /* Info.plist in Resources */,
 				6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -631,7 +594,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A015C90225CF45500982E0D /* Assets.xcassets in Resources */,
 				6A015C8E225CF45500982E0D /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -640,7 +602,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A015CA5225CF45700982E0D /* Assets.xcassets in Resources */,
+				6A015CC0225DE6BE00982E0D /* AKExampleConfig.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,8 +610,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A94076B225CB36B00FEF073 /* Assets.xcassets in Resources */,
 				6A94076E225CB36B00FEF073 /* Main.storyboard in Resources */,
+				6A015CBF225DE6BD00982E0D /* AKExampleConfig.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,6 +619,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A015CB7225DDB1E00982E0D /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -857,9 +820,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* AKAppDelegate.m in Sources */,
+				6A015CBA225DDDCF00982E0D /* AKExample.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
-				6AC5EBB01F56F411009D8D02 /* AKMainViewController.m in Sources */,
-				6A0C8E4B2209ADB20036207F /* AKListItemCustomBox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -868,7 +830,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F5BC195388D20070C39A /* NSStringsConcatenationTest.m in Sources */,
-				6A0C8E33220337470036207F /* AKWeakListTest.m in Sources */,
+				6A0C8E33220337470036207F /* AKListTest.m in Sources */,
 				6A26EDCB223FBED900EE81A3 /* AKSubscriptTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -878,8 +840,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A015CA0225CF45600982E0D /* ExtensionDelegate.m in Sources */,
-				6A015C9D225CF45600982E0D /* InterfaceController.m in Sources */,
-				6A015CA3225CF45600982E0D /* NotificationController.m in Sources */,
+				6A015CBE225DDE9A00982E0D /* AKExample.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -887,7 +848,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A940769225CB36A00FEF073 /* AKMainViewController.m in Sources */,
+				6A015CBD225DDE9700982E0D /* AKExample.m in Sources */,
 				6A940771225CB36B00FEF073 /* main.m in Sources */,
 				6A940766225CB36A00FEF073 /* AKAppDelegate.m in Sources */,
 			);
@@ -897,7 +858,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A94077C225CB36C00FEF073 /* Example_macOSTests.m in Sources */,
+				6A015CB3225DD5C000982E0D /* NSStringsConcatenationTest.m in Sources */,
+				6A015CB4225DDAAA00982E0D /* AKListTest.m in Sources */,
+				6A015CB5225DDAAD00982E0D /* AKSubscriptTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1080,8 +1043,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Example_iOS/Prefix.pch;
-				INFOPLIST_FILE = Example_iOS/Info.plist;
+				GCC_PREFIX_HEADER = Example/iOS/Prefix.pch;
+				INFOPLIST_FILE = "$(SRCROOT)/Example/iOS/Info.plist";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.AnobiKit-Example-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1095,8 +1058,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Example_iOS/Prefix.pch;
-				INFOPLIST_FILE = Example_iOS/Info.plist;
+				GCC_PREFIX_HEADER = Example/iOS/Prefix.pch;
+				INFOPLIST_FILE = "$(SRCROOT)/Example/iOS/Info.plist";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.AnobiKit-Example-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1152,7 +1115,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 48833BB802318479E0596D4A /* Pods-AnobiKit_Example_watchOS.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1163,7 +1125,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				IBSC_MODULE = Example_watchOS_Extension;
-				INFOPLIST_FILE = Example_watchOS/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Example/watchOS/Info.plist";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.AnobiKit-Example-iOS.watchkitapp";
@@ -1179,7 +1141,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8E2A55E681CA2738A2E74C75 /* Pods-AnobiKit_Example_watchOS.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1191,7 +1152,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				IBSC_MODULE = Example_watchOS_Extension;
-				INFOPLIST_FILE = Example_watchOS/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Example/watchOS/Info.plist";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.AnobiKit-Example-iOS.watchkitapp";
@@ -1217,8 +1178,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "Example_watchOS Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				INFOPLIST_FILE = "$(SRCROOT)/Example/watchOS Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.AnobiKit-Example-iOS.watchkitapp.watchkitextension";
@@ -1245,8 +1210,12 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "Example_watchOS Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				INFOPLIST_FILE = "$(SRCROOT)/Example/watchOS Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.AnobiKit-Example-iOS.watchkitapp.watchkitextension";
@@ -1262,22 +1231,24 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D5E552B8AB1C87E83612D87E /* Pods-AnobiKit_Example_macOS.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = Example_macOS/AnobiKit_Example_macOS.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Example/macOS/AnobiKit_Example_macOS.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Example_macOS/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				INFOPLIST_FILE = "$(SRCROOT)/Example/macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1292,14 +1263,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 757DC024D75DB21ACCA256C2 /* Pods-AnobiKit_Example_macOS.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = Example_macOS/AnobiKit_Example_macOS.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Example/macOS/AnobiKit_Example_macOS.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1307,8 +1277,11 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Example_macOS/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				INFOPLIST_FILE = "$(SRCROOT)/Example/macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -1337,7 +1310,11 @@
 				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Example_macOSTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1368,7 +1345,11 @@
 				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Example_macOSTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

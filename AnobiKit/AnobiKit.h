@@ -12,7 +12,10 @@
 #import <AnobiKit/AKFormatters.h>
 #import <AnobiKit/AKStrings.h>
 #import <AnobiKit/AKCoreData.h>
+
+#if !TARGET_OS_TV
 #import <AnobiKit/AKLocationManager.h>
+#endif
 
 #if TARGET_OS_IOS
 #import <AnobiKit/AKReachability.h>

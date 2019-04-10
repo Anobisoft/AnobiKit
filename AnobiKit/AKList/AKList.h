@@ -6,7 +6,7 @@
 //  Copyright © 2018 Anobisoft. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <AnobiKit/AKFoundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+#pragma mark -
 
 @interface AKList<__covariant ObjectType> : NSObject
 
@@ -45,6 +46,46 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)removeItem:(id<AKListItem>)item;
 - (void)clear; // release all items
 - (void)cleanup; // to collapse unused items
+
+@end
+
+#pragma mark -
+
+@interface AKListAbstractItem<__covariant ObjectType> : NSObject <AKListItem>
+
+@property (nonatomic, readonly) ObjectType object; // override!
+
+/** Instantiation method
+ @throws InstantiationException, AbstractMethodException
+ */
++ (instancetype):(ObjectType)object;
+
+/** @throws AbstractMethodException */
+- (instancetype)initWithObject:(ObjectType)object;
+
+@end
+
+#pragma mark -
+
+@interface AKListItem : AKListAbstractItem <NSCopying, NSMutableCopying>
+
+@end
+
+@interface AKListMutableItem<__covariant ObjectType> : AKListItem
+
+@property (nonatomic, readwrite) ObjectType object;
+
+@end
+
+#pragma mark -
+
+@interface AKListWeakItem : AKListAbstractItem <NSCopying, NSMutableCopying>
+
+@end
+
+@interface AKListMutableWeakItem<__covariant ObjectType> : AKListWeakItem
+
+@property (nonatomic, readwrite) ObjectType object;
 
 @end
 
