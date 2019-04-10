@@ -8,7 +8,6 @@ cache: cocoapods
 podfile: Podfile
 
 before_install:
-- gem install cocoapods -v '1.6.1'
 - pod install
 
 script:

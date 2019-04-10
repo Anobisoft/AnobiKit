@@ -8,11 +8,7 @@
 [![License](https://img.shields.io/cocoapods/l/AnobiKit.svg?style=flat)](http://cocoapods.org/pods/AnobiKit)
 [![Twitter](https://img.shields.io/badge/twitter-@Anobisoft-blue.svg?style=flat)](http://twitter.com/Anobisoft)
 
-Utilities collection useful to iOS Developer.
-
-## Example
-
-To run the example project, clone the repo, and run `pod install --project-directory=Example` first.
+Collection of tools and extesions.
 
 ## Installation with CocoaPods
 [CocoaPods](http://cocoapods.org/) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like **AnobiKit** in your projects. You can install it with the following command:
@@ -39,9 +35,3 @@ Then, run the following command:
 ```
 $ pod install
 ```
-## Requirements
-Minimum iOS Target - **9.3**
-Minimum watchOS Target - **3.0**
-
-## License
-AnobiKit is released under the MIT license. See LICENSE for details.
