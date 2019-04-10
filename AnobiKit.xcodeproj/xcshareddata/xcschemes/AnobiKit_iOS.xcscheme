@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6A940761225CB36900FEF073"
-               BuildableName = "AnobiKit_Example_macOS.app"
-               BlueprintName = "AnobiKit_Example_macOS"
+               BlueprintIdentifier = "6003F589195388D20070C39A"
+               BuildableName = "AnobiKit_iOS.app"
+               BlueprintName = "AnobiKit_iOS"
                ReferencedContainer = "container:AnobiKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,14 +26,15 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      codeCoverageEnabled = "YES"
       onlyGenerateCoverageForSpecifiedTargets = "YES"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <CodeCoverageTargets>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "305CD57FA8D3A56684D1420F29C01412"
+            BlueprintIdentifier = "181DB72E9F009EB2C7731CC74310B006"
             BuildableName = "AnobiKit.framework"
-            BlueprintName = "AnobiKit-8860f20c"
+            BlueprintName = "AnobiKit-iOS"
             ReferencedContainer = "container:Pods/Pods.xcodeproj">
          </BuildableReference>
       </CodeCoverageTargets>
@@ -42,19 +43,23 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6A940776225CB36C00FEF073"
-               BuildableName = "AnobiKit_Tests_macOS.xctest"
-               BlueprintName = "AnobiKit_Tests_macOS"
+               BlueprintIdentifier = "6003F5AD195388D20070C39A"
+               BuildableName = "AnobiKit_Tests_iOS.xctest"
+               BlueprintName = "AnobiKit_Tests_iOS"
                ReferencedContainer = "container:AnobiKit.xcodeproj">
             </BuildableReference>
+            <LocationScenarioReference
+               identifier = "Sydney, Australia"
+               referenceType = "1">
+            </LocationScenarioReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6A940761225CB36900FEF073"
-            BuildableName = "AnobiKit_Example_macOS.app"
-            BlueprintName = "AnobiKit_Example_macOS"
+            BlueprintIdentifier = "6003F589195388D20070C39A"
+            BuildableName = "AnobiKit_iOS.app"
+            BlueprintName = "AnobiKit_iOS"
             ReferencedContainer = "container:AnobiKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -67,7 +72,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      ignoresPersistentStateOnLaunch = "YES"
+      ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
@@ -75,16 +80,16 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6A940761225CB36900FEF073"
-            BuildableName = "AnobiKit_Example_macOS.app"
-            BlueprintName = "AnobiKit_Example_macOS"
+            BlueprintIdentifier = "6003F589195388D20070C39A"
+            BuildableName = "AnobiKit_iOS.app"
+            BlueprintName = "AnobiKit_iOS"
             ReferencedContainer = "container:AnobiKit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
       <LocationScenarioReference
-         identifier = "Tokyo, Japan"
+         identifier = "Moscow, Russia"
          referenceType = "1">
       </LocationScenarioReference>
    </LaunchAction>
@@ -98,9 +103,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6A940761225CB36900FEF073"
-            BuildableName = "AnobiKit_Example_macOS.app"
-            BlueprintName = "AnobiKit_Example_macOS"
+            BlueprintIdentifier = "6003F589195388D20070C39A"
+            BuildableName = "AnobiKit_iOS.app"
+            BlueprintName = "AnobiKit_iOS"
             ReferencedContainer = "container:AnobiKit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

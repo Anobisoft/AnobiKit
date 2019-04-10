@@ -15,13 +15,15 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)shared;
 
 - (void)configManagerExample;
-- (void)locationManagerExample;
 - (void)dataValidationExample;
 - (void)versionExample;
 - (void)listExample;
 - (void)subscriptExample;
 
 - (void)bundleExample;
+#if !TARGET_OS_TV
+- (void)locationManagerExample;
+#endif
 
 @end
 

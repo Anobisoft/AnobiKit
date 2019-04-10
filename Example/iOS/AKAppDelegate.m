@@ -13,7 +13,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [AKExample.shared locationManagerExample];
+    [AKExample.shared listExample];
     
     return YES;
 }

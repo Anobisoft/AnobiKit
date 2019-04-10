@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		06670175588C0C820290303B /* Pods_AnobiKit_Example_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2E95CE6B87131F2052D902F /* Pods_AnobiKit_Example_iOS.framework */; };
+		33AE159A666A66B36B3845CD /* Pods_AnobiKit_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68DC432A758E4FA7788FCE64 /* Pods_AnobiKit_iOS.framework */; };
+		4353AF5520EDCF670030C6EF /* Pods_AnobiKit_Tests_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB48EAF9F62D771AFB07E793 /* Pods_AnobiKit_Tests_tvOS.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -18,9 +20,9 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BC195388D20070C39A /* NSStringsConcatenationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* NSStringsConcatenationTest.m */; };
 		6A015C8E225CF45500982E0D /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A015C8C225CF45500982E0D /* Interface.storyboard */; };
-		6A015C97225CF45600982E0D /* AnobiKit_Example_watchOS Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6A015C96225CF45500982E0D /* AnobiKit_Example_watchOS Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6A015C97225CF45600982E0D /* AnobiKit_watchOS_Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6A015C96225CF45500982E0D /* AnobiKit_watchOS_Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6A015CA0225CF45600982E0D /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A015C9F225CF45600982E0D /* ExtensionDelegate.m */; };
-		6A015CAA225CF45700982E0D /* AnobiKit_Example_watchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 6A015C8A225CF45400982E0D /* AnobiKit_Example_watchOS.app */; };
+		6A015CAA225CF45700982E0D /* AnobiKit_watchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 6A015C8A225CF45400982E0D /* AnobiKit_watchOS.app */; };
 		6A015CB3225DD5C000982E0D /* NSStringsConcatenationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* NSStringsConcatenationTest.m */; };
 		6A015CB4225DDAAA00982E0D /* AKListTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0C8E32220337470036207F /* AKListTest.m */; };
 		6A015CB5225DDAAD00982E0D /* AKSubscriptTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A26EDC9223FBED900EE81A3 /* AKSubscriptTest.m */; };
@@ -31,6 +33,14 @@
 		6A015CC0225DE6BE00982E0D /* AKExampleConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6ACF197D1F7D34DC00712368 /* AKExampleConfig.plist */; };
 		6A015CCD225E0AD100982E0D /* Tests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A015CCB225E0ACE00982E0D /* Tests-Info.plist */; };
 		6A015CCE225E0AD200982E0D /* Tests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A015CCB225E0ACE00982E0D /* Tests-Info.plist */; };
+		6A015CDD225E43BA00982E0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A015CDB225E43BA00982E0D /* Main.storyboard */; };
+		6A015CE2225E43BC00982E0D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A015CE1225E43BC00982E0D /* main.m */; };
+		6A015CF5225E44A600982E0D /* AKExampleConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6ACF197D1F7D34DC00712368 /* AKExampleConfig.plist */; };
+		6A015CF6225E44E700982E0D /* AKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* AKAppDelegate.m */; };
+		6A015CF8225E496800982E0D /* AKExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A015CB9225DDDCF00982E0D /* AKExample.m */; };
+		6A015CF9225E49F200982E0D /* NSStringsConcatenationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* NSStringsConcatenationTest.m */; };
+		6A015CFA225E49F500982E0D /* AKListTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0C8E32220337470036207F /* AKListTest.m */; };
+		6A015CFB225E49F700982E0D /* AKSubscriptTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A26EDC9223FBED900EE81A3 /* AKSubscriptTest.m */; };
 		6A0C8E33220337470036207F /* AKListTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0C8E32220337470036207F /* AKListTest.m */; };
 		6A26EDCB223FBED900EE81A3 /* AKSubscriptTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A26EDC9223FBED900EE81A3 /* AKSubscriptTest.m */; };
 		6A940766225CB36A00FEF073 /* AKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A940765225CB36A00FEF073 /* AKAppDelegate.m */; };
@@ -38,11 +48,15 @@
 		6A940771225CB36B00FEF073 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A940770225CB36B00FEF073 /* main.m */; };
 		6AA3B68C1F38AEFB001D70DD /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AA3B68B1F38AEFB001D70DD /* XCTest.framework */; };
 		6ACF197E1F7D34DC00712368 /* AKExampleConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6ACF197D1F7D34DC00712368 /* AKExampleConfig.plist */; };
+		6D765DA268A84871D5FC11F8 /* Pods_AnobiKit_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C320739D4488C37B049C0F94 /* Pods_AnobiKit_macOS.framework */; };
+		6D9D0696DBBED20F96121DC0 /* Pods_AnobiKit_watchOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C4B4D80F11107C1C8B3830 /* Pods_AnobiKit_watchOS.framework */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		7F22F6C8C63A08FA496D5AE8 /* Pods_AnobiKit_Example_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBDA842D9B7360D746DE520A /* Pods_AnobiKit_Example_macOS.framework */; };
+		80EC359A57A8DD03D813309B /* Pods_AnobiKit_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DD59887D8AD7D46B9185A5 /* Pods_AnobiKit_tvOS.framework */; };
 		81D2A156E35E43B1F3A700BA /* Pods_AnobiKit_Example_watchOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A7B17CF00113AC3D51878A /* Pods_AnobiKit_Example_watchOS.framework */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		8C6A11D2C6A5E34747CCB6DA /* Pods_AnobiKit_Tests_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60629CC50642A77A297A4C61 /* Pods_AnobiKit_Tests_iOS.framework */; };
+		D18EDF62216A320E4627D97F /* Pods_AnobiKit_watchOS_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB97A770B4A0FC49C09606B /* Pods_AnobiKit_watchOS_Extension.framework */; };
 		EA11BD2EBB780096883C03EA /* Pods_AnobiKit_Example_watchOS_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A29BCC50C76DBA8E389A4762 /* Pods_AnobiKit_Example_watchOS_Extension.framework */; };
 		FF14E0D30776A16BB031693A /* Pods_AnobiKit_Tests_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 572F5872259E50309416D550 /* Pods_AnobiKit_Tests_macOS.framework */; };
 /* End PBXBuildFile section */
@@ -69,6 +83,13 @@
 			remoteGlobalIDString = 6A015C89225CF45400982E0D;
 			remoteInfo = Example_watchOS;
 		};
+		6A015CE8225E43BC00982E0D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6003F582195388D10070C39A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A015CD2225E43BA00982E0D;
+			remoteInfo = tvOS;
+		};
 		6A940778225CB36C00FEF073 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6003F582195388D10070C39A /* Project object */;
@@ -85,7 +106,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				6A015C97225CF45600982E0D /* AnobiKit_Example_watchOS Extension.appex in Embed App Extensions */,
+				6A015C97225CF45600982E0D /* AnobiKit_watchOS_Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,7 +117,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				6A015CAA225CF45700982E0D /* AnobiKit_Example_watchOS.app in Embed Watch Content */,
+				6A015CAA225CF45700982E0D /* AnobiKit_watchOS.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -107,11 +128,18 @@
 		056E9B7084004F375EFC6604 /* Pods-AnobiKit_Example_watchOS Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnobiKit_Example_watchOS Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnobiKit_Example_watchOS Extension/Pods-AnobiKit_Example_watchOS Extension.release.xcconfig"; sourceTree = "<group>"; };
 		1C07732A05147DA8198E89D4 /* Pods-AnobiKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnobiKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnobiKit_Example/Pods-AnobiKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		2B73284FC3CC1675FA95A4F4 /* Pods-AnobiKit_Example_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnobiKit_Example_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnobiKit_Example_iOS/Pods-AnobiKit_Example_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		2FC8952BAEF559CA9DAA4880 /* Pods-AnobiKit_macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnobiKit_macOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnobiKit_macOS/Pods-AnobiKit_macOS.release.xcconfig"; sourceTree = "<group>"; };
+		32B22327334757A86852044C /* Pods-AnobiKit_watchOS_Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnobiKit_watchOS_Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnobiKit_watchOS_Extension/Pods-AnobiKit_watchOS_Extension.release.xcconfig"; sourceTree = "<group>"; };
 		36AE0DF45D6BD35B101907AE /* Pods-AnobiKit_Tests_macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnobiKit_Tests_macOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnobiKit_Tests_macOS/Pods-AnobiKit_Tests_macOS.release.xcconfig"; sourceTree = "<group>"; };
+		3B08F12DA2AF6A449CCDA976 /* Pods-AnobiKit_macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnobiKit_macOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnobiKit_macOS/Pods-AnobiKit_macOS.debug.xcconfig"; sourceTree = "<group>"; };
+		43A1185E625A6A7CE59EAAA9 /* Pods-AnobiKit_watchOS_Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnobiKit_watchOS_Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnobiKit_watchOS_Extension/Pods-AnobiKit_watchOS_Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		466F3A02FA269534BEDF9E31 /* Pods-AnobiKit_watchOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnobiKit_watchOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnobiKit_watchOS/Pods-AnobiKit_watchOS.debug.xcconfig"; sourceTree = "<group>"; };
 		48833BB802318479E0596D4A /* Pods-AnobiKit_Example_watchOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnobiKit_Example_watchOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnobiKit_Example_watchOS/Pods-AnobiKit_Example_watchOS.debug.xcconfig"; sourceTree = "<group>"; };
+		4DB97A770B4A0FC49C09606B /* Pods_AnobiKit_watchOS_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnobiKit_watchOS_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50656D04AB5D7C24F41866F2 /* Pods-AnobiKit_Tests_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnobiKit_Tests_iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnobiKit_Tests_iOS/Pods-AnobiKit_Tests_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		572F5872259E50309416D550 /* Pods_AnobiKit_Tests_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnobiKit_Tests_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6003F58A195388D20070C39A /* AnobiKit_Example_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnobiKit_Example_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DB79F677675C00369552AE0 /* Pods-AnobiKit_Tests_tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnobiKit_Tests_tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnobiKit_Tests_tvOS/Pods-AnobiKit_Tests_tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		6003F58A195388D20070C39A /* AnobiKit_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnobiKit_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -125,12 +153,14 @@
 		6003F5BB195388D20070C39A /* NSStringsConcatenationTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSStringsConcatenationTest.m; sourceTree = "<group>"; };
 		60629CC50642A77A297A4C61 /* Pods_AnobiKit_Tests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnobiKit_Tests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
+		61C4B4D80F11107C1C8B3830 /* Pods_AnobiKit_watchOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnobiKit_watchOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63142E5C9523AC112F4684DA /* Pods-AnobiKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnobiKit_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnobiKit_Tests/Pods-AnobiKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		66CCD5051E7B36D66D84737D /* Pods-AnobiKit_Tests_macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnobiKit_Tests_macOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnobiKit_Tests_macOS/Pods-AnobiKit_Tests_macOS.debug.xcconfig"; sourceTree = "<group>"; };
-		6A015C8A225CF45400982E0D /* AnobiKit_Example_watchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnobiKit_Example_watchOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		68DC432A758E4FA7788FCE64 /* Pods_AnobiKit_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnobiKit_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A015C8A225CF45400982E0D /* AnobiKit_watchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnobiKit_watchOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A015C8D225CF45500982E0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		6A015C91225CF45500982E0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6A015C96225CF45500982E0D /* AnobiKit_Example_watchOS Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "AnobiKit_Example_watchOS Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A015C96225CF45500982E0D /* AnobiKit_watchOS_Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AnobiKit_watchOS_Extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A015C9E225CF45600982E0D /* ExtensionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtensionDelegate.h; sourceTree = "<group>"; };
 		6A015C9F225CF45600982E0D /* ExtensionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
 		6A015CA6225CF45700982E0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -138,9 +168,14 @@
 		6A015CB8225DDDCF00982E0D /* AKExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AKExample.h; path = Example/AKExample.h; sourceTree = SOURCE_ROOT; };
 		6A015CB9225DDDCF00982E0D /* AKExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AKExample.m; path = Example/AKExample.m; sourceTree = SOURCE_ROOT; };
 		6A015CCB225E0ACE00982E0D /* Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
+		6A015CD3225E43BA00982E0D /* AnobiKit_tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnobiKit_tvOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A015CDC225E43BA00982E0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6A015CE0225E43BC00982E0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A015CE1225E43BC00982E0D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6A015CE7225E43BC00982E0D /* AnobiKit_Tests_tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnobiKit_Tests_tvOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A0C8E32220337470036207F /* AKListTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKListTest.m; sourceTree = "<group>"; };
 		6A26EDC9223FBED900EE81A3 /* AKSubscriptTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKSubscriptTest.m; sourceTree = "<group>"; };
-		6A940762225CB36900FEF073 /* AnobiKit_Example_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnobiKit_Example_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A940762225CB36900FEF073 /* AnobiKit_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnobiKit_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A940764225CB36A00FEF073 /* AKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKAppDelegate.h; sourceTree = "<group>"; };
 		6A940765225CB36A00FEF073 /* AKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKAppDelegate.m; sourceTree = "<group>"; };
 		6A94076D225CB36B00FEF073 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -159,14 +194,23 @@
 		7F52111CE324E268D4313C6F /* Pods-AnobiKit_Tests_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnobiKit_Tests_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnobiKit_Tests_iOS/Pods-AnobiKit_Tests_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8E2A55E681CA2738A2E74C75 /* Pods-AnobiKit_Example_watchOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnobiKit_Example_watchOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnobiKit_Example_watchOS/Pods-AnobiKit_Example_watchOS.release.xcconfig"; sourceTree = "<group>"; };
+		93BB16CB50F6A0D4503298F2 /* Pods-AnobiKit_Tests_tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnobiKit_Tests_tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnobiKit_Tests_tvOS/Pods-AnobiKit_Tests_tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		9B8E81D0CA7A1CFF1892B175 /* Pods-AnobiKit_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnobiKit_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnobiKit_iOS/Pods-AnobiKit_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		A29BCC50C76DBA8E389A4762 /* Pods_AnobiKit_Example_watchOS_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnobiKit_Example_watchOS_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A54B3E715DDB0A8DB1C01888 /* Pods-AnobiKit_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnobiKit_iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnobiKit_iOS/Pods-AnobiKit_iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		B542FF3F393E2FFA4CF885AA /* Pods-AnobiKit_watchOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnobiKit_watchOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnobiKit_watchOS/Pods-AnobiKit_watchOS.release.xcconfig"; sourceTree = "<group>"; };
+		B81C54459E6739DA12F5A4ED /* Pods-AnobiKit_tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnobiKit_tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnobiKit_tvOS/Pods-AnobiKit_tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		C2E95CE6B87131F2052D902F /* Pods_AnobiKit_Example_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnobiKit_Example_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C320739D4488C37B049C0F94 /* Pods_AnobiKit_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnobiKit_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBDA842D9B7360D746DE520A /* Pods_AnobiKit_Example_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnobiKit_Example_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3D654DCB64F06250E4743C3 /* Pods-AnobiKit_Example_watchOS Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnobiKit_Example_watchOS Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnobiKit_Example_watchOS Extension/Pods-AnobiKit_Example_watchOS Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		D444B4AE0DC96771BFA86FF9 /* Pods-AnobiKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnobiKit_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnobiKit_Example/Pods-AnobiKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		D5E552B8AB1C87E83612D87E /* Pods-AnobiKit_Example_macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnobiKit_Example_macOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnobiKit_Example_macOS/Pods-AnobiKit_Example_macOS.debug.xcconfig"; sourceTree = "<group>"; };
 		D6DCF70DDD885358887892C0 /* Pods-AnobiKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnobiKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnobiKit_Tests/Pods-AnobiKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		DB48EAF9F62D771AFB07E793 /* Pods_AnobiKit_Tests_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnobiKit_Tests_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F036D60C4C1E5E4CA89438 /* Pods-AnobiKit_Example_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnobiKit_Example_iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnobiKit_Example_iOS/Pods-AnobiKit_Example_iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		E5DD59887D8AD7D46B9185A5 /* Pods_AnobiKit_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnobiKit_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE858DD6F2D41C6EB25B98F1 /* Pods-AnobiKit_tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnobiKit_tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnobiKit_tvOS/Pods-AnobiKit_tvOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +222,7 @@
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
 				06670175588C0C820290303B /* Pods_AnobiKit_Example_iOS.framework in Frameworks */,
+				33AE159A666A66B36B3845CD /* Pods_AnobiKit_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,6 +242,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA11BD2EBB780096883C03EA /* Pods_AnobiKit_Example_watchOS_Extension.framework in Frameworks */,
+				D18EDF62216A320E4627D97F /* Pods_AnobiKit_watchOS_Extension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A015CD0225E43BA00982E0D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80EC359A57A8DD03D813309B /* Pods_AnobiKit_tvOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A015CE4225E43BC00982E0D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4353AF5520EDCF670030C6EF /* Pods_AnobiKit_Tests_tvOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F22F6C8C63A08FA496D5AE8 /* Pods_AnobiKit_Example_macOS.framework in Frameworks */,
+				6D765DA268A84871D5FC11F8 /* Pods_AnobiKit_macOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81D2A156E35E43B1F3A700BA /* Pods_AnobiKit_Example_watchOS.framework in Frameworks */,
+				6D9D0696DBBED20F96121DC0 /* Pods_AnobiKit_watchOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,12 +306,14 @@
 		6003F58B195388D20070C39A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6003F58A195388D20070C39A /* AnobiKit_Example_iOS.app */,
+				6003F58A195388D20070C39A /* AnobiKit_iOS.app */,
 				6003F5AE195388D20070C39A /* AnobiKit_Tests_iOS.xctest */,
-				6A940762225CB36900FEF073 /* AnobiKit_Example_macOS.app */,
+				6A940762225CB36900FEF073 /* AnobiKit_macOS.app */,
 				6A940777225CB36C00FEF073 /* AnobiKit_Tests_macOS.xctest */,
-				6A015C8A225CF45400982E0D /* AnobiKit_Example_watchOS.app */,
-				6A015C96225CF45500982E0D /* AnobiKit_Example_watchOS Extension.appex */,
+				6A015C8A225CF45400982E0D /* AnobiKit_watchOS.app */,
+				6A015C96225CF45500982E0D /* AnobiKit_watchOS_Extension.appex */,
+				6A015CD3225E43BA00982E0D /* AnobiKit_tvOS.app */,
+				6A015CE7225E43BC00982E0D /* AnobiKit_Tests_tvOS.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -265,6 +331,12 @@
 				572F5872259E50309416D550 /* Pods_AnobiKit_Tests_macOS.framework */,
 				76A7B17CF00113AC3D51878A /* Pods_AnobiKit_Example_watchOS.framework */,
 				A29BCC50C76DBA8E389A4762 /* Pods_AnobiKit_Example_watchOS_Extension.framework */,
+				DB48EAF9F62D771AFB07E793 /* Pods_AnobiKit_Tests_tvOS.framework */,
+				68DC432A758E4FA7788FCE64 /* Pods_AnobiKit_iOS.framework */,
+				C320739D4488C37B049C0F94 /* Pods_AnobiKit_macOS.framework */,
+				E5DD59887D8AD7D46B9185A5 /* Pods_AnobiKit_tvOS.framework */,
+				61C4B4D80F11107C1C8B3830 /* Pods_AnobiKit_watchOS.framework */,
+				4DB97A770B4A0FC49C09606B /* Pods_AnobiKit_watchOS_Extension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -335,10 +407,21 @@
 				6ACF197D1F7D34DC00712368 /* AKExampleConfig.plist */,
 				6003F593195388D20070C39A /* iOS */,
 				6A940763225CB36A00FEF073 /* macOS */,
+				6A015CD4225E43BA00982E0D /* tvOS */,
 				6A015C8B225CF45500982E0D /* watchOS */,
 				6A015C9A225CF45600982E0D /* watchOS Extension */,
 			);
 			path = Example;
+			sourceTree = "<group>";
+		};
+		6A015CD4225E43BA00982E0D /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				6A015CDB225E43BA00982E0D /* Main.storyboard */,
+				6A015CE0225E43BC00982E0D /* Info.plist */,
+				6A015CE1225E43BC00982E0D /* main.m */,
+			);
+			path = tvOS;
 			sourceTree = "<group>";
 		};
 		6A940763225CB36A00FEF073 /* macOS */ = {
@@ -373,6 +456,18 @@
 				8E2A55E681CA2738A2E74C75 /* Pods-AnobiKit_Example_watchOS.release.xcconfig */,
 				D3D654DCB64F06250E4743C3 /* Pods-AnobiKit_Example_watchOS Extension.debug.xcconfig */,
 				056E9B7084004F375EFC6604 /* Pods-AnobiKit_Example_watchOS Extension.release.xcconfig */,
+				93BB16CB50F6A0D4503298F2 /* Pods-AnobiKit_Tests_tvOS.debug.xcconfig */,
+				5DB79F677675C00369552AE0 /* Pods-AnobiKit_Tests_tvOS.release.xcconfig */,
+				A54B3E715DDB0A8DB1C01888 /* Pods-AnobiKit_iOS.debug.xcconfig */,
+				9B8E81D0CA7A1CFF1892B175 /* Pods-AnobiKit_iOS.release.xcconfig */,
+				3B08F12DA2AF6A449CCDA976 /* Pods-AnobiKit_macOS.debug.xcconfig */,
+				2FC8952BAEF559CA9DAA4880 /* Pods-AnobiKit_macOS.release.xcconfig */,
+				B81C54459E6739DA12F5A4ED /* Pods-AnobiKit_tvOS.debug.xcconfig */,
+				FE858DD6F2D41C6EB25B98F1 /* Pods-AnobiKit_tvOS.release.xcconfig */,
+				466F3A02FA269534BEDF9E31 /* Pods-AnobiKit_watchOS.debug.xcconfig */,
+				B542FF3F393E2FFA4CF885AA /* Pods-AnobiKit_watchOS.release.xcconfig */,
+				43A1185E625A6A7CE59EAAA9 /* Pods-AnobiKit_watchOS_Extension.debug.xcconfig */,
+				32B22327334757A86852044C /* Pods-AnobiKit_watchOS_Extension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -380,9 +475,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6003F589195388D20070C39A /* AnobiKit_Example_iOS */ = {
+		6003F589195388D20070C39A /* AnobiKit_iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "AnobiKit_Example_iOS" */;
+			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "AnobiKit_iOS" */;
 			buildPhases = (
 				C14A88D75157512471124043 /* [CP] Check Pods Manifest.lock */,
 				6003F586195388D20070C39A /* Sources */,
@@ -396,9 +491,9 @@
 			dependencies = (
 				6A015CA9225CF45700982E0D /* PBXTargetDependency */,
 			);
-			name = AnobiKit_Example_iOS;
+			name = AnobiKit_iOS;
 			productName = AnobiKit;
-			productReference = 6003F58A195388D20070C39A /* AnobiKit_Example_iOS.app */;
+			productReference = 6003F58A195388D20070C39A /* AnobiKit_iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 		6003F5AD195388D20070C39A /* AnobiKit_Tests_iOS */ = {
@@ -420,9 +515,9 @@
 			productReference = 6003F5AE195388D20070C39A /* AnobiKit_Tests_iOS.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		6A015C89225CF45400982E0D /* AnobiKit_Example_watchOS */ = {
+		6A015C89225CF45400982E0D /* AnobiKit_watchOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6A015CB1225CF45700982E0D /* Build configuration list for PBXNativeTarget "AnobiKit_Example_watchOS" */;
+			buildConfigurationList = 6A015CB1225CF45700982E0D /* Build configuration list for PBXNativeTarget "AnobiKit_watchOS" */;
 			buildPhases = (
 				04437746300D6EBB7312B8E9 /* [CP] Check Pods Manifest.lock */,
 				6A015C88225CF45400982E0D /* Resources */,
@@ -434,14 +529,14 @@
 			dependencies = (
 				6A015C99225CF45600982E0D /* PBXTargetDependency */,
 			);
-			name = AnobiKit_Example_watchOS;
+			name = AnobiKit_watchOS;
 			productName = Example_watchOS;
-			productReference = 6A015C8A225CF45400982E0D /* AnobiKit_Example_watchOS.app */;
+			productReference = 6A015C8A225CF45400982E0D /* AnobiKit_watchOS.app */;
 			productType = "com.apple.product-type.application.watchapp2";
 		};
-		6A015C95225CF45500982E0D /* AnobiKit_Example_watchOS Extension */ = {
+		6A015C95225CF45500982E0D /* AnobiKit_watchOS_Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6A015CAF225CF45700982E0D /* Build configuration list for PBXNativeTarget "AnobiKit_Example_watchOS Extension" */;
+			buildConfigurationList = 6A015CAF225CF45700982E0D /* Build configuration list for PBXNativeTarget "AnobiKit_watchOS_Extension" */;
 			buildPhases = (
 				FC02C15DABF6D1386403C2CE /* [CP] Check Pods Manifest.lock */,
 				6A015C92225CF45500982E0D /* Sources */,
@@ -453,14 +548,52 @@
 			);
 			dependencies = (
 			);
-			name = "AnobiKit_Example_watchOS Extension";
+			name = AnobiKit_watchOS_Extension;
 			productName = "Example_watchOS Extension";
-			productReference = 6A015C96225CF45500982E0D /* AnobiKit_Example_watchOS Extension.appex */;
+			productReference = 6A015C96225CF45500982E0D /* AnobiKit_watchOS_Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
-		6A940761225CB36900FEF073 /* AnobiKit_Example_macOS */ = {
+		6A015CD2225E43BA00982E0D /* AnobiKit_tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6A94077E225CB36C00FEF073 /* Build configuration list for PBXNativeTarget "AnobiKit_Example_macOS" */;
+			buildConfigurationList = 6A015CF2225E43BC00982E0D /* Build configuration list for PBXNativeTarget "AnobiKit_tvOS" */;
+			buildPhases = (
+				8CFA1C31A6CF9ABA25A33C7D /* [CP] Check Pods Manifest.lock */,
+				6A015CCF225E43BA00982E0D /* Sources */,
+				6A015CD0225E43BA00982E0D /* Frameworks */,
+				6A015CD1225E43BA00982E0D /* Resources */,
+				25511A58A4298A38C2C8093D /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AnobiKit_tvOS;
+			productName = tvOS;
+			productReference = 6A015CD3225E43BA00982E0D /* AnobiKit_tvOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6A015CE6225E43BC00982E0D /* AnobiKit_Tests_tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A015CF3225E43BC00982E0D /* Build configuration list for PBXNativeTarget "AnobiKit_Tests_tvOS" */;
+			buildPhases = (
+				89F0C923CF6062A3A208E205 /* [CP] Check Pods Manifest.lock */,
+				6A015CE3225E43BC00982E0D /* Sources */,
+				6A015CE4225E43BC00982E0D /* Frameworks */,
+				6A015CE5225E43BC00982E0D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6A015CE9225E43BC00982E0D /* PBXTargetDependency */,
+			);
+			name = AnobiKit_Tests_tvOS;
+			productName = tvOSTests;
+			productReference = 6A015CE7225E43BC00982E0D /* AnobiKit_Tests_tvOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6A940761225CB36900FEF073 /* AnobiKit_macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A94077E225CB36C00FEF073 /* Build configuration list for PBXNativeTarget "AnobiKit_macOS" */;
 			buildPhases = (
 				56A4A4F7CBA651D6591C3AC2 /* [CP] Check Pods Manifest.lock */,
 				6A94075E225CB36900FEF073 /* Sources */,
@@ -472,9 +605,9 @@
 			);
 			dependencies = (
 			);
-			name = AnobiKit_Example_macOS;
+			name = AnobiKit_macOS;
 			productName = Example_macOS;
-			productReference = 6A940762225CB36900FEF073 /* AnobiKit_Example_macOS.app */;
+			productReference = 6A940762225CB36900FEF073 /* AnobiKit_macOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 		6A940776225CB36C00FEF073 /* AnobiKit_Tests_macOS */ = {
@@ -525,6 +658,13 @@
 					6A015C95225CF45500982E0D = {
 						CreatedOnToolsVersion = 10.2;
 					};
+					6A015CD2225E43BA00982E0D = {
+						CreatedOnToolsVersion = 10.2;
+					};
+					6A015CE6225E43BC00982E0D = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = 6A015CD2225E43BA00982E0D;
+					};
 					6A940761225CB36900FEF073 = {
 						CreatedOnToolsVersion = 10.2;
 						ProvisioningStyle = Manual;
@@ -554,12 +694,14 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6003F589195388D20070C39A /* AnobiKit_Example_iOS */,
+				6003F589195388D20070C39A /* AnobiKit_iOS */,
+				6A940761225CB36900FEF073 /* AnobiKit_macOS */,
+				6A015CD2225E43BA00982E0D /* AnobiKit_tvOS */,
 				6003F5AD195388D20070C39A /* AnobiKit_Tests_iOS */,
-				6A940761225CB36900FEF073 /* AnobiKit_Example_macOS */,
 				6A940776225CB36C00FEF073 /* AnobiKit_Tests_macOS */,
-				6A015C89225CF45400982E0D /* AnobiKit_Example_watchOS */,
-				6A015C95225CF45500982E0D /* AnobiKit_Example_watchOS Extension */,
+				6A015CE6225E43BC00982E0D /* AnobiKit_Tests_tvOS */,
+				6A015C89225CF45400982E0D /* AnobiKit_watchOS */,
+				6A015C95225CF45500982E0D /* AnobiKit_watchOS_Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -600,6 +742,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6A015CD1225E43BA00982E0D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A015CDD225E43BA00982E0D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A015CE5225E43BC00982E0D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A015CF5225E44A600982E0D /* AKExampleConfig.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6A940760225CB36900FEF073 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -635,11 +793,33 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AnobiKit_Example_watchOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-AnobiKit_watchOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		25511A58A4298A38C2C8093D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AnobiKit_tvOS/Pods-AnobiKit_tvOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AnobiKit-6b6aa318/AnobiKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AnobiKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AnobiKit_tvOS/Pods-AnobiKit_tvOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		32625E3DCB3852811BD93679 /* [CP] Embed Pods Frameworks */ = {
@@ -650,7 +830,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AnobiKit_Example_macOS/Pods-AnobiKit_Example_macOS-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-AnobiKit_macOS/Pods-AnobiKit_macOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AnobiKit-8860f20c/AnobiKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -661,7 +841,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AnobiKit_Example_macOS/Pods-AnobiKit_Example_macOS-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AnobiKit_macOS/Pods-AnobiKit_macOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		33EB54D2806ED45B97EB2A98 /* [CP] Embed Pods Frameworks */ = {
@@ -670,7 +850,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AnobiKit_Example_iOS/Pods-AnobiKit_Example_iOS-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-AnobiKit_iOS/Pods-AnobiKit_iOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AnobiKit-iOS/AnobiKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -679,7 +859,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AnobiKit_Example_iOS/Pods-AnobiKit_Example_iOS-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AnobiKit_iOS/Pods-AnobiKit_iOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		56A4A4F7CBA651D6591C3AC2 /* [CP] Check Pods Manifest.lock */ = {
@@ -697,7 +877,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AnobiKit_Example_macOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-AnobiKit_macOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -722,6 +902,50 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		89F0C923CF6062A3A208E205 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AnobiKit_Tests_tvOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8CFA1C31A6CF9ABA25A33C7D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AnobiKit_tvOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A7B36BFD14CE715764283E8B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -730,7 +954,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AnobiKit_Example_watchOS Extension/Pods-AnobiKit_Example_watchOS Extension-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-AnobiKit_watchOS_Extension/Pods-AnobiKit_watchOS_Extension-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AnobiKit-watchOS/AnobiKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -741,7 +965,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AnobiKit_Example_watchOS Extension/Pods-AnobiKit_Example_watchOS Extension-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AnobiKit_watchOS_Extension/Pods-AnobiKit_watchOS_Extension-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C14A88D75157512471124043 /* [CP] Check Pods Manifest.lock */ = {
@@ -755,7 +979,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AnobiKit_Example_iOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-AnobiKit_iOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -777,7 +1001,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AnobiKit_Example_watchOS Extension-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-AnobiKit_watchOS_Extension-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -838,6 +1062,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6A015CCF225E43BA00982E0D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A015CF6225E44E700982E0D /* AKAppDelegate.m in Sources */,
+				6A015CE2225E43BC00982E0D /* main.m in Sources */,
+				6A015CF8225E496800982E0D /* AKExample.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A015CE3225E43BC00982E0D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A015CF9225E49F200982E0D /* NSStringsConcatenationTest.m in Sources */,
+				6A015CFA225E49F500982E0D /* AKListTest.m in Sources */,
+				6A015CFB225E49F700982E0D /* AKSubscriptTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6A94075E225CB36900FEF073 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -863,22 +1107,27 @@
 /* Begin PBXTargetDependency section */
 		6003F5B4195388D20070C39A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6003F589195388D20070C39A /* AnobiKit_Example_iOS */;
+			target = 6003F589195388D20070C39A /* AnobiKit_iOS */;
 			targetProxy = 6003F5B3195388D20070C39A /* PBXContainerItemProxy */;
 		};
 		6A015C99225CF45600982E0D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6A015C95225CF45500982E0D /* AnobiKit_Example_watchOS Extension */;
+			target = 6A015C95225CF45500982E0D /* AnobiKit_watchOS_Extension */;
 			targetProxy = 6A015C98225CF45600982E0D /* PBXContainerItemProxy */;
 		};
 		6A015CA9225CF45700982E0D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6A015C89225CF45400982E0D /* AnobiKit_Example_watchOS */;
+			target = 6A015C89225CF45400982E0D /* AnobiKit_watchOS */;
 			targetProxy = 6A015CA8225CF45700982E0D /* PBXContainerItemProxy */;
+		};
+		6A015CE9225E43BC00982E0D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A015CD2225E43BA00982E0D /* AnobiKit_tvOS */;
+			targetProxy = 6A015CE8225E43BC00982E0D /* PBXContainerItemProxy */;
 		};
 		6A940779225CB36C00FEF073 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6A940761225CB36900FEF073 /* AnobiKit_Example_macOS */;
+			target = 6A940761225CB36900FEF073 /* AnobiKit_macOS */;
 			targetProxy = 6A940778225CB36C00FEF073 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -898,6 +1147,14 @@
 				6A015C8D225CF45500982E0D /* Base */,
 			);
 			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+		6A015CDB225E43BA00982E0D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6A015CDC225E43BA00982E0D /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		6A94076C225CB36B00FEF073 /* Main.storyboard */ = {
@@ -1025,14 +1282,14 @@
 		};
 		6003F5C0195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E3F036D60C4C1E5E4CA89438 /* Pods-AnobiKit_Example_iOS.debug.xcconfig */;
+			baseConfigurationReference = A54B3E715DDB0A8DB1C01888 /* Pods-AnobiKit_iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Example/iOS/Prefix.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/Example/iOS/Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.AnobiKit-Example-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.anobisoft.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1040,14 +1297,14 @@
 		};
 		6003F5C1195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2B73284FC3CC1675FA95A4F4 /* Pods-AnobiKit_Example_iOS.release.xcconfig */;
+			baseConfigurationReference = 9B8E81D0CA7A1CFF1892B175 /* Pods-AnobiKit_iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Example/iOS/Prefix.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/Example/iOS/Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.AnobiKit-Example-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.anobisoft.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1070,7 +1327,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.anobisoft.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnobiKit_Example_iOS.app/AnobiKit_Example_iOS";
 				WRAPPER_EXTENSION = xctest;
@@ -1090,7 +1347,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.anobisoft.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnobiKit_Example_iOS.app/AnobiKit_Example_iOS";
 				WRAPPER_EXTENSION = xctest;
@@ -1099,7 +1356,7 @@
 		};
 		6A015CAB225CF45700982E0D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 48833BB802318479E0596D4A /* Pods-AnobiKit_Example_watchOS.debug.xcconfig */;
+			baseConfigurationReference = 466F3A02FA269534BEDF9E31 /* Pods-AnobiKit_watchOS.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1115,7 +1372,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Example/watchOS/Info.plist";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.AnobiKit-Example-iOS.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.anobisoft.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
@@ -1127,7 +1384,7 @@
 		};
 		6A015CAC225CF45700982E0D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8E2A55E681CA2738A2E74C75 /* Pods-AnobiKit_Example_watchOS.release.xcconfig */;
+			baseConfigurationReference = B542FF3F393E2FFA4CF885AA /* Pods-AnobiKit_watchOS.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1144,7 +1401,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Example/watchOS/Info.plist";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.AnobiKit-Example-iOS.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.anobisoft.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
@@ -1156,7 +1413,7 @@
 		};
 		6A015CAD225CF45700982E0D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D3D654DCB64F06250E4743C3 /* Pods-AnobiKit_Example_watchOS Extension.debug.xcconfig */;
+			baseConfigurationReference = 43A1185E625A6A7CE59EAAA9 /* Pods-AnobiKit_watchOS_Extension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1177,7 +1434,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.AnobiKit-Example-iOS.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.anobisoft.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
@@ -1189,7 +1446,7 @@
 		};
 		6A015CAE225CF45700982E0D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 056E9B7084004F375EFC6604 /* Pods-AnobiKit_Example_watchOS Extension.release.xcconfig */;
+			baseConfigurationReference = 32B22327334757A86852044C /* Pods-AnobiKit_watchOS_Extension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1211,7 +1468,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.AnobiKit-Example-iOS.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.anobisoft.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
@@ -1221,9 +1478,133 @@
 			};
 			name = Release;
 		};
+		6A015CEE225E43BC00982E0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B81C54459E6739DA12F5A4ED /* Pods-AnobiKit_tvOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "$(SRCROOT)/Example/tvOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.anobisoft.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.2;
+			};
+			name = Debug;
+		};
+		6A015CEF225E43BC00982E0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE858DD6F2D41C6EB25B98F1 /* Pods-AnobiKit_tvOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "$(SRCROOT)/Example/tvOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.anobisoft.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.2;
+			};
+			name = Release;
+		};
+		6A015CF0225E43BC00982E0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93BB16CB50F6A0D4503298F2 /* Pods-AnobiKit_Tests_tvOS.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "Tests/Tests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.anobisoft.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tvOS.app/tvOS";
+				TVOS_DEPLOYMENT_TARGET = 12.2;
+			};
+			name = Debug;
+		};
+		6A015CF1225E43BC00982E0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DB79F677675C00369552AE0 /* Pods-AnobiKit_Tests_tvOS.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "Tests/Tests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.anobisoft.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tvOS.app/tvOS";
+				TVOS_DEPLOYMENT_TARGET = 12.2;
+			};
+			name = Release;
+		};
 		6A94077F225CB36C00FEF073 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5E552B8AB1C87E83612D87E /* Pods-AnobiKit_Example_macOS.debug.xcconfig */;
+			baseConfigurationReference = 3B08F12DA2AF6A449CCDA976 /* Pods-AnobiKit_macOS.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1246,7 +1627,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.AnobiKit-Example-macOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.anobisoft.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
@@ -1255,7 +1636,7 @@
 		};
 		6A940780225CB36C00FEF073 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 757DC024D75DB21ACCA256C2 /* Pods-AnobiKit_Example_macOS.release.xcconfig */;
+			baseConfigurationReference = 2FC8952BAEF559CA9DAA4880 /* Pods-AnobiKit_macOS.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1279,7 +1660,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.AnobiKit-Example-macOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.anobisoft.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
@@ -1312,7 +1693,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.digital-ecosystems.Example-macOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.anobisoft.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
@@ -1347,7 +1728,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.digital-ecosystems.Example-macOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.anobisoft.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
@@ -1367,7 +1748,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "AnobiKit_Example_iOS" */ = {
+		6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "AnobiKit_iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6003F5C0195388D20070C39A /* Debug */,
@@ -1385,7 +1766,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6A015CAF225CF45700982E0D /* Build configuration list for PBXNativeTarget "AnobiKit_Example_watchOS Extension" */ = {
+		6A015CAF225CF45700982E0D /* Build configuration list for PBXNativeTarget "AnobiKit_watchOS_Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6A015CAD225CF45700982E0D /* Debug */,
@@ -1394,7 +1775,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6A015CB1225CF45700982E0D /* Build configuration list for PBXNativeTarget "AnobiKit_Example_watchOS" */ = {
+		6A015CB1225CF45700982E0D /* Build configuration list for PBXNativeTarget "AnobiKit_watchOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6A015CAB225CF45700982E0D /* Debug */,
@@ -1403,7 +1784,25 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6A94077E225CB36C00FEF073 /* Build configuration list for PBXNativeTarget "AnobiKit_Example_macOS" */ = {
+		6A015CF2225E43BC00982E0D /* Build configuration list for PBXNativeTarget "AnobiKit_tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A015CEE225E43BC00982E0D /* Debug */,
+				6A015CEF225E43BC00982E0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A015CF3225E43BC00982E0D /* Build configuration list for PBXNativeTarget "AnobiKit_Tests_tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A015CF0225E43BC00982E0D /* Debug */,
+				6A015CF1225E43BC00982E0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A94077E225CB36C00FEF073 /* Build configuration list for PBXNativeTarget "AnobiKit_macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6A94077F225CB36C00FEF073 /* Debug */,

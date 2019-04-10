@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6A015C89225CF45400982E0D"
-               BuildableName = "AnobiKit_Example_watchOS.app"
-               BlueprintName = "AnobiKit_Example_watchOS"
+               BuildableName = "AnobiKit_watchOS.app"
+               BlueprintName = "AnobiKit_watchOS"
                ReferencedContainer = "container:AnobiKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,8 +29,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6003F589195388D20070C39A"
-               BuildableName = "AnobiKit_Example_iOS.app"
-               BlueprintName = "AnobiKit_Example_iOS"
+               BuildableName = "AnobiKit_iOS.app"
+               BlueprintName = "AnobiKit_iOS"
                ReferencedContainer = "container:AnobiKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,8 +47,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6A015C89225CF45400982E0D"
-            BuildableName = "AnobiKit_Example_watchOS.app"
-            BlueprintName = "AnobiKit_Example_watchOS"
+            BuildableName = "AnobiKit_watchOS.app"
+            BlueprintName = "AnobiKit_watchOS"
             ReferencedContainer = "container:AnobiKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -73,8 +73,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6A015C89225CF45400982E0D"
-            BuildableName = "AnobiKit_Example_watchOS.app"
-            BlueprintName = "AnobiKit_Example_watchOS"
+            BuildableName = "AnobiKit_watchOS.app"
+            BlueprintName = "AnobiKit_watchOS"
             ReferencedContainer = "container:AnobiKit.xcodeproj">
          </BuildableReference>
       </RemoteRunnable>
@@ -82,8 +82,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6A015C89225CF45400982E0D"
-            BuildableName = "AnobiKit_Example_watchOS.app"
-            BlueprintName = "AnobiKit_Example_watchOS"
+            BuildableName = "AnobiKit_watchOS.app"
+            BlueprintName = "AnobiKit_watchOS"
             ReferencedContainer = "container:AnobiKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -107,8 +107,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6A015C89225CF45400982E0D"
-            BuildableName = "AnobiKit_Example_watchOS.app"
-            BlueprintName = "AnobiKit_Example_watchOS"
+            BuildableName = "AnobiKit_watchOS.app"
+            BlueprintName = "AnobiKit_watchOS"
             ReferencedContainer = "container:AnobiKit.xcodeproj">
          </BuildableReference>
       </RemoteRunnable>
@@ -116,8 +116,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6A015C89225CF45400982E0D"
-            BuildableName = "AnobiKit_Example_watchOS.app"
-            BlueprintName = "AnobiKit_Example_watchOS"
+            BuildableName = "AnobiKit_watchOS.app"
+            BlueprintName = "AnobiKit_watchOS"
             ReferencedContainer = "container:AnobiKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

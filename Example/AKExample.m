@@ -16,12 +16,13 @@
 @implementation AKListItemCustomBox
 @end
 
-
+#if !TARGET_OS_TV
 @interface AKExample ()
 
 @property AKLocationManager *locationManager;
 
 @end
+#endif
 
 @implementation AKExample
 
@@ -49,6 +50,7 @@
 #endif
 }
 
+#if !TARGET_OS_TV
 - (void)locationManagerExample {
     self.locationManager = [AKLocationManager new];
     [self.locationManager placemarkFetch:^(NSArray<CLPlacemark *> *placemarks, NSError *error) {
@@ -59,6 +61,7 @@
         }
     }];
 }
+#endif
 
 - (void)dataValidationExample {
     NSString *email4test = @"dldklsfjghdfjklsgh_@atakdjvbl-asdfk.aldfgkadfgjk.lag";
