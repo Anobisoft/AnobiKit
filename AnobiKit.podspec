@@ -55,6 +55,8 @@ DESC
   end
   
   s.subspec 'AKLocation' do |ss|
+      ss.ios.deployment_target  = '9.3'
+      ss.watchos.deployment_target  = '3.0'
       ss.dependency 'AnobiKit/AKFoundation'
       ss.source_files = 'AnobiKit/AKLocation/**/*.{h,m,mm}'
       ss.public_header_files = 'AnobiKit/AKLocation/*.h'
