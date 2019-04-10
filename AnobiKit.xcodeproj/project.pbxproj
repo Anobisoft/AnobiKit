@@ -16,7 +16,6 @@
 		6003F59E195388D20070C39A /* AKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* AKAppDelegate.m */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
-		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* NSStringsConcatenationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* NSStringsConcatenationTest.m */; };
 		6A015C8E225CF45500982E0D /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A015C8C225CF45500982E0D /* Interface.storyboard */; };
 		6A015C97225CF45600982E0D /* AnobiKit_Example_watchOS Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6A015C96225CF45500982E0D /* AnobiKit_Example_watchOS Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -25,13 +24,13 @@
 		6A015CB3225DD5C000982E0D /* NSStringsConcatenationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* NSStringsConcatenationTest.m */; };
 		6A015CB4225DDAAA00982E0D /* AKListTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0C8E32220337470036207F /* AKListTest.m */; };
 		6A015CB5225DDAAD00982E0D /* AKSubscriptTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A26EDC9223FBED900EE81A3 /* AKSubscriptTest.m */; };
-		6A015CB6225DDB1D00982E0D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B7195388D20070C39A /* Info.plist */; };
-		6A015CB7225DDB1E00982E0D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B7195388D20070C39A /* Info.plist */; };
 		6A015CBA225DDDCF00982E0D /* AKExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A015CB9225DDDCF00982E0D /* AKExample.m */; };
 		6A015CBD225DDE9700982E0D /* AKExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A015CB9225DDDCF00982E0D /* AKExample.m */; };
 		6A015CBE225DDE9A00982E0D /* AKExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A015CB9225DDDCF00982E0D /* AKExample.m */; };
 		6A015CBF225DE6BD00982E0D /* AKExampleConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6ACF197D1F7D34DC00712368 /* AKExampleConfig.plist */; };
 		6A015CC0225DE6BE00982E0D /* AKExampleConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6ACF197D1F7D34DC00712368 /* AKExampleConfig.plist */; };
+		6A015CCD225E0AD100982E0D /* Tests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A015CCB225E0ACE00982E0D /* Tests-Info.plist */; };
+		6A015CCE225E0AD200982E0D /* Tests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A015CCB225E0ACE00982E0D /* Tests-Info.plist */; };
 		6A0C8E33220337470036207F /* AKListTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0C8E32220337470036207F /* AKListTest.m */; };
 		6A26EDCB223FBED900EE81A3 /* AKSubscriptTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A26EDC9223FBED900EE81A3 /* AKSubscriptTest.m */; };
 		6A940766225CB36A00FEF073 /* AKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A940765225CB36A00FEF073 /* AKAppDelegate.m */; };
@@ -123,8 +122,6 @@
 		6003F59C195388D20070C39A /* AKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* AKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKAppDelegate.m; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* AnobiKit_Tests_iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnobiKit_Tests_iOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6003F5B7195388D20070C39A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* NSStringsConcatenationTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSStringsConcatenationTest.m; sourceTree = "<group>"; };
 		60629CC50642A77A297A4C61 /* Pods_AnobiKit_Tests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnobiKit_Tests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
@@ -140,6 +137,7 @@
 		6A015CA7225CF45700982E0D /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		6A015CB8225DDDCF00982E0D /* AKExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AKExample.h; path = Example/AKExample.h; sourceTree = SOURCE_ROOT; };
 		6A015CB9225DDDCF00982E0D /* AKExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AKExample.m; path = Example/AKExample.m; sourceTree = SOURCE_ROOT; };
+		6A015CCB225E0ACE00982E0D /* Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6A0C8E32220337470036207F /* AKListTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKListTest.m; sourceTree = "<group>"; };
 		6A26EDC9223FBED900EE81A3 /* AKSubscriptTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKSubscriptTest.m; sourceTree = "<group>"; };
 		6A940762225CB36900FEF073 /* AnobiKit_Example_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnobiKit_Example_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -290,11 +288,10 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				6A015CCB225E0ACE00982E0D /* Tests-Info.plist */,
 				6003F5BB195388D20070C39A /* NSStringsConcatenationTest.m */,
 				6A0C8E32220337470036207F /* AKListTest.m */,
 				6A26EDC9223FBED900EE81A3 /* AKSubscriptTest.m */,
-				6003F5B7195388D20070C39A /* Info.plist */,
-				6003F5B8195388D20070C39A /* InfoPlist.strings */,
 				606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */,
 			);
 			path = Tests;
@@ -524,11 +521,9 @@
 					};
 					6A015C89225CF45400982E0D = {
 						CreatedOnToolsVersion = 10.2;
-						ProvisioningStyle = Automatic;
 					};
 					6A015C95225CF45500982E0D = {
 						CreatedOnToolsVersion = 10.2;
-						ProvisioningStyle = Automatic;
 					};
 					6A940761225CB36900FEF073 = {
 						CreatedOnToolsVersion = 10.2;
@@ -585,8 +580,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A015CB6225DDB1D00982E0D /* Info.plist in Resources */,
-				6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */,
+				6A015CCD225E0AD100982E0D /* Tests-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,7 +613,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A015CB7225DDB1E00982E0D /* Info.plist in Resources */,
+				6A015CCE225E0AD200982E0D /* Tests-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -898,14 +892,6 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		6003F5B8195388D20070C39A /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6003F5B9195388D20070C39A /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		6A015C8C225CF45500982E0D /* Interface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1083,7 +1069,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = Tests/Info.plist;
+				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnobiKit_Example_iOS.app/AnobiKit_Example_iOS";
@@ -1103,7 +1089,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
-				INFOPLIST_FILE = Tests/Info.plist;
+				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnobiKit_Example_iOS.app/AnobiKit_Example_iOS";
@@ -1121,8 +1107,9 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				IBSC_MODULE = Example_watchOS_Extension;
 				INFOPLIST_FILE = "$(SRCROOT)/Example/watchOS/Info.plist";
@@ -1130,6 +1117,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.AnobiKit-Example-iOS.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1147,9 +1135,10 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				IBSC_MODULE = Example_watchOS_Extension;
 				INFOPLIST_FILE = "$(SRCROOT)/Example/watchOS/Info.plist";
@@ -1157,6 +1146,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.AnobiKit-Example-iOS.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1175,8 +1165,9 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "$(SRCROOT)/Example/watchOS Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1188,6 +1179,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.AnobiKit-Example-iOS.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1206,9 +1198,10 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "$(SRCROOT)/Example/watchOS Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1220,6 +1213,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.AnobiKit-Example-iOS.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1309,7 +1303,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Tests/Info.plist;
+				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -1344,7 +1338,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Tests/Info.plist;
+				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
