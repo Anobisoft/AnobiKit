@@ -25,7 +25,7 @@
 		<key>NSExtensionAttributes</key>
 		<dict>
 			<key>WKAppBundleIdentifier</key>
-			<string>org.cocoapods.demo.AnobiKit-Example-iOS.watchkitapp</string>
+			<string>com.anobisoft.AnobiKit-iOS.watch</string>
 		</dict>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.watchkit</string>
