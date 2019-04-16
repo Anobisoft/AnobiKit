@@ -695,11 +695,11 @@
 			projectRoot = "";
 			targets = (
 				6003F589195388D20070C39A /* AnobiKit_iOS */,
-				6A940761225CB36900FEF073 /* AnobiKit_macOS */,
 				6A015CD2225E43BA00982E0D /* AnobiKit_tvOS */,
+				6A940761225CB36900FEF073 /* AnobiKit_macOS */,
 				6003F5AD195388D20070C39A /* AnobiKit_Tests_iOS */,
-				6A940776225CB36C00FEF073 /* AnobiKit_Tests_macOS */,
 				6A015CE6225E43BC00982E0D /* AnobiKit_Tests_tvOS */,
+				6A940776225CB36C00FEF073 /* AnobiKit_Tests_macOS */,
 				6A015C89225CF45400982E0D /* AnobiKit_watchOS */,
 				6A015C95225CF45500982E0D /* AnobiKit_watchOS_Extension */,
 			);
@@ -1329,7 +1329,7 @@
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.anobisoft.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnobiKit_Example_iOS.app/AnobiKit_Example_iOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnobiKit_iOS.app/AnobiKit_iOS";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -1349,7 +1349,7 @@
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.anobisoft.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnobiKit_Example_iOS.app/AnobiKit_Example_iOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnobiKit_iOS.app/AnobiKit_iOS";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
@@ -1565,7 +1565,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tvOS.app/tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnobiKit_tvOS.app/AnobiKit_tvOS";
 				TVOS_DEPLOYMENT_TARGET = 12.2;
 			};
 			name = Debug;
@@ -1597,7 +1597,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tvOS.app/tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnobiKit_tvOS.app/AnobiKit_tvOS";
 				TVOS_DEPLOYMENT_TARGET = 12.2;
 			};
 			name = Release;
@@ -1697,7 +1697,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnobiKit_Example_macOS.app/Contents/MacOS/AnobiKit_Example_macOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnobiKit_macOS.app/Contents/MacOS/AnobiKit_macOS";
 			};
 			name = Debug;
 		};
@@ -1732,7 +1732,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnobiKit_Example_macOS.app/Contents/MacOS/AnobiKit_Example_macOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnobiKit_macOS.app/Contents/MacOS/AnobiKit_macOS";
 			};
 			name = Release;
 		};
