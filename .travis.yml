@@ -12,7 +12,7 @@ before_install:
 
 script:
 - pod lib lint
-- xcodebuild clean build test -workspace "AnobiKit.xcworkspace" -scheme "AnobiKit_Example_iOS" -destination 'platform=iOS Simulator,name=iPhone Xs,OS=12.2' GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES
+- xcodebuild clean build test -workspace "AnobiKit.xcworkspace" -scheme "AnobiKit_iOS" -destination 'platform=iOS Simulator,name=iPhone Xs,OS=12.2' GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES
 
 after_success:
 - bash <(curl -s https://codecov.io/bash)
