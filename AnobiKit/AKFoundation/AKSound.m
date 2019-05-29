@@ -8,12 +8,16 @@
 
 #import "AKSound.h"
 #import "AKFileManager.h"
-#import <AnobiKit/AKException.h>
+#import "AKException.h"
 #import <AVFoundation/AVFoundation.h>
 
-@implementation AKSound {
-    AVAudioPlayer *audioPlayer;
-}
+@interface AKSound()
+
+@property (nonatomic) AVAudioPlayer *audioPlayer;
+
+@end
+
+@implementation AKSound
 
 + (instancetype)soundWithName:(NSString *)name {
     return [[self alloc] initWithName:name];
@@ -28,45 +32,47 @@
         }
         NSURL *fileURL = [NSURL fileURLWithPath:path];
         NSError *error;
-        audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL error:&error];
+        self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL error:&error];
         if (error) {
             @throw error;
         }
-        if (!audioPlayer) return nil;
+        if (!self.audioPlayer) {
+            return nil;
+        }
     }
     return self;
 }
 
 - (void)play {
-    [audioPlayer play];
+    [self.audioPlayer play];
 }
 
 - (void)stop {
-    [audioPlayer stop];
+    [self.audioPlayer stop];
 }
 
 - (void)pause {
-    [audioPlayer pause];
+    [self.audioPlayer pause];
 }
 
 - (void)loop {
-    audioPlayer.numberOfLoops = -1;
+    self.audioPlayer.numberOfLoops = -1;
 }
 
 - (void)loop:(NSInteger)l {
-    audioPlayer.numberOfLoops = l;
+    self.audioPlayer.numberOfLoops = l;
 }
 
 - (BOOL)isPlaing {
-    return audioPlayer.playing;
+    return self.audioPlayer.playing;
 }
 
 - (NSInteger)numberOfLoops {
-    return audioPlayer.numberOfLoops;
+    return self.audioPlayer.numberOfLoops;
 }
 
 - (void)setNumberOfLoops:(NSInteger)numberOfLoops {
-    audioPlayer.numberOfLoops = numberOfLoops;
+    self.audioPlayer.numberOfLoops = numberOfLoops;
 }
 
 @end

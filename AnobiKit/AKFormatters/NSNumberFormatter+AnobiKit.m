@@ -11,17 +11,31 @@
 @implementation NSNumberFormatter (AnobiKit)
 
 + (instancetype)currencyStyleWithCode:(NSString *)currencyCode {
-    NSNumberFormatter *formatter = [NSNumberFormatter new];
-    formatter.numberStyle = NSNumberFormatterCurrencyStyle;
-    if (currencyCode) formatter.currencyCode = currencyCode;
-    else formatter.currencySymbol = @"";
-    return formatter;
+    return [[self alloc] initCurrencyStyleWithCode:currencyCode];
+}
+
+- (instancetype)initCurrencyStyleWithCode:(NSString *)currencyCode {
+    if (self = [self init]) {
+        self.numberStyle = NSNumberFormatterCurrencyStyle;
+        if (currencyCode) self.currencyCode = currencyCode;
+        else self.currencySymbol = @"";
+    }
+    return self;
 }
 
 + (instancetype)percentStyle {
-    NSNumberFormatter *formatter = [NSNumberFormatter new];
-    formatter.numberStyle = NSNumberFormatterPercentStyle;
-    return formatter;
+    return [self formatterWithStyle:NSNumberFormatterPercentStyle];
+}
+
++ (instancetype)formatterWithStyle:(NSNumberFormatterStyle)style {
+    return [[self alloc] initWithFormatterStyle:style];
+}
+
+- (instancetype)initWithFormatterStyle:(NSNumberFormatterStyle)style {
+    if (self = [self init]) {
+        self.numberStyle = style;
+    }
+    return self;
 }
 
 - (NSString *)stringFromNumber:(NSNumber *)number withPrecision:(NSUInteger)p {

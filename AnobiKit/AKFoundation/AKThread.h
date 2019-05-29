@@ -13,7 +13,7 @@ void dispatch_asyncmain(void (^block)(void));
 
 @interface NSThread (AnobiKit)
 
-+ (void)performSyncBlockOnMain:(void (^)(void))block;
-+ (void)performAsyncBlockOnMain:(void (^)(void))block;
++ (void)performBlockOnMain:(void (^)(void))block;
++ (void)performBlockOnMainAndWait:(void (^)(void))block;
 
 @end

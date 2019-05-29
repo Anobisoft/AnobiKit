@@ -10,7 +10,9 @@
 #define AKDeepCopyingProtocol
 
 @protocol AKDeepCopying <NSObject>
+
 - (instancetype)deepcopy;
+
 @end
 
 #endif /* AKDeepCopyingProtocol */

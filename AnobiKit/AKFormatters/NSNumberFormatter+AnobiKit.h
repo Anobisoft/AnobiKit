@@ -11,7 +11,9 @@
 @interface NSNumberFormatter (AnobiKit)
 
 + (instancetype)currencyStyleWithCode:(NSString *)currencyCode;
++ (instancetype)formatterWithStyle:(NSNumberFormatterStyle)style;
 + (instancetype)percentStyle;
+
 - (NSString *)stringFromNumber:(NSNumber *)number withPrecision:(NSUInteger)p;
 
 @end

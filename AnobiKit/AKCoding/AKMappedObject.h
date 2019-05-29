@@ -11,5 +11,9 @@
 
 @interface AKMappedObject : AKCodableObject <AKObjectMapping, AKObjectReverseMapping>
 
++ (instancetype)instatiateWithExternalRepresentation:(NSDictionary *)representation
+                                           objectMap:(NSDictionary<NSString *, AKPropertyMap *> *)objectMap;
+
+- (NSDictionary *)keyedRepresentation;
 
 @end

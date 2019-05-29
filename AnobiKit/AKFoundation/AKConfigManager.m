@@ -11,35 +11,56 @@
 #import <AnobiKit/AKFileManager.h>
 #import <AnobiKit/AKException.h>
 
-@implementation AKConfigManager {
-    NSCache<NSString *, id> *configsCache;
-}
+@interface AKConfigManager ()
+
+@property (nonatomic) NSCache<NSString *, id> *configsCache;
+
+@end
+
+@implementation AKConfigManager
 
 + (instancetype)manager {
-	return [self shared];
+    return [self shared];
+}
+
++ (NSUInteger)cachesize {
+    return self.manager.cachesize;
+}
+
++ (void)setCachesize:(NSUInteger)cachesize {
+    self.manager.cachesize = cachesize;
+}
+
++ (id)configWithName:(NSString *)name {
+    return [self.manager configWithName:name];
+}
+
+
+- (NSUInteger)cachesize {
+    return self.configsCache.totalCostLimit;
 }
 
 - (void)setCachesize:(NSUInteger)cachesize {
     if (cachesize) {
-        if (!configsCache) {
-            configsCache = [NSCache new];
+        if (!self.configsCache) {
+            self.configsCache = [NSCache new];
         }
-        configsCache.totalCostLimit = cachesize;
+        self.configsCache.totalCostLimit = cachesize;
     } else {
-        configsCache = nil;
+        self.configsCache = nil;
     }
 }
 
 - (instancetype)init {
     if (self = [super init]) {
-        configsCache = [NSCache new];
-        configsCache.totalCostLimit = 0x4000; // 16KB
+        _configsCache = [NSCache new];
+        _configsCache.totalCostLimit = 0x4000; // 16KB
     }
     return self;
 }
 
 - (id)configWithName:(NSString *)name {
-    id config = [configsCache objectForKey:name];
+    id config = [self.configsCache objectForKey:name];
     if  (config) {
         return config;
     }
@@ -57,10 +78,12 @@
         @throw error;
     }
     if (config) {
-        [configsCache setObject:config forKey:name];
+        [self.configsCache setObject:config forKey:name];
     }
     return config;
 }
+
+#pragma mark - KeyedSubscript
 
 - (id)objectForKeyedSubscript:(NSString *)key {
     return [self configWithName:key];

@@ -9,7 +9,7 @@
 #import "AKThread.h"
 
 void dispatch_syncmain(void (^block)(void)) {
-    [NSThread performSyncBlockOnMain:block];
+    [NSThread performBlockOnMainAndWait:block];
 }
 
 void dispatch_asyncmain(void (^block)(void)) {
@@ -18,16 +18,16 @@ void dispatch_asyncmain(void (^block)(void)) {
 
 @implementation NSThread (AnobiKit)
 
-+ (void)performSyncBlockOnMain:(void (^)(void))block {
++ (void)performBlockOnMain:(void (^)(void))block {
+    dispatch_asyncmain(block);
+}
+
++ (void)performBlockOnMainAndWait:(void (^)(void))block {
     if ([self isMainThread]) {
         block();
     } else {
         dispatch_sync(dispatch_get_main_queue(), block);
     }
-}
-
-+ (void)performAsyncBlockOnMain:(void (^)(void))block {
-    dispatch_asyncmain(block);
 }
 
 @end

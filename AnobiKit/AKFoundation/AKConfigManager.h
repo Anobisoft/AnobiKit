@@ -10,9 +10,11 @@
 
 @interface AKConfigManager : AKSingleton <KeyedSubscript>
 
-+ (instancetype)manager;
+@property (class, readonly) AKConfigManager *manager;
+@property (class, readonly) NSUInteger cachesize;
+@property (readonly) NSUInteger cachesize;
 
++ (id)configWithName:(NSString *)name;
 - (id)configWithName:(NSString *)name;
-- (void)setCachesize:(NSUInteger)cachesize;
 
 @end

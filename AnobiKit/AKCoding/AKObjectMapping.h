@@ -19,7 +19,8 @@
 @protocol AKObjectMapping
 
 @required
-+ (instancetype)instatiateWithExternalRepresentation:(NSDictionary *)representation objectMap:(NSDictionary<NSString *, AKPropertyMap *> *)objectMap;
++ (instancetype)instatiateWithExternalRepresentation:(NSDictionary *)representation
+                                           objectMap:(NSDictionary<NSString *, AKPropertyMap *> *)objectMap;
 + (NSDictionary<NSString *, AKPropertyMap *> *)objectMap;
 
 @optional

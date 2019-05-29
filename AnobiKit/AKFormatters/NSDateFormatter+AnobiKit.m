@@ -14,7 +14,7 @@
     static id _defaultFormatter = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _defaultFormatter = [NSDateFormatter new];
+        _defaultFormatter = [self new];
     });
     return _defaultFormatter;
 }

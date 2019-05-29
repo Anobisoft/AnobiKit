@@ -47,13 +47,16 @@
                   where:(NSPredicate *)clause
                 orderBy:(nullable NSArray <NSSortDescriptor *> *)sortDescriptors
                   limit:(NSUInteger)limit {
+    
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entity];
     request.predicate = clause;
     [request setSortDescriptors:sortDescriptors];
     [request setFetchLimit:limit];
     NSError *error = nil;
     NSArray *entities = [self executeFetchRequest:request error:&error];
-    if (error) NSLog(@"[ERROR] %s %@", __PRETTY_FUNCTION__, error);
+    if (error) {
+        NSLog(@"[ERROR] %s %@", __PRETTY_FUNCTION__, error);
+    }
     return entities;
 }
 

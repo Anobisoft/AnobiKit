@@ -55,13 +55,13 @@ typedef void(^AKPlacemarkDetectorFetchBlock)(AKPlacemarkDetector *detector, NSAr
             NSError *error = [NSError errorWithDomain:@"AKLocationManager" code:-1
                                              userInfo:@{NSLocalizedDescriptionKey : @"Core Location Authorization Restricted"}];
             if (self.fetchBlock) self.fetchBlock(self, nil, error);
-            self.fetchBlock = nil; //free
+            self.fetchBlock = nil; // release
         } break;
         case kCLAuthorizationStatusDenied:{
             NSError *error = [NSError errorWithDomain:@"AKLocationManager" code:-1
                                              userInfo:@{NSLocalizedDescriptionKey : @"Core Location Authorization Denied"}];
             if (self.fetchBlock) self.fetchBlock(self, nil, error);
-            self.fetchBlock = nil; //free
+            self.fetchBlock = nil; // release
         } break;
         default:
             break;
