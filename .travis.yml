@@ -8,6 +8,7 @@ cache: cocoapods
 podfile: Podfile
 
 before_install:
+- gem update cocoapods
 - pod install
 
 script:

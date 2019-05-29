@@ -15,7 +15,12 @@
 }
 
 - (void)setObject:(id)obj forKeyedSubscript:(id<NSCopying>)key {
-    [self setObject:obj forKey:key];
+    if (obj) {
+        [self setObject:obj forKey:key];
+    } else {
+        [self removeObjectForKey:key];
+    }
 }
+    
 
 @end

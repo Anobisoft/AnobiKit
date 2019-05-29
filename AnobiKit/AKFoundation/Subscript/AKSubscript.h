@@ -9,8 +9,10 @@
 #ifndef AKSubscript_h
 #define AKSubscript_h
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol KeyedSubscript
-- (id)objectForKeyedSubscript:(id)key;
+- (nullable id)objectForKeyedSubscript:(id)key;
 @end
 
 @protocol IndexedSubscript
@@ -18,12 +20,14 @@
 @end
 
 @protocol MutableKeyedSubscript <KeyedSubscript>
-- (void)setObject:(id)obj forKeyedSubscript:(id<NSCopying>)key;
+- (void)setObject:(nullable id)obj forKeyedSubscript:(id<NSCopying>)key;
 @end
 
 @protocol MutableIndexedSubscript <IndexedSubscript>
 - (void)setObject:(id)obj atIndexedSubscript:(NSUInteger)idx;
 @end
+
+NS_ASSUME_NONNULL_END
 
 #endif /* AKSubscript */
 

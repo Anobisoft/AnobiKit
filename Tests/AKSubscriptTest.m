@@ -107,5 +107,18 @@
     XCTAssertThrows( self.emptyArray[2] = object );
 }
 
+- (void)testMutableIndexedSubscriptNullability {
+    NSString *key = @"testMutableIndexedSubscriptNullability";
+    __auto_type dict = [NSMutableDictionary new];
+    dict[key] = key;
+    XCTAssertNotNil(dict[key]);
+    dict[key] = nil;
+    XCTAssertNil(dict[key]);
+    self.mapTable[key] = key;
+    XCTAssertNotNil(self.mapTable[key]);
+    self.mapTable[key] = nil;
+    XCTAssertNil(self.mapTable[key]);
+}
+
 
 @end

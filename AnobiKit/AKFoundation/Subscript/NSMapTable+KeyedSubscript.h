@@ -12,8 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSMapTable<KeyType, ObjectType> (KeyedSubscript) <MutableKeyedSubscript>
 
-- (ObjectType)objectForKeyedSubscript:(KeyType)key;
-- (void)setObject:(ObjectType)obj forKeyedSubscript:(KeyType<NSCopying>)key;
+- (nullable ObjectType)objectForKeyedSubscript:(KeyType)key;
+- (void)setObject:(nullable ObjectType)obj forKeyedSubscript:(KeyType<NSCopying>)key;
 
 @end
 
