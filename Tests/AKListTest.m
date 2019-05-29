@@ -60,6 +60,10 @@
         self.array = [self.array subarrayWithRange:NSMakeRange(2, 3)];
     }
     XCTAssertEqual(self.list.strictlyCount, self.array.count);
+    __block int index = 0;
+    [self.list enumerateWithBlock:^(id  _Nonnull object) {
+        XCTAssertEqual(self.array[index++], object);
+    }];
 }
 
 - (void)testExceptions {
