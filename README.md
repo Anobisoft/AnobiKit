@@ -10,28 +10,30 @@
 
 Collection of tools and extesions.
 
-## Installation with CocoaPods
-[CocoaPods](http://cocoapods.org/) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like **AnobiKit** in your projects. You can install it with the following command:
-```
-$ gem install cocoapods
-```
-#### Podfile
-To integrate **AnobiKit** into your Xcode project using CocoaPods, specify it in your `Podfile`:
+## CocoaPods integration
+To integrate **AnobiKit** into your Xcode project using [CocoaPods](http://cocoapods.org), specify it in your `Podfile`:
 
 ```
-use_frameworks!
+use_frameworks! #optional
 
 target 'iOSTargetName' do
   platform :ios, '9.3'
-  pod 'AnobiKit', '~> 0.13.0'
+  pod 'AnobiKit', '~> 0.14.0'
 end
 
 target 'WatchTargetName' do
   platform :watchos, '3.0'
-  pod 'AnobiKit', '~> 0.13.0'
+  pod 'AnobiKit', '~> 0.14.0'
 end
 ```
 Then, run the following command:
 ```
 $ pod install
 ```
+
+## Requirements
+
+| Minimum iOS Target | Minimum macOS Target | Minimum tvOS Target | Minimum watchOS Target | 
+|:------------------:|:--------------------:|:-------------------:|:----------------------:|
+| iOS 8.3            | OS X 10.12           | tvOS 9.0            | watchOS 3.0            |
+
