@@ -153,17 +153,17 @@ BOOL IllegalArgumentTest(id arg) {
 	[self lock];
     if (item.prev) {
         item.prev.next = item.next;
-    }
-    if (item.next) {
-        item.next.prev = item.prev;
-    }
-	_count--;
-	if (item == self.root) {
+	} else {
+		assert(item == self.root);
 		self.root = item.next;
 	}
-	if (item == self.tail) {
+    if (item.next) {
+        item.next.prev = item.prev;
+	} else {
+		assert(item == self.tail);
 		self.tail = item.prev;
 	}
+	_count--;
 	[self unlock];
 }
 
