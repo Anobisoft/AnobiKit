@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** @throws ProtocolException */
 - (void)addObject:(ObjectType)object;
 /** @throws ProtocolException */
-- (void)addItem:(id<AKListItem>)item; // for custom
+- (void)addItem:(NSObject<AKListItem> *)item; // for custom
 
 /** @throws IllegalArgumentException */
 - (void)enumerateWithBlock:(void (^)(ObjectType object))block;

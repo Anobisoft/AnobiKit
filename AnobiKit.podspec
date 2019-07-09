@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name             = 'AnobiKit'
-  s.version          = '0.14.1'
+  s.version          = '0.14.2'
   s.summary          = 'AnobiKit - collection of tools and extesions.'
 
   s.description      = <<-DESC

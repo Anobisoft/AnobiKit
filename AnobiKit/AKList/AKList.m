@@ -7,6 +7,8 @@
 //
 
 #import "AKList.h"
+#import <os/lock.h>
+#include <pthread.h>
 
 @interface AKList ()
 
@@ -17,6 +19,9 @@
 
 @implementation AKList {
     Class ItemClass;
+	pthread_mutex_t _mutex;
+	API_AVAILABLE(ios(10.0))
+	os_unfair_lock _lock;
 }
 
 + (instancetype)new {
@@ -37,8 +42,30 @@
 - (instancetype)initWithItemClass:(Class)class {
     if (self = [super init]) {
         ItemClass = class;
+		
+		if (@available(iOS 10.0, tvOS 10.0, *)) {
+			_lock = OS_UNFAIR_LOCK_INIT;
+		} else {
+			pthread_mutex_init(&_mutex, nil);
+		}
     }
     return self;
+}
+
+- (void)lock {
+	if (@available(iOS 10.0, tvOS 10.0, *)) {
+		os_unfair_lock_lock(&_lock);
+	} else {
+		pthread_mutex_lock(&_mutex);
+	}
+}
+
+- (void)unlock {
+	if (@available(iOS 10.0, tvOS 10.0, *)) {
+		os_unfair_lock_unlock(&_lock);
+	} else {
+		pthread_mutex_unlock(&_mutex);
+	}
 }
 
 - (void)addObject:(id)object {
@@ -49,20 +76,22 @@
     [self addItem:item];
 }
 
-- (void)addItem:(id<AKListItem>)item {
+- (void)addItem:(NSObject<AKListItem> *)item {
     if (!item) {
         return;
     }
-    if (![(id)item conformsToProtocolThrows:@protocol(AKListItem)]) {
+    if (![item conformsToProtocolThrows:@protocol(AKListItem)]) {
         return;
     }
-    if (!self.root) {
-        self.root = item;
-    }
-    item.prev = self.tail;
-    self.tail.next = item;
-    self.tail = item;
-    _count++;
+	[self lock];
+	if (!self.root) {
+		self.root = item;
+	}
+	item.prev = self.tail;
+	self.tail.next = item;
+	self.tail = item;
+	_count++;
+	[self unlock];
 }
 
 BOOL IllegalArgumentTest(id arg) {
@@ -114,13 +143,6 @@ BOOL IllegalArgumentTest(id arg) {
             }
         } else {
             [self removeItem:current];
-            _count--;
-            if (current == self.root) {
-                self.root = current.next;
-            }
-            if (current == self.tail) {
-                self.tail = current.prev;
-            }
         }
         current = current.next;
     }
@@ -128,25 +150,34 @@ BOOL IllegalArgumentTest(id arg) {
 
 
 - (void)removeItem:(id<AKListItem>)item {
+	[self lock];
     if (item.prev) {
         item.prev.next = item.next;
     }
     if (item.next) {
         item.next.prev = item.prev;
     }
+	_count--;
+	if (item == self.root) {
+		self.root = item.next;
+	}
+	if (item == self.tail) {
+		self.tail = item.prev;
+	}
+	[self unlock];
 }
 
 - (void)clear {
     id<AKListItem> current = self.root;
+	self.tail = nil;
+	self.root = nil;
+	_count = 0;
     id<AKListItem> next;
     while ((next = current.next)) {
         next.prev = nil;
         current.next = nil;
         current = next;
     }
-    self.tail = nil;
-    self.root = nil;
-    _count = 0;
 }
 
 - (void)dealloc {
@@ -207,7 +238,7 @@ BOOL IllegalArgumentTest(id arg) {
 
 @interface AKListItem() {
 @protected
-    id retained;
+    id _retained;
 }
 
 @end
@@ -218,21 +249,21 @@ BOOL IllegalArgumentTest(id arg) {
 
 - (instancetype)initWithObject:(id)object {
     if (self = [self init]) {
-        retained = object;
+        _retained = object;
     }
     return self;
 }
 
 - (id)object {
-    return retained;
+    return _retained;
 }
 
 - (id)copyWithZone:(nullable NSZone *)zone {
-    return [AKListItem :retained];
+    return [AKListItem :_retained];
 }
 
 - (id)mutableCopyWithZone:(nullable NSZone *)zone {
-    return [AKListMutableItem :retained];
+    return [AKListMutableItem :_retained];
 }
 
 @end
@@ -242,7 +273,7 @@ BOOL IllegalArgumentTest(id arg) {
 @dynamic object;
 
 - (void)setObject:(id)object {
-    retained = object;
+    _retained = object;
 }
 
 @end
@@ -251,7 +282,7 @@ BOOL IllegalArgumentTest(id arg) {
 
 @interface AKListWeakItem() {
 @protected
-    __weak id weak;
+    __weak id _weak;
 }
 
 @end
@@ -262,21 +293,21 @@ BOOL IllegalArgumentTest(id arg) {
 
 - (instancetype)initWithObject:(id)object {
     if (self = [self init]) {
-        weak = object;
+        _weak = object;
     }
     return self;
 }
 
 - (id)object {
-    return weak;
+    return _weak;
 }
 
 - (id)copyWithZone:(nullable NSZone *)zone {
-    return [AKListWeakItem :weak];
+    return [AKListWeakItem :_weak];
 }
 
 - (id)mutableCopyWithZone:(nullable NSZone *)zone {
-    return [AKListMutableWeakItem :weak];
+    return [AKListMutableWeakItem :_weak];
 }
 
 @end
@@ -286,7 +317,7 @@ BOOL IllegalArgumentTest(id arg) {
 @dynamic object;
 
 - (void)setObject:(id)object {
-    weak = object;
+    _weak = object;
 }
 
 @end
