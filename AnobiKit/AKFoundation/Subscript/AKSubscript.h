@@ -31,5 +31,6 @@ NS_ASSUME_NONNULL_END
 
 #endif /* AKSubscript */
 
+#import <AnobiKit/NSCache+KeyedSubscript.h>
 #import <AnobiKit/NSMapTable+KeyedSubscript.h>
 #import <AnobiKit/NSPointerArray+IndexedSubscript.h>
