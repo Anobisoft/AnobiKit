@@ -22,7 +22,7 @@ static NSString * const AKExceptionNameSuffix = @"Exception";
 }
 
 + (instancetype)exceptionWithReason:(NSString *)reason userInfo:(NSDictionary *)userInfo {
-    return [[self alloc] initWithName:NSStringFromClass(self) reason:reason userInfo:userInfo];
+    return [[self alloc] initWithName:self.classIdentifier reason:reason userInfo:userInfo];
 }
 
 - (NSString *)description {
@@ -38,7 +38,7 @@ static NSString * const AKExceptionNameSuffix = @"Exception";
 }
 
 - (AKException *)exceptionWithReason:(nullable NSString *)reason userInfo:(nullable NSDictionary *)userInfo {
-    NSString *name = NSStringFromClass(self.class);
+    NSString *name = self.classIdentifier;
     if (![name hasSuffix:AKExceptionNameSuffix]) {
         name = [name stringByAppendingString:AKExceptionNameSuffix];
     }

@@ -12,7 +12,7 @@
 @implementation NSError (AnobiKit)
 
 + (instancetype)errorWithCode:(NSInteger)code description:(NSString *)description {
-    return [self errorWithDomain:NSStringFromClass(self) code:code description:description];
+    return [self errorWithDomain:self.classIdentifier code:code description:description];
 }
 
 + (instancetype)errorWithDomain:(NSString *)domain code:(NSInteger)code description:(NSString *)description {

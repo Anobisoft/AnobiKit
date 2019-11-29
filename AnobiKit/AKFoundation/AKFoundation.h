@@ -23,6 +23,7 @@
 #import <AnobiKit/NSError+AnobiKit.h>
 
 #import <AnobiKit/NSBundle+AnobiKit.h>
+#import <AnobiKit/NSObject+Identification.h>
 #import <AnobiKit/NSDate+AnobiKit.h>
 
 
