@@ -8,6 +8,7 @@
 
 #import "AKWeakSingleton.h"
 #import <AnobiKit/AKThread.h>
+#import <AnobiKit/NSObject+Identification.h>
 
 @implementation AKWeakSingleton
 
@@ -20,10 +21,10 @@ static NSMapTable<NSString *, __kindof AKWeakSingleton *> *AKWeakSingletonUnique
 + (instancetype)shared {
     __block id instance;
     dispatch_syncmain(^{
-        instance = [AKWeakSingletonUniqueInstances objectForKey:NSStringFromClass(self)];
+        instance = [AKWeakSingletonUniqueInstances objectForKey:self.classIdentifier];
         if (!instance) {
             instance = [[self alloc] init];
-            [AKWeakSingletonUniqueInstances setObject:instance forKey:NSStringFromClass(self)];
+            [AKWeakSingletonUniqueInstances setObject:instance forKey:self.classIdentifier];
         }
     });
 	return instance;

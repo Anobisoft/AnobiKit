@@ -8,6 +8,7 @@
 
 #import "AKSingleton.h"
 #import <AnobiKit/AKThread.h>
+#import <AnobiKit/NSObject+Identification.h>
 
 @implementation AKSingleton
 
@@ -20,10 +21,10 @@ static NSMutableDictionary<NSString *, __kindof AKSingleton *> *AKSingletonUniqu
 + (instancetype)shared {
     __block id instance;
     dispatch_syncmain(^{
-        instance = AKSingletonUniqueInstances[NSStringFromClass(self)];
+        instance = AKSingletonUniqueInstances[self.classIdentifier];
         if (!instance) {
             instance = [[self alloc] init];
-            AKSingletonUniqueInstances[NSStringFromClass(self)] = instance;
+            AKSingletonUniqueInstances[self.classIdentifier] = instance;
         }
     });
 	return instance;
@@ -42,7 +43,7 @@ static NSMutableDictionary<NSString *, __kindof AKSingleton *> *AKSingletonUniqu
 }
 
 + (void)releaseInstance {
-    [AKSingletonUniqueInstances removeObjectForKey:NSStringFromClass(self)];
+    [AKSingletonUniqueInstances removeObjectForKey:self.classIdentifier];
 }
 
 - (void)releaseInstance {
