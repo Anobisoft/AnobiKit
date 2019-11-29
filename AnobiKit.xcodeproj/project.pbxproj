@@ -33,8 +33,6 @@
 		6A015CBE225DDE9A00982E0D /* AKExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A015CB9225DDDCF00982E0D /* AKExample.m */; };
 		6A015CBF225DE6BD00982E0D /* AKExampleConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6ACF197D1F7D34DC00712368 /* AKExampleConfig.plist */; };
 		6A015CC0225DE6BE00982E0D /* AKExampleConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6ACF197D1F7D34DC00712368 /* AKExampleConfig.plist */; };
-		6A015CCD225E0AD100982E0D /* Tests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A015CCB225E0ACE00982E0D /* Tests-Info.plist */; };
-		6A015CCE225E0AD200982E0D /* Tests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A015CCB225E0ACE00982E0D /* Tests-Info.plist */; };
 		6A015CDD225E43BA00982E0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A015CDB225E43BA00982E0D /* Main.storyboard */; };
 		6A015CE2225E43BC00982E0D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A015CE1225E43BC00982E0D /* main.m */; };
 		6A015CF5225E44A600982E0D /* AKExampleConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6ACF197D1F7D34DC00712368 /* AKExampleConfig.plist */; };
@@ -596,7 +594,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = AK;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = Anobisoft;
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
@@ -682,7 +680,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A015CCD225E0AD100982E0D /* Tests-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -731,7 +728,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A015CCE225E0AD200982E0D /* Tests-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,7 @@
 
 
 #import "AKMappedObject.h"
-#import "NSUUID+AnobiKit.h"
+#import "NSUUID+NSData.h"
 @import ObjectiveC.runtime;
 
 @implementation AKMappedObject

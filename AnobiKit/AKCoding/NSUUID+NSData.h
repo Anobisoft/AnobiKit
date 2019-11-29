@@ -2,7 +2,7 @@
 //  NSUUID+AnobiKit.h
 //  AnobiKit
 //
-//  Created by Stanislav Pletnev on 20.01.17.
+//  Created by Stanislav Pletnev on 2017-01-20.
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 

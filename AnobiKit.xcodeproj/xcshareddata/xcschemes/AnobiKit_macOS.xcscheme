@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1020"
+   LastUpgradeVersion = "1120"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -26,12 +26,21 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      onlyGenerateCoverageForSpecifiedTargets = "YES"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "6A940761225CB36900FEF073"
+            BuildableName = "AnobiKit_macOS.app"
+            BlueprintName = "AnobiKit_macOS"
+            ReferencedContainer = "container:AnobiKit.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <CodeCoverageTargets>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "305CD57FA8D3A56684D1420F29C01412"
+            BlueprintIdentifier = "BC68ADA9A996DC57331B4460C2839019"
             BuildableName = "AnobiKit.framework"
             BlueprintName = "AnobiKit-8860f20c"
             ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -49,17 +58,6 @@
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6A940761225CB36900FEF073"
-            BuildableName = "AnobiKit_macOS.app"
-            BlueprintName = "AnobiKit_macOS"
-            ReferencedContainer = "container:AnobiKit.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -81,8 +79,6 @@
             ReferencedContainer = "container:AnobiKit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <AdditionalOptions>
-      </AdditionalOptions>
       <LocationScenarioReference
          identifier = "Tokyo, Japan"
          referenceType = "1">

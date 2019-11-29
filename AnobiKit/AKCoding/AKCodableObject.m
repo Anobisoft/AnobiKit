@@ -9,6 +9,7 @@
 #import "AKCodableObject.h"
 #import <objc/runtime.h>
 #import <AnobiKit/AKDeepCopyingUtilities.h>
+#import <AnobiKit/NSObject+Identification.h>
 
 
 @implementation AKCodableObject
@@ -54,10 +55,10 @@ BOOL readonly(const char * attrs) {
         }
     }
     if (rwProperties.count) {
-        AKCodableObject_writablePropertiesByClass[NSStringFromClass(self)] = rwProperties.copy;
+        AKCodableObject_writablePropertiesByClass[self.classIdentifier] = rwProperties.copy;
     }
     if (roProperties.count) {
-        AKCodableObject_readonlyPropertiesByClass[NSStringFromClass(self)] = roProperties.copy;
+        AKCodableObject_readonlyPropertiesByClass[self.classIdentifier] = roProperties.copy;
     }
     free(properties);
 }
@@ -100,9 +101,9 @@ BOOL readonly(const char * attrs) {
 + (NSArray<NSString *> *)writableProperties {
     Class superclass = [self superclass];
     if (superclass == [AKCodableObject class]) {
-        return AKCodableObject_writablePropertiesByClass[NSStringFromClass(self)];
+        return AKCodableObject_writablePropertiesByClass[self.classIdentifier];
     }
-    NSArray<NSString *> *selfrwp = AKCodableObject_writablePropertiesByClass[NSStringFromClass(self)];
+    NSArray<NSString *> *selfrwp = AKCodableObject_writablePropertiesByClass[self.classIdentifier];
     NSArray<NSString *> *superwp = superclass.writableProperties;
     return selfrwp ? [selfrwp arrayByAddingObjectsFromArray:superwp] : superwp;
 }
@@ -114,9 +115,9 @@ BOOL readonly(const char * attrs) {
 + (NSArray<NSString *> *)readonlyProperties {
     Class superclass = [self superclass];
     if (superclass == [AKCodableObject class]) {
-        return AKCodableObject_readonlyPropertiesByClass[NSStringFromClass(self)];
+        return AKCodableObject_readonlyPropertiesByClass[self.classIdentifier];
     }
-    NSArray<NSString *> *selfrop = AKCodableObject_readonlyPropertiesByClass[NSStringFromClass(self)];
+    NSArray<NSString *> *selfrop = AKCodableObject_readonlyPropertiesByClass[self.classIdentifier];
     NSArray<NSString *> *superop = superclass.readonlyProperties;
     return selfrop ? [selfrop arrayByAddingObjectsFromArray:superop] : superop;
 }

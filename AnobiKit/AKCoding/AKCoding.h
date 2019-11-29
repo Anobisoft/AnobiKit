@@ -8,4 +8,4 @@
 
 #import <AnobiKit/AKCodableObject.h>
 #import <AnobiKit/AKObjectMapping.h>
-#import <AnobiKit/NSUUID+AnobiKit.h>
+#import <AnobiKit/NSUUID+NSData.h>
