@@ -2,7 +2,7 @@
 //  AKListTest.m
 //  AnobiKit_Tests
 //
-//  Created by Stanislav Pletnev on 31/01/2019.
+//  Created by Stanislav Pletnev on 2019-01-31.
 //  Copyright © 2019 Anobisoft. All rights reserved.
 //
 

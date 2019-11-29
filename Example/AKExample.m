@@ -2,7 +2,7 @@
 //  AKExample.m
 //  AnobiKit
 //
-//  Created by Stanislav Pletnev on 10/04/2019.
+//  Created by Stanislav Pletnev on 2019-04-10.
 //  Copyright © 2019 anobisoft. All rights reserved.
 //
 

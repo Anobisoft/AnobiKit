@@ -2,7 +2,7 @@
 //  NSDateFormatter+AnobiKit.m
 //  AnobiKit
 //
-//  Created by Stanislav Pletnev on 24.04.17.
+//  Created by Stanislav Pletnev on 2017-04-24.
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 

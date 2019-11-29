@@ -2,7 +2,7 @@
 //  NSString+Localization.h
 //  AnobiKit
 //
-//  Created by Stanislav Pletnev on 11/11/2018.
+//  Created by Stanislav Pletnev on 2018-11-11.
 //  Copyright © 2018 Anobisoft. All rights reserved.
 //
 

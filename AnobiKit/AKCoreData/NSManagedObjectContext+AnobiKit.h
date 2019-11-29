@@ -2,7 +2,7 @@
 //  NSManagedObjectContext+AnobiKit.h
 //  AnobiKit
 //
-//  Created by Stanislav Pletnev on 11.06.16.
+//  Created by Stanislav Pletnev on 2016-06-11.
 //  Copyright © 2016 Anobisoft. All rights reserved.
 //
 

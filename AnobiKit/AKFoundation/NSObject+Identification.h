@@ -2,7 +2,7 @@
 //  NSObject+Identification.h
 //  AnobiKit
 //
-//  Created by Stanislav Pletnev on 21/02/2019.
+//  Created by Stanislav Pletnev on 2019-02-21.
 //  Copyright © 2019 Anobisoft. All rights reserved.
 //
 

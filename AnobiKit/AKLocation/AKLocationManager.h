@@ -2,7 +2,7 @@
 //  AKLocationManager.h
 //  AnobiKit
 //
-//  Created by Stanislav Pletnev on 24.11.2017.
+//  Created by Stanislav Pletnev on 2017-11-24.
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 

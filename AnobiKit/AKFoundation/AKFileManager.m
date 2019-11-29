@@ -2,7 +2,7 @@
 //  AKFileManager.m
 //  AnobiKit
 //
-//  Created by Stanislav Pletnev on 09.02.2018.
+//  Created by Stanislav Pletnev on 2018-02-09.
 //  Copyright © 2018 Anobisoft. All rights reserved.
 //
 

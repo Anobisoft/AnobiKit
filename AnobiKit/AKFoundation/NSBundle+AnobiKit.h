@@ -2,7 +2,7 @@
 //  NSBundle+AnobiKit.h
 //  AnobiKit
 //
-//  Created by Stanislav Pletnev on 13.05.17.
+//  Created by Stanislav Pletnev on 2017-05-13.
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 

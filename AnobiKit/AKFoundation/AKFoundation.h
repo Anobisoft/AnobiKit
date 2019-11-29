@@ -2,7 +2,7 @@
 //  AKFoundation.h
 //  AnobiKit
 //
-//  Created by Stanislav Pletnev on 03.02.17.
+//  Created by Stanislav Pletnev on 2017-02-03.
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  AKWeakSingleton.m
 //  AnobiKit
 //
-//  Created by Stanislav Pletnev on 05.09.17.
+//  Created by Stanislav Pletnev on 2017-09-05.
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 

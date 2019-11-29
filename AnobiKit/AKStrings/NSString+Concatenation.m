@@ -2,7 +2,7 @@
 //  NSString+Concatenation.m
 //  AnobiKit
 //
-//  Created by Stanislav Pletnev on 27/12/2018.
+//  Created by Stanislav Pletnev on 2018-12-27.
 //
 
 #import "NSString+Concatenation.h"

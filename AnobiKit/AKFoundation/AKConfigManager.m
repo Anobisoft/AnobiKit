@@ -2,7 +2,7 @@
 //  AKConfigManager.m
 //  AnobiKit
 //
-//  Created by Stanislav Pletnev on 14.03.17.
+//  Created by Stanislav Pletnev on 2017-03-14.
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 

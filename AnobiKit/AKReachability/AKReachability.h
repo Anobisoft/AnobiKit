@@ -2,7 +2,7 @@
 //  AKReachability.h
 //  AnobiKit
 //
-//  Created by Stanislav Pletnev on 24.10.17.
+//  Created by Stanislav Pletnev on 2017-10-24.
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 

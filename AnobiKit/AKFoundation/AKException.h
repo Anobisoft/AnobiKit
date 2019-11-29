@@ -2,7 +2,7 @@
 //  AKException.h
 //  AnobiKit
 //
-//  Created by Stanislav Pletnev on 02/10/2018.
+//  Created by Stanislav Pletnev on 2018-10-02.
 //  Copyright © 2018 Anobisoft. All rights reserved.
 //
 

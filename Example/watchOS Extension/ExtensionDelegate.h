@@ -2,7 +2,7 @@
 //  ExtensionDelegate.h
 //  Example_watchOS Extension
 //
-//  Created by Stanislav Pletnev on 09/04/2019.
+//  Created by Stanislav Pletnev on 2019-04-09.
 //  Copyright © 2019 anobisoft. All rights reserved.
 //
 

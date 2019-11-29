@@ -2,7 +2,7 @@
 //  NSStringsConcatenationTest.m
 //  AnobiKit_Tests
 //
-//  Created by Stanislav Pletnev on 08/02/2017.
+//  Created by Stanislav Pletnev on 2017-02-08.
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 

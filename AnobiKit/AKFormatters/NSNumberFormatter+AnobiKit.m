@@ -2,7 +2,7 @@
 //  NSNumberFormatter+AnobiKit.m
 //  AnobiKit
 //
-//  Created by Stanislav Pletnev on 27.04.17.
+//  Created by Stanislav Pletnev on 2017-04-27.
 //  Copyright © 2017 Anobisoft. All rights reserved.
 //
 
